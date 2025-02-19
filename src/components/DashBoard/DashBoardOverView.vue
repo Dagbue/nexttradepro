@@ -29,6 +29,7 @@
       </div>
     </div>
 
+
     <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 99%; margin-bottom: 1%;"></iframe>
 
 
@@ -42,7 +43,7 @@
     <div class="balance-section">
       <div class="balance-section-1">
         <p class="balance-text-1">Account Balance</p>
-        <p class="balance-text-2">$16,230,596</p>
+        <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount - UserDetails.user.totalWithdrawals | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Realized</p>
           <p class="balance-text-4">$19,757,490</p>
@@ -54,21 +55,21 @@
       </div>
 
       <div class="balance-section-1">
-        <p class="balance-text-1">Invested Amount</p>
-        <p class="balance-text-2">104.56%</p>
+        <p class="balance-text-1">Invested Amount </p>
+        <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Realized Profit</p>
           <p class="balance-text-4">127.28%</p>
         </div>
         <div class="balance-section-1-inner">
-          <p class="balance-text-5">Wallet Balance</p>
-          <p class="balance-text-6">-22.72%</p>
+          <p class="balance-text-5">Withdrawal</p>
+          <p class="balance-text-6">$ {{UserDetails.user.totalWithdrawals | formatAmount2}}</p>
         </div>
       </div>
 
       <div class="balance-section-1">
-        <p class="balance-text-1">Win Rate</p>
-        <p class="balance-text-2">100%</p>
+        <p class="balance-text-1">Wallet Balance</p>
+        <p class="balance-text-2">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Profit</p>
           <p class="balance-text-4">$10,000</p>

@@ -43,7 +43,7 @@
             <th>Country</th>
             <!-- <th>Phone</th> -->
             <th>Password</th>
-            <th>BTC Balance</th>
+            <th>Wallet Balance</th>
             <th>Invested Amount</th>
             <th>Withdrawn Amount</th>
             <th>Activation Code</th>

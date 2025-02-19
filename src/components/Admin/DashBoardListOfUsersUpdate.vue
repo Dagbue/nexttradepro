@@ -73,7 +73,7 @@
           <div class="separate">
 
             <div class="space">
-              <label>BTC Balance</label>
+              <label>Wallet Balance</label>
               <input type="number" v-model="btcBalance"  class="form-input"/>
             </div>
 
