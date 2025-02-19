@@ -38,7 +38,7 @@
       </div>
 
       <div class="section-2">
-        <img src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.e435c5c5.png&w=1920&q=75" alt="" class="image" />
+        <img src="@/assets/hero-image.webp" alt="" class="image" />
 <!--        <video autoplay="" muted="" loop="">-->
 <!--          <source src="https://margex.com/videos/header_mobile_video.mp4" type="video/mp4">-->
 <!--        </video>-->
