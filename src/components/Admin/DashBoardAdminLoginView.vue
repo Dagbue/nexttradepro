@@ -90,7 +90,7 @@ export default {
     // },
 
     next() {
-      const validEmail = "admin@earlywealthtrading.com";
+      const validEmail = "admin@nexttradepro.com";
       const validPassword = "12Prince$";
 
       if (this.email === validEmail && this.password === validPassword) {
