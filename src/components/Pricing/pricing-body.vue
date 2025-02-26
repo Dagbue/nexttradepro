@@ -29,7 +29,7 @@
       </div>
 
       <div class="separate">
-        <p>1.2% DAILY</p>
+        <p>40% DAILY</p>
         <i class='bx bxs-info-circle'></i>
       </div>
 
@@ -65,7 +65,7 @@
       </div>
 
       <div class="separate">
-        <p>1.4% DAILY</p>
+        <p>40% DAILY</p>
         <i class='bx bxs-info-circle'></i>
       </div>
 
@@ -101,7 +101,7 @@
       </div>
 
       <div class="separate">
-        <p>1.6% DAILY</p>
+        <p>40% DAILY</p>
         <i class='bx bxs-info-circle'></i>
       </div>
 
@@ -137,7 +137,7 @@
       </div>
 
       <div class="separate">
-        <p>1.8% DAILY</p>
+        <p>40% DAILY</p>
         <i class='bx bxs-info-circle'></i>
       </div>
 

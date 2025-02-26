@@ -1,157 +1,157 @@
 <template>
   <div class="alpha">
-    <div class="section-alpha-1">
-      <p class="section-header-1">Choose an <span style="color: #007aff">Investment</span> Plan</p>
-      <p class="section-header">You don't have an account yet? start trading with NextTrade Pro.</p>
-    </div>
+<!--    <div class="section-alpha-1">-->
+<!--      <p class="section-header-1">Choose an <span style="color: #007aff">Investment</span> Plan</p>-->
+<!--      <p class="section-header">You don't have an account yet? start trading with NextTrade Pro.</p>-->
+<!--    </div>-->
 
-    <div class="section-alpha">
+<!--    <div class="section-alpha">-->
 
-      <div class="third-section top">
-        <p class="text-1">Silver</p>
-        <p class="text-2">5<span class="text-2-inner">% Bonus</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">4 Months</p>
+<!--      <div class="third-section top">-->
+<!--        <p class="text-1">Silver</p>-->
+<!--        <p class="text-2">5<span class="text-2-inner">% Bonus</span></p>-->
+<!--        &lt;!&ndash;        <p class="text-2">4 Months</p>&ndash;&gt;-->
+<!--        <p class="text-3">4 Months</p>-->
 
-        <div class="btn" @click="onPostClick" >
-          <p>Invest Now</p>
-        </div>
+<!--        <div class="btn" @click="onPostClick" >-->
+<!--          <p>Invest Now</p>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>$5,000 MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>$5,000 MINIMUM DEPOSIT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>ENHANCED SECURITY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>1.2% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>1.2% DAILY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>GUARANTEED ROI</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
+<!--        <div class="separate">-->
+<!--          <p>24/7 SUPPORT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="third-section top">
-        <p class="text-1">Gold</p>
-        <p class="text-2">10<span class="text-2-inner">% Bonus</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">8 Months</p>
+<!--      <div class="third-section top">-->
+<!--        <p class="text-1">Gold</p>-->
+<!--        <p class="text-2">10<span class="text-2-inner">% Bonus</span></p>-->
+<!--        &lt;!&ndash;        <p class="text-2">4 Months</p>&ndash;&gt;-->
+<!--        <p class="text-3">8 Months</p>-->
 
-        <div class="btn" @click="onPostClick" >
-          <p>Invest Now</p>
-        </div>
+<!--        <div class="btn" @click="onPostClick" >-->
+<!--          <p>Invest Now</p>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>$25,000 MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>$25,000 MINIMUM DEPOSIT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>ENHANCED SECURITY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>1.4% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>1.4% DAILY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>GUARANTEED ROI</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
+<!--        <div class="separate">-->
+<!--          <p>24/7 SUPPORT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="third-section top">
-        <p class="text-1">Diamond</p>
-        <p class="text-2">15<span class="text-2-inner">% Bonus</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">12 Months</p>
+<!--      <div class="third-section top">-->
+<!--        <p class="text-1">Diamond</p>-->
+<!--        <p class="text-2">15<span class="text-2-inner">% Bonus</span></p>-->
+<!--        &lt;!&ndash;        <p class="text-2">4 Months</p>&ndash;&gt;-->
+<!--        <p class="text-3">12 Months</p>-->
 
-        <div class="btn" @click="onPostClick" >
-          <p>Invest Now</p>
-        </div>
+<!--        <div class="btn" @click="onPostClick" >-->
+<!--          <p>Invest Now</p>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>$100,000 MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>$100,000 MINIMUM DEPOSIT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>ENHANCED SECURITY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>1.6% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>1.6% DAILY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>GUARANTEED ROI</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
+<!--        <div class="separate">-->
+<!--          <p>24/7 SUPPORT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="third-section top">
-        <p class="text-1">Platinum</p>
-        <p class="text-2">20<span class="text-2-inner">% Bonus</span></p>
-        <!--        <p class="text-2">4 Months</p>-->
-        <p class="text-3">24 Months</p>
+<!--      <div class="third-section top">-->
+<!--        <p class="text-1">Platinum</p>-->
+<!--        <p class="text-2">20<span class="text-2-inner">% Bonus</span></p>-->
+<!--        &lt;!&ndash;        <p class="text-2">4 Months</p>&ndash;&gt;-->
+<!--        <p class="text-3">24 Months</p>-->
 
-        <div class="btn" @click="onPostClick" >
-          <p>Invest Now</p>
-        </div>
+<!--        <div class="btn" @click="onPostClick" >-->
+<!--          <p>Invest Now</p>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>$250,000 MINIMUM DEPOSIT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>$250,000 MINIMUM DEPOSIT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>ENHANCED SECURITY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>ENHANCED SECURITY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>1.8% DAILY</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>1.8% DAILY</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>GUARANTEED ROI</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
+<!--        <div class="separate">-->
+<!--          <p>GUARANTEED ROI</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
 
-        <div class="separate">
-          <p>24/7 SUPPORT</p>
-          <i class='bx bxs-info-circle'></i>
-        </div>
-      </div>
+<!--        <div class="separate">-->
+<!--          <p>24/7 SUPPORT</p>-->
+<!--          <i class='bx bxs-info-circle'></i>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </div>
+<!--    </div>-->
 
     <div class="section-1">
 
@@ -228,6 +228,70 @@
             ensuring that sensitive information is accessible only to the true account owner.</p>
         </details>
 
+
+      </section>
+
+    </div>
+
+    <div class="section-1">
+
+      <p class="header">Deposit and Withdrawal FAQ'S</p>
+
+      <section>
+        <details>
+          <summary style="color: #FFFFFF;">
+            What are instant deposits and withdrawals?
+          </summary>
+          <p>
+            he term “instant” indicates that a transaction will be carried out within a few seconds without manual
+            processing by our financial department specialists. Please note that although it's instantly processed
+            on our side, your deposit or withdrawal requests may take some time to be processed on the payment
+            system provider's side.
+          </p>
+        </details>
+        <details>
+          <summary style="color: #FFFFFF;">
+            How long do NextTrade Pro withdrawals take via bank card?
+          </summary>
+          <p>
+            On NextTrade Pro' side all withdrawal requests are processed instantly. Your withdrawal request is then sent to
+            our card processors and your bank, and the whole process can take from 1 to 30 business days for the funds
+            to be reflected in your bank account depending on the bank and country you are located in.
+          </p>
+        </details>
+
+        <details>
+          <summary style="color: #FFFFFF;">
+            Can I withdraw funds to an account that is not my own?
+          </summary>
+          <p>
+            Funds can be withdrawn to your own personal accounts only. This is a safeguard put in place to ensure
+            financial security.
+          </p>
+        </details>
+        <details>
+          <summary style="color: #FFFFFF;">
+            What payment accounts can I use to deposit and withdraw?
+          </summary>
+          <p>
+            You must use your own personal payment accounts for deposits and withdrawals. We will not accept direct
+            payments or payments to or from third parties. All the information you need regarding transactions
+            can be found in your Personal Area. If your deposit payment method is unavailable during withdrawal,
+            contact the Support tea. Occasionally, some payment systems may be turned off due to maintenance.
+          </p>
+        </details>
+
+        <details>
+          <summary style="color: #FFFFFF;">
+            When can I deposit and withdraw?
+          </summary>
+          <p>
+            Deposits and withdrawals can be executed 24/7. If a deposit or withdrawal is not instant, we will process
+            it within 24 hours. Bear in mind, it may take your bank or payment service a little longer. We can’t be
+            held liable for any deposit or withdrawal processing delays that are caused by payment systems. We reserve
+            the right to change the processing time for deposits and withdrawals without prior notification.
+          </p>
+        </details>
 
       </section>
 
