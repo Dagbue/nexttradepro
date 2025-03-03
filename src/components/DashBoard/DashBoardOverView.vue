@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
 
-      <intro-message-modal  @close="hideDialog" v-if="isModalOpened === false && dialogIsVisible === true" />
+<!--      <intro-message-modal  @close="hideDialog" v-if="isModalOpened === false && dialogIsVisible === true" />-->
 
     <div class="section-2">
 
@@ -34,8 +34,9 @@
 
 
     <p v-show="this.UserDetails.user.userStatus === 'unVerified'" class="text-2">Your account is not verified. Kindly
-      upload a valid government Id to verify your account.
-      <a><router-link to="/update-account">Click here</router-link></a></p>
+      contact support to verify your account.
+<!--      <a><router-link to="/update-account">Click here</router-link></a>-->
+    </p>
 
 
 
@@ -1508,7 +1509,7 @@
 import StoreUtils from "@/utility/StoreUtils";
 import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
-import IntroMessageModal from "@/components/BaseComponents/modal/IntroMessageModal.vue";
+// import IntroMessageModal from "@/components/BaseComponents/modal/IntroMessageModal.vue";
 import WatchListTable from "@/components/BaseComponents/tables/WatchListTable.vue";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import WatchListTable2 from "@/components/BaseComponents/tables/WatchListTable2.vue";
@@ -1516,7 +1517,12 @@ import WatchListTable2 from "@/components/BaseComponents/tables/WatchListTable2.
 
 export default {
   name: "DashBoardOverView",
-  components: {WatchListTable2, BaseButton, WatchListTable, IntroMessageModal},
+  components: {
+    WatchListTable2,
+    BaseButton,
+    WatchListTable,
+    // IntroMessageModal
+  },
   data () {
     return {
       model: new TradeRequest().createTrade,
