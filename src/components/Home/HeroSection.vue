@@ -38,10 +38,14 @@
       </div>
 
       <div class="section-2">
-        <img src="@/assets/hero-image.webp" alt="" class="image" />
+<!--        <img src="https://v3.polo-static.com/web/polo-web/static/png/mask-phone-f3066bbc.png" alt="" class="image" />-->
 <!--        <video autoplay="" muted="" loop="">-->
 <!--          <source src="https://margex.com/videos/header_mobile_video.mp4" type="video/mp4">-->
 <!--        </video>-->
+
+        <video class="first-img" style="visibility:visible" title="" autoplay="" loop="" muted="" playsinline="" width="280" height="580" aria-label="Animation of the OKX mobile app" role="img" poster="https://www.okx.com/cdn/assets/imgs/243/F485DEA432C68FD9.png?x-oss-process=image/format,webp"><source src="https://www.okx.com/cdn/assets/files/243/79620084DA93114F.webm" type="video/webm"><source src="https://www.okx.com/cdn/assets/files/243/78FBA21FD210816A.mp4" type="video/mp4"></video>
+
+
       </div>
 
 
@@ -190,7 +194,7 @@ video{
 }
 
 .image{
-  width: 90%;
+  width: 35%;
   display: block;
   margin-left: auto;
   margin-right: auto;

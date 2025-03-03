@@ -4,7 +4,7 @@
     <div class="section-alpha">
 
       <div class="section-1">
-        <img src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmobile-trader.4a969195.png&w=1920&q=75" alt="image" class="image" />
+        <img src="https://www.okx.com/cdn/assets/imgs/242/1249729C549233AA.png?x-oss-process=image/format,webp/ignore-error,1" alt="image" class="image" />
       </div>
 
       <div class="section-2">
@@ -77,8 +77,8 @@ export default {
   align-items: center;
 }
 .image{
-  width: 75%;
-  height: 75%;
+  width: 50%;
+  height: 50%;
   display: block;
   margin-right: auto;
   margin-left: auto;
