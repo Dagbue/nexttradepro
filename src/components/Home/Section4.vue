@@ -4,7 +4,7 @@
     <div class="section-alpha">
 
       <div class="section-1">
-        <img src="https://www.okx.com/cdn/assets/imgs/242/1249729C549233AA.png?x-oss-process=image/format,webp/ignore-error,1" alt="image" class="image" />
+        <img src="@/assets/convert-image.webp" alt="image" class="image" />
       </div>
 
       <div class="section-2">

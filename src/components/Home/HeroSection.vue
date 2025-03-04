@@ -43,7 +43,12 @@
 <!--          <source src="https://margex.com/videos/header_mobile_video.mp4" type="video/mp4">-->
 <!--        </video>-->
 
-        <video class="first-img" style="visibility:visible" title="" autoplay="" loop="" muted="" playsinline="" width="280" height="580" aria-label="Animation of the OKX mobile app" role="img" poster="https://www.okx.com/cdn/assets/imgs/243/F485DEA432C68FD9.png?x-oss-process=image/format,webp"><source src="https://www.okx.com/cdn/assets/files/243/79620084DA93114F.webm" type="video/webm"><source src="https://www.okx.com/cdn/assets/files/243/78FBA21FD210816A.mp4" type="video/mp4"></video>
+        <video class="first-img" style="visibility:visible" title="" autoplay="" loop="" muted="" playsinline=""
+               width="280" height="580" aria-label="Animation of the OKX mobile app" role="img"
+               poster="@/assets/okx-image-1.webp">
+          <source src="@/assets/video2.webm" type="video/webm">
+          <source src="@/assets/okx.mp4" type="video/mp4">
+        </video>
 
 
       </div>
