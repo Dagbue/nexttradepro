@@ -3,6 +3,7 @@
     <div class="body">
       <withdrawal-modal @close="hideDialog" v-if="dialogIsVisible" />
 <!--      <h2 class="header">Withdrawal</h2>-->
+<!--      <p style="color: #FFFFFF">{{UserDetails.user}}</p>-->
       <div class="section-1">
 
         <form @submit.prevent="showDialog" id="InteracFundingCard" class="dashboard-body-wrapper align-center">
@@ -160,6 +161,7 @@ import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import WithdrawalRequest from "@/model/request/WithdrawalRequest";
 import StoreUtils from "@/utility/StoreUtils";
 import {mapState} from "vuex";
+import Swal from "sweetalert2";
 
 
 export default {
@@ -176,6 +178,12 @@ export default {
     };
   },
   computed:{
+    UserInfo() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getUserInfo)
+    },
+    UserDetails() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+    },
     ...mapState({
       loading: state => state.withdrawal.loading,
       auth: state => state.auth,
@@ -191,18 +199,43 @@ export default {
     },
 
     async showDialog() {
+      if (this.UserDetails.user.totalDepositedAmount === 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Cannot Perform Action',
+          text: 'You cannot perform a withdrawal because your Account Balance is zero.',
+        });
+        return;
+      }
+
+      if (this.UserDetails.user.btcBalance > (this.UserDetails.user.totalDepositedAmount - this.UserDetails.user.totalWithdrawals)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Insufficient Balance',
+          text: 'Your Wallet balance is greater than your Account Balance.',
+        });
+        return;
+      }
+
+      if (this.model.amount > (this.UserDetails.user.totalDepositedAmount - this.UserDetails.user.totalWithdrawals)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Invalid Amount',
+          text: 'The withdrawal amount cannot exceed your Account Balance.',
+        });
+        return;
+      }
+
       await StoreUtils.dispatch(StoreUtils.actions.withdrawal.withdrawalCreate, {
-        userId : this.userId,
-        amount : this.model.amount,
-        transactionMethod : this.withdrawalmethod,
-        transactionType : "withdrawal",
-        transactionReference : this.randomString,
-        additionalComment : this.model.additionalComment,
-        walletAddress : this.model.walletAddress
-      })
+        userId: this.userId,
+        amount: this.model.amount,
+        transactionMethod: this.withdrawalmethod,
+        transactionType: "withdrawal",
+        transactionReference: this.randomString,
+        additionalComment: this.model.additionalComment,
+        walletAddress: this.model.walletAddress,
+      });
       this.dialogIsVisible = true;
-
-
     },
 
     generateRandomString() {

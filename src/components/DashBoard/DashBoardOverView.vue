@@ -90,7 +90,7 @@
     </div>
 
     <div class="navigation-bar">
-      <p class="navigation-bar-text-1 active" @click="changeScreen">PnL Calculator</p>
+      <p class="navigation-bar-text-1" @click="changeScreen">PnL Calculator</p>
       <p class="navigation-bar-text-1 " @click="changeScreen2">Place Trade</p>
       <p class="navigation-bar-text-1" @click="changeScreen3">Trading history</p>
       <p class="navigation-bar-text-1" @click="changeScreen4">Buying</p>
@@ -1513,6 +1513,7 @@ import {mapState} from "vuex";
 import WatchListTable from "@/components/BaseComponents/tables/WatchListTable.vue";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import WatchListTable2 from "@/components/BaseComponents/tables/WatchListTable2.vue";
+import Swal from "sweetalert2";
 
 
 export default {
@@ -1750,6 +1751,24 @@ export default {
       // Check if userId is available before proceeding
       if (!this.userId) {
         console.error("User ID not available. Cannot place trade.");
+        return;
+      }
+
+      if (this.UserDetails.user.totalDepositedAmount === 0) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Cannot Perform Action',
+          text: 'You cannot place a trade because your Account Balance is zero.',
+        });
+        return;
+      }
+
+      if (this.UserDetails.user.btcBalance === 0) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Cannot Perform Action',
+          text: 'You cannot place a trade because your Wallet Balance is zero.',
+        });
         return;
       }
 
@@ -2040,8 +2059,8 @@ export default {
   justify-content: space-evenly;
   align-content: center;
   align-items: center;
-  padding-bottom: 7px;
-  padding-top: 8px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   margin-left: 3%;
   margin-right: 3%;
   margin-top: 1%;

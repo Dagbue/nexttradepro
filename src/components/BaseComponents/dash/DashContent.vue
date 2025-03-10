@@ -107,7 +107,7 @@ export default {
 .home-content{
   position: fixed;
   left: 200px;
-  background-color: rgb(1 6 18);
+  background-color: #000000;
   width: calc(100% - 200px);
   height: 100vh;
   transition: all 0.5s ease;
