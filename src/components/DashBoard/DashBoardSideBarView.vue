@@ -226,7 +226,7 @@ export default {
   width: 100%;
 }
 .afo-logo-2{
-  width: 75%;
+  width: 100%;
   margin-left: 10%;
 }
 body{

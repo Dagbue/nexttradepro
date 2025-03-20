@@ -12,7 +12,7 @@
           <div class="footer-link-container">
             <h3 class="footer-title">About Us</h3>
             <p class="footer-link width">
-              Established on November 14, 2016, NextTade Pro has its headquarters at 128 City Road, London, United
+              Established on November 14, 2016, TopShares Pro has its headquarters at 128 City Road, London, United
               Kingdom, EC1V 2NX with the official registration under company number 13971404.
               Our company takes pride
               in being a trusted and innovative digital asset, stocks, forex trading platform tailored for a global clientele,
@@ -52,7 +52,7 @@
               <div class="social-logo">
                 <div class="last-div">
                   <i class='bx bx-mail-send' style='color:#ffffff'></i>
-                  <p class="last-div-para"><a href="mailto:support@nexttradepro.com">support@nexttradepro.com</a></p>
+                  <p class="last-div-para"><a href="mailto:support@topsharespro.com">support@topsharespro.com</a></p>
                 </div>
               </div>
             </div>
@@ -70,8 +70,8 @@
       </div>
       <hr/>
       <div class="copyright">
-        <p>NextTade Pro LLC is part of NextTade Pro Group of companies with broker entities
-          that are authorised and regulated across multiple jurisdictions. NextTade Pro LLC has it's
+        <p>TopShares Pro LLC is part of TopShares Pro Group of companies with broker entities
+          that are authorised and regulated across multiple jurisdictions. TopShares Pro LLC has it's
           business address at the United Kingdom.</p>
         <br/>
         <p>The objects of the Company are all subject matters not forbidden by International Business Companies
@@ -105,9 +105,9 @@
 
       </div>
       <div class="copyright">
-        <p>NextTade Pro Markets is, depending on the context, a reference to NextTade Pro Markets Germany GmbH, NextTade Pro Markets UK plc or
-          NextTade Pro Spreadbet plc. NextTade Pro Markets Germany GmbH is a company licensed and regulated by the Bundesanstalt für
-          Finanzdienstleistungsaufsicht (BaFin) under registration number 154814. NextTade Pro Markets UK Plc and NextTade Pro Spreadbet
+        <p>TopShares Pro Markets is, depending on the context, a reference to TopShares Pro Markets Germany GmbH, TopShares Pro Markets UK plc or
+          TopShares Pro Spreadbet plc. TopShares Pro Markets Germany GmbH is a company licensed and regulated by the Bundesanstalt für
+          Finanzdienstleistungsaufsicht (BaFin) under registration number 154814. TopShares Pro Markets UK Plc and TopShares Pro Spreadbet
           plc are registered in the Register of Companies of the Financial Conduct Authority under registration numbers
           173730 and 170627.</p>
         <br/>
@@ -120,7 +120,7 @@
       </div>
       <hr/>
       <div class="copyright">
-        <p>All rights reserved. Copyright © 2016 - 2024</p>
+        <p>All rights reserved. Copyright © 2016 - 2025</p>
       </div>
     </div>
     <certificate-modal @close="hideDialog" v-if="dialogIsVisible"/>

@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
     <p class="section-header-1">We’re on a mission to democratize finance for all.</p>
-    <p class="section-header">At NextTrade Pro Markets, our values are in service of our customers. We strive to
+    <p class="section-header">At TopShares Pro Markets, our values are in service of our customers. We strive to
       uphold our values every day.</p>
 
 
@@ -10,9 +10,9 @@
       <div class="section-1">
 
         <div class="text-part">
-          <p class="text-1">About NextTrade Pro</p>
+          <p class="text-1">About TopShares Pro</p>
           <p class="text-2">Crypto creates economic freedom by ensuring that people can participate fairly in the
-            economy, and NextTrade Pro is on a mission to increase economic freedom for more than 1 billion people.
+            economy, and TopShares Pro is on a mission to increase economic freedom for more than 1 billion people.
             We’re updating the century-old financial system by providing a trusted platform that makes it easy for
             people and institutions to engage with crypto assets, including trading, staking, safekeeping, spending,
             and fast, free global transfers. We also provide critical infrastructure for onchain activity and support

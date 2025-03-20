@@ -5,7 +5,7 @@
       <div class="seperate mobile">
         <p class="download-sub"><a
             style="color: #ffffff;"
-            href="mailto:support@earlywealthtrd.com">support@nexttradepro.com</a></p>
+            href="mailto:support@topsharespro.com">support@topsharespro.com</a></p>
       </div>
       <div class="seperate mobile">
         <p class="download-sub">128 City Road, London, United Kingdom, EC1V 2NX</p>

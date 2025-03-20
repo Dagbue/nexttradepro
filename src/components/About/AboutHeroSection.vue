@@ -2,7 +2,7 @@
   <div class="alpha">
     <div class="content-alpha">
 
-      <p class="text-1">Why <span style="color: #007aff;">NextTrade Pro?</span></p>
+      <p class="text-1">Why <span style="color: #007aff;">TopShares Pro?</span></p>
 
     </div>
 
@@ -10,7 +10,7 @@
       <div class="section-2-inner">
         <div class="part-1">
           <p class="text-2">Why choose us?</p>
-          <p class="text-3">When you choose NextTrade Pro, you join a global investment community and are given access to the
+          <p class="text-3">When you choose TopShares Pro, you join a global investment community and are given access to the
             financial tools you need</p>
         </div>
         <div class="part-2">

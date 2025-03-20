@@ -14,7 +14,7 @@
           <p class="text-3">Transfer desired amount to the details displayed below and have your balance funded</p>
           <p class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
             <span class="note-span">
-              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@incomeandassetslimited.com" class="para-last">support@incomeandassetslimited.com</a>
+              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@topsharespro.com" class="para-last">support@topsharespro.com</a>
             </span> for documentation and to boost the funding process
           </p>
           <br/>

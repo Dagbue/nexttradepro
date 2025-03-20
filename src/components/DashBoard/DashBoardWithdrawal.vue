@@ -144,7 +144,7 @@
           </div>
 
           <p class="text-block-51" style="padding-top: 10px; color: #6c757d;" >
-            Note: For security reasons, Early Wealth processes withdrawals by review once a day.
+            Note: For security reasons, TopShares Pro processes withdrawals by review once a day.
             For more information in this policy. Please see our wallet security page.
           </p>
         </form>

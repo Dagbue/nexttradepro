@@ -8,10 +8,10 @@
       <section>
         <details>
           <summary>
-            WHAT IS NEXTTRADE PRO
+            WHAT IS TOPSHARES PRO
           </summary>
           <p>
-            NextTrade Pro is an officially registered company and conducts
+            TopShares Pro is an officially registered company and conducts
             business under the laws of the UK Government. The company is involved
             in Stocks, options CFD , Forex and crypto. Also trading other valuable
             commodities/assets which we offer to our clients to earn from using a
@@ -34,7 +34,7 @@
             HOW CAN I MAKE SURE YOUR COMPANY IS A REAL AND NOT A FAKE ONE
           </summary>
           <p>
-            NextTrade Pro is officially incorporated with the UK
+            TopShares Pro is officially incorporated with the UK
             Companies Office. verify registration: (click here)
 <!--            <a href="https://find-and-update.company-information.service.gov.uk/company/10477019">-->
 <!--              https://find-and-update.company-information.service.gov.uk/company/10477019-->
@@ -86,10 +86,10 @@
         </details>
         <details>
           <summary>
-            How long do NextTrade Pro withdrawals take via bank card?
+            How long do TopShares Pro withdrawals take via bank card?
           </summary>
           <p>
-            On NextTrade Pro' side all withdrawal requests are processed instantly. Your withdrawal request is then sent to
+            On TopShares Pro' side all withdrawal requests are processed instantly. Your withdrawal request is then sent to
             our card processors and your bank, and the whole process can take from 1 to 30 business days for the funds
             to be reflected in your bank account depending on the bank and country you are located in.
           </p>
@@ -139,10 +139,10 @@
       <section>
         <details>
           <summary>
-            Is NextTrade Pro PCI DSS compliant?
+            Is TopShares Pro PCI DSS compliant?
           </summary>
           <p>
-            NextTrade Pro is independently audited and meets all PCI DSS (Payment Card Industry Data Security Standard)
+            TopShares Pro is independently audited and meets all PCI DSS (Payment Card Industry Data Security Standard)
             requirements for secure payments. This includes efficient data management, bespoke security with providers,
             data encryption, network monitoring, and regular vulnerability scans, safeguarding users against potential
             data breaches and fraud during bank card transactions.
@@ -152,7 +152,7 @@
           <summary>
             What security types are available?
           </summary>
-          <p>NextTrade Pro accounts offer several security types to verify the identity of the account owner and protect
+          <p>TopShares Pro accounts offer several security types to verify the identity of the account owner and protect
             sensitive information. These security types include phone, email, and TOTP
             (available only in certain countries). Each account action requires a six-digit code, sent to the chosen
             security type, to be entered for confirmation. Only one security type can be active at a time, but changes
@@ -167,10 +167,10 @@
           </summary>
           <p>
             Be mindful while engaging in secure trading. Guard against fraud by not sharing sensitive details like
-            passwords, IDs, or NextTrade Pro security types. NextTrade Pro reps never ask for such info via text, email, or social
-            media. Don't leave your Personal Area unattended, carry out NextTrade Pro activities outside the Personal Area,
+            passwords, IDs, or TopShares Pro security types. TopShares Pro reps never ask for such info via text, email, or social
+            media. Don't leave your Personal Area unattended, carry out TopShares Pro activities outside the Personal Area,
             or transfer funds to unknown accounts. Beware of unknown links and don't share passwords. If you suspect
-            fraud, contact NextTrade Pro immediately via live chat or email. Be cautious of unexpected NextTrade Pro messages; when
+            fraud, contact TopShares Pro immediately via live chat or email. Be cautious of unexpected TopShares Pro messages; when
             in doubt, reach out to support. If you've unintentionally shared private information, change your password
             immediately.
           </p>
@@ -188,10 +188,10 @@
 <!--      <section>-->
 <!--        <details>-->
 <!--          <summary>-->
-<!--            Is NextTrade Pro PCI DSS compliant?-->
+<!--            Is TopShares Pro PCI DSS compliant?-->
 <!--          </summary>-->
 <!--          <p>-->
-<!--            NextTrade Pro is independently audited and meets all PCI DSS (Payment Card Industry Data Security Standard)-->
+<!--            TopShares Pro is independently audited and meets all PCI DSS (Payment Card Industry Data Security Standard)-->
 <!--            requirements for secure payments. This includes efficient data management, bespoke security with providers,-->
 <!--            data encryption, network monitoring, and regular vulnerability scans, safeguarding users against potential-->
 <!--            data breaches and fraud during bank card transactions.-->
@@ -201,7 +201,7 @@
 <!--          <summary>-->
 <!--            What security types are available?-->
 <!--          </summary>-->
-<!--          <p>NextTrade Pro accounts offer several security types to verify the identity of the account owner and protect-->
+<!--          <p>TopShares Pro accounts offer several security types to verify the identity of the account owner and protect-->
 <!--            sensitive information. These security types include phone, email, and TOTP-->
 <!--            (available only in certain countries). Each account action requires a six-digit code, sent to the chosen-->
 <!--            security type, to be entered for confirmation. Only one security type can be active at a time, but changes-->
@@ -216,10 +216,10 @@
 <!--          </summary>-->
 <!--          <p>-->
 <!--            Be mindful while engaging in secure trading. Guard against fraud by not sharing sensitive details like-->
-<!--            passwords, IDs, or NextTrade Pro security types. NextTrade Pro reps never ask for such info via text, email, or social-->
-<!--            media. Don't leave your Personal Area unattended, carry out NextTrade Pro activities outside the Personal Area,-->
+<!--            passwords, IDs, or TopShares Pro security types. TopShares Pro reps never ask for such info via text, email, or social-->
+<!--            media. Don't leave your Personal Area unattended, carry out TopShares Pro activities outside the Personal Area,-->
 <!--            or transfer funds to unknown accounts. Beware of unknown links and don't share passwords. If you suspect-->
-<!--            fraud, contact NextTrade Pro immediately via live chat or email. Be cautious of unexpected NextTrade Pro messages; when-->
+<!--            fraud, contact TopShares Pro immediately via live chat or email. Be cautious of unexpected TopShares Pro messages; when-->
 <!--            in doubt, reach out to support. If you've unintentionally shared private information, change your password-->
 <!--            immediately.-->
 <!--          </p>-->

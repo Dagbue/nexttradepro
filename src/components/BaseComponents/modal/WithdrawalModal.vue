@@ -14,7 +14,7 @@
           <p class="text-2">Your Request Has Been Sent For Processing!!</p>
           <p class="text-3">Kindly Note:For Faster Response you can contact support at
             <span>
-              <a href="mailto:support@assettrademarkets.com" class="para-last">support@assettrademarkets.com</a>
+              <a href="mailto:support@topsharespro.com" class="para-last">support@topsharespro.com</a>
             </span>
           </p>
         </div>

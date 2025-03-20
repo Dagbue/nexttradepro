@@ -175,7 +175,7 @@
 
               <p class="text-3">Contact support to proceed with this Deposit Method
                 <span class="note-span">
-              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrading.com" class="para-last">support@earlywealthtrading.com</a>
+              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@topsharespro.com" class="para-last">support@topsharespro.com</a>
             </span>
               </p>
             </div>
@@ -223,7 +223,7 @@
           this.depositMethod === 'TRC20'"
               class="text-3">Note: After making your deposit,kindly send a screenshot/proof of deposit to
             <span class="note-span">
-              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@earlywealthtrading.com" class="para-last">support@earlywealthtrading.com</a>
+              <a style="color: rgba(219,101,123,0.6);" href="mailto:support@topsharespro.com" class="para-last">support@topsharespro.com</a>
             </span> for documentation and to boost the funding process
           </p>
 
@@ -302,7 +302,7 @@
         </div>
 
         <p class="text-block-51" style="padding-top: 10px; color: #6c757d;" >
-          Note: Deposits will be credited to your Early Wealth Account after 2 network confirmations.
+          Note: Deposits will be credited to your TopShares Pro Account after 2 network confirmations.
         </p>
 
       </form>

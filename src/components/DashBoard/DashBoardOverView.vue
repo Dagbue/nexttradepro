@@ -46,12 +46,12 @@
         <p class="balance-text-1">Account Balance</p>
         <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount - UserDetails.user.totalWithdrawals | formatAmount2}}</p>
         <div class="balance-section-1-inner">
-          <p class="balance-text-3">Realized</p>
+          <p class="balance-text-3">Realized Profit</p>
           <p class="balance-text-4">$19,757,490</p>
         </div>
         <div class="balance-section-1-inner">
-          <p class="balance-text-5">Unrealized</p>
-          <p class="balance-text-6">-$3,526,893</p>
+          <p class="balance-text-5">BTC Balance</p>
+          <p class="balance-text-6">{{bitcoin}}</p>
         </div>
       </div>
 

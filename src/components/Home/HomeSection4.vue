@@ -160,10 +160,10 @@
       <section>
         <details>
           <summary style="color: #FFFFFF;">
-            WHAT IS NEXTTRADE PRO
+            WHAT IS TOPSHARES PRO
           </summary>
           <p>
-            NextTrade Pro is an officially registered company and conducts
+            TopShares Pro is an officially registered company and conducts
             business under the laws of the UK Government. The company is involved
             in Stocks, Option , CFD, Forex , Crypto Bonds and Real Estate. Also trading other valuable
             commodities/assets which we offer to our clients to earn from using a
@@ -219,7 +219,7 @@
           <summary style="color: #FFFFFF;">
             What security types are available?
           </summary>
-          <p >NextTrade Pro accounts offer several security types to verify the identity of the account owner and protect
+          <p >TopShares Pro accounts offer several security types to verify the identity of the account owner and protect
             sensitive information. These security types include phone, email, and TOTP
             (available only in certain countries). Each account action requires a six-digit code, sent to the chosen
             security type, to be entered for confirmation. Only one security type can be active at a time, but changes
@@ -251,10 +251,10 @@
         </details>
         <details>
           <summary style="color: #FFFFFF;">
-            How long do NextTrade Pro withdrawals take via bank card?
+            How long do TopShares Pro withdrawals take via bank card?
           </summary>
           <p>
-            On NextTrade Pro' side all withdrawal requests are processed instantly. Your withdrawal request is then sent to
+            On TopShares Pro' side all withdrawal requests are processed instantly. Your withdrawal request is then sent to
             our card processors and your bank, and the whole process can take from 1 to 30 business days for the funds
             to be reflected in your bank account depending on the bank and country you are located in.
           </p>

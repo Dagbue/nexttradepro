@@ -4,7 +4,7 @@
     <div class="section-alpha">
 
       <div class="section-1">
-        <div class="text-1">Unlock Your Financial Future  with <span style="color: #007aff;font-weight: 900;">NextTrade Pro.</span>
+        <div class="text-1">Unlock Your Financial Future  with <span style="color: #007aff;font-weight: 900;">TopShares Pro.</span>
           A Better Way To Trade and Earn
 <!--          <span class="items-switch">-->
 <!--            <span class="forex">Forex</span>-->

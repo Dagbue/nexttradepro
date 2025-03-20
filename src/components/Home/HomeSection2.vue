@@ -2,7 +2,7 @@
   <div class="alpha">
     <p class="section-title">More ways to Trade</p>
     <p class="section-title-2">Join 1M+ traders who choose
-      <span style="color: #3760ff;">NextTrade Pro</span>
+      <span style="color: #3760ff;">TopShares Pro</span>
       as their go-to trading platform.</p>
 
     <div class="section-alpha">

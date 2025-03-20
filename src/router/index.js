@@ -250,7 +250,6 @@ const routes = [
             import(/* webpackChunkName: "withdrawalRequests" */ "../views/Admin/WithdrawalRequests.vue"),
         meta: { hideNavigation: true }
       },
-
       {
         path: "/change-password-admin",
         name: "changePasswordAdmin",
@@ -321,7 +320,6 @@ const routes = [
             import(/* webpackChunkName: "ChangePasswordAdmin" */ "../views/Admin/UploadedID.vue"),
         meta: { hideNavigation: true }
       },
-
       {
         path: "/add-trade",
         name: "AddTrade",
@@ -329,7 +327,6 @@ const routes = [
             import(/* webpackChunkName: "ChangePasswordAdmin" */ "../views/Admin/AddTrade.vue"),
         meta: { hideNavigation: true }
       },
-
       {
         path: "/add-trading-pair",
         name: "AddTradingPair",

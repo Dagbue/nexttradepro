@@ -5,19 +5,19 @@
       <figure class="snip1533">
         <figcaption>
           <blockquote>
-            <p>NextTrade Pro has the simplest interface of all and also has the fastest entry point into the market.I was
-              a banker who was deep in debt, but  with the help of NextTrade Pro ..., now I am living well and
+            <p>TopShares Pro has the simplest interface of all and also has the fastest entry point into the market.I was
+              a banker who was deep in debt, but  with the help of TopShares Pro ..., now I am living well and
               comfortable with my family</p>
           </blockquote>
           <h3>Wisteria Ravenclaw</h3>
-          <h4>Investor</h4>
+          <h4>Banker</h4>
         </figcaption>
       </figure>
       <figure class="snip1533">
         <figcaption>
           <blockquote>
-            <p>My name is William Ursula Gurnmeister. Few weeks I have traded with NextTrade Pro, i made enough profit of
-              2.8btc and my withdrawal was processed instantly. NextTrade Pro is the best....</p>
+            <p>My name is William Ursula Gurnmeister. Few weeks I have traded with TopShares Pro, i made enough profit of
+              2.8btc and my withdrawal was processed instantly. TopShares Pro is the best....</p>
           </blockquote>
           <h3>Ursula Gurnmeister</h3>
           <h4>Business Woman</h4>
@@ -27,7 +27,7 @@
         <figcaption>
           <blockquote>
             <p>This is a more than a trading company. Giving you guys 5 ratings for your support services. Great
-              company. Awesome support.. NextTrade Pro is the best.... </p>
+              company. Awesome support.. TopShares Pro is the best.... </p>
           </blockquote>
           <h3>Ronald Dooms</h3>
           <h4>Trader</h4>

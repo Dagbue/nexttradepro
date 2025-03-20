@@ -15,7 +15,7 @@
       <div class="inner">
         <img src="@/assets/time-tested.svg" alt=""  class="image" />
         <p class="text-2">Time-tested</p>
-        <p class="text-3">established company and experienced broker, since 2007</p>
+        <p class="text-3">established company and experienced broker, since 2016</p>
       </div>
 
       <div class="inner">

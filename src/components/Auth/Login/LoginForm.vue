@@ -7,7 +7,7 @@
           <img src="@/assets/logo.png" alt="logo" class="company-logo">
           </router-link>
           <h2>
-            Sign In With Your <br/> <span class="header-span">NextTrade Pro</span> Account
+            Sign In With Your <span class="header-span">TopShares <br/> Pro</span> Account
           </h2>
         </div>
 
@@ -132,7 +132,7 @@ form {
 }
 
 .company-logo{
-  width: 62%;
+  width: 55%;
   margin-top: 8%;
   margin-bottom: 2%;
 }
@@ -406,7 +406,7 @@ input::placeholder {
     font-size: 25px;
   }
   .wrapper .headline h2  {
-    font-size: 23px;
+    font-size: 22px;
   }
   .checkbox-text {
     padding-left: 10px;
@@ -415,7 +415,7 @@ input::placeholder {
     padding-left: 20px;
   }
   .company-logo{
-    width: 50%;
+    width: 60%;
     margin-top: unset;
   }
 }
