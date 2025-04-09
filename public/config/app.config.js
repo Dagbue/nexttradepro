@@ -2,7 +2,7 @@
   window.__env = window.__env || {};
 
   window.__env.api = {
-    baseUrl: "https://everlast-lion-app-woa8a.ondigitalocean.app/",
+    baseUrl: "https://investo-everlast-app-qv6tz.ondigitalocean.app/",
     uploadS3BaseUrl: "https://m2nz1o078e.execute-api.us-east-1.amazonaws.com/prod/",
     timeout: 80000,
   };
