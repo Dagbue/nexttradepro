@@ -16,6 +16,11 @@
         <p class="text-1">Buy Crypto</p>
         <p class="text-2">Easily buy 60+ Crypto with Visa or Mastercard.</p>
       </div>
+    </div>
+
+    <div class="section-alpha">
+
+
 
       <div class="section-1">
         <img src="@/assets/cf.webp" alt="" class="image">
@@ -45,7 +50,7 @@ export default {
 <style scoped>
 .alpha{
   margin-top: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .header{

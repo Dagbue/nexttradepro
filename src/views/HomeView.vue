@@ -1,14 +1,12 @@
 <template>
   <div class="home">
     <hero-section/>
-    <home-section2/>
-    <home-section1/>
-    <home-section9/>
-    <home-section10/>
-    <home-section11/>
-    <home-section4/>
+    <home-section12/>
+    <home-section13/>
+    <home-section14/>
+    <home-section15/>
+    <home-section16/>
     <section6/>
-    <section4/>
     <ready-to-work/>
     <footer-home/>
   </div>
@@ -16,26 +14,28 @@
 
 <script>
 
-
 import HeroSection from "@/components/Home/HeroSection.vue";
-import HomeSection2 from "@/components/Home/HomeSection2.vue";
-import HomeSection1 from "@/components/Home/HomeSection1.vue";
-import HomeSection9 from "@/components/Home/HomeSection9.vue";
-import HomeSection10 from "@/components/Home/HomeSection10.vue";
-import HomeSection11 from "@/components/Home/HomeSection11.vue";
-import HomeSection4 from "@/components/Home/HomeSection4.vue";
-import Section6 from "@/components/Home/Section6.vue";
-import Section4 from "@/components/Home/Section4.vue";
+import HomeSection12 from "@/components/Home/HomeSection12.vue";
+import HomeSection13 from "@/components/Home/HomeSection13.vue";
+import HomeSection14 from "@/components/Home/HomeSection14.vue";
 import FooterHome from "@/components/BaseComponents/FooterHome.vue";
 import ReadyToWork from "@/components/BaseComponents/ReadyToWork.vue";
+import HomeSection15 from "@/components/Home/HomeSection15.vue";
+import HomeSection16 from "@/components/Home/HomeSection16.vue";
+import Section6 from "@/components/Home/Section6.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    Section6,
+    HomeSection16,
+    HomeSection15,
+    HomeSection14,
+    HomeSection13,
+    HomeSection12,
     ReadyToWork,
     FooterHome,
-    Section4,
-    Section6,
-    HomeSection4, HomeSection11, HomeSection10, HomeSection9, HomeSection1, HomeSection2, HeroSection},
+    HeroSection
+  },
 }
 </script>

@@ -4,84 +4,55 @@
     <div class="section-alpha">
 
       <div class="section-1">
-        <div class="text-1">Unlock Your Financial Future  with <span style="color: #007aff;font-weight: 900;">TopShares Pro.</span>
-          A Better Way To Trade and Earn
-<!--          <span class="items-switch">-->
-<!--            <span class="forex">Forex</span>-->
-<!--            <span class="crypto">Crypto</span>-->
-<!--            <span class="stocks">Stocks</span>-->
-<!--            <span class="bond">Bond</span>-->
-<!--          </span>-->
-<!--          <span class="items-switch">-->
-<!--            <span v-for="(item, index) in items" :key="item.name" :class="{active: currentIndex === index}" :style="{ color: item.color }">-->
-<!--              {{ item.name }}-->
-<!--            </span>-->
-<!--          </span>-->
-        </div>
+        <p class="text-1">
+          A Distinguished, multi-award-winning provider of stock market solutions.
+        </p>
+        <p class="text-2">
+          We are proud to offer traders advanced and innovative trading platform technologies designed for
+          performance and reliability.
+        </p>
 
 
         <div class="button-group">
           <div class="btn-1" @click="onPostClick">
-            Get Started
-<!--            <img src="@/assets/arrow-right-line.svg" alt="" class="" />-->
+            Open Account
           </div>
-          <div class="btn-1" @click="onPostClick2">
-            LogIn
-<!--            <img src="@/assets/arrow-right-line.svg" alt="" class="" />-->
+          <div class="btn-2" @click="onPostClick2">
+            Trading Platform
           </div>
         </div>
 
-        <p class="text-2"><span style="padding-right: 8px;  display: flex; align-content: center;align-items: center;">
-          4.5
-          &nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none"><path d="M24.2277 8.80521H14.976L12.1183 0L9.25173 8.80521L0 8.79628L7.49247 14.2437L4.62586 23.04L12.1183 17.6015L19.6019 23.04L16.7442 14.2437L24.2277 8.80521Z" fill="#00B67A"></path><path d="M17.3872 16.2351L16.7443 14.2437L12.1184 17.6014L17.3872 16.2351Z" fill="#005128"></path></svg>
-        </span>TrustPilot</p>
+        <p class="text-3">*Equity and index fund trading utilizing advanced charting and analytical tools.</p>
       </div>
 
       <div class="section-2">
-<!--        <img src="https://v3.polo-static.com/web/polo-web/static/png/mask-phone-f3066bbc.png" alt="" class="image" />-->
-<!--        <video autoplay="" muted="" loop="">-->
-<!--          <source src="https://margex.com/videos/header_mobile_video.mp4" type="video/mp4">-->
-<!--        </video>-->
-
-        <video class="first-img" style="visibility:visible" title="" autoplay="" loop="" muted="" playsinline=""
-               width="280" height="580" aria-label="Animation of the OKX mobile app" role="img"
-               poster="@/assets/okx-image-1.webp">
-          <source src="@/assets/video2.webm" type="video/webm">
-          <source src="@/assets/okx.mp4" type="video/mp4">
-        </video>
-
-
+        <img src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcrypto-futures.0d36e92f.png&w=3840&q=75" alt="" class="image" />
       </div>
 
 
     </div>
-
-    <iframe  scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 100%;"></iframe>
 
     <div class="section-3">
-
-      <div class="section-3-content">
-        <p class="text-3">2 Million</p>
-        <p class="text-4">Registered Users</p>
+      <div class="section-3-inner">
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/compass.png" alt="compass"/>
+        <p class="section-3-text">Enhanced Tools</p>
       </div>
 
-      <div class="section-3-content">
-        <p class="text-3">30+</p>
-        <p class="text-4">Nations</p>
+      <div class="section-3-inner">
+        <img width="48" height="48" src="https://img.icons8.com/fluency/48/book--v1.png" alt="book--v1"/>
+        <p class="section-3-text">Trading Guides</p>
       </div>
 
-      <div class="section-3-content">
-        <p class="text-3">300+</p>
-        <p class="text-4">Perpetual contracts</p>
+      <div class="section-3-inner">
+        <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/lightning-bolt.png" alt="lightning-bolt"/>
+        <p class="section-3-text">Fast execution</p>
       </div>
 
-      <div class="section-3-content">
-        <p class="text-3">10ms</p>
-        <p class="text-4">Trading Interface Total Latency</p>
+      <div class="section-3-inner">
+        <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/discount.png" alt="discount"/>
+        <p class="section-3-text">0% Commission</p>
       </div>
-
     </div>
-
 
   </div>
 </template>
@@ -92,28 +63,9 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      items: [
-        { name: 'Forex', color: '#009688' },  // Red
-        { name: 'RealEstate', color: '#984613' }  ,  // Yellow
-        { name: 'Crypto', color: '#3071EE' }, // Green
-        { name: 'Stocks', color: '#5d78ff' }, // Blue
-        { name: 'CFD', color: '#fe9431' }    // Yellow
-      ],
-      intervalId: null
     };
   },
-  mounted() {
-    this.startRotation();
-  },
-  beforeDestroy() {
-    clearInterval(this.intervalId);
-  },
   methods: {
-    startRotation() {
-      this.intervalId = setInterval(() => {
-        this.currentIndex = (this.currentIndex + 1) % this.items.length;
-      }, 2000); // Change item every 2000 milliseconds
-    },
     onPostClick() {
       this.$router.push("/register");
     },
@@ -126,7 +78,7 @@ export default {
 
 <style scoped>
 .section-alpha{
-  height: 600px;
+  height: 570px;
 }
 .items-switch .active {
   display: inline; /* Show only active item */
@@ -154,7 +106,7 @@ export default {
 
 .section-2{
   /*margin-bottom: -10px;*/
-  width: 60%;
+  width: 55%;
 }
 
 video{
@@ -162,13 +114,12 @@ video{
   border-radius: 30px;
 }
 .text-1{
-  font-size: 34px;
-  line-height: 40px;
+  font-size: 40px;
+  line-height: 43px;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
   color: #FFFFFF;
-  font-family: 'BR-Firma-Bold', sans-serif;
-
+  font-weight: 700;
 }
 
 .text-2{
@@ -181,6 +132,14 @@ video{
   align-content: center;
   align-items: center;
   padding-top: 2%;
+}
+
+.text-3{
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #8599a6;
+  padding-top: 5%;
 }
 
 .btn-1{
@@ -197,9 +156,23 @@ video{
   color: #ffffff;
   width: 160px;
 }
+.btn-2{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 46px;
+  padding: 8px 20px;
+  border-radius: 10px;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  width: 160px;
+}
 
 .image{
-  width: 35%;
+  width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -212,27 +185,24 @@ video{
   gap: 10px;
 }
 
-.text-3{
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 36px;
-  color: #FFFFFF;
+.section-3-inner{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 2px;
 }
-
-.text-4{
-  margin-top: 2px;
-  line-height: 19px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #8599a6;
+.section-3-text{
+  color: #FFFFFF;
 }
 
 .section-3{
   display: flex;
-  justify-content: space-around;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+  align-content: center;
 }
+
 
 @media (max-width: 990px) {
 
@@ -281,6 +251,14 @@ video{
     font-size: 14px;
   }
 
+  .btn-2{
+    height: 40px;
+    padding: 8px 16px;
+    gap: 6px;
+    width: 160px;
+    font-size: 14px;
+  }
+
   .button-group{
     display: flex;
     justify-content: center;
@@ -304,22 +282,6 @@ video{
     border-radius: 30px;
   }
 
-  .image{
-    width: 90%;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .text-3{
-    font-size: 23px;
-    text-align: center;
-  }
-
-  .text-4{
-    line-height: 14px;
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -328,8 +290,6 @@ video{
     line-height: 40px;
     margin-bottom: 9px;
   }
-
-
 
   .text-2{
     width: 85%;

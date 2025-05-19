@@ -59,11 +59,11 @@ export default {
 
 <style scoped>
 .alpha{
-  margin-top: 13%;
+  margin-top: 3%;
 }
 .text-1{
   font-size: 18px;
-  color: #8599a6;
+  color: #ffffff;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -71,11 +71,11 @@ export default {
 }
 
 .inner{
-  background-color: #FFFFFF;
   width: 250px;
   height: 300px;
   margin-top: 3%;
   border-radius: 10px;
+  border: 1.5px solid rgba(133, 153, 166, 0.2);
 }
 
 .section{
@@ -94,7 +94,7 @@ export default {
 
 .text-2{
   font-size: 19px;
-  color: #000000;
+  color: #ffffff;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -104,7 +104,7 @@ export default {
 
 .text-3{
   font-size: 16px;
-  color: #000000;
+  color: #8599a6;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -123,7 +123,7 @@ export default {
 
 
   .inner{
-    background-color: #FFFFFF;
+    border: 1.5px solid rgba(133, 153, 166, 0.2);
     width: 200px;
     margin-top: 5%;
   }

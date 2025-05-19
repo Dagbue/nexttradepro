@@ -1,193 +1,217 @@
 <template>
   <div class="alpha">
-    <div class="content-alpha">
+    <!--    <p class="section-header-1">There’s a time and a place for risk</p>-->
+    <!--    <p class="section-header">Your funds and data are always secure. With Income And Assets Limited you’re protected-->
+    <!--      by industry-leading protocols.</p>-->
 
-      <p class="text-1">Why <span style="color: #007aff;">TopShares Pro?</span></p>
+    <div class="section-alpha">
 
-    </div>
+      <div class="section-1">
 
-    <div class="section-2">
-      <div class="section-2-inner">
-        <div class="part-1">
-          <p class="text-2">Why choose us?</p>
-          <p class="text-3">When you choose TopShares Pro, you join a global investment community and are given access to the
-            financial tools you need</p>
+        <div class="text-part">
+          <p class="text-3">TopShares Pro</p>
+          <p class="text-1">Access the world of trading <br/> with ease.</p>
+          <p class="text-2">Strategically Build and Grow Your Next High-Performance Trading Portfolio with Confidence
+            and Precision.</p>
+
+          <!--          <div class="button-part">-->
+          <!--            <button class="btn1" @click="onPostClick2">Login Account</button>-->
+          <!--          </div>-->
         </div>
-        <div class="part-2">
-          <p class="text-4">Join Us Now</p>
-        </div>
+
+
+      </div>
+
+      <div class="section-2">
+
+        <img src="@/assets/pick.png" alt="image" class="image" />
+
       </div>
 
     </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "AboutHeroSection"
+  name: "AboutHeroSection",
+  methods: {
+    onPostClick() {
+      this.$router.push("/register");
+    },
+    onPostClick2() {
+      this.$router.push("/login");
+    },
+  },
 }
 </script>
 
 <style scoped>
 .alpha{
+  background-color: hsla(0, 0%, 4%, .8);
+  height: 600px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
 }
 
-.content-alpha{
-  text-align: center;
-  background-color: hsla(0, 0%, 4%, .8);
-  border: 1px solid hsla(0, 0%, 4%, .8);
-  padding-top: 8%;
-  padding-bottom: 8%;
+span{
+  color: #3071EE;
 }
 
-.text-1{
-  color: #FFFFFF;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: normal;
-  font-size: 60px;
-  line-height: 1;
-  margin: 0;
+.section-1{
+  width: 50%;
 }
 
 .section-2{
-  width: 900px;
-  height: 230px;
-  background-color: hsl(0, 0%, 8%);
-  border: 1px solid hsl(0, 0%, 8%);
+  width: 50%;
+}
+
+.section-alpha{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  padding-top: 3%;
+}
+
+.image{
+  width: 55%;
   display: block;
-  margin-left: auto;
   margin-right: auto;
-  position: absolute;
-  top: 200px;
-  left: 250px;
-  border-radius: 10px;
+  margin-left: auto;
+  border-radius: 14px;
+}
+
+.text-part{
+  width: 80%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.text-1{
+  font-size: 40px;
+  line-height: 1;
+  white-space: pre-line;
+  margin-bottom: 10px;
+  font-family: 'BR-Firma-Bold', sans-serif;
   color: #FFFFFF;
 }
 
-.section-2-inner{
-  display: flex;
-  align-content: center;
-  align-items: center;
-  padding-top: 4%;
-}
-
-.part-1{
-  width: 70%;
-  padding: 10px 40px;
-}
-
-.part-2{
-  width: 30%;
-}
-
 .text-2{
-  font-size: 34px;
-  padding-bottom: 2%;
+  margin: 0;
+  font-size: 18px;
+  white-space: pre-line;
+  line-height: 1.15;
+  color: #8599a6;
 }
 
 .text-3{
-  font-size: 19px;
-  padding-bottom: 2%;
-  line-height: 23px;
-}
-
-.text-4{
   background: #007aff;
   border: 1px solid #007aff;
+  display: inline-block;
+  color: #FFFFFF;
+  padding: 10px 40px 10px 40px;
+  border-radius: 12px;
+  margin-bottom: 2%;
+}
+
+.button-part{
+  display: flex;
+  gap: 20px;
+  margin-top: 3%;
+}
+.btn1{
+  background-color: #070e20;
+  border: 1px solid #070e20;
   color: #ffffff;
-  padding: 1em 30px 0.8em 30px;
+  padding: 10px 30px;
   border-radius: 12px;
   position: relative;
   display: inline-block;
+  margin: 0;
   text-decoration: none;
   -webkit-transition: all 0.1s ease;
   transition: all 0.25s ease;
-  margin: 0 2.5px;
-  width: 200px;
-  text-align: center;
   font-size: 14px;
-}
-
-@media (max-width: 990px) {
-
+  width: 220px;
 }
 
 @media (max-width: 700px) {
-  .alpha{
-    padding-top: 10%;
-    padding-bottom: 10%;
+  .section-header{
+    font-size: 16px;
+    margin-left: 8%;
+    margin-right: 8%;
   }
-  .text-1{
-    font-size: 35px;
-  }
-
-  .section-2{
-    width: 600px;
-    height: 180px;
-    top: 180px;
-    left: 50px;
-  }
-
-  .text-2{
+  .section-header-1{
     font-size: 28px;
   }
-
-  .text-3{
-    font-size: 16px;
-    line-height: 20px;
-  }
-
-  .text-4{
-    width: 150px;
-    font-size: 13px;
-  }
-
-}
-
-@media (max-width: 500px) {
-  .section-2{
-    width: 420px;
-    height: 100%;
-    top: 130px;
-    left: 15px;
-  }
-
-  .section-2-inner{
+  .section-alpha{
     display: block;
-    padding-top: 2%;
   }
-
-  .part-1{
-    width: 100%;
-    padding: 10px 40px;
-  }
-
-  .part-2{
+  .section-1{
     width: 100%;
   }
 
-  .text-4{
+  .section-2{
+    width: 100%;
+  }
+
+  .text-1{
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 13px;
     display: block;
     margin-right: auto;
     margin-left: auto;
-    width: 250px;
+    text-align: center;
   }
 
   .text-2{
-    font-size: 25px;
-    padding-bottom: 1%;
+    font-size: 16px;
+    line-height: 1.3;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
   }
 
   .text-3{
-    font-size: 17px;
-    padding-bottom: 1%;
-    line-height: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .image{
+    width: 90%;
+  }
+
+  .button-part{
+    justify-content: center;
+  }
+  .alpha{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    height: 100%;
   }
 }
 
 
+@media (max-width: 500px) {
+
+  .text-part{
+    width: 85%;
+  }
+  .section-header-1{
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
 </style>

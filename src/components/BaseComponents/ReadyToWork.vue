@@ -49,28 +49,10 @@ export default {
   border-radius: 16px;
   margin-top: 4%;
   margin-bottom: 5%;
-
-  /*width: 11522px;*/
-  /*height: 100%;*/
   background: url("@/assets/graph_bg.svg") repeat-x;
-  /*background-color: #1450C8;*/
   -webkit-background-size: contain;
   background-size: cover;
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
-  /*-webkit-animation: bg-slide 60s linear infinite;*/
-  /*animation: bg-slide 60s linear infinite;*/
 }
-
-/*@keyframes bg-slide {*/
-/*  0% {*/
-/*    transform: translateZ(0);*/
-/*  }*/
-/*  100% {*/
-/*    transform: translate3d(-3840px, 0, 0);*/
-/*  }*/
-/*}*/
 
 
 .section-1{
@@ -109,10 +91,6 @@ button{
   margin-top: 10px;
 }
 
-/*.button:hover {*/
-/*  background: #070e20;*/
-/*  border: solid 1px #070e20;*/
-/*}*/
 
 .btn-image{
   width: 15%;

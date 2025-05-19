@@ -1,6 +1,6 @@
 <template>
   <div v-if="!$route.meta.hideNavigation" >
-
+<ticker-tape-widget/>
 <!--    <div class="topmost-header">-->
 <!--      <div class="topmost-header-1">-->
 
@@ -69,7 +69,7 @@
 
           <div v-show="!mobile" class="button-part">
             <p class="auth" @click="login">Log In</p>
-            <p class="auth2" @click="register">Open Account</p>
+            <p class="auth2" @click="register">Sign Up</p>
           </div>
 
         </div>
@@ -160,8 +160,11 @@
 </template>
 
 <script>
+import TickerTapeWidget from "@/components/BaseComponents/widgets/TickerTapeWidget.vue";
+
 export default {
   name: "NavigationView",
+  components: {TickerTapeWidget},
   data()  {
     return {
       value1: false,

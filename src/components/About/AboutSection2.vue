@@ -1,8 +1,8 @@
 <template>
   <div class="alpha">
-    <p class="section-header-1">We’re on a mission to democratize finance for all.</p>
+    <p class="section-header-1">We’re on a mission to democratize <br/> finance for all.</p>
     <p class="section-header">At TopShares Pro Markets, our values are in service of our customers. We strive to
-      uphold our values every day.</p>
+      uphold our <br/> values every day.</p>
 
 
     <div class="section-alpha">
@@ -82,7 +82,7 @@ export default {
   padding-bottom: 1%;
 }
 .section-header-1{
-  font-size: 35px;
+  font-size: 30px;
   color: #ffffff;
   font-weight: bold;
   padding-bottom: 0.5%;
@@ -98,7 +98,7 @@ export default {
 }
 
 .image{
-  width: 90%;
+  width: 80%;
   display: block;
   margin-right: auto;
   margin-left: auto;

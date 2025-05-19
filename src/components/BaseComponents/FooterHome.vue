@@ -205,6 +205,7 @@ export default {
 
 .footer-partner{
   object-fit: cover;
+  width: 70%;
 }
 
 .footer-link {
@@ -327,9 +328,6 @@ a{
   padding-top: 30px;
   padding-bottom: 15px;
   padding-left: 2%;
-  /*background: #393939;*/
-  margin-top: 2%;
-  margin-bottom: 1.5%;
   width: 90%;
   margin-left: auto;
   margin-right: auto;

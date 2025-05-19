@@ -134,7 +134,7 @@ export default {
   border: 1px solid #007aff;
   color: #FFFFFF;
   padding: 0.8em 25px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-decoration: none;
   -webkit-transition: all 0.1s ease;
   transition: all 0.25s ease;

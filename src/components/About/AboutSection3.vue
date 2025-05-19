@@ -61,7 +61,7 @@ export default {
 }
 
 .section-alpha{
-  background-color: #f8f8f8;
+  background-color: hsla(0, 0%, 4%, .8);
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -70,6 +70,7 @@ export default {
   text-align: center;
   font-size: 35px;
   font-family: 'BR-Firma-Bold', sans-serif;
+  color: #FFFFFF;
 }
 
 .sub-header{
@@ -79,6 +80,7 @@ export default {
   margin-right: auto;
   text-align: center;
   margin-top: 1.5%;
+  color: #8599a6;
 }
 
 .img{
@@ -104,8 +106,7 @@ export default {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 2px 4px 60px 0 hsla(227, 5%, 65%, .12);
-  background-color: #fcfcfc;
+  border: 1.5px solid rgba(133, 153, 166, 0.2);
   padding: 70px 20px 0 20px;
   border-radius: 12px;
   margin-top: 5%;
@@ -116,12 +117,14 @@ export default {
   text-align: center;
   font-size: 27px;
   padding-bottom: 5px;
+  color: #FFFFFF;
 }
 
 .text-2{
   text-align: center;
   font-size: 16px;
   padding-bottom: 25px;
+  color: #8599a6;
 }
 
 @media (max-width: 900px) {
