@@ -39,7 +39,7 @@
           <div class="section-1-inner">
           <p class="text-1">Transparency</p>
           <p class="text-2">We earn the trust of clients by being clear about everything from the very start.</p>
-          <img src="@/assets/about-benefit-4.svg" alt="" class="img" />
+          <img src="@/assets/about-benefit.png" alt="" class="img-2" />
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default {
 }
 
 .section-alpha{
-  background-color: hsla(0, 0%, 4%, .8);
+  background-color: hsla(0, 0%, 4%, 1);
   padding-top: 5%;
   padding-bottom: 5%;
 }
@@ -81,10 +81,18 @@ export default {
   text-align: center;
   margin-top: 1.5%;
   color: #8599a6;
+  font-weight: 300;
 }
 
 .img{
   width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-2{
+  width: 40%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -95,11 +103,11 @@ export default {
   justify-content: center;
   align-content: center;
   align-items: center;
+  gap: 50px;
 }
 
-.section-1{
-  width: 50%;
-}
+
+
 
 .section-1-inner{
   width: 500px;
@@ -125,6 +133,7 @@ export default {
   font-size: 16px;
   padding-bottom: 25px;
   color: #8599a6;
+  font-weight: 300;
 }
 
 @media (max-width: 900px) {

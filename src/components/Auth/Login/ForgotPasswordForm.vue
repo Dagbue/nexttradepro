@@ -112,12 +112,11 @@ form {
   padding-top: 1%;
   padding-bottom: 1%;
   /*margin-top: 10%;*/
-  color: #ffffff;
-  font-family: 'BR-Firma-Bold', sans-serif;
+  color: #0A0A0AFF;
 }
 
 p{
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .wrapper .form {

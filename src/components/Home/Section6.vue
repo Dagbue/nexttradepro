@@ -57,7 +57,7 @@ export default {
   text-align: center;
   font-size: 30px;
   padding-bottom: 15px;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 .snip1533 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
@@ -141,8 +141,8 @@ export default {
   margin-top: 2%;
 }
 .btn:hover{
-  background: #007aff;
   color: #FFFFFF;
+  background-color: #0063cc;
 }
 
 @media (max-width: 900px) {
@@ -160,6 +160,7 @@ export default {
   }
   .btn{
     margin-top: 2%;
+    width: 300px;
   }
 }
 

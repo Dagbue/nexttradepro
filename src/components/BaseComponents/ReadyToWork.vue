@@ -46,7 +46,7 @@ export default {
   margin-right: auto;
   width: 1000px;
   height: 270px;
-  border-radius: 16px;
+  border-radius: 12px;
   margin-top: 4%;
   margin-bottom: 5%;
   background: url("@/assets/graph_bg.svg") repeat-x;
@@ -65,7 +65,6 @@ export default {
   line-height: 44px;
   padding-top: 5%;
   padding-bottom: 0.5%;
-  font-family: 'BR-Firma-Bold', sans-serif;
 }
 
 .button {
@@ -82,6 +81,12 @@ export default {
   justify-content: center;
   gap: 2.5px;
   font-size: 15px;
+}
+
+.button:hover{
+  color: #FFFFFF;
+  background-color: #0063cc;
+  border: 1px solid #0063cc;
 }
 
 button{
@@ -127,26 +132,32 @@ i{
     margin-top: 5%;
   }
 
+
   .last-text{
-    padding-top: 8%;
+    font-size: 24px;
+    line-height: 22px;
+    padding-top: 12%;
   }
+
+  .download-sub{
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 26px;
+    width: 85%;
+  }
+
 }
 
 @media (max-width: 500px){
 
   .alpha-2{
-    width: 400px;
+    width: 95%;
     margin-top: 5%;
+    height: 250px;
   }
 
-  .download-sub{
-    font-size: 16px;
-    width: 100%;
-  }
 
-  .last-text{
-    font-size: 27px;
-  }
+
 
 }
 </style>

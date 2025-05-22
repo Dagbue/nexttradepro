@@ -352,11 +352,10 @@ export default {
   margin-bottom: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: 600;
   font-size: 22px;
   line-height: 38px;
-  font-family: 'BR-Firma-Bold', sans-serif;
 }
 
 .text-area p{
@@ -364,7 +363,7 @@ export default {
   margin-top: 2px;
   text-align: center;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
@@ -391,7 +390,7 @@ export default {
 .last-text{
   margin-top: 1.5%;
   text-align: center;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 span{

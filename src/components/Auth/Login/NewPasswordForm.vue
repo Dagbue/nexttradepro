@@ -142,13 +142,13 @@ form {
   font-size: 25px;
   padding-top: 1.5%;
   /*margin-top: 10%;*/
-  color: #ffffff;
+  color: #0A0A0AFF;
   padding-bottom: 5px;
   font-family: 'BR-Firma-Bold', sans-serif;
 }
 
 p{
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .wrapper .form {
@@ -240,13 +240,13 @@ p{
 .separator .line {
   height: 1px;
   flex: 0.5;
-  background-color: #ffffff;
+  background-color: #0A0A0AFF;
 }
 
 .separator h2 {
   padding: 0 1rem;
   font-size: 12px;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .create-acc {

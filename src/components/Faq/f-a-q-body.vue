@@ -258,12 +258,12 @@ export default {
 .header{
   font-stretch: normal;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: normal;
   font-size: 23px;
   line-height: 1.26;
   margin: 0;
-  color: #ffffff;
+  color: #0A0A0AFF;
   width: 25%;
 }
 .lawrence{
@@ -279,7 +279,7 @@ section {
 
 details[open] summary ~ * {
   animation: open 0.4s ease-in;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 
 @keyframes open {
@@ -317,23 +317,23 @@ details summary {
   position: relative;
   cursor: pointer;
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 300;
   list-style: none;
   /*padding-top: 18px;*/
   /*padding-bottom: 10px;*/
   text-transform: uppercase;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 details summary:after {
   content: "+";
-  color: #ffffff;
+  color: #0A0A0AFF;
   position: absolute;
   font-size: 1.7rem;
   line-height: 0;
   margin-top: 0.75rem;
   right: 0;
-  font-weight: bold;
+  font-weight: 300;
   transform-origin: center;
   transition: 200ms linear;
 }
@@ -356,7 +356,7 @@ details {
   padding: 15px;
   margin-bottom: 2%;
   /*border-radius: 5px;*/
-  border-bottom: solid 0.125rem #ffffff;
+  border-bottom: solid 0.125rem rgba(10, 10, 10, 0.15);
 }
 @media (max-width: 700px){
   .section-1{

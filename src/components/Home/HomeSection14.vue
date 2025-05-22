@@ -80,11 +80,10 @@ export default {
 }
 .section-header-1{
   font-size: 28px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: bold;
   text-align: center;
   padding-bottom: 0.5%;
-  font-family: 'BR-Firma-Bold', sans-serif;
 }
 .section-alpha{
   display: flex;
@@ -113,11 +112,10 @@ export default {
 .text-1{
   font-size: 26px;
   line-height: 26px;
-  font-weight: 500;
+  font-weight: 700;
   white-space: pre-line;
   margin-bottom: 10px;
-  color: #ffffff;
-  font-family: 'BR-Firma-Bold', sans-serif;
+  color: #0A0A0AFF;
 }
 
 .text-2{
@@ -126,10 +124,11 @@ export default {
   font-size: 16px;
   white-space: pre-line;
   line-height: 1.4;
+  font-weight: 300;
 }
 .last-text{
   margin: 0;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-size: 19px;
   white-space: pre-line;
   line-height: 1.4;
@@ -153,7 +152,10 @@ export default {
   }
 
   .section-2{
-    width: 100%;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 5%;
   }
 

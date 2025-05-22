@@ -164,7 +164,7 @@ form {
   font-size: 25px;
   padding-top: 3%;
   padding-bottom: 1%;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 
 .wrapper .form {
@@ -319,7 +319,6 @@ form {
     max-width: 40rem;
     border-radius: 12px;
     padding: 1rem;
-    background-color: #ffffff;
   }
   .wrapper .headline h1  {
     font-size: 25px;

@@ -62,6 +62,7 @@ export default {
 .tables {
   margin-left: 2%;
   margin-right: 2%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .blue-text {

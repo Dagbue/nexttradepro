@@ -142,11 +142,10 @@ export default {
   margin-bottom: 0;
   text-align: center;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: 600;
   font-size: 21px;
   line-height: 30px;
-  font-family: 'BR-Firma-Bold', sans-serif;
 }
 
 .text-area p{
@@ -155,7 +154,7 @@ export default {
   text-align: center;
   letter-spacing: 0.5px;
   color: #818a91;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   line-height: 24px;
 }

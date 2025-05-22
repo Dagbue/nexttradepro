@@ -63,11 +63,12 @@ export default {
 }
 .text-1{
   font-size: 18px;
-  color: #ffffff;
-  width: 80%;
+  color: #0A0A0AFF;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-weight: 300;
 }
 
 .inner{
@@ -75,7 +76,7 @@ export default {
   height: 300px;
   margin-top: 3%;
   border-radius: 10px;
-  border: 1.5px solid rgba(133, 153, 166, 0.2);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .section{
@@ -94,7 +95,7 @@ export default {
 
 .text-2{
   font-size: 19px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -109,6 +110,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  font-weight: 300;
 }
 
 
@@ -118,7 +120,8 @@ export default {
 
 @media (max-width: 700px) {
   .alpha{
-    margin-top: 25%;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
 
@@ -151,8 +154,5 @@ export default {
     padding-top: 1%;
   }
 
-  .alpha{
-    margin-top: 33%;
-  }
 }
 </style>

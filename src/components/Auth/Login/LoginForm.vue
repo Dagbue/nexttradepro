@@ -184,7 +184,7 @@ form {
 .wrapper .headline h2 {
   font-weight: 400;
   font-size: 23px;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .wrapper .form {
@@ -267,14 +267,14 @@ form {
 
 .checkbox-text {
   padding-left: 8px;
-  font-size: 16px;
-  color: #ffffff;
+  font-size: 15px;
+  color: #0A0A0AFF;
 }
 
 .forgot-password {
   /*padding-left: 26%;*/
   text-decoration: none;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-size: 15px;
   float: right;
 }
@@ -288,13 +288,13 @@ form {
 .separator .line {
   height: 1px;
   flex: 0.5;
-  background-color: #ffffff;
+  background-color: #0A0A0AFF;
 }
 
 .separator h2 {
   padding: 0 1rem;
   font-size: 12px;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .create-acc {
@@ -304,7 +304,7 @@ form {
 }
 .create-text {
   font-size: 15px;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 .create-link {
   padding-left: 5px;

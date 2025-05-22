@@ -188,7 +188,7 @@ export default {
 }
 .section-header-1{
   font-size: 30px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: bold;
   text-align: center;
   padding-bottom: 0.5%;

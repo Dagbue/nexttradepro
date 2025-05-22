@@ -10,9 +10,11 @@
 
         <div class="text-part">
           <p class="text-3">TopShares Pro</p>
-          <p class="text-1">Access the world of trading <br/> with ease.</p>
+          <p class="text-1">Access the world of trading <br class="breaker"/> with ease.</p>
           <p class="text-2">Strategically Build and Grow Your Next High-Performance Trading Portfolio with Confidence
             and Precision.</p>
+          <p class="text-2">Leverage powerful tools, data-driven insights, and proven strategies tailored to your
+            unique investment goals.</p>
 
           <!--          <div class="button-part">-->
           <!--            <button class="btn1" @click="onPostClick2">Login Account</button>-->
@@ -49,7 +51,7 @@ export default {
 
 <style scoped>
 .alpha{
-  background-color: hsla(0, 0%, 4%, .8);
+  background-color: hsla(0, 0%, 4%, 1);
   height: 600px;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -97,16 +99,17 @@ span{
   line-height: 1;
   white-space: pre-line;
   margin-bottom: 10px;
-  font-family: 'BR-Firma-Bold', sans-serif;
   color: #FFFFFF;
+  font-weight: 700;
 }
 
 .text-2{
   margin: 0;
   font-size: 18px;
   white-space: pre-line;
-  line-height: 1.15;
+  line-height: 1.25;
   color: #8599a6;
+  font-weight: 300;
 }
 
 .text-3{
@@ -154,6 +157,7 @@ span{
   }
   .section-1{
     width: 100%;
+    margin-bottom: 5%;
   }
 
   .section-2{
@@ -197,6 +201,10 @@ span{
     padding-top: 10%;
     padding-bottom: 10%;
     height: 100%;
+  }
+
+  .breaker{
+    display: none;
   }
 }
 

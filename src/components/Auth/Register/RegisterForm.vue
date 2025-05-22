@@ -623,7 +623,7 @@ form {
   margin-left: auto;
   margin-right: auto;
   /*margin-top: 10%;*/
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 .wrapper .headline p{
   font-size: 15px;
@@ -631,7 +631,7 @@ form {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 .wrapper .form {
   max-width: 450px;
@@ -710,13 +710,13 @@ form {
 .checkbox-text {
   padding-left: 8px;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 
 .forgot-password {
   padding-left: 26%;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
   font-size: 15px;
 }
 
@@ -729,13 +729,13 @@ form {
 .separator .line {
   height: 1px;
   flex: 0.5;
-  background-color: #FFFFFF;
+  background-color: #0A0A0AFF;
 }
 
 .separator h2 {
   padding: 0 1rem;
   font-size: 12px;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 
 .create-acc {
@@ -745,7 +745,7 @@ form {
 }
 .create-text {
   font-size: 15px;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
 }
 
 .create-link {
@@ -863,7 +863,6 @@ input::placeholder {
     max-width: 80rem;
     border-radius: 12px;
     padding: unset;
-    background-color: #ffffff;
   }
   .wrapper .headline h1  {
     font-size: 25px;

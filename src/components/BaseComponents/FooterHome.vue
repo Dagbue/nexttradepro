@@ -436,6 +436,10 @@ a{
     width: 45%;
   }
 
+  .footer-partner{
+    width: 55%;
+  }
+
 }
 @media (max-width: 500px) {
   .copyright{

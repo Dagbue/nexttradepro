@@ -16,7 +16,7 @@ body{
   cursor: pointer;
   counter-reset: Serial;
   font-family: 'Capsule', sans-serif;
-  background: #000000;
+  background: hsla(0, 0%, 100%, 1.0);
 }
 a{
   text-decoration: none;
@@ -91,40 +91,6 @@ input[type=number] {
   transition: all 0.4s ease-out;
 }
 
-
-.whatsapp_float {
-  position: fixed;
-  width: 55px;
-  height: 55px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #25d366;
-  color: #fff;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  z-index: 100;
-}
-
-.bxl-whatsapp {
-  position: absolute;
-  top: 21%;
-  right: 22.5%;
-}
-
-/* for mobile */
-@media screen and (max-width: 767px){
-  .whatsapp-icon {
-    margin-top: 10px;
-  }
-  .whatsapp_float {
-    width: 40px;
-    height: 40px;
-    bottom: 20px;
-    right: 10px;
-    font-size: 22px;
-  }
-}
 
 </style>
 

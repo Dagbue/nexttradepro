@@ -1,70 +1,60 @@
 <template>
-  <div class="alpha">
+  <section class="hero">
+    <div class="hero-content">
 
-    <div class="section-alpha">
-
-      <div class="section-1">
-        <p class="text-1">
+      <div class="hero-text">
+        <p class="headline">
           A Distinguished, multi-award-winning provider of stock market solutions.
         </p>
-        <p class="text-2">
+        <p class="subtext">
           We are proud to offer traders advanced and innovative trading platform technologies designed for
           performance and reliability.
         </p>
 
-
         <div class="button-group">
-          <div class="btn-1" @click="onPostClick">
-            Open Account
-          </div>
-          <div class="btn-2" @click="onPostClick2">
-            Trading Platform
-          </div>
+          <button class="btn-primary" @click="onPostClick">Open Account</button>
+          <button class="btn-secondary" @click="onPostClick2">Trading Platform</button>
         </div>
 
-        <p class="text-3">*Equity and index fund trading utilizing advanced charting and analytical tools.</p>
+        <p class="fine-print">
+          *Equity and index fund trading utilizing advanced charting and analytical tools.
+        </p>
       </div>
 
-      <div class="section-2">
-        <img src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcrypto-futures.0d36e92f.png&w=3840&q=75" alt="" class="image" />
+      <div class="hero-image">
+        <img
+            src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcrypto-futures.0d36e92f.png&w=3840&q=75"
+            alt="Trading Illustration"
+        />
       </div>
-
 
     </div>
 
-    <div class="section-3">
-      <div class="section-3-inner">
-        <img width="48" height="48" src="https://img.icons8.com/fluency/48/compass.png" alt="compass"/>
-        <p class="section-3-text">Enhanced Tools</p>
+    <div class="hero-features">
+      <div class="feature">
+        <img src="https://img.icons8.com/fluency/48/compass.png" alt="compass" />
+        <p>Enhanced Tools</p>
       </div>
-
-      <div class="section-3-inner">
-        <img width="48" height="48" src="https://img.icons8.com/fluency/48/book--v1.png" alt="book--v1"/>
-        <p class="section-3-text">Trading Guides</p>
+      <div class="feature">
+        <img src="https://img.icons8.com/fluency/48/book--v1.png" alt="book" />
+        <p>Trading Guides</p>
       </div>
-
-      <div class="section-3-inner">
-        <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/lightning-bolt.png" alt="lightning-bolt"/>
-        <p class="section-3-text">Fast execution</p>
+      <div class="feature">
+        <img src="https://img.icons8.com/ultraviolet/40/lightning-bolt.png" alt="speed" />
+        <p>Fast Execution</p>
       </div>
-
-      <div class="section-3-inner">
-        <img width="40" height="40" src="https://img.icons8.com/ultraviolet/40/discount.png" alt="discount"/>
-        <p class="section-3-text">0% Commission</p>
+      <div class="feature">
+        <img src="https://img.icons8.com/ultraviolet/40/discount.png" alt="discount" />
+        <p>0% Commission</p>
       </div>
     </div>
-
-  </div>
+  </section>
 </template>
+
 
 <script>
 export default {
   name: "HeroSection",
-  data() {
-    return {
-      currentIndex: 0,
-    };
-  },
   methods: {
     onPostClick() {
       this.$router.push("/register");
@@ -72,229 +62,144 @@ export default {
     onPostClick2() {
       this.$router.push("/login");
     },
-  }
-}
+  },
+};
 </script>
 
+
 <style scoped>
-.section-alpha{
-  height: 570px;
-}
-.items-switch .active {
-  display: inline; /* Show only active item */
-}
-.items-switch .active {
-  display: inline; /* Show only active item */
+
+.hero {
+  padding: 2rem 1rem;
 }
 
-.items-switch span {
-  display: none; /* Hide all by default */
-}
-.section-alpha{
+.hero-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  align-content: center;
-  /*flex-direction: column;*/
+  gap: 2rem;
 }
 
-.section-1{
-  /*margin-top: 50px;*/
-  margin-left: 5%;
-  width: 40%;
+.hero-text {
+  max-width: 600px;
+  text-align: center;
 }
 
-.section-2{
-  /*margin-bottom: -10px;*/
-  width: 55%;
+.headline {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #191C1F;
+  margin-bottom: 1rem;
 }
 
-video{
-  width: 100%;
-  border-radius: 30px;
-}
-.text-1{
-  font-size: 40px;
-  line-height: 43px;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-.text-2{
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: -0.015em;
+.subtext {
+  font-size: 1rem;
   color: #8599a6;
-  margin-bottom: 24px;
-  display: flex;
-  align-content: center;
-  align-items: center;
-  padding-top: 2%;
+  margin-bottom: 1.5rem;
 }
 
-.text-3{
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.02em;
+.fine-print {
+  font-size: 0.85rem;
   color: #8599a6;
-  padding-top: 5%;
+  margin-top: 1.5rem;
 }
 
-.btn-1{
+.button-group {
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  height: 46px;
-  padding: 8px 20px;
-  border-radius: 10px;
-  gap: 8px;
-  background: #007aff;
-  border: 1px solid #007aff;
-  color: #ffffff;
-  width: 160px;
-}
-.btn-2{
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  height: 46px;
-  padding: 8px 20px;
-  border-radius: 10px;
-  gap: 8px;
-  background: transparent;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  width: 160px;
-}
-
-.image{
-  width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-.button-group{
-  display: flex;
+  gap: 1rem;
   justify-content: left;
-  gap: 10px;
+  flex-wrap: wrap;
 }
 
-.section-3-inner{
-  display: flex;
-  align-items: center;
-  align-content: center;
-  gap: 2px;
-}
-.section-3-text{
-  color: #FFFFFF;
+button {
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  transition: background 0.3s ease;
 }
 
-.section-3{
+.btn-primary {
+  background-color: #007aff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0063cc;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid rgba(133, 153, 166, 0.2);
+  color: #191C1F;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+.hero-features {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature {
+  display: flex;
   align-items: center;
-  align-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: #191C1F;
 }
 
+/* Responsive Breakpoints */
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-@media (max-width: 990px) {
+  .hero-text {
+    text-align: left;
+    max-width: 45%;
+  }
 
+  .hero-image {
+    max-width: 50%;
+  }
 }
 
-@media (max-width: 700px) {
-
-  .section-alpha{
-    height: 100%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+@media (max-width: 480px) {
+  .headline {
+    font-size: 1.5rem;
   }
 
-  .section-alpha{
-    display: block;
+  .subtext {
+    font-size: 0.9rem;
   }
 
-  .section-1{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  .fine-print {
+    font-size: 0.75rem;
   }
 
-  .text-1{
-    font-size: 35px;
-    line-height: 40px;
-    margin-bottom: 8px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .text-2{
-    font-size: 15px;
-    line-height: 22px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .btn-1{
-    height: 40px;
-    padding: 8px 16px;
-    gap: 6px;
-    width: 160px;
-    font-size: 14px;
-  }
-
-  .btn-2{
-    height: 40px;
-    padding: 8px 16px;
-    gap: 6px;
-    width: 160px;
-    font-size: 14px;
-  }
-
-  .button-group{
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .section-2{
-    display: block;
-    margin-left: auto;
-    margin-right: 10%;
-    margin-top: 5%;
+  button {
     width: 100%;
   }
 
-  .section-1{
-    width: 100%;
-  }
-
-  video{
-    width: 100%;
-    border-radius: 30px;
-  }
-
-}
-
-@media (max-width: 500px) {
-  .text-1{
-    font-size: 35px;
-    line-height: 40px;
-    margin-bottom: 9px;
-  }
-
-  .text-2{
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
+  .button-group {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }
+
+
 </style>

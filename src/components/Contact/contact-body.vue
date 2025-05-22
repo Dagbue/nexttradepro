@@ -178,7 +178,7 @@ export default {
   font-size: 36px;
   line-height: 44px;
   padding-bottom: 10px;
-  color: #ffffff;
+  color: #0A0A0AFF;
 }
 
 .contact-form_paragraph {
@@ -187,6 +187,7 @@ export default {
   line-height: 30px;
   padding-bottom: 6%;
   color: #8599a6;
+  font-weight: 300;
 }
 
 .contact-form input[type="email"],
@@ -230,7 +231,7 @@ export default {
 .contact-form textarea,
 .contact-form .button {
   font-size: 15px;
-  border: solid 1px #007aff;
+  border: solid 1px rgba(10, 10, 10, 0.15);
 }
 
 .form-separate{
@@ -253,6 +254,7 @@ export default {
   padding-left: 8px;
   color: #8599a6;
   font-size: 16px;
+  font-weight: 300;
 }
 
 .label-input{

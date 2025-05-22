@@ -53,7 +53,7 @@ export default {
   margin-bottom: 5%;
 }
 .header{
-  color: #FFFFFF;
+  color: #0A0A0AFF;
   font-size: 1.7rem;
   line-height: 1.2;
   font-weight: 600;
@@ -63,11 +63,11 @@ export default {
   color: #8599a6;
   font-size: 1.294rem;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .section-1{
-  box-shadow: rgba(133, 153, 166, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   max-width: 300px;
   min-width: min(100% - 40px, 260px);
   width: 100%;
@@ -78,12 +78,12 @@ export default {
 }
 
 .text-1{
-  font-size: 20px;
-  font-family: 'BR-Firma-Bold', sans-serif;
+  font-size: 19px;
   line-height: 26px;
   margin-bottom: 10px;
   margin-top: 0;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
+  font-weight: 600;
 }
 
 .text-2{
@@ -91,6 +91,7 @@ export default {
   font-size: 16px;
   line-height: 22px;
   margin-bottom: 30px;
+  font-weight: 300;
 }
 
 .section-alpha{
@@ -105,5 +106,47 @@ export default {
   width: 35%;
   margin-top: 5%;
   margin-bottom: 12%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-section{
+    margin-left: unset;
+    text-align: center;
+  }
+  .header{
+    font-size: 1.5rem;
+    line-height: 1;
+
+  }
+
+  .sub-header{
+    font-size: 1rem;
+    line-height: 1.25;
+    width: 90%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5px;
+  }
+
+  .section-alpha{
+    display: block;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .section-1{
+    display: block;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+
 }
 </style>

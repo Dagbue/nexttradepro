@@ -127,6 +127,7 @@ h4{
 
 p{
   font-size: 15px;
+  font-weight: 300;
 }
 
 @keyframes modal {

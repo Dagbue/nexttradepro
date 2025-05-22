@@ -1,7 +1,7 @@
 <template>
   <div class="alpha">
-    <p class="section-header-1">We’re on a mission to democratize <br/> finance for all.</p>
-    <p class="section-header">At TopShares Pro Markets, our values are in service of our customers. We strive to
+    <p class="section-header-1">We’re on a mission to democratize <br class="breaker"/> finance for all.</p>
+    <p class="section-header">At <span style="color: #3760ff;">TopShares Pro </span>Markets, our values are in service of our customers. We strive to
       uphold our <br/> values every day.</p>
 
 
@@ -10,7 +10,7 @@
       <div class="section-1">
 
         <div class="text-part">
-          <p class="text-1">About TopShares Pro</p>
+          <p class="text-1">About <span style="color: #3760ff;">TopShares Pro</span></p>
           <p class="text-2">Crypto creates economic freedom by ensuring that people can participate fairly in the
             economy, and TopShares Pro is on a mission to increase economic freedom for more than 1 billion people.
             We’re updating the century-old financial system by providing a trusted platform that makes it easy for
@@ -62,17 +62,9 @@ export default {
 
 .alpha{
   padding-top: 5%;
-  padding-bottom: 5%;
-
+  padding-bottom: 2%;
 }
 
-.section-1{
-  width: 50%;
-}
-
-.section-2{
-  width: 50%;
-}
 
 .section-header{
   font-size: 17px;
@@ -83,26 +75,27 @@ export default {
 }
 .section-header-1{
   font-size: 30px;
-  color: #ffffff;
+  color: #0A0A0AFF;
   font-weight: bold;
   padding-bottom: 0.5%;
   text-align: center;
 }
 .section-alpha{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   align-content: center;
-  margin-top: 3%;
+  margin-top: 2%;
   margin-right: 5%;
 }
 
 .image{
-  width: 80%;
+  width: 100%;
   display: block;
   margin-right: auto;
   margin-left: auto;
   border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .text-part{
@@ -116,18 +109,19 @@ export default {
 .text-1{
   font-size: 28px;
   line-height: 24px;
-  font-weight: 500;
   white-space: pre-line;
   margin-bottom: 10px;
-  color: #FFFFFF;
+  color: #0A0A0AFF;
+  font-weight: 700;
 }
 
 .text-2{
   margin: 0;
   font-size: 18px;
   white-space: pre-line;
-  line-height: 1.4;
+  line-height: 1.3;
   color: #8599a6;
+  font-weight: 300;
 }
 
 @media (max-width: 700px) {
@@ -137,7 +131,8 @@ export default {
     margin-right: 8%;
   }
   .section-header-1{
-    font-size: 26px;
+    font-size: 25px;
+    margin-bottom: 10px;
   }
   .section-alpha{
     display: block;
@@ -168,16 +163,19 @@ export default {
   .text-part{
     width: 85%;
   }
+  .breaker{
+    display: none;
+  }
 }
 
 
 @media (max-width: 500px) {
 
   .text-part{
-    width: 85%;
+    width: 95%;
   }
   .section-header-1{
-    width: 90%;
+    width: 95%;
     display: block;
     margin-left: auto;
     margin-right: auto;

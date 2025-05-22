@@ -1,28 +1,6 @@
 <template>
   <div v-if="!$route.meta.hideNavigation" >
 <ticker-tape-widget/>
-<!--    <div class="topmost-header">-->
-<!--      <div class="topmost-header-1">-->
-
-<!--&lt;!&ndash;        <p class="topmost-header-text">&ndash;&gt;-->
-<!--&lt;!&ndash;          <i class='bx bxs-map' ></i>&ndash;&gt;-->
-<!--&lt;!&ndash;          53 Bristol Road Bristol Road, Chippenham, England, SN15 1NT&ndash;&gt;-->
-<!--&lt;!&ndash;        </p>&ndash;&gt;-->
-
-
-<!--          <p class="topmost-header-text">-->
-<!--            <i class='bx bx-mail-send' style='color:#ffffff'></i>-->
-<!--            support@earlywealthtrd.com-->
-<!--          </p>-->
-
-<!--        <p class="topmost-header-text">-->
-<!--          <i class='bx bxs-time-five' ></i>Mon – Sat: 9:00am–18:00pm.-->
-<!--        </p>-->
-<!--        &lt;!&ndash;        <p class="topmost-header-text">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <i class='bx bxl-whatsapp-square'></i> +1 (510) 256-9690&ndash;&gt;-->
-<!--        &lt;!&ndash;        </p>&ndash;&gt;-->
-<!--      </div>-->
-<!--    </div>-->
 
     <div class="separate">
 
@@ -37,12 +15,6 @@
                 <router-link  to="/about">About Us</router-link>
               </div>
             </li>
-
-<!--            <li class="link">-->
-<!--              <div class="dropdown-navigation">-->
-<!--                <router-link  to="/loans">Loans</router-link>-->
-<!--              </div>-->
-<!--            </li>-->
 
             <li class="link">
               <div class="dropdown-navigation">
@@ -229,7 +201,7 @@ export default {
   font-size: 30px;
   cursor: pointer;
   transition: .8s ease all;
-  color: #ffffff;
+  color: #191C1F;
 }
 .icon-active{
   transform: rotate(180deg);
@@ -255,10 +227,11 @@ export default {
   list-style: outside none none;
   /*margin: 0 0.8em;*/
   overflow: hidden;
-  font-weight: bold;
-  font-size: 15px;
+  font-weight: 400;
+  font-size: 17px;
   align-items: center;
   align-content: center;
+  letter-spacing: 0.8px;
 }
 
 
@@ -291,7 +264,7 @@ export default {
 .auth{
   background-color: transparent;
   border: 1px solid #d0d0d0;
-  color: #ffffff;
+  color: #191C1F;
   padding: 0.6em 25px 0.5em 30px;
   border-radius: 12px;
   position: relative;
@@ -325,37 +298,6 @@ export default {
 
 
 
-.topmost-header {
-  /*background-color: #143159;*/
-  padding-top: 10px;
-  padding-bottom: 10.5px;
-  color: #FFFFFF;
-  /*display: flex;*/
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  /*background-color: #070e20;*/
-  background-color: #0a1538;
-}
-
-.topmost-header-1 {
-  display: flex;
-  justify-content: right;
-}
-
-.topmost-header-text {
-  font-size: 15px;
-  padding-right: 28px;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-  font-weight: 900;
-}
-.topmost-header-text:hover {
-  text-decoration: underline;
-}
-
-
 
 i{
   padding-right: 4px;
@@ -380,16 +322,19 @@ i{
 }
 
 .logo2{
-  width: 40%;
+  width: 90%;
   margin-top: 20px;
   margin-bottom: 10px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 5px 10px;
 }
 
 .dropdown-nav li {
   overflow: hidden;
   list-style: none;
   height: 100%;
-  color: #ffffff;
+  color: #191C1F;
 }
 
 .dropdown-nav * {
@@ -399,7 +344,7 @@ i{
 }
 .dropdown-nav a {
   padding: 0.3em 0;
-  color: #ffffff;
+  color: #191C1F;
   position: relative;
   display: inline-block;
   letter-spacing: 1px;
@@ -420,7 +365,6 @@ i{
   height: 3px;
   width: 100%;
   content: "";
-  /*background-color: #D23535;*/
 }
 
 .dropdown-nav a:after {
@@ -429,7 +373,7 @@ i{
   bottom: 100%;
   left: 0;
   content: attr(data-hover);
-  color: #ffffff;
+  color: #191C1F;
   white-space: nowrap;
 }
 
@@ -481,7 +425,7 @@ li {
 
 a {
   display: block;
-  color: #ffffff;
+  color: #191C1F;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -491,7 +435,7 @@ a {
 
 .dropdown-navigation {
   display: inline-block;
-  color: #ffffff;
+  color: #191C1F;
 }
 
 
@@ -588,18 +532,13 @@ a {
 }
 
 
-
-@media (min-width: 1286px) {
-
-}
-
 @media (max-width: 990px) {
   .style-4 {
     display: flex;
     justify-content: space-between;
   }
   .logo {
-    width: 20%;
+    width: 40%;
     padding-left: unset;
     margin-left: 10px;
   }
@@ -608,12 +547,6 @@ a {
     justify-content: space-between;
     align-content: center;
     align-items: center;
-  }
-}
-
-@media (max-width: 861px) {
-  .topmost-header {
-    display: none;
   }
 }
 
@@ -638,7 +571,7 @@ a {
   }
 
   .logo {
-    width: 40%;
+    width: 50%;
     padding-left: unset;
     margin-left: 10px;
   }

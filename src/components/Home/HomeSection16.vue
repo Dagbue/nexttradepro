@@ -26,21 +26,12 @@
         <p class="text-2">Choose from 6,000+ leading stocks on 20 exchanges</p>
       </div>
 
-      <!--      <div class="section-1">-->
-      <!--        <i class='bx bx-check-shield'></i>-->
-      <!--        <p class="text-1">Fund protection</p>-->
-      <!--        <p class="text-2">Market movers adheres to strict standards of investor protection and safeguarding</p>-->
-      <!--      </div>-->
-
     </div>
 
     <div class="button-group">
       <div class="btn-1" @click="onPostClick">
         Open Your Account
       </div>
-      <!--          <div class="btn-1" @click="onPostClick2">-->
-      <!--            LogIn-->
-      <!--          </div>-->
     </div>
 
 
@@ -69,7 +60,7 @@ export default {
   margin-bottom: 5%;
   padding-bottom: 5%;
   padding-top: 5%;
-  background-color: hsla(0, 0%, 4%, .8);
+  background-color: hsla(0, 0%, 4%, 1);
 }
 
 
@@ -151,6 +142,9 @@ export default {
   /*margin-bottom: 30px;*/
 }
 
+.btn-1:hover {
+  background-color: #0063cc;
+}
 
 .button-group{
   display: flex;
@@ -158,6 +152,45 @@ export default {
   align-content: center;
   justify-content: center;
   margin-top: 2%;
+}
+
+/* -------- Responsive styles -------- */
+
+/* Medium screens (tablets and below) */
+@media (max-width: 768px) {
+  .header{
+    font-size: 22px;
+  }
+
+  .sub-header{
+    font-size: 16px;
+    width: 95%;
+  }
+
+  .section-alpha{
+    display: block;
+  }
+
+  .section-1{
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .alpha{
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+
+  .btn-1{
+    width: 300px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+
 }
 
 </style>

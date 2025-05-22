@@ -1,6 +1,6 @@
 <template>
   <div class="alpha">
-    <p class="header">Our Core Products</p>
+    <p class="header">Our Core <span style="color: #3760ff;">Products</span></p>
 
     <div class="section-alpha">
 
@@ -55,30 +55,31 @@ export default {
 
 .header{
   text-align: center;
-  color: #FFFFFF;
-  font-size: 35px;
-  font-family: 'BR-Firma-Bold', sans-serif;
+  color: #0A0A0AFF;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .text-1{
-  color: #FFFFFF;
+  color: #0A0A0AFF;
   text-align: center;
-  font-size: 25px;
+  font-size: 23px;
   margin-top: 1%;
   margin-bottom: 3%;
 }
 
 .text-2{
-  color: #FFFFFF;
+  color: #8599a6;
   font-size: 14px;
   text-align: center;
+  font-weight: 300;
 }
 
 .section-alpha{
   display: flex;
   justify-content: space-evenly;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
 
 .section-1{

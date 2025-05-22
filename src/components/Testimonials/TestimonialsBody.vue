@@ -111,7 +111,7 @@ export default {
 }
 
 .snip1533 {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   color: #ffffff;
   display: inline-block;
   font-size: 16px;
