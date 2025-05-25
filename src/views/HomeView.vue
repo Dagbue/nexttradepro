@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <slider-view/>
     <hero-section/>
     <home-section12/>
     <home-section13/>
@@ -23,10 +24,12 @@ import ReadyToWork from "@/components/BaseComponents/ReadyToWork.vue";
 import HomeSection15 from "@/components/Home/HomeSection15.vue";
 import HomeSection16 from "@/components/Home/HomeSection16.vue";
 import Section6 from "@/components/Home/Section6.vue";
+import SliderView from "@/components/Home/slideshow/sliderView.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    SliderView,
     Section6,
     HomeSection16,
     HomeSection15,

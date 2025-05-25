@@ -209,8 +209,8 @@ export default {
 
 .logo {
   width: 17%;
-  margin-top: 1%;
-  margin-bottom: 0.5%;
+  margin-top: 0.5%;
+  margin-bottom: 1%;
 }
 
 .style-4 {

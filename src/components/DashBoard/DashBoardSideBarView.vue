@@ -224,10 +224,16 @@ export default {
 }
 .afo-logo{
   width: 100%;
+  background-color: #FFFFFF;
+  padding: 10px 5px;
+  border-radius: 5px;
 }
 .afo-logo-2{
   width: 100%;
   margin-left: 10%;
+  background-color: #FFFFFF;
+  padding: 5px;
+  border-radius: 10px;
 }
 body{
   position: relative;

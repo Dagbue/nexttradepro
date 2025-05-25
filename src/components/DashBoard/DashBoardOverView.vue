@@ -39,8 +39,6 @@
     </p>
 
 
-
-
     <div class="balance-section">
       <div class="balance-section-1">
         <p class="balance-text-1">Account Balance</p>
@@ -1434,72 +1432,6 @@
 
     <watch-list-table2 v-show="this.screen5 === 'watchList'" />
 
-<!--    <div class="law">-->
-<!--      <div class="section-3">-->
-
-<!--        <div class="section-3-content">-->
-<!--          <div class="content-1">-->
-<!--            <p class="content-1-text-1">BTC Balance</p>-->
-<!--            <div>-->
-<!--              <p class="content-1-text-2" >{{bitcoin}}</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="content-2">-->
-<!--            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="vl-2"></div>-->
-
-<!--        <div class="section-3-content">-->
-<!--          <div class="content-1">-->
-<!--            <p class="content-1-text-1">Main Balance</p>-->
-<!--            <div>-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-if="approved2 === 'approved'">£ {{this.contacts.withdrawal}}</p>&ndash;&gt;-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-else-if="approved2 === 'Pending'">£ ...</p>&ndash;&gt;-->
-<!--              <p class="content-1-text-2" >$ {{UserDetails.user.totalDepositedAmount - UserDetails.user.totalWithdrawals | formatAmount2}}</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="content-2">-->
-<!--            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="vl-2"></div>-->
-
-<!--        <div class="section-3-content">-->
-<!--          <div class="content-1">-->
-<!--            <p class="content-1-text-1">Invested Amount</p>-->
-<!--            <div>-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-if="approved === 'approved'">£ {{this.contacts.profits}}</p>&ndash;&gt;-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-else-if="approved === 'Pending'">£ ...</p>&ndash;&gt;-->
-<!--              <p class="content-1-text-2" >$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="content-2">-->
-<!--            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--        <div class="vl-2"></div>-->
-
-<!--        <div class="section-3-content">-->
-<!--          <div class="content-1">-->
-<!--            <p class="content-1-text-1">Currency</p>-->
-<!--            <div>-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-if="approved === 'approved'">£ {{this.contacts.bonusMain}}</p>&ndash;&gt;-->
-<!--              &lt;!&ndash;              <p class="content-1-text-2" v-else-if="approved === 'Pending'">£ ...</p>&ndash;&gt;-->
-<!--              <p class="content-1-text-2" >Dollars</p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="content-2">-->
-<!--            <img src="@/assets/wallet-number-icon.svg" alt="wallet-balance-icon"/>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </div>-->
-
 
     </div>
 
@@ -1509,7 +1441,6 @@
 import StoreUtils from "@/utility/StoreUtils";
 import TradeRequest from "@/model/request/TradeRequest";
 import {mapState} from "vuex";
-// import IntroMessageModal from "@/components/BaseComponents/modal/IntroMessageModal.vue";
 import WatchListTable from "@/components/BaseComponents/tables/WatchListTable.vue";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import WatchListTable2 from "@/components/BaseComponents/tables/WatchListTable2.vue";
@@ -1988,7 +1919,7 @@ export default {
 }
 
 .balance-section-1{
-  background-color: rgb(10 18 39);
+  background-color: rgb(7 12 20);
   padding: 1.2rem;
   width: 310px;
   height: 160px;
@@ -1996,7 +1927,7 @@ export default {
 }
 
 .balance-section-1-last{
-  background-color: rgb(10 18 39);
+  background-color: rgb(7 12 20);
   padding: 1.2rem;
   width: 210px;
   height: 160px;
@@ -2054,7 +1985,7 @@ export default {
 }
 
 .navigation-bar{
-  background-color: rgb(10 18 39);
+  background-color: rgb(7 12 20);
   display: flex;
   justify-content: space-evenly;
   align-content: center;

@@ -5,7 +5,7 @@
       <div class="section-1">
         <p class="section-1-text-1">Trading products</p>
         <p class="section-1-text-2">
-          Select from six diverse asset classes and gain access to <br />
+          Select from six diverse asset classes and gain access to <br class="breaker" />
           over 180 trading instruments.
         </p>
       </div>
@@ -41,9 +41,9 @@ export default {
 
 <style scoped>
 .alpha {
-  background-color: hsla(0, 0%, 4%, 1);
-  margin-top: 3%;
-  padding: 4% 5%;
+  background-color: hsla(0, 0%, 4%, 0.95);
+
+  padding: 5% 5%;
 }
 
 .section-alpha {
@@ -126,7 +126,7 @@ export default {
 
   .section-2 {
     justify-content: space-around;
-    flex: 2 1 300px;
+    flex: 2 1 225px;
   }
 }
 
@@ -147,6 +147,9 @@ export default {
 
   .section-1-text-2 {
     font-size: 0.875rem;
+  }
+  .breaker{
+    display: none;
   }
 }
 </style>

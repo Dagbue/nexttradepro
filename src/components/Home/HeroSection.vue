@@ -1,6 +1,6 @@
 <template>
   <section class="hero">
-    <div class="hero-content">
+    <div style="display: none" class="hero-content">
 
       <div class="hero-text">
         <p class="headline">
@@ -32,11 +32,11 @@
 
     <div class="hero-features">
       <div class="feature">
-        <img src="https://img.icons8.com/fluency/48/compass.png" alt="compass" />
+        <img width="52" height="52" src="https://img.icons8.com/3d-fluency/94/administrative-tools.png" alt="administrative-tools"/>
         <p>Enhanced Tools</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/fluency/48/book--v1.png" alt="book" />
+        <img width="52" height="52" src="https://img.icons8.com/3d-fluency/94/candle-sticks.png" alt="candle-sticks"/>
         <p>Trading Guides</p>
       </div>
       <div class="feature">
@@ -44,7 +44,7 @@
         <p>Fast Execution</p>
       </div>
       <div class="feature">
-        <img src="https://img.icons8.com/ultraviolet/40/discount.png" alt="discount" />
+        <img width="52" height="52" src="https://img.icons8.com/3d-fluency/94/statistics-report.png" alt="statistics-report"/>
         <p>0% Commission</p>
       </div>
     </div>
@@ -70,7 +70,7 @@ export default {
 <style scoped>
 
 .hero {
-  padding: 2rem 1rem;
+  padding: 0 1rem 1.5rem 1rem;
 }
 
 .hero-content {

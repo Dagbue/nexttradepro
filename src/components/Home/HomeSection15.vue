@@ -67,8 +67,8 @@ export default {
 
 /* Vertical line */
 .vl {
-  border-left: 1px solid #0A0A0AFF;
-  height: 100px;
+  border-left: 1px solid #8599a6;
+  height: 90px;
 }
 
 /* Text styles */

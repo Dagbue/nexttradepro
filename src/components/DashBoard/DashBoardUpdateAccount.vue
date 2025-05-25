@@ -68,7 +68,7 @@
 
           </div>
 
-
+          <p style="color: #FFFFFF">{{this.base64}}</p>
           <div v-if="this.url === ''" class="separate">
             <div class="form-group">
               <label class="id">Identification Card (Upload front of ID card for verification)</label>
@@ -354,7 +354,7 @@ export default {
   background-color: #0f171c;
   padding: 30px 40px;
   width: 100%;
-  max-width: 500px;
+  max-width: 700px;
 }
 .section-1-part-1{
   display: flex;
