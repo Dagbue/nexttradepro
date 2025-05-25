@@ -45,11 +45,11 @@
         <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount - UserDetails.user.totalWithdrawals | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Realized Profit</p>
-          <p class="balance-text-4">$19,757,490</p>
+          <p class="balance-text-4">$0</p>
         </div>
         <div class="balance-section-1-inner">
           <p class="balance-text-5">BTC Balance</p>
-          <p class="balance-text-6">{{bitcoin}}</p>
+          <p class="balance-text-4">{{bitcoin}}</p>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Realized Profit</p>
-          <p class="balance-text-4">127.28%</p>
+          <p class="balance-text-4">0%</p>
         </div>
         <div class="balance-section-1-inner">
           <p class="balance-text-5">Withdrawal</p>
@@ -71,11 +71,11 @@
         <p class="balance-text-2">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Profit</p>
-          <p class="balance-text-4">$10,000</p>
+          <p class="balance-text-4">$0</p>
         </div>
         <div class="balance-section-1-inner">
           <p class="balance-text-5">Loss</p>
-          <p class="balance-text-6">- $2,000</p>
+          <p class="balance-text-6">- $0</p>
         </div>
       </div>
 
@@ -87,13 +87,58 @@
       </div>
     </div>
 
+<!--    <div class="navigation-bar">-->
+<!--      <p class="navigation-bar-text-1" @click="changeScreen">PnL Calculator</p>-->
+<!--      <p class="navigation-bar-text-1 " @click="changeScreen2">Place Trade</p>-->
+<!--      <p class="navigation-bar-text-1" @click="changeScreen3">Trading history</p>-->
+<!--      <p class="navigation-bar-text-1" @click="changeScreen4">Buying</p>-->
+<!--      <p class="navigation-bar-text-1" @click="changeScreen5">Selling</p>-->
+<!--      <p class="navigation-bar-text-1" @click="changeScreen6">Watchlist</p>-->
+<!--    </div>-->
+
     <div class="navigation-bar">
-      <p class="navigation-bar-text-1" @click="changeScreen">PnL Calculator</p>
-      <p class="navigation-bar-text-1 " @click="changeScreen2">Place Trade</p>
-      <p class="navigation-bar-text-1" @click="changeScreen3">Trading history</p>
-      <p class="navigation-bar-text-1" @click="changeScreen4">Buying</p>
-      <p class="navigation-bar-text-1" @click="changeScreen5">Selling</p>
-      <p class="navigation-bar-text-1" @click="changeScreen6">Watchlist</p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'pnl' }"
+          @click="changeScreen('pnl')"
+      >
+        PnL Calculator
+      </p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'placeTrade' }"
+          @click="changeScreen('placeTrade')"
+      >
+        Place Trade
+      </p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'TradeHistory' }"
+          @click="changeScreen('TradeHistory')"
+      >
+        Trading history
+      </p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'Buying' }"
+          @click="changeScreen('Buying')"
+      >
+        Buying
+      </p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'Selling' }"
+          @click="changeScreen('Selling')"
+      >
+        Selling
+      </p>
+      <p
+          class="navigation-bar-text-1"
+          :class="{ active: screen5 === 'watchList' }"
+          @click="changeScreen('watchList')"
+      >
+        Watchlist
+      </p>
     </div>
 
     <br/>
@@ -1455,6 +1500,7 @@ export default {
     WatchListTable,
     // IntroMessageModal
   },
+
   data () {
     return {
       model: new TradeRequest().createTrade,
@@ -1551,23 +1597,8 @@ export default {
 
   methods: {
 
-    changeScreen() {
-      this.screen5 = "pnl"
-    },
-    changeScreen2() {
-      this.screen5 = "placeTrade"
-    },
-    changeScreen3() {
-      this.screen5 = "TradeHistory"
-    },
-    changeScreen4() {
-      this.screen5 = "Buying"
-    },
-    changeScreen5() {
-      this.screen5 = "Selling"
-    },
-    changeScreen6() {
-      this.screen5 = "watchList"
+    changeScreen(screen) {
+      this.screen5 = screen;
     },
 
     // This method prepares all the necessary data before the API call
@@ -1908,6 +1939,460 @@ export default {
       this.userInfo = JSON.parse(storedObject);
     }
   }
+
+  // data () {
+  //   return {
+  //     model: new TradeRequest().createTrade,
+  //     history: [],
+  //     currentPage: 1,
+  //     itemsPerPage: 5,
+  //     screen1: "Forex",
+  //     screen2: "Crypto",
+  //     screen3: "CFD",
+  //     screen4: "Stocks",
+  //     screen5: "pnl",
+  //     screen6: "RealEstate",
+  //     userId: "",
+  //     userInfo: "",
+  //     currentDate: "",
+  //     currentDate2: "",
+  //     randomString: "",
+  //     randomString2: "",
+  //     amountTrade: "",
+  //     symbolTraded: "",
+  //     tradeTime: "",
+  //     tradeType: "",
+  //     leverage: "",
+  //     dollars: 0,
+  //     // bitcoin: null,
+  //     bitcoinRate: null,
+  //     dialogIsVisible: false,
+  //     searchQuery: "", // Data property to hold the search input
+  //   }
+  // },
+  // computed:{
+  //   paginatedItems() {
+  //     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  //     const endIndex = startIndex + this.itemsPerPage;
+  //     // Filter trades based on searchQuery before slicing for pagination
+  //     const filteredTrades = this.searchQuery.trim() ?
+  //         this.readUserTrade.trades.filter(trade =>
+  //             trade.tradeReference.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.tradeType.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.symbolTraded.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.tradeStatus.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //         ) : this.readUserTrade.trades;
+  //     return filteredTrades.slice(startIndex, endIndex);
+  //   },
+  //   totalPages() {
+  //     // Recalculate total pages based on filtered trades
+  //     const filteredTrades = this.searchQuery.trim() ?
+  //         this.readUserTrade.trades.filter(trade =>
+  //             trade.tradeReference.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.tradeType.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.symbolTraded.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+  //             trade.tradeStatus.toLowerCase().includes(this.searchQuery.toLowerCase())
+  //         ) : this.readUserTrade.trades;
+  //     return Math.ceil(filteredTrades.length / this.itemsPerPage);
+  //   },
+  //   UserInfo() {
+  //     return StoreUtils.rootGetters(StoreUtils.getters.auth.getUserInfo)
+  //   },
+  //   UserDetails() {
+  //     return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+  //   },
+  //   readUserTrade() {
+  //     return StoreUtils.rootGetters(StoreUtils.getters.trade.getReadUserTrade)
+  //   },
+  //   isModalOpened() {
+  //     return StoreUtils.rootGetters(StoreUtils.getters.auth.getIsModalOpened)
+  //   },
+  //   ...mapState({
+  //     loading: state => state.trade.loading,
+  //     auth: state => state.auth,
+  //     // readUserTrade: state => state.trade.readUserTrade,
+  //     // bitcoinRate: state => state.auth.bitcoinRate,
+  //   }),
+  //   bitcoin() {
+  //     if (this.UserDetails.user && this.bitcoinRate) {
+  //       return (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
+  //     }
+  //     return 'Loading...'; // or any default value when data isn't available yet
+  //   }
+  // },
+  //
+  // watch: {
+  //   // Automatically calculate the bitcoin value when userDetails or bitcoinRate changes
+  //   UserDetails: {
+  //     deep: true, // Ensure that nested changes in UserDetails are also tracked
+  //     handler() {
+  //       this.convertToBitcoin();
+  //     }
+  //   },
+  //   bitcoinRate() {
+  //     this.convertToBitcoin();
+  //   }
+  // },
+  //
+  // methods: {
+  //
+  //   changeScreen() {
+  //     this.screen5 = "pnl"
+  //   },
+  //   changeScreen2() {
+  //     this.screen5 = "placeTrade"
+  //   },
+  //   changeScreen3() {
+  //     this.screen5 = "TradeHistory"
+  //   },
+  //   changeScreen4() {
+  //     this.screen5 = "Buying"
+  //   },
+  //   changeScreen5() {
+  //     this.screen5 = "Selling"
+  //   },
+  //   changeScreen6() {
+  //     this.screen5 = "watchList"
+  //   },
+  //
+  //   // This method prepares all the necessary data before the API call
+  //   async beforeAction() {
+  //     // Load the userId from localStorage
+  //     this.userId = localStorage.getItem('userId');
+  //     if (!this.userId) {
+  //       console.error("User ID is missing. Please log in.");
+  //       return;
+  //     }
+  //
+  //     // Generate the necessary data before making the API call
+  //     this.getCurrentDate();
+  //     this.getCurrentDateTime();
+  //     this.generateRandomString();
+  //     this.generateRandomString2();
+  //   },
+  //
+  //
+  //   hideDialog() {
+  //     this.dialogIsVisible = false;
+  //   },
+  //   showDialog() {
+  //     this.dialogIsVisible = true;
+  //   },
+  //
+  //
+  //   checkId(){
+  //     this.dialogIsVisible = this.UserDetails.user.frontId === "";
+  //   },
+  //
+  //
+  //   loadBitcoinRate() {
+  //     this.bitcoinRate = localStorage.getItem('bitcoinRate') || null;
+  //     if (!this.bitcoinRate) {
+  //       console.log('Bitcoin rate not found, please reload or check the storage.');
+  //     }
+  //   },
+  //   getUserDetails() {
+  //     // Call your Store dispatch or API to get the user details
+  //     StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
+  //       userId: localStorage.getItem('userId')
+  //     });
+  //   },
+  //
+  //
+  //   convertToBitcoin() {
+  //     if (!this.bitcoinRate) {
+  //       console.log('Bitcoin rate not loaded. Please wait or try reloading the page.');
+  //       return;
+  //     }
+  //     if (this.UserDetails.user && this.UserDetails.user.totalDepositedAmount) {
+  //       this.bitcoin = (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
+  //     } else {
+  //       console.log('User details are not available.');
+  //     }
+  //   },
+  //
+  //   onPostClick() {
+  //     this.$router.push("/fund-wallet");
+  //   },
+  //   onPostClick2() {
+  //     this.$router.push("/withdrawal");
+  //   },
+  //   previousPage() {
+  //     if (this.currentPage > 1) {
+  //       this.currentPage--;
+  //     }
+  //   },
+  //   nextPage() {
+  //     if (this.currentPage < this.totalPages) {
+  //       this.currentPage++;
+  //     }
+  //   },
+  //   goToPage(pageNumber) {
+  //     if (pageNumber > 0 && pageNumber <= this.totalPages) {
+  //       this.currentPage = pageNumber;
+  //     }
+  //   },
+  //   filterTrades() {
+  //     // Reset to the first page when filtering
+  //     this.currentPage = 1;
+  //   },
+  //   toggleScreen() {
+  //     this.screen1 = "Forex"
+  //     this.screen5 = "placeTrade"
+  //   },
+  //   toggleScreen2() {
+  //     this.screen1 = this.screen2
+  //     this.screen5 = "placeTrade"
+  //   },
+  //   toggleScreen3() {
+  //     this.screen1 = this.screen3
+  //     this.screen5 = "placeTrade"
+  //   },
+  //   toggleScreen4() {
+  //     this.screen1 = this.screen4
+  //     this.screen5 = "placeTrade"
+  //   },
+  //
+  //   toggleScreen5() {
+  //     this.screen1 = this.screen6
+  //     this.screen5 = "placeTrade"
+  //   },
+  //
+  //
+  //   // Call this method before the API call
+  //   async placeTrade() {
+  //     // Ensure all required functions are called and userId is loaded
+  //     await this.beforeAction();
+  //
+  //     // Check if userId is available before proceeding
+  //     if (!this.userId) {
+  //       console.error("User ID not available. Cannot place trade.");
+  //       return;
+  //     }
+  //
+  //     if (this.UserDetails.user.totalDepositedAmount === 0) {
+  //       await Swal.fire({
+  //         icon: 'error',
+  //         title: 'Cannot Perform Action',
+  //         text: 'You cannot place a trade because your Account Balance is zero.',
+  //       });
+  //       return;
+  //     }
+  //
+  //     if (this.UserDetails.user.btcBalance === 0) {
+  //       await Swal.fire({
+  //         icon: 'error',
+  //         title: 'Cannot Perform Action',
+  //         text: 'You cannot place a trade because your Wallet Balance is zero.',
+  //       });
+  //       return;
+  //     }
+  //
+  //     // Now make the API call using the prepared data
+  //     await StoreUtils.dispatch(StoreUtils.actions.trade.tradeCreate, {
+  //       userId: localStorage.getItem('userId'),
+  //       tradeTime: this.currentDate,
+  //       symbolTraded: this.symbolTraded,
+  //       amountTrade: this.amountTrade,
+  //       expectedPayout: 0,
+  //       leverage: this.leverage,
+  //       endPrice: this.randomString2,
+  //       marketType: this.screen1,
+  //       endTime: this.currentDate2,
+  //       tradeStatus: "pending",
+  //       tradeReference: this.randomString,
+  //       tradeType: this.tradeType
+  //     });
+  //
+  //     // Refresh trade history after the trade is placed
+  //     await StoreUtils.dispatch(StoreUtils.actions.trade.readUserTrade, {
+  //       userId: localStorage.getItem('userId'),
+  //     });
+  //
+  //     // Clear form and regenerate new data for future trades
+  //     this.clearForm();
+  //     this.getCurrentDate();
+  //     this.getCurrentDateTime();
+  //     this.generateRandomString();
+  //     this.generateRandomString2();
+  //   },
+  //
+  //   clearForm(){
+  //     this.tradeTime = "";
+  //     this.symbolTraded = "";
+  //     this.amountTrade = "";
+  //     this.expectedPayout = "";
+  //     this.leverage = "";
+  //     this.endPrice = "";
+  //     this.marketType = "";
+  //     this.endTime = "";
+  //     this.tradeStatus = "";
+  //     this.tradeReference = "";
+  //     this.tradeType = "";
+  //     this.randomString = "";
+  //     this.randomString2 = "";
+  //     this.currentDate2 = "";
+  //     this.currentDate = "";
+  //   },
+  //
+  //   // Function to get current date (YYYY-MM-DD format)
+  //   getCurrentDate() {
+  //     const today = new Date();
+  //     this.currentDate2 = today.toISOString().split('T')[0];
+  //   },
+  //
+  //   // Function to get current date and time (YYYY-MM-DD HH:mm:ss format)
+  //   getCurrentDateTime() {
+  //     const today = new Date();
+  //     this.currentDate = today.toISOString().slice(0, 19).replace("T", " ");
+  //   },
+  //   generateRandomString() {
+  //     const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  //     let result = '';
+  //     for (let i = 0; i < 10; i++) {
+  //       const randomIndex = Math.floor(Math.random() * characters.length);
+  //       result += characters.charAt(randomIndex);
+  //     }
+  //     this.randomString = result;
+  //   },
+  //
+  //   generateRandomString2() {
+  //     const characters = '0123456789';
+  //     let result = '';
+  //     for (let i = 0; i < 4; i++) {
+  //       const randomIndex = Math.floor(Math.random() * characters.length);
+  //       result += characters.charAt(randomIndex);
+  //     }
+  //     this.randomString2 = result;
+  //   },
+  // },
+  //
+  // beforeMount() {
+  //   this.beforeAction();
+  //   // Make sure to trigger the same logic before the component is mounted
+  //   const userId = localStorage.getItem('userId');
+  //   if (userId) {
+  //     // Dispatch the API call if the userId exists
+  //     StoreUtils.dispatch(StoreUtils.actions.trade.readUserTrade, {
+  //       userId: userId,
+  //     });
+  //   }
+  //
+  //   this.bitcoinRate = localStorage.getItem('bitcoinRate')
+  //   this.bitcoin = (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
+  //   this.getCurrentDate();
+  //   this.getCurrentDateTime();
+  //   this.generateRandomString();
+  //   this.generateRandomString2();
+  //   this.convertToBitcoin();
+  //   this.checkId();
+  //   this.loadBitcoinRate(); // Ensure bitcoinRate is loaded when the component is created
+  //   this.getUserDetails();
+  //
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getBitcoinRate)
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getIsModalOpened)
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.trade.getReadUserTrade)
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.trade.readUserTrade, {
+  //     userId : localStorage.getItem('userId'),
+  //   });
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
+  //     userId : localStorage.getItem('userId')
+  //   })
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+  //
+  //   this.userId = localStorage.getItem('userId')
+  //
+  //   // Retrieve the object from local storage
+  //   const storedObject = localStorage.getItem('userInfo');
+  //
+  //   if (storedObject) {
+  //     this.userInfo = JSON.parse(storedObject);
+  //   }
+  // },
+  //
+  // created() {
+  //   this.beforeAction();
+  //   this.bitcoinRate = localStorage.getItem('bitcoinRate')
+  //   this.bitcoin = (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
+  //   this.getCurrentDate();
+  //   this.getCurrentDateTime();
+  //   this.generateRandomString();
+  //   this.generateRandomString2();
+  //   this.convertToBitcoin();
+  //   this.checkId();
+  //   this.loadBitcoinRate(); // Ensure bitcoinRate is loaded when the component is created
+  //   this.getUserDetails();
+  //
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getBitcoinRate)
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getIsModalOpened)
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.trade.getReadUserTrade)
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.trade.readUserTrade, {
+  //     userId : localStorage.getItem('userId'),
+  //   });
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
+  //     userId : localStorage.getItem('userId')
+  //   })
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+  //
+  //   this.userId = localStorage.getItem('userId')
+  //
+  //   // Retrieve the object from local storage
+  //   const storedObject = localStorage.getItem('userInfo');
+  //
+  //   if (storedObject) {
+  //     this.userInfo = JSON.parse(storedObject);
+  //   }
+  // },
+  //
+  // mounted() {
+  //   this.beforeAction();
+  //   this.bitcoinRate = localStorage.getItem('bitcoinRate')
+  //   this.bitcoin = (this.UserDetails.user.totalDepositedAmount / this.bitcoinRate).toFixed(8);
+  //   this.getCurrentDate();
+  //   this.getCurrentDateTime();
+  //   this.generateRandomString();
+  //   this.generateRandomString2();
+  //   this.convertToBitcoin();
+  //   this.checkId();
+  //
+  //   this.loadBitcoinRate();
+  //   if (this.UserDetails.user && this.bitcoinRate) {
+  //     this.convertToBitcoin(); // Ensure bitcoin is calculated when mounted
+  //   }
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getBitcoinRate)
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getIsModalOpened)
+  //   StoreUtils.rootGetters(StoreUtils.getters.trade.getReadUserTrade)
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.trade.readUserTrade, {
+  //     userId : localStorage.getItem('userId'),
+  //   });
+  //
+  //   StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
+  //     userId : localStorage.getItem('userId')
+  //   })
+  //
+  //   StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+  //
+  //   this.userId = localStorage.getItem('userId')
+  //
+  //   // Retrieve the object from local storage
+  //   const storedObject = localStorage.getItem('userInfo');
+  //
+  //   if (storedObject) {
+  //     this.userInfo = JSON.parse(storedObject);
+  //   }
+  // }
 }
 </script>
 
@@ -2004,21 +2489,12 @@ export default {
 }
 
 
-.active{
-  background-color: rgb(7 12 25);
-  padding: 10px 20px 9px 20px;
-  border-radius: 7px;
+.active {
+  background-color: rgba(23, 35, 43, 0.5);
+  color: #ffffff;
+  padding: 13px 20px 12px 20px;
+  border-radius: 5px;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .text-2{

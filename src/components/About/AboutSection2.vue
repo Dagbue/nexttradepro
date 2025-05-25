@@ -14,8 +14,8 @@
           <p class="text-2">Crypto creates economic freedom by ensuring that people can participate fairly in the
             economy, and TopShares Pro is on a mission to increase economic freedom for more than 1 billion people.
             We’re updating the century-old financial system by providing a trusted platform that makes it easy for
-            people and institutions to engage with crypto assets, including trading, staking, safekeeping, spending,
-            and fast, free global transfers. We also provide critical infrastructure for onchain activity and support
+            people and institutions to engage with “financial assets” using cryptocurrencies as the method of currency
+            to trade the financial markets. We also provide critical infrastructure for onchain activity and support
             builders who share our vision that onchain is the new online. And together with the crypto community, we
             advocate for responsible rules to make the benefits of crypto available around the world.</p>
         </div>

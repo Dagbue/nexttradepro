@@ -73,7 +73,7 @@ export default {
 
 /* Text styles */
 .text-1 {
-  color: #0A0A0AFF;
+  color: #007aff;
   text-align: center;
   font-size: 1.7rem;
   line-height: 1.2;
@@ -115,8 +115,9 @@ export default {
 /* First button style */
 .btn {
   background-color: transparent;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #00000019;
   color: #0A0A0AFF;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 /* Second button style */

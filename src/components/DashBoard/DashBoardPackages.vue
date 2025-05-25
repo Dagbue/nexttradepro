@@ -15,7 +15,7 @@
 
       <div class="third-section top">
         <p class="text-1">Silver</p>
-        <p class="text-2">5<span class="text-2-inner">% Bonus</span></p>
+        <p class="text-2">10<span class="text-2-inner">% Bonus</span></p>
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">4 Months</p>
 
@@ -51,7 +51,7 @@
 
       <div class="third-section top">
         <p class="text-1">Gold</p>
-        <p class="text-2">10<span class="text-2-inner">% Bonus</span></p>
+        <p class="text-2">20<span class="text-2-inner">% Bonus</span></p>
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">8 Months</p>
 
@@ -92,7 +92,7 @@
 
       <div class="third-section top">
         <p class="text-1">Diamond</p>
-        <p class="text-2">15<span class="text-2-inner">% Bonus</span></p>
+        <p class="text-2">30<span class="text-2-inner">% Bonus</span></p>
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">12 Months</p>
 
@@ -128,7 +128,7 @@
 
       <div class="third-section top">
         <p class="text-1">Platinum</p>
-        <p class="text-2">20<span class="text-2-inner">% Bonus</span></p>
+        <p class="text-2">50<span class="text-2-inner">% Bonus</span></p>
         <!--        <p class="text-2">4 Months</p>-->
         <p class="text-3">24 Months</p>
 
