@@ -132,7 +132,7 @@ form {
 }
 
 .company-logo{
-  width: 55%;
+  width: 45%;
   margin-top: 8%;
   margin-bottom: 2%;
 }

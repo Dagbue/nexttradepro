@@ -10,8 +10,9 @@
 
 <script>
 export default {
-  name: "ForexTable",
+  name: "StockTable2",
   mounted() {
+
     const script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-screener.js";
@@ -21,7 +22,7 @@ export default {
       height: "600",
       defaultColumn: "overview",
       defaultScreen: "general",
-      market: "forex",
+      market: "stocks",
       showToolbar: true,
       colorTheme: "dark",
       locale: "en",
@@ -35,7 +36,6 @@ export default {
 <style scoped>
 .tables{
   margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 1%;
+  margin-right: 2.5%;
 }
 </style>

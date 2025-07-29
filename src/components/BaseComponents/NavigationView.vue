@@ -227,11 +227,15 @@ export default {
   list-style: outside none none;
   /*margin: 0 0.8em;*/
   overflow: hidden;
-  font-weight: 400;
-  font-size: 17px;
+  font-weight: 300;
+  font-size: 15px;
   align-items: center;
   align-content: center;
   letter-spacing: 0.8px;
+}
+
+.link:hover {
+  font-weight: 400;
 }
 
 
@@ -265,7 +269,7 @@ export default {
   background-color: transparent;
   border: 1px solid #d0d0d0;
   color: #191C1F;
-  padding: 0.6em 25px 0.5em 30px;
+  padding: 0.9em 30px 0.9em 30px;
   border-radius: 12px;
   position: relative;
   display: inline-block;
@@ -273,7 +277,7 @@ export default {
   -webkit-transition: all 0.1s ease;
   transition: all 0.25s ease;
   margin: 0 2.5px;
-  width: 100px;
+  width: 120px;
   text-align: center;
   font-size: 13px;
 }
@@ -283,7 +287,7 @@ export default {
   background: #007aff;
   border: 1px solid #007aff;
   color: #ffffff;
-  padding: 0.6em 30px 0.5em 30px;
+  padding: 0.9em 30px 0.9em 30px;
   border-radius: 12px;
   position: relative;
   display: inline-block;
@@ -291,7 +295,7 @@ export default {
   -webkit-transition: all 0.1s ease;
   transition: all 0.25s ease;
   margin: 0 2.5px;
-  width: 165px;
+  width: 160px;
   text-align: center;
   font-size: 13px;
 }

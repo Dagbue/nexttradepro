@@ -156,7 +156,7 @@ export default {
   color: #818a91;
   font-weight: 300;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 18px;
 }
 
 .text-area{

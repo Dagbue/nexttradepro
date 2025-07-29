@@ -2,13 +2,21 @@
   <div class="tables">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright">
+        <a
+            href="https://www.tradingview.com/"
+            rel="noopener nofollow"
+            target="_blank"
+        >
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MarketQuotesWidget",
+  name: "WatchListTable",
   mounted() {
     const script = document.createElement("script");
     script.type = "text/javascript";
@@ -16,19 +24,14 @@ export default {
         "https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js";
     script.async = true;
 
+    // Widget configuration
     script.text = JSON.stringify({
-      colorTheme: "dark",
-      locale: "en",
-      largeChartUrl: "",
-      isTransparent: false,
-      showSymbolLogo: true,
-      backgroundColor: "#0F0F0F",
-      support_host: "https://www.tradingview.com",
-      width: "100%",
-      height: "550",
+      width: "100%", // Sets the widget width in pixels
+      height: 550, // Sets the widget height in pixels
       symbolsGroups: [
         {
           name: "Indices",
+          originalName: "Indices",
           symbols: [
             { name: "FOREXCOM:SPXUSD", displayName: "S&P 500 Index" },
             { name: "FOREXCOM:NSXUSD", displayName: "US 100 Cash CFD" },
@@ -40,17 +43,22 @@ export default {
         },
         {
           name: "Futures",
+          originalName: "Futures",
           symbols: [
-            { name: "BMFBOVESPA:ISP1!", displayName: "S&P 500" },
-            { name: "BMFBOVESPA:EUR1!", displayName: "Euro" },
-            { name: "CMCMARKETS:GOLD", displayName: "Gold" },
-            { name: "PYTH:WTI3!", displayName: "WTI Crude Oil" },
-            { name: "BMFBOVESPA:CCM1!", displayName: "Corn" },
+            { name: "CME_MINI:ES1!", displayName: "S&P 500" },
+            { name: "CME:6E1!", displayName: "Euro" },
+            { name: "COMEX:GC1!", displayName: "Gold" },
+            { name: "NYMEX:CL1!", displayName: "WTI Crude Oil" },
+            { name: "NYMEX:NG1!", displayName: "Gas" },
+            { name: "CBOT:ZC1!", displayName: "Corn" },
           ],
         },
         {
           name: "Bonds",
+          originalName: "Bonds",
           symbols: [
+            { name: "CBOT:ZB1!", displayName: "T-Bond" },
+            { name: "CBOT:UB1!", displayName: "Ultra T-Bond" },
             { name: "EUREX:FGBL1!", displayName: "Euro Bund" },
             { name: "EUREX:FBTP1!", displayName: "Euro BTP" },
             { name: "EUREX:FGBM1!", displayName: "Euro BOBL" },
@@ -58,6 +66,7 @@ export default {
         },
         {
           name: "Forex",
+          originalName: "Forex",
           symbols: [
             { name: "FX:EURUSD", displayName: "EUR to USD" },
             { name: "FX:GBPUSD", displayName: "GBP to USD" },
@@ -68,8 +77,14 @@ export default {
           ],
         },
       ],
+      showSymbolLogo: true, // Displays the symbol logo next to the name
+      isTransparent: false, // Disables transparency in the widget's background
+      colorTheme: "dark", // Sets the widget's color theme to dark
+      locale: "en", // Widget language set to English
+      backgroundColor: "#131722", // Background color for the widget
     });
 
+    // Append the script to the widget container
     this.$el
         .querySelector(".tradingview-widget-container__widget")
         .appendChild(script);
@@ -81,7 +96,6 @@ export default {
 .tables {
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 1%;
 }
 
 .blue-text {

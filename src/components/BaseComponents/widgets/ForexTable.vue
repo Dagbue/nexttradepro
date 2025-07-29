@@ -23,7 +23,7 @@ export default {
       defaultScreen: "general",
       market: "forex",
       showToolbar: true,
-      colorTheme: "dark",
+      colorTheme: "light",
       locale: "en",
     });
 
@@ -36,6 +36,5 @@ export default {
 .tables{
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 1%;
 }
 </style>

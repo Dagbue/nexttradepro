@@ -343,8 +343,7 @@ export default {
   margin-top: 10%;
 }
 .company-logo{
-  width: 22%;
-  /*margin-bottom: 1.5%;*/
+  width: 17%;
 }
 
 .text-area h3{

@@ -36,6 +36,7 @@ export default {
 <style scoped>
 .tables{
   margin-left: 2%;
-  margin-right: 2.5%;
+  margin-right: 2%;
+  margin-top: 1%;
 }
 </style>

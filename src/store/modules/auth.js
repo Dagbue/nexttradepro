@@ -17,6 +17,7 @@ export const state = {
   readAllUsers: [],
   bitcoinRate: null,
   isModalOpened: false,
+  placeTradeStatus: "Forex",
 };
 
 export const getters = {
@@ -47,6 +48,9 @@ export const getters = {
   },
   getIsModalOpened: (state) => {
     return state.isModalOpened;
+  },
+  getPlaceTradeStatus: (state) => {
+    return state.placeTradeStatus;
   },
 };
 
@@ -80,6 +84,9 @@ export const mutations = {
   },
   updateIsModalOpened(state, payload){
     state.isModalOpened = payload
+  },
+  updatePlaceTradeStatus(state, payload){
+    state.placeTradeStatus = payload
   },
 };
 

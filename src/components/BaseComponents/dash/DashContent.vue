@@ -106,9 +106,9 @@ export default {
 /*}*/
 .home-content{
   position: fixed;
-  left: 200px;
+  left: 215px;
   background-color: #000000;
-  width: calc(100% - 200px);
+  width: calc(100% - 215px);
   height: 100vh;
   transition: all 0.5s ease;
   margin: 0 10px;

@@ -45,20 +45,20 @@
           </li>
         </router-link>
 
-        <router-link to="/buying-request-admin">
+        <router-link to="/insert-clone-specialists">
           <li>
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Buying Request</span>
+              <span class="links-name">Add Experts</span>
             </a>
           </li>
         </router-link>
 
-        <router-link to="/selling-request-admin">
+        <router-link to="/deploy-market-agent">
           <li>
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Selling Request</span>
+              <span class="links-name">Add Trading Bot</span>
             </a>
           </li>
         </router-link>
@@ -338,9 +338,9 @@ body{
   padding-top: 3px;
 }
 .hover:hover{
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(23, 35, 43, 0.5);
   backdrop-filter: blur(3.5px);
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
 }
 .link-img{

@@ -51,6 +51,24 @@ class StoreUtils {
     sbucket: {
       uploadEncodedFile: "sbucket/uploadEncodedFile",
     },
+    expert: {
+      expertCreate: "expert/expertCreate",
+      updateExpert: "expert/updateExpert",
+      updateExpertStatus: "expert/updateExpertStatus",
+      deleteExpert: "expert/deleteExpert",
+      readAllExpert: "expert/readAllExpert",
+      readExpertById: "expert/readExpertById",
+      readUserExpert: "expert/readUserExpert",
+    },
+    tradeBot: {
+      tradeBotCreate: "tradeBot/tradeBotCreate",
+      updateTradeBot: "tradeBot/updateTradeBot",
+      updateTradeBotStatus: "tradeBot/updateTradeBotStatus",
+      deleteTradeBot: "tradeBot/deleteTradeBot",
+      readAllTradeBot: "tradeBot/readAllTradeBot",
+      readTradeBotById: "tradeBot/readTradeBotById",
+      readUserTradeBot: "tradeBot/readUserTradeBot",
+    },
   };
 
   static mutations = {
@@ -66,6 +84,7 @@ class StoreUtils {
       updateReadAllUsers: "auth/updateReadAllUsers",
       updateBitcoinRate: "auth/updateBitcoinRate",
       updateIsModalOpened: "auth/updateIsModalOpened",
+      updatePlaceTradeStatus: "auth/updatePlaceTradeStatus",
     },
     deposit: {
       updateLoading: "deposit/updateLoading",
@@ -97,6 +116,20 @@ class StoreUtils {
     sbucket: {
       updateS3BucketLoading: "sbucket/updateS3BucketLoading",
     },
+    expert: {
+      updateLoading: "expert/updateLoading",
+      updateExpert: "expert/updateExpert",
+      updateAllExpert: "expert/updateAllExpert",
+      updateReadExpertById: "expert/updateReadExpertById",
+      updateReadUserExpert: "expert/updateReadUserExpert",
+    },
+    tradeBot: {
+      updateLoading: "tradeBot/updateLoading",
+      updateTradeBot: "tradeBot/updateTradeBot",
+      updateAllTradeBot: "tradeBot/updateAllTradeBot",
+      updateReadTradeBotById: "tradeBot/updateReadTradeBotById",
+      updateReadUserTradeBot: "tradeBot/updateReadUserTradeBot",
+    },
   };
 
   static getters = {
@@ -110,6 +143,7 @@ class StoreUtils {
       getReadAllUsers: "auth/getReadAllUsers",
       getBitcoinRate: "auth/getBitcoinRate",
       getIsModalOpened: "auth/getIsModalOpened",
+      getPlaceTradeStatus: "auth/getPlaceTradeStatus",
     },
     deposit: {
       getDeposit: "deposit/getDeposit",
@@ -133,6 +167,18 @@ class StoreUtils {
       getPaymentWallet: "paymentWallet/getPaymentWallet",
       getAllPaymentWallet: "paymentWallet/getAllPaymentWallet",
       getReadPaymentWalletById: "paymentWallet/getReadPaymentWalletById",
+    },
+    expert: {
+      getExpert: "expert/getExpert",
+      getAllExpert: "expert/getAllExpert",
+      getReadExpertById: "expert/getReadExpertById",
+      getReadUserExpert: "expert/getReadUserExpert",
+    },
+    tradeBot: {
+      getTradeBot: "tradeBot/getTradeBot",
+      getAllTradeBot: "tradeBot/getAllTradeBot",
+      getReadTradeBotById: "tradeBot/getReadTradeBotById",
+      getReadUserTradeBot: "tradeBot/getReadUserTradeBot",
     },
   };
 

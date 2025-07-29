@@ -62,7 +62,6 @@ export default {
 .tables {
   margin-left: 2%;
   margin-right: 2%;
-  margin-top: 1%;
 }
 
 .blue-text {

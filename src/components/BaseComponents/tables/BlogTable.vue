@@ -1,10 +1,10 @@
 <template>
   <div class="tradingview-widget-container">
 
-    <div class="header">
-      <p class="text-1">Stay ahead of the <span style="color: #0bccbf">markets.</span></p>
-      <p class="text-2">Get the latest market news, trading analysis, and feature updates.</p>
-    </div>
+<!--    <div class="header">-->
+<!--      <p class="text-1">Stay ahead of the <span style="color: #0bccbf">markets.</span></p>-->
+<!--      <p class="text-2">Get the latest market news, trading analysis, and feature updates.</p>-->
+<!--    </div>-->
 
     <div id="tradingview-widget" class="tradingview-widget"></div>
   </div>
@@ -25,7 +25,7 @@ export default {
         "isTransparent": false,
         "largeChartUrl": "http://www.assettrademarkets.com",
         "displayMode": "regular",
-        "width": "100%",
+        "width": "97%",
         "height": "100%",
         "colorTheme": "dark",
         "locale": "en"

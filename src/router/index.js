@@ -98,7 +98,7 @@ const routes = [
       {
         path: '/trade-over-view',
         name: 'tradeOverview',
-        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/TradeOverview.vue'),
+        component: () => import(/* webpackChunkName: "tradeOverview" */ '../views/DashBoard/TradeOverview.vue'),
         meta: { hideNavigation: true }
       },
       {
@@ -127,26 +127,44 @@ const routes = [
       {
         path: '/fund-wallet',
         name: 'fundWallet',
-        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/FundWallet.vue'),
+        component: () => import(/* webpackChunkName: "fundWallet" */ '../views/DashBoard/FundWallet.vue'),
         meta: { hideNavigation: true },
       },
       {
         path: '/withdrawal',
         name: 'withdrawal',
-        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/Withdrawal.vue'),
+        component: () => import(/* webpackChunkName: "withdrawal" */ '../views/DashBoard/Withdrawal.vue'),
         meta: { hideNavigation: true },
       },
       {
         path: '/refer-users',
         name: 'referUsers',
-        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/ReferUsers.vue'),
+        component: () => import(/* webpackChunkName: "referUsers" */ '../views/DashBoard/ReferUsers.vue'),
         meta: { hideNavigation: true },
       },
       {
         path: '/packages',
         name: 'Packages',
-        component: () => import(/* webpackChunkName: "overView" */ '../views/DashBoard/Packages.vue'),
+        component: () => import(/* webpackChunkName: "Packages" */ '../views/DashBoard/Packages.vue'),
         meta: { hideNavigation: true },
+      },
+      {
+        path: '/copy-experts',
+        name: 'CopyExperts',
+        component: () => import(/* webpackChunkName: "CopyExperts" */ '../views/DashBoard/CopyExperts.vue'),
+        meta: { hideNavigation: true },
+      },
+      {
+        path: '/trading-bot-view',
+        name: 'TradingBotView',
+        component: () => import(/* webpackChunkName: "TradingBotView" */ '@/views/DashBoard/TradingBotView.vue'),
+        meta: {hideNavigation: true}
+      },
+      {
+        path: '/market-view',
+        name: 'MarketView',
+        component: () => import(/* webpackChunkName: "TradingBotView" */ '@/views/DashBoard/MarketView.vue'),
+        meta: {hideNavigation: true}
       },
       {
         path: '/settings',
@@ -333,6 +351,19 @@ const routes = [
         component: () =>
             import(/* webpackChunkName: "ChangePasswordAdmin" */ "../views/Admin/AddTradingPair.vue"),
         meta: { hideNavigation: true }
+      },
+      {
+        path: "/insert-clone-specialists",
+        name: "addCopyExperts",
+        component: () => import(/* webpackChunkName: "addCopyExperts" */ "../views/Admin/AddCopyExperts.vue"),
+        meta: {hideNavigation: true}
+      },
+
+      {
+        path: "/deploy-market-agent",
+        name: "addTradingBot",
+        component: () => import(/* webpackChunkName: "addTradingBot" */  "../views/Admin/AddTradingBot.vue"),
+        meta: {hideNavigation: true}
       },
     ]
   },
