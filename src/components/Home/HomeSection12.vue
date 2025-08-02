@@ -1,24 +1,37 @@
 <template>
-  <div class="alpha">
-    <div class="section-alpha">
-      <!-- Left Text Section -->
-      <div class="section-1">
-        <p class="section-1-text-1">Trading products</p>
-        <p class="section-1-text-2">
-          Select from six diverse asset classes and gain access to <br class="breaker" />
-          over 180 trading instruments.
-        </p>
-      </div>
 
-      <!-- Trading Categories -->
-      <div class="section-2">
-        <div class="section-2-inner" v-for="(item, index) in items" :key="index">
-          <i :class="item.icon"></i>
-          <p>{{ item.label }}</p>
+  <section class="trading-products">
+    <div class="container">
+      <div class="grid-container">
+        <div class="intro">
+          <h2>Trading products</h2>
+          <p>
+            Select from six diverse asset classes and gain access to over 180
+            trading instruments.
+          </p>
+        </div>
+
+        <div class="products-grid">
+<!--          <div-->
+<!--              v-for="(product, index) in products"-->
+<!--              :key="index"-->
+<!--              class="product-card"-->
+<!--          >-->
+<!--            <div :class="['icon-container', product.color]">-->
+<!--              <component :is="product.icon" class="icon" />-->
+<!--            </div>-->
+<!--            <h3>{{ product.name }}</h3>-->
+<!--          </div>-->
+
+          <div class="product-card" v-for="(item, index) in items" :key="index">
+            <i :class="[ 'icon-container' , item.icon]"></i>
+            <h3>{{ item.label }}</h3>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -40,116 +53,110 @@ export default {
 </script>
 
 <style scoped>
-.alpha {
-  background-color: hsla(0, 0%, 4%, 0.95);
-
-  padding: 5% 5%;
+.trading-products {
+  background-color: #111827;
+  color: white;
+  padding: 5rem 1rem;
 }
 
-.section-alpha {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-/* Left Text Section */
-.section-1 {
-  flex: 1 1 300px;
-  min-width: 280px;
-  border-right: 1px solid #8599a6;
-  padding-right: 2rem;
+.grid-container {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
 }
 
-.section-1-text-1 {
-  color: #ffffff;
-  font-size: 2rem;
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.intro h2 {
+  font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.section-1-text-2 {
-  font-size: 1rem;
-  line-height: 1.25rem;
-  color: #8599a6;
+.intro p {
+  font-size: 1.25rem;
+  color: #d1d5db;
+  line-height: 1.75;
 }
 
-/* Right Grid Section */
-.section-2 {
-  flex: 2 1 400px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
-.section-2-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-card {
   text-align: center;
+  cursor: pointer;
 }
 
-/* Icon Styles */
-.fas,
-.fab {
-  color: #007aff;
-  background-color: #ffffff;
-  padding: 1rem;
-  border-radius: 30%;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.product-card:hover .icon-container {
+  transform: scale(1.1);
 }
 
-/* Label */
-.section-2-inner p {
-  color: #8599a6;
-  font-size: 0.875rem;
+.product-card:hover h3 {
+  color: #60a5fa;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .section-alpha {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .section-1 {
-    border-right: none;
-    border-bottom: 1px solid #8599a6;
-    text-align: center;
-    flex: 1 1 120px;
-    padding-top: 10px;
-  }
-
-  .section-2 {
-    justify-content: space-around;
-    flex: 2 1 225px;
-  }
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
 }
 
-@media (max-width: 480px) {
-  .section-2-inner {
-    width: 80px;
-  }
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+}
 
-  .fas,
-  .fab {
-    padding: 0.75rem;
-    font-size: 1.5rem;
-  }
+.fa-euro-sign {
+  background-color: #3b82f6;
+}
 
-  .section-1-text-1 {
-    font-size: 1.75rem;
-  }
+.fa-btc {
+  background-color: #f97316;
+}
 
-  .section-1-text-2 {
-    font-size: 0.875rem;
-  }
-  .breaker{
-    display: none;
-  }
+.fa-chart-area {
+  background-color: #a855f7;
+}
+
+.fa-file-contract {
+  background-color: #22c55e;
+}
+
+.fa-tint {
+  background-color: #06b6d4;
+}
+
+.fa-cube {
+  background-color: #eab308;
+}
+
+.product-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 </style>

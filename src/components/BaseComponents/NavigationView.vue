@@ -284,8 +284,8 @@ export default {
 
 
 .auth2{
-  background: #007aff;
-  border: 1px solid #007aff;
+  background: #2563eb;
+  border: 1px solid #2563eb;
   color: #ffffff;
   padding: 0.9em 30px 0.9em 30px;
   border-radius: 12px;
@@ -298,6 +298,10 @@ export default {
   width: 160px;
   text-align: center;
   font-size: 13px;
+}
+
+.auth2:hover{
+  background-color: #1d4ed8;
 }
 
 

@@ -1,210 +1,150 @@
 <template>
-  <div class="alpha">
-    <div class="section-alpha">
-
-      <div class="section-1">
-        <p class="text-1">&lt; 7.12 ms</p>
-        <p class="text-2">Average order execution speed</p>
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div v-for="(stat, index) in stats" :key="index" class="stat-card">
+          <div :class="['stat-value', stat.color]">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
       </div>
 
-      <div class="vl"></div>
-
-      <div class="section-2">
-        <p class="text-1">12+</p>
-        <p class="text-2">Integrated liquidity providers</p>
+      <div class="cta-section">
+        <div class="button-group">
+          <button class="btn btn-primary">Setup Your Trading Account</button>
+          <button class="btn btn-secondary">Discover Our Platform</button>
+        </div>
+        <p class="cta-text">Registration takes only 40 seconds!!!</p>
       </div>
-
-      <div class="vl"></div>
-
-      <div class="section-3">
-        <p class="text-1">> 12,000</p>
-        <p class="text-2">Executed orders per second</p>
-      </div>
-
-      <div class="vl"></div>
-
-      <div class="section-4">
-        <p class="text-1">$545 k</p>
-        <p class="text-2">Average trading volume per day</p>
-      </div>
-
-
     </div>
-
-    <div class="button-section">
-
-      <div class="button-section-inner">
-        <button class="btn">Setup Your trading Account</button>
-        <button class="btn-2">Discover Our Platform</button>
-      </div>
-
-      <p class="button-section-text">Registration takes only 40 seconds!!!</p>
-
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "HomeSection15"
+  name: "HomeSection15",
+  data() {
+    return {
+      stats: [
+        {
+          value: '< 7.12 ms',
+          label: 'Average order execution speed',
+          color: 'text-blue'
+        },
+        {
+          value: '12+',
+          label: 'Integrated liquidity providers',
+          color: 'text-green'
+        },
+        {
+          value: '> 12,000',
+          label: 'Executed orders per second',
+          color: 'text-purple'
+        },
+        {
+          value: '$545k',
+          label: 'Average trading volume per day',
+          color: 'text-orange'
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped>
-.alpha {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 0 10px; /* Add some side padding on small devices */
+.stats-section {
+  padding: 5rem 0;
+  background-color: #f9fafb;
 }
 
-.section-alpha {
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.text-blue { color: #2563eb; }
+.text-green { color: #16a34a; }
+.text-purple { color: #7c3aed; }
+.text-orange { color: #ea580c; }
+
+.stat-label {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.button-group {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
   justify-content: center;
-  align-items: center;
-  gap: 60px;
-  flex-wrap: nowrap; /* Default: horizontal layout */
 }
 
-/* Vertical line */
-.vl {
-  border-left: 1px solid #8599a6;
-  height: 90px;
+@media (min-width: 640px) {
+  .button-group {
+    flex-direction: row;
+  }
 }
 
-/* Text styles */
-.text-1 {
-  color: #007aff;
-  text-align: center;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  font-weight: 600;
-}
-
-.text-2 {
-  color: #8599a6;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  text-align: center;
-  font-weight: 300;
-}
-
-/* Button container */
-.button-section-inner {
-  display: flex;
-  justify-content: center;
-  margin-top: 3%;
-  gap: 10px;
-  flex-wrap: wrap; /* Allow buttons to wrap on small screens */
-}
-
-/* Buttons */
-.btn, .btn-2 {
-  padding: 1.3em 25px 1.2em 30px;
-  border-radius: 12px;
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  margin: 0 2.5px;
-  width: 250px;
-  text-align: center;
-  font-size: 15px;
-  box-sizing: border-box;
-}
-
-/* First button style */
 .btn {
-  background-color: transparent;
-  border: 1px solid #00000019;
-  color: #0A0A0AFF;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Second button style */
-.btn-2 {
-  background: #007aff;
-  border: 1px solid #007aff;
-  color: #ffffff;
+.btn-primary {
+  background-color: #1f2937;
 }
 
-.btn-2:hover {
-  background-color: #0063cc;
+.btn-primary:hover {
+  background-color: #111827;
 }
 
-.button-section-text {
-  color: #0A0A0AFF;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.2;
-  font-weight: 300;
-  margin-top: 2%;
+.btn-secondary {
+  background-color: #2563eb;
 }
 
-/* -------- Responsive styles -------- */
-
-/* Medium screens (tablets and below) */
-@media (max-width: 768px) {
-  .section-alpha {
-    flex-wrap: wrap;        /* Allow wrapping */
-    gap: 30px;              /* Reduce gap */
-    justify-content: center;
-  }
-
-  .section-alpha > div {
-    flex: 1 1 45%;          /* Take roughly half width */
-    min-width: 200px;       /* Minimum width */
-  }
-
-  .vl {
-    display: none;          /* Hide vertical lines */
-  }
-
-  /* Button container */
-  .button-section-inner {
-    gap: 15px;
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
-
-  /* Make buttons shrinkable */
-  .btn, .btn-2 {
-    width: 45%;             /* Buttons side by side, 45% width */
-    min-width: 150px;
-  }
-  .alpha {
-    margin-top: 5%;
-    margin-bottom: 5%;
-  }
+.btn-secondary:hover {
+  background-color: #1d4ed8;
 }
 
-/* Small screens (phones) */
-@media (max-width: 480px) {
-  .section-alpha {
-    flex-direction: column; /* Stack stats vertically */
-    align-items: center;
-    gap: 20px;
-  }
-
-  .section-alpha > div {
-    flex: none;
-    width: 100%;            /* Full width blocks */
-    max-width: 320px;
-  }
-
-  .vl {
-    display: none;          /* Hide vertical lines */
-  }
-
-  /* Buttons stacked vertically */
-  .button-section-inner {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .btn, .btn-2 {
-    width: 100%;            /* Full width buttons */
-    max-width: 320px;
-    margin: 0 auto;
-  }
+.cta-text {
+  color: #4b5563;
+  margin-top: 1rem;
+  font-weight: 500;
 }
 </style>

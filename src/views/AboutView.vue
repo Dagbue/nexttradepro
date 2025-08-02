@@ -1,6 +1,7 @@
 <template>
   <div class="about">
     <about-hero-section/>
+    <about-section-alpha/>
     <about-section1/>
     <about-section2/>
     <about-section3/>
@@ -22,10 +23,12 @@ import FooterHome from "@/components/BaseComponents/FooterHome.vue";
 import AboutSection3 from "@/components/About/AboutSection3.vue";
 import AboutSection4 from "@/components/About/AboutSection4.vue";
 import AboutSection5 from "@/components/About/AboutSection5.vue";
+import AboutSectionAlpha from "@/components/About/AboutSectionAlpha.vue";
 
 export default {
   name: 'AboutView',
   components: {
+    AboutSectionAlpha,
     AboutSection5,
     AboutSection4, AboutSection3, FooterHome, ReadyToWork, AboutSection2, AboutSection1, AboutHeroSection},
 }

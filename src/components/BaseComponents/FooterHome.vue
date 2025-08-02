@@ -92,7 +92,7 @@
         </a>
 
         <a href="">
-          <img src="https://primexbt.com/_next/static/media/baksta.ccf05afe.svg" class="footer-partner"  />
+          <img src="https://primexbt.com/_next/static/media/SkrillLogo.774f02d8.svg" class="footer-partner"  />
         </a>
 
 <!--        <a href="">-->
@@ -184,10 +184,9 @@ export default {
   width: 90%;
 }
 .the-footer {
-  background: #05080a;
+  background-color: rgb(17 24 39);
   color: #ccc;
   padding: 1.5vh  1vh;
-  margin-top: 3%;
 }
 
 .logo-container {
@@ -205,7 +204,7 @@ export default {
 
 .footer-partner{
   object-fit: cover;
-  width: 70%;
+  width: 55%;
 }
 
 .footer-link {

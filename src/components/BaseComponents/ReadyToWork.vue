@@ -1,30 +1,58 @@
 <template>
-  <div class="alpha-2">
-    <div class="section-1">
-      <p class="last-text">Ready to work with us</p>
-      <div class="seperate mobile">
-        <p class="download-sub"><a
-            style="color: #ffffff;"
-            href="mailto:support@topsharespro.com">support@topsharespro.com</a></p>
-      </div>
-      <div class="seperate mobile">
-        <p class="download-sub">128 City Road, London, United Kingdom, EC1V 2NX</p>
-      </div>
-
-      <div class="button-seprate" @click="onPostClick">
-        <button class="button">
-          Contact Us
-          <img src="@/assets/arrow-right-line.svg" alt="btn-image" class="btn-image" />
-        </button>
-
-<!--        <button class="button">-->
-<!--          Contact Us-->
-<!--          <img src="@/assets/arrow-right-line.svg" alt="btn-image" class="btn-image" />-->
-<!--        </button>-->
-      </div>
-
+  <section class="contact-section">
+    <!-- Background Pattern -->
+    <div class="background-pattern">
+      <svg viewBox="0 0 400 200">
+        <path
+            d="M0,100 Q50,80 100,90 T200,85 T300,80 T400,75"
+            stroke="#3B82F6"
+            stroke-width="1"
+            fill="none"
+        />
+        <path
+            d="M0,120 Q50,100 100,110 T200,105 T300,100 T400,95"
+            stroke="#3B82F6"
+            stroke-width="1"
+            fill="none"
+        />
+        <path
+            d="M0,140 Q50,120 100,130 T200,125 T300,120 T400,115"
+            stroke="#3B82F6"
+            stroke-width="1"
+            fill="none"
+        />
+      </svg>
     </div>
-  </div>
+
+    <div class="content-container">
+      <h2>Ready to work with us</h2>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>support@topsharespro.com</span>
+        </div>
+        <div class="contact-item">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>128 City Road, London, United Kingdom, EC1V 2NX</span>
+        </div>
+      </div>
+
+      <button class="contact-button" @click="onPostClick">
+        Contact Us
+        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -40,124 +68,89 @@ export default {
 </script>
 
 <style scoped>
-.alpha-2{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1000px;
-  height: 270px;
-  border-radius: 12px;
-  margin-top: 4%;
-  margin-bottom: 5%;
-  background: url("@/assets/graph_bg.svg") repeat-x;
-  -webkit-background-size: contain;
-  background-size: cover;
+.contact-section {
+  //margin-top: 5%;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #111827 0%, #1e3a8a 50%, #111827 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
+.background-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+}
 
-.section-1{
+.background-pattern svg {
+  width: 100%;
+  height: 100%;
+}
+
+.content-container {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1rem;
   text-align: center;
+  position: relative;
 }
 
-.last-text{
-  color: #ffffff;
-  font-size: 30px;
-  line-height: 44px;
-  padding-top: 5%;
-  padding-bottom: 0.5%;
+.content-container h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
-.button {
-  background: #007aff;
-  border: 1px solid #007aff;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 12px 40px;
-  text-align: center;
-  border-radius: 12px;
+.contact-info {
+  margin-bottom: 2rem;
   display: flex;
-  align-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5px;
-  font-size: 15px;
+  gap: 0.5rem;
 }
 
-.button:hover{
-  color: #FFFFFF;
-  background-color: #0063cc;
-  border: 1px solid #0063cc;
+.contact-item .icon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-button{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
+.contact-item span {
+  font-size: 1.125rem;
 }
 
-
-.btn-image{
-  width: 15%;
-}
-
-
-.seperate{
-  display: flex;
-  align-content: center;
+.contact-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
 }
 
-i{
-  padding-top: 1.5%;
-  font-size: 25px;
-  color: #ffffff;
+.contact-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
 }
 
-.download-sub{
-  color: #ffffff;
-  font-size:18px;
-  line-height: 28px;
-  width: 75%;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 10px;
+.contact-button:hover .arrow-icon {
+  transform: translateX(0.25rem);
 }
 
-
-@media (max-width: 700px){
-  .alpha-2{
-    width: 650px;
-    margin-top: 5%;
-  }
-
-
-  .last-text{
-    font-size: 24px;
-    line-height: 22px;
-    padding-top: 12%;
-  }
-
-  .download-sub{
-    color: #ffffff;
-    font-size: 15px;
-    line-height: 26px;
-    width: 85%;
-  }
-
-}
-
-@media (max-width: 500px){
-
-  .alpha-2{
-    width: 95%;
-    margin-top: 5%;
-    height: 250px;
-  }
-
-
-
-
+.arrow-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform 0.2s ease;
 }
 </style>

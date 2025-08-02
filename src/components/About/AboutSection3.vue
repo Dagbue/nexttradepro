@@ -1,181 +1,183 @@
 <template>
-  <div class="alpha">
 
-    <div class="section-alpha">
-      <p class="header">Our <span style="color: #3760ff;">Values</span></p>
-      <p class="sub-header">Everything we do is in service of our clients and their best interests. This is exemplified by our core
-        values, which align with our mission, and help us achieve our vision.</p>
 
-      <div class="section-inner">
-        <div class="section-1">
-          <div class="section-1-inner">
-            <p class="text-1">Innovation</p>
-            <p class="text-2">We always provide our clients with the latest and greatest in trading tech.</p>
-            <img src="@/assets/about-benefit-1.svg" alt="" class="img" />
-          </div>
+
+
+
+    <section class="values-section">
+      <div class="container">
+        <div class="header">
+          <h2 class="title">
+            Our <span class="title-highlight">Values</span>
+          </h2>
+          <p class="description">
+            Everything we do is in service of our clients and their best interests. This is exemplified by our core values, which align with our
+            mission, and help us achieve our vision.
+          </p>
         </div>
+        <div class="values-grid">
+          <div v-for="(value, index) in values" :key="index" class="value-card">
+            <div class="value-content">
+              <div class="value-icon">
+<!--                <component :is="value.icon" class="icon" />-->
+              </div>
+              <div class="value-text">
+                <h3 class="value-title">{{ value.title }}</h3>
+                <p class="value-description">{{ value.description }}</p>
 
-        <div class="section-1">
-          <div class="section-1-inner">
-          <p class="text-1">Empowerment</p>
-          <p class="text-2">We empower users to take control.</p>
-          <img src="@/assets/about-benefit-2.svg" alt="" class="img" />
-          </div>
-        </div>
-      </div>
+                  <img :src="value.mockup" :alt="value.title" class="image"  />
 
-
-      <div class="section-inner">
-
-        <div class="section-1">
-          <div class="section-1-inner">
-          <p class="text-1">Client-focus</p>
-          <p class="text-2">Before we do anything, we always think about our users, and how they will benefit.</p>
-          <img src="@/assets/afr-contact.webp" alt="" class="img" />
-          </div>
-        </div>
-
-        <div class="section-1">
-          <div class="section-1-inner">
-          <p class="text-1">Transparency</p>
-          <p class="text-2">We earn the trust of clients by being clear about everything from the very start.</p>
-          <img src="@/assets/about-benefit.png" alt="" class="img-2" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-  </div>
 </template>
 
 <script>
 export default {
-  name: "AboutSection3"
+  name: "AboutSection3",
+  data() {
+    return {
+      values: [
+        {
+          icon: '',
+          title: 'Innovation',
+          description: 'We always provide our clients with the latest and greatest in trading tech.',
+          mockup: require('@/assets/about-benefit-1.svg'),
+        },
+        {
+          icon: '',
+          title: 'Empowerment',
+          description: 'We empower users to take control.',
+          mockup: require('@/assets/about-benefit-2.svg'),
+        },
+        {
+          icon: '',
+          title: 'Client-focus',
+          description: 'Before we do anything, we always think about our users, and how they will benefit.',
+          mockup: require('@/assets/afr-contact.webp'),
+        },
+        {
+          icon: '',
+          title: 'Transparency',
+          description: 'We earn the trust of clients by being clear about everything from the very start.',
+          mockup: require('@/assets/afr-contact.webp'),
+        }
+      ]
+    };
+  }
 }
 </script>
 
 <style scoped>
-.alpha{
-  margin-top: 5%;
-  margin-bottom: 5%;
+
+
+.values-section {
+  padding: 5rem 0;
+  background-color: #111827;
+  color: white;
 }
 
-.section-alpha{
-  background-color: hsla(0, 0%, 4%, 1);
-  padding-top: 5%;
-  padding-bottom: 5%;
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.header{
+.header {
   text-align: center;
-  font-size: 35px;
-  font-family: 'BR-Firma-Bold', sans-serif;
-  color: #FFFFFF;
+  margin-bottom: 4rem;
 }
 
-.sub-header{
-  width: 65%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 1.5%;
-  color: #8599a6;
-  font-weight: 300;
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
-.img{
+.title-highlight {
+  color: #60A5FA;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #D1D5DB;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.value-card {
+  background-color: #1F2937;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.value-card:hover {
+  background-color: #374151;
+}
+
+.value-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.value-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: #2563EB;
+  border-radius: 0.75rem;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.value-text {
+  flex: 1;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.value-description {
+  color: #D1D5DB;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+.value-mockup {
+
+}
+
+.image{
   width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.img-2{
-  width: 40%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-inner{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  gap: 50px;
-}
-
-
-
-
-.section-1-inner{
-  width: 500px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1.5px solid rgba(133, 153, 166, 0.2);
-  padding: 70px 20px 0 20px;
-  border-radius: 12px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.text-1{
-  text-align: center;
-  font-size: 27px;
-  padding-bottom: 5px;
-  color: #FFFFFF;
-}
-
-.text-2{
-  text-align: center;
-  font-size: 16px;
-  padding-bottom: 25px;
-  color: #8599a6;
-  font-weight: 300;
-}
-
-@media (max-width: 900px) {
-
-}
-
-@media (max-width: 700px) {
-  .section-inner{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-1-inner{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-1{
-    width: 100%;
-  }
-
-  .sub-header{
-    width: 85%;
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 500px) {
-
-  .section-1-inner{
-    width: 380px;
-  }
-
-  .text-1{
-    font-size: 25px;
-  }
-
-  .text-2{
-    font-size: 15px;
-  }
-
-}
-
 </style>

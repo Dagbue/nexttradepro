@@ -30,7 +30,9 @@
         </div>
 
         <div class="text-part">
-        <p class="last-text">Trade wherever you are, whenever you want to.</p>
+          <p class="text-1">Trade wherever you are and whenever.</p>
+          <p class="text-2">Access your account from any device, anywhere in the world.</p>
+<!--        <p class="last-text">Trade wherever you are, whenever you want to.</p>-->
         </div>
 
       </div>
@@ -70,20 +72,23 @@ export default {
 }
 
 .section-header{
-  font-size: 16px;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   color: #8599a6;
-  text-align: center;
+  font-size: 1.240rem;
+  line-height: 1.3;
   font-weight: 300;
-  margin-left: 23%;
-  margin-right: 23%;
-  padding-bottom: 1%;
+  text-align: center;
 }
 .section-header-1{
-  font-size: 28px;
   color: #0A0A0AFF;
-  font-weight: bold;
+  font-size: 1.9rem;
+  line-height: 1.2;
+  font-weight: 600;
   text-align: center;
-  padding-bottom: 0.5%;
+  margin-bottom: 10px;
 }
 .section-alpha{
   display: flex;
@@ -138,8 +143,7 @@ export default {
 @media (max-width: 700px) {
   .section-header{
     font-size: 16px;
-    margin-left: 8%;
-    margin-right: 8%;
+    width: 90%;
   }
   .section-header-1{
     font-size: 28px;

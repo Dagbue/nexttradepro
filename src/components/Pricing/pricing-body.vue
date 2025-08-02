@@ -1,165 +1,160 @@
 <template>
-<div class="alpha">
-
-  <div class="section-alpha-1">
-    <p class="section-header-1">Choose an Investment Plan</p>
-    <p class="section-header">You don't have an account yet? start trading with TopShares Pro. </p>
-  </div>
-
-  <div class="section-alpha">
-
-    <div class="third-section top">
-      <p class="text-1">Silver</p>
-      <p class="text-2">10<span class="text-2-inner">%</span></p>
-      <!--        <p class="text-2">4 Months</p>-->
-      <p class="text-3">4 Months</p>
-
-      <div class="btn" @click="onPostClick" >
-        <p>Invest Now</p>
+  <section class="pricing-plans">
+    <div class="container">
+      <div class="intro-text">
+        <h2 class="main-heading">Investment Plans</h2>
+        <p class="sub-heading">
+          Choose the plan that fits your investment goals. All plans come with guaranteed returns and full security.
+        </p>
       </div>
 
-      <div class="separate">
-        <p>$5,000 MINIMUM DEPOSIT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
+      <div class="plans-grid">
+        <div
+            v-for="(plan, index) in plans"
+            :key="index"
+            class="plan-card"
+            :class="[plan.bgClass, plan.borderClass]"
+        >
+          <div v-if="plan.popular" class="popular-badge">
+            <div class="badge-content">Most Popular</div>
+          </div>
 
-      <div class="separate">
-        <p>ENHANCED SECURITY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
+          <!-- Plan Header -->
+          <div class="plan-header">
+            <div :class="['plan-icon', plan.colorClass]">
+              <component :is="plan.icon" class="icon-svg" />
+            </div>
+            <h3 :class="['plan-name', plan.textClass]">{{ plan.name }}</h3>
+            <div :class="['plan-percentage', plan.textClass]">
+              {{ plan.percentage }}
+              <span class="roi-text">ROI</span>
+            </div>
+            <div class="plan-duration">{{ plan.duration }}</div>
+          </div>
 
-      <div class="separate">
-        <p>40% DAILY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
+          <!-- Minimum Deposit -->
+          <div class="deposit-section">
+            <div class="deposit-box">
+              <div class="deposit-label">Minimum Deposit</div>
+              <div class="deposit-amount">{{ plan.minDeposit }}</div>
+            </div>
+          </div>
 
-      <div class="separate">
-        <p>GUARANTEED ROI</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
+          <!-- Features -->
+          <div class="features-list">
+            <div v-for="(feature, featureIndex) in plan.features" :key="featureIndex" class="feature-item">
+              <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="feature-text">{{ feature }}</span>
+            </div>
+          </div>
 
-      <div class="separate">
-        <p>24/7 SUPPORT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-    </div>
-
-    <div class="third-section top">
-      <p class="text-1">Gold</p>
-      <p class="text-2">20<span class="text-2-inner">%</span></p>
-      <!--        <p class="text-2">4 Months</p>-->
-      <p class="text-3">8 Months</p>
-
-      <div class="btn" @click="onPostClick" >
-        <p>Invest Now</p>
-      </div>
-
-      <div class="separate">
-        <p>$25,000 MINIMUM DEPOSIT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>ENHANCED SECURITY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>40% DAILY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>GUARANTEED ROI</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>24/7 SUPPORT</p>
-        <i class='bx bxs-info-circle'></i>
+          <!-- CTA Button -->
+          <button :class="['invest-button', plan.colorClass]">
+            Invest Now
+          </button>
+        </div>
       </div>
     </div>
-
-    <div class="third-section top">
-      <p class="text-1">Diamond</p>
-      <p class="text-2">30<span class="text-2-inner">%</span></p>
-      <!--        <p class="text-2">4 Months</p>-->
-      <p class="text-3">12 Months</p>
-
-      <div class="btn" @click="onPostClick" >
-        <p>Invest Now</p>
-      </div>
-
-      <div class="separate">
-        <p>$100,000 MINIMUM DEPOSIT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>ENHANCED SECURITY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>40% DAILY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>GUARANTEED ROI</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>24/7 SUPPORT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-    </div>
-
-    <div class="third-section top">
-      <p class="text-1">Platinum</p>
-      <p class="text-2">50<span class="text-2-inner">%</span></p>
-      <!--        <p class="text-2">4 Months</p>-->
-      <p class="text-3">24 Months</p>
-
-      <div class="btn" @click="onPostClick" >
-        <p>Invest Now</p>
-      </div>
-
-      <div class="separate">
-        <p>$250,000 MINIMUM DEPOSIT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>ENHANCED SECURITY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>40% DAILY</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>GUARANTEED ROI</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-
-      <div class="separate">
-        <p>24/7 SUPPORT</p>
-        <i class='bx bxs-info-circle'></i>
-      </div>
-    </div>
-
-  </div>
-
-</div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "pricing-body",
+  data() {
+    return {
+      plans: [
+        {
+          name: 'Silver',
+          icon: '',
+          percentage: '10%',
+          duration: '4 Months',
+          minDeposit: '$5,000',
+          colorClass: 'gradient-silver',
+          borderClass: 'border-gray',
+          bgClass: 'bg-white',
+          textClass: 'text-gray',
+          features: [
+            'Enhanced Security',
+            '40% Daily Returns',
+            'Guaranteed ROI',
+            '24/7 Support',
+            'Mobile Trading App',
+            'Basic Analytics'
+          ],
+          popular: false
+        },
+        {
+          name: 'Gold',
+          icon: '',
+          percentage: '20%',
+          duration: '8 Months',
+          minDeposit: '$25,000',
+          colorClass: 'gradient-gold',
+          borderClass: 'border-gold',
+          bgClass: 'bg-gold',
+          textClass: 'text-gray',
+          features: [
+            'Enhanced Security',
+            '40% Daily Returns',
+            'Guaranteed ROI',
+            '24/7 Priority Support',
+            'Advanced Trading Tools',
+            'Personal Account Manager',
+            'Risk Management Tools'
+          ],
+          popular: true
+        },
+        {
+          name: 'Diamond',
+          icon: '',
+          percentage: '30%',
+          duration: '12 Months',
+          minDeposit: '$100,000',
+          colorClass: 'gradient-diamond',
+          borderClass: 'border-diamond',
+          bgClass: 'bg-diamond',
+          textClass: 'text-gray',
+          features: [
+            'Enhanced Security',
+            '40% Daily Returns',
+            'Guaranteed ROI',
+            '24/7 VIP Support',
+            'Professional Trading Suite',
+            'Dedicated Account Manager',
+            'Custom Investment Strategies',
+            'Exclusive Market Insights'
+          ],
+          popular: false
+        },
+        {
+          name: 'Platinum',
+          icon: '',
+          percentage: '50%',
+          duration: '24 Months',
+          minDeposit: '$250,000',
+          colorClass: 'gradient-platinum',
+          borderClass: 'border-platinum',
+          bgClass: 'bg-platinum',
+          textClass: 'text-gray',
+          features: [
+            'Enhanced Security',
+            '40% Daily Returns',
+            'Guaranteed ROI',
+            '24/7 Concierge Support',
+            'Enterprise Trading Platform',
+            'Team of Account Managers',
+            'Bespoke Investment Solutions',
+            'Private Market Access',
+            'Quarterly Strategy Reviews'
+          ],
+          popular: false
+        }
+      ]
+    };
+  },
   methods: {
     onPostClick() {
       this.$router.push("/register");
@@ -170,191 +165,266 @@ export default {
 </script>
 
 <style scoped>
-
-.alpha{
-  /*background-color: #000;*/
-  height: 100%;
-  padding-bottom: 5%;
-  padding-top: 5%;
+/* Base styles */
+.pricing-plans {
+  padding: 5rem 0;
+  background-color: #F9FAFB;
 }
-.section-header{
-  font-size: 17px;
-  color: #8599a6;
+
+/* Container */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Intro text */
+.intro-text {
   text-align: center;
-  font-weight: 300;
-  margin-left: 23%;
-  margin-right: 23%;
-  padding-bottom: 1%;
-}
-.section-header-1{
-  font-size: 30px;
-  color: #0A0A0AFF;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 0.5%;
-}
-.section-alpha{
-  display: flex;
-  justify-content: space-evenly;
-  margin-right: 3%;
-  margin-left: 3%;
+  margin-bottom: 4rem;
 }
 
-.section-alpha-2{
-  display: flex;
-  justify-content: space-evenly;
+.main-heading {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
 }
 
-.section-alpha-1{
-  display: block;
-  text-align: center;
-  margin-bottom: 2%;
+.sub-heading {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: #4B5563;
+  max-width: 48rem;
+  margin: 0 auto;
 }
 
-.third-section{
-  width: 300px;
-  height: 480px;
-  background-color: hsla(0, 0%, 4%, .9);
-  border: 1px solid hsla(0, 0%, 4%, .9);
-  border-radius: 8px;
-  margin-bottom: 5%;
+/* Plans grid */
+.plans-grid {
+  display: grid;
+  gap: 2rem;
 }
 
-.separate{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin-top: 1%;
+@media (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.separate i{
-  padding-top: 15px;
-  padding-right: 13px;
+@media (min-width: 1024px) {
+  .plans-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.separate p{
-  width: 220px;
-  padding-top: 15px;
-  font-size: 14px;
-  line-height: 24px;
+/* Plan card */
+.plan-card {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid;
+}
+
+.plan-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.5rem);
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-gold {
+  background: linear-gradient(to bottom right, #FEF9C3, #FFF7ED);
+}
+
+.bg-diamond {
+  background: linear-gradient(to bottom right, #EFF6FF, #E0E7FF);
+}
+
+.bg-platinum {
+  background: linear-gradient(to bottom right, #F3E8FF, #FCE7F3);
+}
+
+.border-gray {
+  border-color: #D1D5DB;
+}
+
+.border-gold {
+  border-color: #FBBF24;
+}
+
+.border-diamond {
+  border-color: #60A5FA;
+}
+
+.border-platinum {
+  border-color: #A78BFA;
+}
+
+/* Popular badge */
+.popular-badge {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.badge-content {
+  background: linear-gradient(to right, #FBBF24, #F97316);
   color: #ffffff;
-  padding-left: 13px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
-.btn{
-  margin-top: 5%;
-  margin-bottom: 1%;
+/* Plan header */
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-.btn p{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.plan-icon {
+  display: inline-flex;
   align-items: center;
-  padding: 12px 20px;
-  gap: 8px;
-  width: 180px;
-  height: 44px;
-  background: #007aff;
-  border: 1px solid #007aff;
-  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
-  border-radius: 12px;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.gradient-silver {
+  background: linear-gradient(to right, #9CA3AF, #4B5563);
+}
+
+.gradient-gold {
+  background: linear-gradient(to right, #FBBF24, #D97706);
+}
+
+.gradient-diamond {
+  background: linear-gradient(to right, #60A5FA, #2563EB);
+}
+
+.gradient-platinum {
+  background: linear-gradient(to right, #A78BFA, #7C3AED);
+}
+
+.icon-svg {
+  width: 2rem;
+  height: 2rem;
+  color: #ffffff;
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.plan-percentage {
+  font-size: 3rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.roi-text {
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.plan-duration {
+  color: #4B5563;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  color: #FFFFFF;
+}
+
+.text-gray {
+  color: #111827;
+}
+
+/* Minimum deposit */
+.deposit-section {
   text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-/*.btn p:hover{*/
-/*  background-color: #ffcf01;*/
-/*  color: #ffffff;*/
-/*  border: 1px solid #ffcf01;*/
-/*  -webkit-transition: all 0.35s ease;*/
-/*  transition: all 0.35s ease;*/
-/*  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);*/
-/*}*/
-
-.top{
-  margin-top: 1%;
+.deposit-box {
+  background-color: #F3F4F6;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.text-1{
-  text-align: center;
-  padding-top: 9%;
-  padding-bottom: 3%;
-  font-size: 19px;
-  color: #FFFFFF;
+.deposit-label {
+  font-size: 0.875rem;
+  color: #4B5563;
+  margin-bottom: 0.25rem;
 }
 
-.text-2{
-  text-align: center;
-  padding-bottom: 4%;
-  font-size: 27px;
-  font-weight: bold;
-  color: #FFFFFF;
+.deposit-amount {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: #111827;
 }
 
-.text-2-inner{
-  font-size: 14px;
-  font-weight: normal;
-  color: #FFFFFF;
+/* Features list */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
 }
 
-.text-3{
-  text-align: center;
-  font-size: 16px;
-  width: 70%;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  color: #FFFFFF;
+.feature-item {
+  display: flex;
+  align-items: center;
 }
 
-
-.bx{
-  color: #007aff;
-}
-@media (max-width: 990px) {
-
-}
-
-@media (max-width: 700px) {
-  .section-alpha{
-    display: block;
-    /*margin-left: 21%;*/
-    margin-top: 3.5%;
-  }
-  .section-alpha-2{
-    display: block;
-    /*margin-left: 21%;*/
-    margin-top: 3.5%;
-  }
-  .third-section{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section-header{
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-  .section-header-1{
-    font-size: 25px;
-  }
-
-  .third-section{
-    width: 350px;
-  }
+.check-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #22C55E;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
 }
 
-@media (max-width: 500px) {
-
-  .third-section{
-    width: 300px;
-  }
+.feature-text {
+  color: #374151;
 }
 
+/* Invest button */
+.invest-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.invest-button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
 </style>
+

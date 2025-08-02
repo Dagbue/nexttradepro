@@ -6,6 +6,7 @@
 
           <div class="slideTitle-section-1">
 
+
             <p class="text-1">{{ image.title }}</p>
 
             <p class="text-2">{{ image.para }}</p>
@@ -25,9 +26,9 @@
           <div class="slideTitle-section-2">
             <img v-show="this.image.id === 0" src="@/assets/crypto-futures.png" alt="slide_show_image" class="slider-image"/>
 
-            <img v-show="this.image.id === 1" src="https://images.unsplash.com/photo-1633381664938-acd1bdf25770?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTF8fEFUTSUyMGNhcmR8ZW58MHx8MHx8fDA%3D" alt="slide_show_image" class="slider-image-1"/>
+            <img v-show="this.image.id === 1" src="https://www.etoro.com/wp-content/uploads/2025/05/Staking-Phone-1.png" alt="slide_show_image" class="slider-image-1"/>
 
-            <img v-show="this.image.id === 2" src="https://primexbt.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcrypto-futures.0d36e92f.png&w=3840&q=75" alt="slide_show_image" class="slider-image"/>
+            <img v-show="this.image.id === 2" src="https://www.etoro.com/wp-content/themes/etoro/assets/images/templates/trading_platform/sec-7-img.png" alt="slide_show_image" class="slider-image-2" />
           </div>
 
 
@@ -60,12 +61,11 @@ export default {
 
 <style scoped>
 .slides .slideParent {
-  height: 57vh;
+  height: 62vh;
   width: 100%;
-  --bs-bg-opacity: 1;
-  --bs-tertiary-100-rgb: 233, 240, 255;
-  background-color: rgba(var(--bs-tertiary-100-rgb), var(--bs-bg-opacity)) !important;
+  background: linear-gradient(to bottom right, #EFF6FF, #FFFFFF, #EEF2FF);
 }
+
 .slides .slideImage {
   height: 100vh;
   width: 100%;
@@ -133,18 +133,21 @@ button {
 }
 
 .btn-primary {
-  background-color: #007aff;
+  background-color: #2563eb;
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #0063cc;
+  background-color: #1d4ed8;
 }
 
 .btn-secondary {
-  background-color: transparent;
-  border: 1px solid rgba(133, 153, 166, 0.2);
-  color: #191C1F;
+  background-color: #1f2937;
+  color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+  background-color: #111827;
 }
 
 .slideTitle-section-1{
@@ -156,7 +159,7 @@ button {
 }
 
 .slider-image{
-  width: 90%;
+  width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -164,12 +167,23 @@ button {
 }
 
 .slider-image-1{
-  width: 80%;
+  width: 55%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
 }
+
+.slider-image-2{
+  width: 68%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+
+
 
 .fade-enter-active {
   animation-name: fadeEnter;
@@ -304,7 +318,11 @@ button {
   }
 
   .slider-image-1{
-    width: 90%;
+    width: 70%;
+  }
+
+  .slider-image-2{
+    width: 80%;
   }
 
 }

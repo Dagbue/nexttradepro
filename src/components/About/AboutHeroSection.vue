@@ -1,38 +1,74 @@
 <template>
-  <div class="alpha">
-    <!--    <p class="section-header-1">There’s a time and a place for risk</p>-->
-    <!--    <p class="section-header">Your funds and data are always secure. With Income And Assets Limited you’re protected-->
-    <!--      by industry-leading protocols.</p>-->
-
-    <div class="section-alpha">
-
-      <div class="section-1">
-
-        <div class="text-part">
-          <p class="text-3">TopShares Pro</p>
-          <p class="text-1">Access the world of trading <br class="breaker"/> with ease.</p>
-          <p class="text-2">Strategically Build and Grow Your Next High-Performance Trading Portfolio with Confidence
-            and Precision.</p>
-          <p class="text-2">Leverage powerful tools, data-driven insights, and proven strategies tailored to your
-            unique investment goals.</p>
-
-          <!--          <div class="button-part">-->
-          <!--            <button class="btn1" @click="onPostClick2">Login Account</button>-->
-          <!--          </div>-->
-        </div>
-
-
-      </div>
-
-      <div class="section-2">
-
-        <img src="@/assets/pick.png" alt="image" class="image" />
-
-      </div>
-
+  <section class="hero-section">
+    <div class="background-pattern">
+      <svg class="pattern-svg" viewBox="0 0 400 200">
+        <path
+            d="M0,100 Q50,80 100,90 T200,85 T300,80 T400,75"
+            stroke="#3B82F6"
+            stroke-width="1"
+            fill="none"
+        />
+        <path
+            d="M0,120 Q50,100 100,110 T200,105 T300,100 T400,95"
+            stroke="#3B82F6"
+            stroke-width="1"
+            fill="none"
+        />
+      </svg>
     </div>
-
-  </div>
+    <div class="container">
+      <div class="content-grid">
+        <div class="text-content">
+          <div class="badge">TopShares Pro</div>
+          <h1 class="title">
+            Access the world of trading
+            <span class="title-highlight">with ease.</span>
+          </h1>
+          <div class="description">
+            <p>
+              Strategically Build and Grow Your Next High-Performance Trading
+              Portfolio with Confidence and Precision.
+            </p>
+            <p>
+              Leverage powerful tools, data-driven insights, and proven strategies
+              tailored to your unique investment goals.
+            </p>
+          </div>
+        </div>
+        <div class="mobile-interface">
+          <div class="interface-card">
+            <div class="interface-header">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <div class="status-dot"></div>
+                <div class="status-dot"></div>
+                <div class="status-dot"></div>
+              </div>
+            </div>
+            <div class="action-button">Buy / Sell</div>
+            <div class="market-prices">
+              <div class="market-title">Current market prices</div>
+              <div v-for="(crypto, index) in cryptos" :key="index" class="crypto-item">
+                <div class="crypto-info">
+                  <div class="crypto-icon">{{ crypto.symbol.charAt(0) }}</div>
+                  <div>
+                    <div class="crypto-symbol">{{ crypto.symbol }}</div>
+                    <div class="crypto-name">{{ crypto.name }}</div>
+                  </div>
+                </div>
+                <div class="crypto-stats">
+                  <div class="crypto-price">{{ crypto.price }}</div>
+                  <div :class="crypto.positive ? 'price-change-positive' : 'price-change-negative'">
+                    {{ crypto.change }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -46,180 +82,218 @@ export default {
       this.$router.push("/login");
     },
   },
+  data() {
+    return {
+      cryptos: [
+        { symbol: 'BTC', name: 'Bitcoin', price: '$37,280', change: '+0.11%', positive: true },
+        { symbol: 'ETH', name: 'Ethereum', price: '$2,059.47', change: '-1.00%', positive: false },
+        { symbol: 'USDT', name: 'Tether', price: '$1.0030', change: '+0.01%', positive: true },
+        { symbol: 'USDC', name: 'USD Coin', price: '$1.0030', change: '+0.01%', positive: true },
+        { symbol: 'XRP', name: 'Ripple', price: '$0.61', change: '-1.84%', positive: false },
+        { symbol: 'ADA', name: 'Cardano', price: '$0.3678', change: '-2.10%', positive: false }
+      ]
+    };
+  }
 }
 </script>
 
 <style scoped>
-.alpha{
-  background-color: hsla(0, 0%, 4%, 1);
-  height: 600px;
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
+.hero-section {
   position: relative;
+  background: linear-gradient(to bottom right, #111827, #1E3A8A, #111827);
+  color: white;
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+  overflow: hidden;
+  z-index: 0;
 }
 
-span{
-  color: #3071EE;
+.background-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1;
 }
 
-.section-1{
-  width: 50%;
+.pattern-svg {
+  width: 100%;
+  height: 100%;
 }
 
-.section-2{
-  width: 50%;
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
 }
 
-.section-alpha{
-  display: flex;
-  justify-content: space-around;
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items: center;
-  align-content: center;
-  padding-top: 3%;
 }
 
-.image{
-  width: 55%;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 14px;
-}
-
-.text-part{
-  width: 80%;
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.text-1{
-  font-size: 40px;
-  line-height: 1;
-  white-space: pre-line;
-  margin-bottom: 10px;
-  color: #FFFFFF;
-  font-weight: 700;
-}
-
-.text-2{
-  margin: 0;
-  font-size: 18px;
-  white-space: pre-line;
-  line-height: 1.25;
-  color: #8599a6;
-  font-weight: 300;
-}
-
-.text-3{
-  background: #007aff;
-  border: 1px solid #007aff;
-  display: inline-block;
-  color: #FFFFFF;
-  padding: 10px 40px 10px 40px;
-  border-radius: 12px;
-  margin-bottom: 2%;
-}
-
-.button-part{
+.text-content {
   display: flex;
-  gap: 20px;
-  margin-top: 3%;
-}
-.btn1{
-  background-color: #070e20;
-  border: 1px solid #070e20;
-  color: #ffffff;
-  padding: 10px 30px;
-  border-radius: 12px;
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  text-decoration: none;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.25s ease;
-  font-size: 14px;
-  width: 220px;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-@media (max-width: 700px) {
-  .section-header{
-    font-size: 16px;
-    margin-left: 8%;
-    margin-right: 8%;
-  }
-  .section-header-1{
-    font-size: 28px;
-  }
-  .section-alpha{
-    display: block;
-  }
-  .section-1{
-    width: 100%;
-    margin-bottom: 5%;
-  }
-
-  .section-2{
-    width: 100%;
-  }
-
-  .text-1{
-    font-size: 28px;
-    line-height: 30px;
-    margin-bottom: 13px;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-  }
-
-  .text-2{
-    font-size: 16px;
-    line-height: 1.3;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-  }
-
-  .text-3{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-  }
-
-  .image{
-    width: 90%;
-  }
-
-  .button-part{
-    justify-content: center;
-  }
-  .alpha{
-    padding-top: 10%;
-    padding-bottom: 10%;
-    height: 100%;
-  }
-
-  .breaker{
-    display: none;
-  }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #2563EB;
+  color: white;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 170px;
 }
 
+.title {
+  font-size: 3.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
 
-@media (max-width: 500px) {
+.title-highlight {
+  display: block;
+  color: #60A5FA;
+}
 
-  .text-part{
-    width: 85%;
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.125rem;
+  color: #D1D5DB;
+}
+
+.interface-card {
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 24rem;
+  margin: 0 auto;
+}
+
+.interface-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.time {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.status-icons {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.status-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #9CA3AF;
+  border-radius: 9999px;
+}
+
+.action-button {
+  background-color: #2563EB;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.market-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.market-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.crypto-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #F3F4F6;
+  border-radius: 0.5rem;
+}
+
+.crypto-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crypto-icon {
+  width: 2rem;
+  height: 2rem;
+  background-color: #FEEBC8;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #F97316;
+}
+
+.crypto-symbol {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.crypto-name {
+  font-size: 0.75rem;
+  color: #6B7280;
+}
+
+.crypto-stats {
+  text-align: right;
+}
+
+.crypto-price {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.price-change-positive {
+  font-size: 0.75rem;
+  color: #16A34A;
+}
+
+.price-change-negative {
+  font-size: 0.75rem;
+  color: #DC2626;
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
   }
-  .section-header-1{
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
 }
 </style>

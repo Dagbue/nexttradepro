@@ -7,11 +7,11 @@
 <path id="Vector_5" d="M20.72 45.65C23.5809 45.65 25.9 43.3443 25.9 40.5C25.9 37.6557 23.5809 35.35 20.72 35.35C17.8592 35.35 15.54 37.6557 15.54 40.5C15.54 43.3443 17.8592 45.65 20.72 45.65Z" stroke="#007aff" stroke-miterlimit="10"/>
 <path id="Vector_6" d="M13.32 85.39C16.1808 85.39 18.5 83.0843 18.5 80.24C18.5 77.3957 16.1808 75.09 13.32 75.09C10.4592 75.09 8.14001 77.3957 8.14001 80.24C8.14001 83.0843 10.4592 85.39 13.32 85.39Z" stroke="#007aff" stroke-miterlimit="10"/>
 <path id="Vector_7" d="M45.15 58.89C50.8717 58.89 55.51 54.2785 55.51 48.59C55.51 42.9015 50.8717 38.29 45.15 38.29C39.4284 38.29 34.79 42.9015 34.79 48.59C34.79 54.2785 39.4284 58.89 45.15 58.89Z" stroke="#007aff" stroke-miterlimit="10"/>
-<path id="Vector_8" d="M45.1501 38.29L42.9301 17.69" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
-<path id="Vector_9" d="M54.03 75.08L48.85 58.16" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
-<path id="Vector_10" d="M53.29 41.97L79.94 22.84" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
-<path id="Vector_11" d="M16.28 75.82L37.74 55.95" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
-<path id="Vector_12" d="M25.9 41.97L34.04 44.91" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
-<path id="Vector_13" d="M55.51 52.27L82.16 64.05" stroke="#007aff" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_8" d="M45.1501 38.29L42.9301 17.69" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_9" d="M54.03 75.08L48.85 58.16" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_10" d="M53.29 41.97L79.94 22.84" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_11" d="M16.28 75.82L37.74 55.95" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_12" d="M25.9 41.97L34.04 44.91" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
+<path id="Vector_13" d="M55.51 52.27L82.16 64.05" stroke="#2563EB" stroke-miterlimit="10" stroke-linecap="square"/>
 </g>
 </svg>

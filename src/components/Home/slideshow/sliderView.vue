@@ -37,14 +37,17 @@ export default {
           para3: "Open Account",
           para4: "Trading Platform",
         },
-        // {
-        //   id: 2,
-        //   url: "",
-        //   title: "Inflation Busting",
-        //   para: "3.00% APY * High Yield Savings Account",
-        //   para2: "Earn More Now with our new High Yield Savings Account!",
-        //   para3: "Learn more",
-        // },
+        {
+          id: 2,
+          url: "",
+          title: "Power-Up Your Profits",
+          para: "Earn an impressive 3.00% Annual Percentage Yield (APY) with our High-Yield Trading Account – designed " +
+              "to help your money grow faster in today’s market.",
+          para2: "Start maximizing your earnings today with our all-new High-Yield Trading Account. Whether " +
+              "you're saving for the short or long term",
+          para3: "Learn more",
+          para4: "Trading Platform",
+        },
       ],
       chosenImage: 0,
       intervalObject: null,
@@ -97,7 +100,7 @@ export default {
 #slider {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   /*margin-top: 0.8%;*/
 }
 #slider .arrowLeft,

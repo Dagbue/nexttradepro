@@ -1,260 +1,249 @@
 <template>
-  <div class="alpha">
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="header">
+        <h2>Featured Success Stories</h2>
+        <p>Meet some of our most successful traders and learn how TopShares Pro helped them achieve their financial goals.</p>
+      </div>
 
-<!--    <div class="section-1">-->
-<!--      <div class="video">-->
-<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--      </div>-->
-<!--      <div class="video">-->
-<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--      </div>-->
-<!--      <div class="video">-->
-<!--        <iframe width="400" height="340" src="https://www.youtube.com/embed/jWtmuRn_n5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-<!--      </div>-->
-<!--    </div>-->
+      <div class="testimonials-grid">
+        <div v-for="testimonial in featuredTestimonials" :key="testimonial.id" class="testimonial-card">
+          <div class="quote-icon">
+            <svg class="quote-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 21c0-2.4 1.6-4.4 3.8-5 1.1-.3 2.2-.7 3.2-1.2-.4 1.2-.7 2.5-.7 3.8 0 2.7 2.2 4.9 4.9 4.9s4.9-2.2 4.9-4.9c0-1.3-.3-2.6-.7-3.8 1 0.5 2.1 0.9 3.2 1.2 2.2 0.6 3.8 2.6 3.8 5" />
+            </svg>
+          </div>
 
+          <div class="rating">
+            <span v-for="n in testimonial.rating" :key="n" class="star">★</span>
+          </div>
 
-    <div class="section-2">
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>This is a more than a trading company. Giving you guys 5 ratings for your support services. Great
-              company. Awesome support.. TopShares Pro is the best....</p>
-          </blockquote>
-          <h3>Ronald Dooms</h3>
-          <h4>Investor.</h4>
-        </figcaption>
-      </figure>
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>TopShares Pro has the simplest interface of all and also has the fastest entry point into the market.I was
-              a banker who was deep in debt, but  with the help of TopShares Pro ..., now I am living well and
-              comfortable with my family</p>
-          </blockquote>
-          <h3>Theresa Williams</h3>
-          <h4>Banker</h4>
-        </figcaption>
-      </figure>
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>My name is William Tyler Pelicione. Few weeks I have traded with TopShares Pro, i made enough profit of
-              1.8btc and my withdrawal was processed instantly. TopShares Pro is the best.</p>
-          </blockquote>
-          <h3>William Tyler Pelicione</h3>
-          <h4>Business Woman</h4>
-        </figcaption>
-      </figure>
+          <p class="testimonial-text">"{{ testimonial.testimonial }}"</p>
+
+          <div class="metrics">
+            <div style="text-align: center;">
+              <div class="metric-value profit">{{ testimonial.metrics.profit }}</div>
+              <div class="metric-label">Profit</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="metric-value period">{{ testimonial.metrics.period }}</div>
+              <div class="metric-label">Period</div>
+            </div>
+            <div style="text-align: center;">
+              <div class="metric-value trades">{{ testimonial.metrics.trades }}</div>
+              <div class="metric-label">Trades</div>
+            </div>
+          </div>
+
+          <div class="author">
+            <img :src="testimonial.image" :alt="testimonial.name" class="author-image" />
+            <div>
+              <div class="author-name">{{ testimonial.name }}</div>
+              <div class="author-role">{{ testimonial.role }}</div>
+              <div class="author-company">{{ testimonial.company }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="section-2">
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>I joined TopShares Pro as a way of earning income and consolidating on my 9-5 which had placed me in a loop for
-              so long. My experience has been nothing short of beautiful in the few years that I've been with the
-              platform. I've been able to keep expanding my goals off profits from TopShares Pro and it keeps looking better.</p>
-          </blockquote>
-          <h3>Mark Rutherfod</h3>
-          <h4>Investor.</h4>
-        </figcaption>
-      </figure>
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>After losing my way in the cryptocurrency space a few times, I made a decision to turn towards an
-              opportunity that is consistent, dependable, and I could build steadily with, and TopShares Pro has ticked all
-              these boxes by providing all the tools I need to earn weekly, but most importantly the guidance that
-              comes with the experience is simply top quality.</p>
-          </blockquote>
-          <h3>Jennifer McCain</h3>
-          <h4>Trader</h4>
-        </figcaption>
-      </figure>
-      <figure class="snip1533">
-        <figcaption>
-          <blockquote>
-            <p>I spent 25 years in the cooperate world, and retirement seemed like the plan, always looked forward to
-              it. Yet, I wasn't going to turn down an opportunity to really chase my dreams and accomplish the things
-              I'd wanted to do. 34 months down the line, I own my home, accrue substantive income and have the
-              financial freedom to fully explore ideas and plans I had left in my notebooks".</p>
-          </blockquote>
-          <h3>Ingredia Nutrisha</h3>
-          <h4>Buiness Woman</h4>
-        </figcaption>
-      </figure>
-    </div>
-
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "TestimonialsBody"
+  name: "TestimonialsBody",
+  data() {
+    return {
+      featuredTestimonials: [
+        {
+          id: 1,
+          name: "Sarah Chen",
+          role: "Professional Trader",
+          company: "Goldman Sachs",
+          image: "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150",
+          rating: 5,
+          testimonial: "TopShares Pro has revolutionized my trading experience. The platform's speed and reliability are unmatched. I've increased my portfolio by 340% in just 8 months.",
+          metrics: {
+            profit: "+340%",
+            period: "8 months",
+            trades: "2,400+"
+          }
+        },
+        {
+          id: 2,
+          name: "Michael Rodriguez",
+          role: "Investment Analyst",
+          company: "JP Morgan",
+          image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150",
+          rating: 5,
+          testimonial: "The analytical tools and real-time data have given me a significant edge in the market. Customer support is exceptional - they're available 24/7 and truly understand trading.",
+          metrics: {
+            profit: "+280%",
+            period: "1 year",
+            trades: "5,200+"
+          }
+        },
+        {
+          id: 3,
+          name: "Emily Watson",
+          role: "Crypto Specialist",
+          company: "Binance",
+          image: "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150",
+          rating: 5,
+          testimonial: "As someone who trades both traditional assets and crypto, TopShares Pro's unified platform is a game-changer. The execution speed is lightning fast.",
+          metrics: {
+            profit: "+420%",
+            period: "6 months",
+            trades: "3,800+"
+          }
+        }
+      ]
+    }
+  }
 }
 </script>
 
+
+
+
 <style scoped>
-.alpha{
-  /*background-color: #000;*/
-  height: 100%;
-  padding-bottom: 5%;
-  padding-top: 3%;
+.testimonials-section {
+  padding: 5rem 1rem;
+  background-color: #ffffff;
 }
 
-.section-1{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.snip1533 {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  color: #ffffff;
-  display: inline-block;
-  font-size: 16px;
-  margin: 35px 10px 10px;
-  max-width: 370px;
-  min-width: 250px;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  background-color: hsla(0, 0%, 4%, .9);
-  border: 1px solid hsla(0, 0%, 4%, .9);
-  border-radius: 5px;
-  border-top: 5px solid #007aff;
-  line-height: 1.4;
-}
-
-.snip1533 *,
-.snip1533 *:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-}
-
-.snip1533 figcaption {
-  padding: 13% 10% 12%;
-}
-
-.snip1533 figcaption:before {
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  color: #007aff;
-  content: "&";
-  font-size: 32px;
-  font-style: normal;
-  left: 50%;
-  line-height: 60px;
-  position: absolute;
-  top: -30px;
-  width: 60px;
-}
-
-.snip1533 h3 {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 24px;
-  margin: 10px 0 5px;
-}
-
-.snip1533 h4 {
-  font-weight: 400;
-  margin: 0;
-  opacity: 0.5;
-}
-
-.snip1533 blockquote {
-  font-style: italic;
-  font-weight: 300;
-  margin: 0 0 20px;
-}
-
-.btn{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  text-align: center;
-  background: #070e20;
-  /*border: 1px solid #124DA8;*/
-  color: #FFFFFF;
-  padding: 0.8em 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  -webkit-transition: all 0.1s ease;
-  transition: all 0.25s ease;
-  margin-top: 2%;
-}
-.btn:hover{
-  background: #2e8cec;
-  color: #FFFFFF;
-}
-.section-2{
-  display: flex;
-  justify-content: space-around;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
 .container {
-  border: 2px solid #ccc;
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 16px;
-  margin: 16px 0;
-  width: 380px;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-.container img {
-  float: left;
-  margin-right: 20px;
+.header h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(to bottom right, #eff6ff, #e0e7ff);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.quote-icon {
+  position: absolute;
+  top: -1rem;
+  left: 2rem;
+  background-color: #2563eb;
+  padding: 0.75rem;
   border-radius: 50%;
 }
 
-.container span {
-  font-size: 20px;
-  margin-right: 15px;
+.quote-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffffff;
 }
 
-@media (max-width: 700px) {
-  .section-1{
-    display: block;
-  }
-  iframe{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
-
-  .section-2{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .snip1533{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5%;
-  }
+.rating {
+  display: flex;
+  margin: 1rem 0 1.5rem;
 }
 
-@media (max-width: 500px) {
+.star {
+  font-size: 1.25rem;
+  color: #facc15;
+}
 
+.testimonial-text {
+  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.metric-value.profit { color: #16a34a; }
+.metric-value.period { color: #2563eb; }
+.metric-value.trades { color: #7c3aed; }
+
+.metric-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.author-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.author-role {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.author-company {
+  font-size: 0.875rem;
+  color: #2563eb;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 </style>

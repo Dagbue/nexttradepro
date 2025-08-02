@@ -1,6 +1,6 @@
 <template>
   <div class="alpha">
-    <p class="header">Our Core <span style="color: #3760ff;">Products</span></p>
+    <p class="header">Our Core <span style="color: #2563EB;">Products</span></p>
 
     <div class="section-alpha">
 
@@ -16,11 +16,6 @@
         <p class="text-1">Buy Crypto</p>
         <p class="text-2">Easily buy 60+ Crypto with Visa or Mastercard.</p>
       </div>
-    </div>
-
-    <div class="section-alpha">
-
-
 
       <div class="section-1">
         <img src="@/assets/cf.webp" alt="" class="image">
@@ -34,9 +29,8 @@
         <p class="text-1">Copy Trading</p>
         <p class="text-2">Profit from the markets by following the experts.</p>
       </div>
-
-
     </div>
+
 
   </div>
 </template>
@@ -50,22 +44,23 @@ export default {
 <style scoped>
 .alpha{
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 3%;
 }
 
 .header{
   text-align: center;
   color: #0A0A0AFF;
-  font-size: 30px;
+  font-size: 2.25rem;
   font-weight: 700;
 }
 
 .text-1{
   color: #0A0A0AFF;
   text-align: center;
-  font-size: 23px;
-  margin-top: 1%;
+  font-size: 21px;
+  margin-top: 0.5%;
   margin-bottom: 3%;
+  font-weight: 600;
 }
 
 .text-2{
@@ -73,6 +68,7 @@ export default {
   font-size: 14px;
   text-align: center;
   font-weight: 300;
+  line-height: 1.3;
 }
 
 .section-alpha{
@@ -83,7 +79,7 @@ export default {
 }
 
 .section-1{
-  width: 320px;
+  width: 260px;
 }
 
 .image{
