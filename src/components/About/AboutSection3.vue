@@ -20,6 +20,7 @@
             <div class="value-content">
               <div class="value-icon">
 <!--                <component :is="value.icon" class="icon" />-->
+                <img :src="value.icon" :alt="value.title"  class="icon" />
               </div>
               <div class="value-text">
                 <h3 class="value-title">{{ value.title }}</h3>
@@ -43,25 +44,25 @@ export default {
     return {
       values: [
         {
-          icon: '',
+          icon: require("@/assets/icons8-light-bulb-50.png"),
           title: 'Innovation',
           description: 'We always provide our clients with the latest and greatest in trading tech.',
           mockup: require('@/assets/about-benefit-1.svg'),
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-bullseye-50.png"),
           title: 'Empowerment',
           description: 'We empower users to take control.',
           mockup: require('@/assets/about-benefit-2.svg'),
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-heart-50.png"),
           title: 'Client-focus',
           description: 'Before we do anything, we always think about our users, and how they will benefit.',
           mockup: require('@/assets/afr-contact.webp'),
         },
         {
-          icon: '',
+          icon:  require("@/assets/icons8-eye-50.png"),
           title: 'Transparency',
           description: 'We earn the trust of clients by being clear about everything from the very start.',
           mockup: require('@/assets/afr-contact.webp'),

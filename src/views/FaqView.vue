@@ -1,6 +1,7 @@
 <template>
   <div class="admin">
     <faq-header/>
+    <search-bar />
     <f-a-q-body/>
     <ready-to-work/>
     <footer-home/>
@@ -12,10 +13,11 @@ import FaqHeader from "@/components/Faq/FaqHeader.vue";
 import FAQBody from "@/components/Faq/f-a-q-body.vue";
 import FooterHome from "@/components/BaseComponents/FooterHome.vue";
 import ReadyToWork from "@/components/BaseComponents/ReadyToWork.vue";
+import SearchBar from "@/components/Faq/SearchBar.vue";
 
 export default {
   name: "FaqView",
-  components: {ReadyToWork, FooterHome, FAQBody, FaqHeader}
+  components: {SearchBar, ReadyToWork, FooterHome, FAQBody, FaqHeader}
 }
 </script>
 

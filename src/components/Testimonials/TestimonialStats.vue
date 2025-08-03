@@ -9,7 +9,8 @@
       <div class="stats-grid">
         <div v-for="(stat, index) in stats" :key="index" class="stat-item">
           <div :class="['icon-wrapper', stat.bgColor]">
-            <component :is="stat.icon" :class="['icon', stat.color]"></component>
+
+            <img :src="stat.icon" :class="['icon', stat.color]" :alt="stat.name" />
           </div>
           <div class="stat-value">{{ stat.value }}</div>
           <div class="stat-label">{{ stat.label }}</div>
@@ -39,7 +40,7 @@ export default {
     return {
       stats: [
         {
-          icon: '',
+          icon: require("@/assets/icons8-avatar-50.png"),
           value: '1M+',
           label: 'Active Traders',
           description: 'Join our growing community of successful traders',
@@ -47,7 +48,7 @@ export default {
           bgColor: 'bg-blue'
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-sample-rate-50.png"),
           value: '98%',
           label: 'Success Rate',
           description: 'Of our traders report positive returns',
@@ -55,7 +56,7 @@ export default {
           bgColor: 'bg-green'
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-prize-50.png"),
           value: '4.8/5',
           label: 'Average Rating',
           description: 'Based on 50,000+ verified reviews',
@@ -63,7 +64,7 @@ export default {
           bgColor: 'bg-yellow'
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-globe-50.png"),
           value: '150+',
           label: 'Countries',
           description: 'Traders from around the world trust us',

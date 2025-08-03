@@ -158,11 +158,11 @@ export default {
 .title {
   font-size: 3.75rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .title-highlight {
-  display: block;
+
   color: #60A5FA;
 }
 
@@ -170,8 +170,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   color: #D1D5DB;
+  line-height: 1.2;
 }
 
 .interface-card {

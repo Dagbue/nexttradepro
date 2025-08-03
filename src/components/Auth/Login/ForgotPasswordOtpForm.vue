@@ -1,88 +1,110 @@
-<!--suppress CssUnresolvedCustomProperty -->
 <template>
-  <div class="alpha">
+  <div class="login-container">
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+    <div class="background-overlay"></div>
 
-    <div class="image">
-      <img src="@/assets/logo.png" alt="logo" class="company-logo">
-    </div>
-
-    <div class="text-area">
-      <h3>Verify email address</h3>
-      <p>Enter OTP sent to Your Email Address</p>
-    </div>
-
-    <div class="form-alpha">
-      <form @submit.prevent="completeEnrollment">
-
-        <!--        <div class="pin-code" ref="pinContainer">-->
-        <!--          <input type="number" autofocus v-model="pins[0]" maxlength="1" @keyup="handleKeyUp($event, 0)" @keydown="handleKeyDown($event, 0)" required="required">-->
-        <!--          <input type="number" v-model="pins[1]" maxlength="1" @keyup="handleKeyUp($event, 1)" @keydown="handleKeyDown($event, 1)" required="required">-->
-        <!--          <input type="number" v-model="pins[2]" maxlength="1" @keyup="handleKeyUp($event, 2)" @keydown="handleKeyDown($event, 2)" required="required">-->
-        <!--          <input type="number" v-model="pins[3]" maxlength="1" @keyup="handleKeyUp($event, 3)" @keydown="handleKeyDown($event, 3)" required="required">-->
-        <!--          <input type="number" v-model="pins[4]" maxlength="1" @keyup="handleKeyUp($event, 2)" @keydown="handleKeyDown($event, 4)" required="required">-->
-        <!--          <input type="number" v-model="pins[5]" maxlength="1" @keyup="handleKeyUp($event, 3)" @keydown="handleKeyDown($event, 5)" required="required">-->
-        <!--        </div>-->
-
-        <div class="pin-code" ref="pinContainer">
-          <div class="vue-otp-input">
-            <div
-                class="otp-wrapper"
-                :class="isInputFocused ? activeWrapperClassHandler : wrapperClassHandler"
-                :style="wrapperStyle"
-                :id="id"
-            >
-              <input
-                  v-for="(digitInput, index) in digits"
-                  ref="digitInput"
-                  :key="id + index"
-                  autocomplete="one-time-code"
-                  v-model="inputValue[index]"
-                  class="otp-input"
-                  :class="[inputClassHandler, activeInput === index ? activeInputClassHandler : '']"
-                  :placeholder="placeholder"
-                  :disabled="isDisabled"
-                  @focus="onFocus(index)"
-                  @blur="onBlur"
-                  @paste="OnPaste"
-                  @input="onInput(index, $event)"
-                  @change="onChanged(index)"
-                  @keydown="keydownHandler(index, $event)"
-                  :style="inputStyle"
-                  required
-              />
+    <!-- OTP Card -->
+    <div class="card-wrapper">
+      <div class="login-card">
+        <!-- Logo Section -->
+        <div class="logo-section">
+          <router-link to="/">
+            <div class="logo-icon">
+              <span class="logo-text">T</span>
             </div>
-            <span v-if="!isValid" :class="errorClassHandler">
-                          <slot name="errorMessage"></slot>
-                        </span>
+          </router-link>
+          <h1 class="logo-title">
+            Top<span class="title-highlight">Shares</span><span class="title-sub">Pro</span>
+          </h1>
+          <p class="logo-subtitle">Trade Smart. Trade TopShares.</p>
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="welcome-section">
+          <h2 class="welcome-heading">Verify Email Address</h2>
+          <p class="welcome-text">Enter OTP sent to your email address</p>
+        </div>
+
+        <!-- OTP Form -->
+        <form @submit.prevent="completeEnrollment" class="form-content">
+          <!-- OTP Input -->
+          <div class="pin-code">
+            <div class="vue-otp-input">
+              <div
+                  class="otp-wrapper"
+                  :class="isInputFocused ? activeWrapperClassHandler : wrapperClassHandler"
+                  :style="wrapperStyle"
+                  :id="id"
+              >
+                <input
+                    v-for="(digitInput, index) in digits"
+                    ref="digitInput"
+                    :key="id + index"
+                    autocomplete="one-time-code"
+                    v-model="inputValue[index]"
+                    class="otp-input"
+                    :class="[inputClassHandler, activeInput === index ? activeInputClassHandler : '']"
+                    :placeholder="placeholder"
+                    :disabled="isDisabled"
+                    @focus="onFocus(index)"
+                    @blur="onBlur"
+                    @paste="OnPaste"
+                    @input="onInput(index, $event)"
+                    @change="onChanged(index)"
+                    @keydown="keydownHandler(index, $event)"
+                    :style="inputStyle"
+                    required
+                />
+              </div>
+              <span v-if="!isValid" :class="errorClassHandler">
+                <slot name="errorMessage"></slot>
+              </span>
+            </div>
+          </div>
+
+          <!-- Verify Button -->
+          <base-button
+              :loading="loading"
+              style="background: #007aff; border: 1px solid #007aff; color: white;"
+              class="signin-button"
+          >
+            Verify Email
+          </base-button>
+
+          <!-- Resend OTP -->
+          <div class="signup-section">
+            <p class="signup-text">
+              Didn’t get a code?
+              <button type="button" @click="resendOtp" class="signup-link">Resend OTP</button>
+            </p>
+          </div>
+        </form>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+          <div class="badge-content">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Secure Connection</span>
           </div>
         </div>
+      </div>
 
-        <div class="submit">
-          <!--          <input type="submit" class="submit-btn"   value="Verify email"/>-->
-          <base-button
-              style="
-  background: #007aff;
-  border: 1px solid #007aff;
-" >Verify email</base-button>
-        </div>
-
-      </form>
+      <!-- Floating Elements -->
+      <div class="floating-top"></div>
+      <div class="floating-bottom"></div>
     </div>
-
-    <div class="last-text">
-      <p>Didn’t get a code? <span @click="resendOtp">Resend OTP</span></p>
-    </div>
-
   </div>
 </template>
 
 <script>
-
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import { mapState } from "vuex";
+import StoreUtils from "@/utility/StoreUtils";
 
 export default {
   name: 'ForgotPasswordOtpForm',
-  components: {BaseButton},
+  components: { BaseButton },
   props: {
     id: {
       type: String,
@@ -159,22 +181,20 @@ export default {
   },
   data() {
     return {
-      pins: [],
       inputValue: [],
       joinedValue: "",
       isInputFocused: false,
       activeInput: -1,
     };
   },
-  computed:{
-    // ...mapState({
-    //   loading: state => state.auth.loading,
-    //   auth: state => state.auth
-    // }),
-    // forgotPasswordFormData() {
-    //   return StoreUtils.rootGetters(StoreUtils.getters.auth.getForgotPasswordFormData)
-    // },
-
+  computed: {
+    ...mapState({
+      loading: state => state.auth.loading,
+      auth: state => state.auth
+    }),
+    forgotPasswordFormData() {
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getForgotPasswordFormData);
+    },
     wrapperStyle() {
       const dir = this.rtl ? "rtl" : "ltr";
       const styles = {
@@ -234,46 +254,26 @@ export default {
     errorClassHandler() {
       return this.errorClass ? this.errorClass : "default-error-class";
     },
-
   },
   methods: {
-    completeEnrollment(){
-      this.$router.push("/new-password")
-    },
-
-    resendOtp(){
-      // StoreUtils.dispatch(StoreUtils.actions.auth.resendOtp, {
-      //   email: this.forgotPasswordFormData.email,
-      // })
-    },
-
-    handleKeyUp(event) {
-      const target = event.target;
-
-      const maxLength = parseInt(target.attributes.maxlength.value, 10);
-      const myLength = target.value.length;
-
-      if (myLength >= maxLength) {
-        const next = target.nextElementSibling;
-        if (next && next.tagName.toLowerCase() === 'input') {
-          next.focus();
-        }
+    async completeEnrollment() {
+      try {
+        // Placeholder for dispatching OTP verification
+        // await StoreUtils.dispatch(StoreUtils.actions.auth.verifyOtp, { otp: this.joinedValue });
+        this.$router.push("/new-password");
+      } catch (error) {
+        console.error('OTP verification failed:', error);
       }
-
-      if (myLength === 0) {
-        const prev = target.previousElementSibling;
-        if (prev && prev.tagName.toLowerCase() === 'input') {
-          prev.focus();
-        }
+    },
+    async resendOtp() {
+      try {
+        await StoreUtils.dispatch(StoreUtils.actions.auth.resendOtp, {
+          email: this.forgotPasswordFormData.email,
+        });
+      } catch (error) {
+        console.error('Resend OTP failed:', error);
       }
-
-      this.$emit('input', this.pins.join(''));
     },
-    handleKeyDown(event) {
-      const target = event.target;
-      target.value = '';
-    },
-
     keydownHandler(index, e) {
       if (e.keyCode === 8 && e.target.value === "") {
         this.$refs.digitInput[Math.max(0, index - 1)].focus();
@@ -309,11 +309,7 @@ export default {
     onComplete(joinedValue) {
       this.onBlur();
       this.$refs.digitInput[this.digits - 1].blur();
-      if(this.type === "password"){
-        this.$emit("on-complete", joinedValue);
-      }
-      else
-        this.$emit("on-complete", joinedValue);
+      this.$emit("on-complete", joinedValue);
     },
     onChanged(index) {
       this.$emit("on-changed", this.inputValue[index]);
@@ -326,237 +322,296 @@ export default {
     if (this.autoFocus && !this.isDisabled) {
       this.onFocus(0);
       this.$refs.digitInput[0].focus();
-      //setting input type based on the existing types for now
       const types = ["text", "password", "number"];
-      if (types.indexOf(this.type)!=-1) {
+      if (types.indexOf(this.type) !== -1) {
         for (let box of this.$refs.digitInput) {
           box.type = this.type;
         }
       }
     }
-  },
+  }
 }
 </script>
 
 <style scoped>
-.alpha{
-  margin-top: 10%;
-}
-.company-logo{
-  width: 17%;
-}
-
-.text-area h3{
-  padding-bottom: 0;
-  margin-bottom: 0;
-  text-align: center;
-  letter-spacing: 0.5px;
-  color: #0A0A0AFF;
-  font-weight: 600;
-  font-size: 22px;
-  line-height: 38px;
-}
-
-.text-area p{
-  padding-top: 2px;
-  margin-top: 2px;
-  text-align: center;
-  letter-spacing: 0.5px;
-  color: #0A0A0AFF;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.text-area{
-  margin-bottom: 1%;
-}
-
-
-.image{
-  display: flex;
-  justify-content: center;
-  margin: 0.8%;
-}
-
-.submit{
-  margin-left: 36%;
-  margin-right: 36%;
-  margin-top: 3%;
-}
-
-
-.last-text{
-  margin-top: 1.5%;
-  text-align: center;
-  color: #0A0A0AFF;
-}
-
-span{
-  color: #007aff;
-  text-decoration: underline;
-}
-
-.pin-code{
-  padding: 0;
-  display: flex;
-  justify-content:space-evenly;
-  /*margin-bottom: 2%;*/
-  margin-top: 2%;
-  /*margin-left: 38%;*/
-  /*margin-right: 38%;*/
-}
-
-.pin-code input {
-  border: 1px solid #D0D5DD;
-  text-align: center;
-  width: 48px;
-  height:48px;
-  font-size: 36px;
-  background-color: #F3F3F3;
-  margin-right:5px;
-  border-radius: 6px;
-  color: #191C1F;
-}
-
-
-
-.pin-code input:focus {
-  border: 1px solid #191C1F;
-  outline:none;
-  color: #191C1F;
-}
-
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-
-
-div.vue-otp-input {
-  width: max-content;
-}
-div.vue-otp-input > div.otp-wrapper {
-  direction: var(--direction);
-  text-align: center;
+/* Base styles */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0F172A, #1E3A8A, #0F172A);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.3s;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-div.vue-otp-input > div.otp-wrapper > input.otp-input {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 0.3s;
-  border-radius: var(--border-radius);
+/* Background patterns */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.1), transparent 50%),
+  radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 50%);
 }
-div.vue-otp-input > div.otp-wrapper > input.otp-input:disabled {
-  background-color: #F3F3F3 !important;
-}
-/* SINGLE INPUT IN SEPARATE MODE */
-div.vue-otp-input > div.otp-wrapper > input.defualt-input-separate {
 
-  border: 1px solid #D0D5DD;
+.background-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, transparent 25%, rgba(68,68,68,0.05) 50%, transparent 75%, transparent);
+}
+
+/* Card wrapper */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Login card */
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Logo section */
+.logo-section {
   text-align: center;
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-  background-color: #F3F3F3;
-
-  border-radius: 6px;
-  color: #191C1F;
+  margin-bottom: 2rem;
 }
-div.vue-otp-input > div.otp-wrapper > input.defualt-error-input-separate {
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, #3B82F6, #2563EB);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.title-highlight {
+  color: #60A5FA;
+}
+
+.title-sub {
+  color: #CBD5E1;
+}
+
+.logo-subtitle {
+  color: #CBD5E1;
+  font-size: 0.875rem;
+}
+
+/* Welcome section */
+.welcome-section {
   text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-heading {
+  font-size: 1.25rem;
   font-weight: 600;
-  background-color: transparent;
-  border: 1px solid #D0D5DD;
-  width: 3rem;
-  height: 48px;
-}
-@media only screen and (max-width: 600px) {
-  div.vue-otp-input > div.otp-wrapper > input.defualt-input-separate {
-    width: 50px;
-    height: 50px;
-  }
-}
-/* INPUTS WRAPPER IN SEPARATE MODE */
-div.vue-otp-input > div.defualt-wrapper-separate {
-  background: transparent;
-}
-/* INPUTS WRAPPER IN GROUP MODE */
-div.vue-otp-input > div.defualt-wrapper-group {
-  border: 1px solid #D0D5DD;
-}
-div.vue-otp-input > div.defualt-error-wrapper-group {
-  border: 1px solid #D0D5DD;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-/* SINGLE INPUT IN GROUP MODE */
-div.vue-otp-input > div.otp-wrapper > input.defualt-input-group {
-  background-color: transparent;
-  font-weight: 600;
-  border: none;
-  width: 3rem;
-  height: 48px;
+.welcome-text {
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+/* Form content */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* OTP input */
+.pin-code {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.vue-otp-input {
+  width: 100%;
+}
+
+.otp-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.otp-input {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: #ffffff;
+  font-size: 1.25rem;
   text-align: center;
 }
-@media only screen and (max-width: 600px) {
-  div.vue-otp-input > div.otp-wrapper > input.defualt-input-group {
-    width: 2.5rem;
-    height: 40px;
-  }
+
+.otp-input::placeholder {
+  color: #94A3B8;
 }
-div.vue-otp-input > div.otp-wrapper > input.defualt-active-input {
-  border: 1px solid #D0D5DD;
-}
-div.vue-otp-input > div.defualt-active-wrapper {
-  border: 1px solid #D0D5DD;
-}
-div.vue-otp-input > span.default-error-class {
-  color: #191C1F;
-  font-weight: bold;
-}
-input:focus {
+
+.otp-input:focus {
   outline: none;
-}
-/* removing the arrow keys on side of the input area */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  border-color: #60A5FA;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+.otp-input:disabled {
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
-@media (max-width: 700px) {
-  .submit{
-    margin-left: 22%;
-    margin-right: 23%;
-    margin-top: 3%;
+.defualt-error-input-separate {
+  border: 1px solid #EF4444;
+}
+
+.default-error-class {
+  color: #EF4444;
+  font-weight: 500;
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Sign-in button */
+.signin-button {
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.signin-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.signin-button:hover .button-icon {
+  transform: translateX(0.25rem);
+}
+
+/* Sign-up section */
+.signup-section {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.signup-text {
+  font-size: 0.875rem;
+  color: #94A3B8;
+}
+
+.signup-link {
+  color: #60A5FA;
+  font-weight: 500;
+  background: none;
+  border: none;
+  text-decoration: underline;
+}
+
+.signup-link:hover {
+  color: #93C5FD;
+}
+
+/* Security badge */
+.security-badge {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.badge-content {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 9999px;
+}
+
+.badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #34D399;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
+.badge-text {
+  color: #6EE7B7;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Floating elements */
+.floating-top {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 6rem;
+  height: 6rem;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
+
+.floating-bottom {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(147, 51, 234, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .otp-input {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
   }
-  .company-logo{
-    width: 50%;
-  }
 }
-
-@media (max-width: 500px) {
-  .submit{
-    margin-left: 9%;
-    margin-right: 9%;
-    margin-top: 4%;
-  }
-
-}
-
 </style>
-

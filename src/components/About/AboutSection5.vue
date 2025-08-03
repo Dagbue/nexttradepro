@@ -13,6 +13,7 @@
         <div v-for="(principle, index) in codeOfHonor" :key="index" class="principle-card">
           <div class="principle-icon">
 <!--            <component :is="principle.icon" class="icon" />-->
+            <img :src="principle.icon" :alt="principle.title" class="icon" />
           </div>
           <h3 class="principle-title">{{ principle.title }}</h3>
           <p class="principle-description">{{ principle.description }}</p>
@@ -30,17 +31,17 @@ export default {
     return {
       codeOfHonor: [
         {
-          icon: '',
+          icon: require("@/assets/icons8-avatar-50.png"),
           title: 'Our users are our investors',
           description: 'We make most of our money only through low cost monthly subscriptions and ads. We don\'t care if you trade or not. For us, objectivity is excellence.'
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-rocket-50.png"),
           title: 'It\'s not charts, it\'s freedom',
           description: 'We never lose sight of the fact that millions of traders invest their hard-won capital based on what they see on our platform. The better we do, the better you can do.'
         },
         {
-          icon: '',
+          icon: require("@/assets/icons8-link-50.png"),
           title: 'Finance should be social',
           description: 'For us, open discussion and self-expression are the greatest keys to unlocking understanding, so we\'ve set out to build the best finance platform with a strong social network at its core.'
         }
@@ -118,8 +119,8 @@ export default {
 
 
 .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.2rem;
+  height: 2.2rem;
   color: #2563EB;
   transition: color 0.3s ease;
 }

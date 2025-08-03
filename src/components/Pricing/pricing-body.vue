@@ -22,7 +22,7 @@
           <!-- Plan Header -->
           <div class="plan-header">
             <div :class="['plan-icon', plan.colorClass]">
-              <component :is="plan.icon" class="icon-svg" />
+              <img :src="plan.icon" :class="['icon', plan.color]" :alt="plan.name" />
             </div>
             <h3 :class="['plan-name', plan.textClass]">{{ plan.name }}</h3>
             <div :class="['plan-percentage', plan.textClass]">
@@ -68,7 +68,7 @@ export default {
       plans: [
         {
           name: 'Silver',
-          icon: '',
+          icon: require("@/assets/icons8-star-50.png"),
           percentage: '10%',
           duration: '4 Months',
           minDeposit: '$5,000',
@@ -88,7 +88,7 @@ export default {
         },
         {
           name: 'Gold',
-          icon: '',
+          icon: require("@/assets/icons8-crown-50.png"),
           percentage: '20%',
           duration: '8 Months',
           minDeposit: '$25,000',
@@ -109,7 +109,7 @@ export default {
         },
         {
           name: 'Diamond',
-          icon: '',
+          icon: require("@/assets/icons8-diamond-50.png"),
           percentage: '30%',
           duration: '12 Months',
           minDeposit: '$100,000',
@@ -131,7 +131,7 @@ export default {
         },
         {
           name: 'Platinum',
-          icon: '',
+          icon: require("@/assets/icons8-bolt-50.png"),
           percentage: '50%',
           duration: '24 Months',
           minDeposit: '$250,000',
@@ -326,7 +326,7 @@ export default {
   background: linear-gradient(to right, #A78BFA, #7C3AED);
 }
 
-.icon-svg {
+.icon {
   width: 2rem;
   height: 2rem;
   color: #ffffff;

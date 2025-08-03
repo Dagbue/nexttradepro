@@ -1,367 +1,497 @@
 <template>
-  <form>
-    <div class="wrapper">
-      <div class="headline">
-        <router-link to="/">
-          <img src="@/assets/logo.png" alt="logo" class="company-logo">
-        </router-link>
-<!--        <h2>-->
-<!--          <span class="header-span">Global Trade Investment Limited</span>-->
-<!--        </h2>-->
-        <h2>Password Reset</h2>
-        <p>Enter New Password</p>
-      </div>
-      <div class="form">
-        <div class="signup">
+  <div class="login-container">
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+    <div class="background-overlay"></div>
 
-<!--          <div class="form-group">-->
-<!--            <input type="password" placeholder="Password" required="" />-->
-<!--          </div>-->
-
-<!--          <div class="form-group">-->
-<!--            <input type="password" placeholder="New password" required="" />-->
-<!--          </div>-->
-<!--          <div class="form-group">-->
-<!--            <input type="password" placeholder="Confirm password" required="" />-->
-<!--          </div>-->
-
-          <div class="has-addons">
-            <input v-if="showPassword2"  required="required" type="text"  class="input-form-1 password"   placeholder="Password"   />
-            <input v-else type="password" required="required"  class="input-form-1 password"   placeholder="Password"   >
-            <div class="space" @click="toggleShow2">
-              <i class="fas" :class="{ 'fa-eye-slash': showPassword2, 'fa-eye': !showPassword2 }" ></i>
+    <!-- Password Reset Card -->
+    <div class="card-wrapper">
+      <div class="login-card">
+        <!-- Logo Section -->
+        <div class="logo-section">
+          <router-link to="/">
+            <div class="logo-icon">
+              <span class="logo-text">T</span>
             </div>
+          </router-link>
+          <h1 class="logo-title">
+            Top<span class="title-highlight">Shares</span><span class="title-sub">Pro</span>
+          </h1>
+          <p class="logo-subtitle">Trade Smart. Trade TopShares.</p>
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="welcome-section">
+          <h2 class="welcome-heading">Password Reset</h2>
+          <p class="welcome-text">Enter your new password</p>
+        </div>
+
+        <!-- Password Reset Form -->
+        <form @submit.prevent="onPostClick" class="form-content">
+          <!-- Password Field -->
+          <div class="input-group">
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.1.9-2 2-2m-2 6c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4m2 0c0 2.2-1.8 4-4 4s-4-1.8-4-4m4 4v3"/>
+              </svg>
+            </div>
+            <input
+                :type="showPassword ? 'text' : 'password'"
+                v-model="password"
+                placeholder="New Password"
+                required
+                class="form-input password-input"
+            />
+            <button
+                type="button"
+                @click="toggleShow"
+                class="password-toggle"
+            >
+              <svg v-if="showPassword" class="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+              </svg>
+              <svg v-else class="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </button>
           </div>
 
-          <div class="has-addons">
-            <input v-if="showPassword2"  required="required" type="text"  class="input-form-1 password"   placeholder="Password"   />
-            <input v-else type="password" required="required"  class="input-form-1 password"   placeholder="Password"   >
-            <div class="space" @click="toggleShow2">
-              <i class="fas" :class="{ 'fa-eye-slash': showPassword2, 'fa-eye': !showPassword2 }" ></i>
+          <!-- Confirm Password Field -->
+          <div class="input-group">
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.1.9-2 2-2m-2 6c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4m2 0c0 2.2-1.8 4-4 4s-4-1.8-4-4m4 4v3"/>
+              </svg>
             </div>
+            <input
+                :type="showPassword ? 'text' : 'password'"
+                v-model="confirmPassword"
+                placeholder="Confirm Password"
+                required
+                class="form-input password-input"
+            />
+            <button
+                type="button"
+                @click="toggleShow"
+                class="password-toggle"
+            >
+              <svg v-if="showPassword" class="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+              </svg>
+              <svg v-else class="toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </button>
           </div>
 
-
-          <br/>
-          <a @click="onPostClick" class="btn btn-white btn-animated"
-          >Login</a
+          <!-- Login Button -->
+          <base-button
+              :loading="loading"
+              style="background: #007aff; border: 1px solid #007aff; color: white;"
+              class="signin-button"
           >
+            Login
+
+          </base-button>
+
+          <!-- Divider -->
+          <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-text">OR</span>
+          </div>
+
+          <!-- Login Link -->
+          <div class="signup-section">
+            <p class="signup-text">
+              Return to login?
+              <button
+                  type="button"
+                  @click="$router.push('/login')"
+                  class="signup-link"
+              >
+                Login here
+              </button>
+            </p>
+          </div>
+        </form>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+          <div class="badge-content">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Secure Connection</span>
+          </div>
         </div>
       </div>
+
+      <!-- Floating Elements -->
+      <div class="floating-top"></div>
+      <div class="floating-bottom"></div>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
-
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import { mapState } from "vuex";
 import Swal from "sweetalert2";
 
 export default {
   name: 'NewPasswordForm',
+  components: { BaseButton },
   data() {
     return {
-      showPassword2: false,
+      password: '',
+      confirmPassword: '',
+      showPassword: false
     };
+  },
+  computed: {
+    ...mapState({
+      loading: state => state.auth.loading
+    })
   },
   methods: {
     async onPostClick() {
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Password Reset success',
-      });
-      await this.$router.push("/login");
+      if (this.password !== this.confirmPassword) {
+        await Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Passwords do not match'
+        });
+        return;
+      }
+      try {
+        // Placeholder for dispatching password reset action
+        // await StoreUtils.dispatch(StoreUtils.actions.auth.resetPassword, {
+        //   password: this.password
+        // });
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Password Reset Success'
+        });
+        await this.$router.push("/login");
+      } catch (error) {
+        console.error('Password reset failed:', error);
+        await Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Password reset failed'
+        });
+      }
     },
-    toggleShow2() {
-      this.showPassword2 = !this.showPassword2;
-    },
-  },
+    toggleShow() {
+      this.showPassword = !this.showPassword;
+    }
+  }
 }
 </script>
 
 <style scoped>
-form {
-  margin: 0 auto;
-  max-width: 40rem;
-  /*background-color: #232323;*/
-  padding: 5% 1% 7% 1%;
-  margin-top: 5%;
-}
-
-.company-logo{
-  width: 40%;
-  margin-bottom: 1%;
-}
-
-:root {
-  --primary-color: #3525d3;
-  --white-color: #fff;
-  --black-color: #3c4a57;
-  --light-gray: #e4e8ee;
-}
-
-.wrapper {
-  position: relative;
+/* Base styles */
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #0F172A, #1E3A8A, #0F172A);
+  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.header-span {
-  color: #124DA8;
-}
-
-.wrapper {
-  max-width: 768px;
-  width: 100%;
-  margin: auto;
-}
-
-.wrapper::before {
-  content: "";
+/* Background patterns */
+.background-pattern {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  z-index: -1;
+  left: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.1), transparent 50%),
+  radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 50%);
 }
 
-.wrapper .headline {
+.background-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, transparent 25%, rgba(68,68,68,0.05) 50%, transparent 75%, transparent);
+}
+
+/* Card wrapper */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Login card */
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Logo section */
+.logo-section {
   text-align: center;
-  padding-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
-
-.wrapper .headline h2 {
-  font-weight: 400;
-  font-size: 25px;
-  padding-top: 1.5%;
-  /*margin-top: 10%;*/
-  color: #0A0A0AFF;
-  padding-bottom: 5px;
-  font-family: 'BR-Firma-Bold', sans-serif;
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, #3B82F6, #2563EB);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-p{
-  color: #0A0A0AFF;
+.logo-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.wrapper .form {
-  max-width: 350px;
-  width: 100%;
-  margin: auto;
+.logo-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
 }
 
-.wrapper .form-group {
-  margin-bottom: 15px;
+.title-highlight {
+  color: #60A5FA;
 }
 
-.wrapper .form-group input {
-  display: block;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.1px;
-  padding: 12px 16px;
-  height: 48px;
-  border-radius: 8px;
-  color: var(--black-color);
-  border: 1px solid #e4e8ee;
-  box-shadow: none;
-  width: 100%;
+.title-sub {
+  color: #CBD5E1;
 }
 
-.wrapper .form-group input:focus {
-  outline: none;
-  border: 1px solid #24405A;
+.logo-subtitle {
+  color: #CBD5E1;
+  font-size: 0.875rem;
 }
 
-.wrapper .form-group input::placeholder {
-  color: var(--black-color);
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.btn,
-.btn-white,
-.btn-animated {
-  width: 100%;
-  margin: 15px 0 30px;
-  line-height: 22px;
-  padding: 12px 155px;
-  border: none;
+/* Welcome section */
+.welcome-section {
   text-align: center;
-  border-radius: 5px;
+  margin-bottom: 2rem;
 }
 
-.btn:link,
-.btn:visited {
-  text-decoration: none;
-  padding: 10px 40px;
-  border-radius: 100px;
-  transition: all 0.2s;
+.welcome-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-text {
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+/* Form content */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input group */
+.input-group {
   position: relative;
 }
 
-.btn-white {
-  background: #007aff;
-  border: 1px solid #007aff;
-  color: white;
-  font-size: 15px;
-}
-
-.form-group-2 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.checkbox-text {
-  padding-left: 8px;
-  font-size: 15px;
-}
-
-.forgot-password {
-  padding-left: 26%;
-  text-decoration: none;
-  color: #124DA8;
-  font-size: 15px;
-}
-
-.separator {
+.input-icon-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding-left: 1rem;
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  pointer-events: none;
 }
 
-.separator .line {
-  height: 1px;
-  flex: 0.5;
-  background-color: #0A0A0AFF;
+.input-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #94A3B8;
 }
 
-.separator h2 {
-  padding: 0 1rem;
-  font-size: 12px;
-  color: #0A0A0AFF;
-}
-
-.create-acc {
-  padding-top: 40px;
-  font-size: 17px;
-  padding-bottom: 40px;
-}
-.create-text {
-  font-size: 15px;
-}
-.create-link {
-  padding-left: 10px;
-  text-decoration: none;
-  color: #124DA8;
-}
-
-.has-addons{
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-button{
-  background-color: transparent;
-}
-.fas{
-  font-size: 13px;
-  margin-top: 10%;
-}
-.space{
-  padding-top: 12.5px;
-  padding-bottom: 12.5px;
-  padding-right: 10px;
-  border: 1px solid #d0d5dd;
-  border-left-style: none;
-  border-radius: 0 8px 8px 0;
-  font-size: 1rem;
-  background-color: #FFFFFF;
-}
-.input-form-1{
-  order: 1;
+.form-input {
   width: 100%;
-  padding: 13px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: #ffffff;
+  font-size: 1rem;
 }
-input {
-  box-sizing: border-box;
-  border: 1px solid #D0D5DD;
-  border-radius: 8px;
-  -webkit-transition: 0.3s;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  transition: 0.3s;
+
+.form-input::placeholder {
+  color: #94A3B8;
+}
+
+.form-input:focus {
   outline: none;
-  color: var(--black-color);
-  letter-spacing: 0.5px;
-}
-input:focus {
-  border: 1px solid #24405A;
-}
-input::placeholder {
-  color: var(--black-color);
-}
-.input-form-1.password {
-  border-right-style: none;
-  border-radius: 8px 0 0 8px;
+  border-color: #60A5FA;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
 }
 
-
-@media (max-width: 1030px) {
-  .wrapper::before {
-    left: -25%;
-    min-height: 60vh;
-    height: 500px;
-  }
-}
-@media (max-width: 767px) {
-  .wrapper {
-    max-width: 550px;
-  }
-  .wrapper .headline h1 {
-    font-size: 22px;
-    line-height: 25px;
-  }
-}
-@media (max-width: 990px) {
-  .wrapper .headline h1  {
-    font-size: 32px;
-  }
-  .wrapper .headline h2  {
-    font-size: 28px;
-  }
-}
-@media (max-width: 500px) {
-  .wrapper {
-    padding: 10px 25px 0;
-  }
-  form {
-    max-width: 40rem;
-    border-radius: 12px;
-  }
-  .wrapper .headline h1  {
-    font-size: 25px;
-  }
-  .wrapper .headline h2  {
-    font-size: 23px;
-  }
-  .company-logo{
-    width: 50%;
-    margin-top: unset;
-  }
+.password-input {
+  padding-right: 3rem;
 }
 
+.password-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  color: #94A3B8;
+  background: none;
+  border: none;
+}
+
+.password-toggle:hover {
+  color: #ffffff;
+}
+
+.toggle-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Sign-in button */
+.signin-button {
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.signin-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.signin-button:hover .button-icon {
+  transform: translateX(0.25rem);
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.divider-line {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 1rem;
+  background: transparent;
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+/* Sign-up section */
+.signup-section {
+  text-align: center;
+}
+
+.signup-text {
+  font-size: 0.875rem;
+  color: #94A3B8;
+}
+
+.signup-link {
+  color: #60A5FA;
+  font-weight: 500;
+  background: none;
+  border: none;
+}
+
+.signup-link:hover {
+  color: #93C5FD;
+}
+
+/* Security badge */
+.security-badge {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.badge-content {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 9999px;
+}
+
+.badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #34D399;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
+.badge-text {
+  color: #6EE7B7;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Floating elements */
+.floating-top {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 6rem;
+  height: 6rem;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
+
+.floating-bottom {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(147, 51, 234, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
 </style>
-
-

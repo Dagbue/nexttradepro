@@ -61,7 +61,7 @@ export default {
 
 <style scoped>
 .slides .slideParent {
-  height: 62vh;
+  height: 64vh;
   width: 100%;
   background: linear-gradient(to bottom right, #EFF6FF, #FFFFFF, #EEF2FF);
 }
@@ -96,22 +96,26 @@ export default {
 }
 
 .text-1{
-  font-size: 2rem;
+  font-size: 2.3rem;
+  line-height: 1;
   font-weight: bold;
   color: #191C1F;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .text-2{
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #8599a6;
   margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-weight: 300;
 }
 
 .text-3 {
   font-size: 0.85rem;
   color: #8599a6;
   margin-top: 1.5rem;
+  font-weight: 300;
 }
 
 .button-group {
@@ -125,7 +129,7 @@ button {
   border: none;
   cursor: pointer;
   font-weight: 500;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.8rem;
   border-radius: 10px;
   font-size: 0.95rem;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -254,14 +258,15 @@ button {
   }
 
   .text-1{
-    font-size: 18px;
-    line-height: 1.6;
+    font-size: 1.8rem;
+    line-height: 1.2;
     text-align: center;
   }
 
   .text-2{
-    font-size: 27px;
-    line-height: 1.2;
+    font-size: 1.15rem;
+    color: #8599a6;
+    line-height: 1.3;
   }
 
   .text-3{

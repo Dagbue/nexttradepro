@@ -2,8 +2,10 @@
   <div class="alpha">
     <contact-header/>
     <contact-body/>
+    <contact-info/>
     <contact-map/>
-    <ready-to-work/>
+    <contact-f-a-q/>
+    <contact-newsletter/>
     <footer-home/>
   </div>
 </template>
@@ -13,13 +15,17 @@ import ContactHeader from "@/components/Contact/ContactHeader.vue";
 import ContactBody from "@/components/Contact/contact-body.vue";
 import ContactMap from "@/components/Contact/contact-map.vue";
 import FooterHome from "@/components/BaseComponents/FooterHome.vue";
-import ReadyToWork from "@/components/BaseComponents/ReadyToWork.vue";
+import ContactInfo from "@/components/Contact/ContactInfo.vue";
+import ContactFAQ from "@/components/Contact/ContactFAQ.vue";
+import ContactNewsletter from "@/components/Contact/ContactNewsletter.vue";
 
 
 
 export default {
   name: "ContactView",
-  components: {ReadyToWork, FooterHome, ContactMap, ContactBody, ContactHeader}
+  components: {
+    ContactNewsletter,
+    ContactFAQ, ContactInfo, FooterHome, ContactMap, ContactBody, ContactHeader}
 }
 </script>
 

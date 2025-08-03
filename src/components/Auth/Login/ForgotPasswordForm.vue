@@ -1,291 +1,410 @@
 <template>
-  <div class="alpha">
-    <form @submit.prevent="submitForm">
-      <div class="wrapper">
-        <div class="headline">
+  <div class="login-container">
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+    <div class="background-overlay"></div>
+
+    <!-- Forgot Password Card -->
+    <div class="card-wrapper">
+      <div class="login-card">
+        <!-- Logo Section -->
+        <div class="logo-section">
           <router-link to="/">
-            <img src="@/assets/logo.png" alt="logo" class="company-logo">
-          </router-link>
-<!--          <h2>-->
-<!--            <span class="header-span"> Global Trade Investment Limited </span>-->
-<!--          </h2>-->
-          <h2>Forgot Password?</h2>
-          <p>Enter the email address associated with your account</p>
-        </div>
-        <div class="form" @submit.prevent>
-          <div class="signup">
-            <div class="form-group">
-              <input type="email" placeholder="Enter Email" required="" />
+            <div class="logo-icon">
+              <span class="logo-text">T</span>
             </div>
-            <br/>
-            <a @click="onPostClick" class="btn btn-white btn-animated">continue</a>
+          </router-link>
+          <h1 class="logo-title">
+            Top<span class="title-highlight">Shares</span><span class="title-sub">Pro</span>
+          </h1>
+          <p class="logo-subtitle">Trade Smart. Trade TopShares.</p>
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="welcome-section">
+          <h2 class="welcome-heading">Forgot Password?</h2>
+          <p class="welcome-text">Enter the email address associated with your account</p>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <form @submit.prevent="submitForm" class="form-content">
+          <!-- Email Field -->
+          <div class="input-group">
+            <div class="input-icon-wrapper">
+              <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <input
+                type="email"
+                v-model="email"
+                placeholder="Email address"
+                required
+                class="form-input"
+            />
+          </div>
+
+          <!-- Continue Button -->
+          <base-button
+              :loading="loading"
+              style="background: #007aff; border: 1px solid #007aff; color: white;"
+              class="signin-button"
+              @click="onPostClick"
+          >
+            Continue
+          </base-button>
+
+          <!-- Divider -->
+          <div class="divider">
+            <div class="divider-line"></div>
+            <span class="divider-text">OR</span>
+          </div>
+
+          <!-- Login Link -->
+          <div class="signup-section">
+            <p class="signup-text">
+              Remember your password?
+              <button
+                  type="button"
+                  @click="$router.push('/login')"
+                  class="signup-link"
+              >
+                Login here
+              </button>
+            </p>
+          </div>
+        </form>
+
+        <!-- Security Badge -->
+        <div class="security-badge">
+          <div class="badge-content">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Secure Connection</span>
           </div>
         </div>
       </div>
-    </form>
+
+      <!-- Floating Elements -->
+      <div class="floating-top"></div>
+      <div class="floating-bottom"></div>
+    </div>
   </div>
 </template>
 
 <script>
+import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
+import { mapState } from "vuex";
+
 
 export default {
   name: 'ForgotPasswordForm',
-  // data() {
-  //   return {
-  //   };
-  // },
-  methods: {
-    submitForm() {
-      console.log("Enter Code: " + this.enterCode);
-      this.enterCode = "";
-    },
-
-    onPostClick() {
-      this.$router.push("/forgot-password-otp");
-    },
+  components: { BaseButton },
+  data() {
+    return {
+      email: ''
+    };
   },
+  computed: {
+    ...mapState({
+      loading: state => state.auth.loading
+    })
+  },
+  methods: {
+    async submitForm() {
+      try {
+        // Placeholder for dispatching a forgot password action
+        // await StoreUtils.dispatch(StoreUtils.actions.auth.forgotPassword, { email: this.email });
+        console.log('Submitted email:', this.email);
+        this.$router.push('/forgot-password-otp');
+      } catch (error) {
+        console.error('Forgot password request failed:', error);
+      }
+    },
+    onPostClick() {
+      this.submitForm();
+    }
+  }
 }
 </script>
 
 <style scoped>
-form {
-  margin: 0 auto;
-  max-width: 40rem;
-  padding: 3rem 0 5rem 0;
-  /*background-color: #232323;*/
-  margin-top: 5%;
-}
-
-
-.company-logo{
-  width: 38%;
-  margin-top: 5%;
-  margin-bottom: 1.5%;
-}
-
-:root {
-  --primary-color: #3525d3;
-  --white-color: #fff;
-  --black-color: #3c4a57;
-  --light-gray: #e4e8ee;
-}
-
-.wrapper {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-span {
-  color: #124DA8;
-}
-
-.wrapper {
-  max-width: 800px;
-  width: 100%;
-  margin: auto;
-}
-
-.wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* Base styles */
+.login-container {
   min-height: 100vh;
-  z-index: -1;
-}
-
-.wrapper .headline {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-
-.wrapper .headline h2 {
-  font-weight: 400;
-  font-size: 22px;
-  padding-top: 1%;
-  padding-bottom: 1%;
-  /*margin-top: 10%;*/
-  color: #0A0A0AFF;
-}
-
-p{
-  color: #0A0A0AFF;
-}
-
-.wrapper .form {
-  max-width: 350px;
-  width: 100%;
-  margin: auto;
-}
-
-.wrapper .form-group {
-  margin-bottom: 15px;
-}
-
-.wrapper .form-group input {
-  display: block;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.1px;
-  padding: 12px 16px;
-  height: 48px;
-  border-radius: 8px;
-  color: var(--black-color);
-  border: 1px solid #e4e8ee;
-  box-shadow: none;
-  width: 100%;
-}
-
-.wrapper .form-group input:focus {
-  outline: none;
-  border: 1px solid #24405A;
-}
-
-.wrapper .form-group input::placeholder {
-  color: var(--black-color);
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.btn,
-.btn-white,
-.btn-animated {
-  width: 100%;
-  margin: 15px 0 30px;
-  line-height: 22px;
-  padding: 12px 146px;
-  border: none;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.btn:link,
-.btn:visited {
-  text-decoration: none;
-  padding: 10px 40px;
-  border-radius: 100px;
-  transition: all 0.2s;
-  position: relative;
-}
-/*.btn:hover {*/
-/*  background-color: #D23535;*/
-/*  transition: 4ms ease-in;*/
-/*}*/
-/*.btn:active {*/
-/*  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
-/*  transition: 4ms ease-in;*/
-/*}*/
-.btn-white {
-  background: #007aff;
-  border: 1px solid #007aff;
-  color: white;
-  font-size: 15px;
-}
-
-.form-group-2 {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-
-.checkbox-text {
-  padding-left: 8px;
-  font-size: 15px;
-}
-
-.forgot-password {
-  padding-left: 26%;
-  text-decoration: none;
-  color: #124DA8;
-  font-size: 15px;
-}
-
-.separator {
+  background: linear-gradient(to bottom right, #0F172A, #1E3A8A, #0F172A);
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.separator .line {
-  height: 1px;
-  flex: 0.5;
-  background-color: #676767;
+/* Background patterns */
+.background-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.1), transparent 50%),
+  radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 50%);
 }
 
-.separator h2 {
+.background-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, transparent 25%, rgba(68,68,68,0.05) 50%, transparent 75%, transparent);
+}
+
+/* Card wrapper */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Login card */
+.login-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Logo section */
+.logo-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, #3B82F6, #2563EB);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-title {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.title-highlight {
+  color: #60A5FA;
+}
+
+.title-sub {
+  color: #CBD5E1;
+}
+
+.logo-subtitle {
+  color: #CBD5E1;
+  font-size: 0.875rem;
+}
+
+/* Welcome section */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.welcome-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-text {
+  color: #94A3B8;
+  font-size: 0.875rem;
+}
+
+/* Form content */
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Input group */
+.input-group {
+  position: relative;
+}
+
+.input-icon-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.input-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #94A3B8;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.form-input::placeholder {
+  color: #94A3B8;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #60A5FA;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+/* Sign-in button */
+.signin-button {
+
+  border-radius: 0.75rem;
+
+  transition: all 0.2s ease;
+}
+
+.signin-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.button-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.5rem;
+}
+
+.signin-button:hover .button-icon {
+  transform: translateX(0.25rem);
+}
+
+/* Divider */
+.divider {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.divider-line {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.divider-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 0 1rem;
-  font-size: 12px;
-  color: #676767;
+  background: transparent;
+  color: #94A3B8;
+  font-size: 0.875rem;
 }
 
-.create-acc {
-  padding-top: 40px;
-  font-size: 17px;
-  padding-bottom: 40px;
-}
-.create-text {
-  font-size: 15px;
-}
-.create-link {
-  padding-left: 10px;
-  text-decoration: none;
-  color: #124DA8;
+/* Sign-up section */
+.signup-section {
+  text-align: center;
 }
 
-@media (max-width: 1030px) {
-  .wrapper::before {
-    left: -25%;
-    min-height: 60vh;
-    height: 500px;
-  }
-}
-@media (max-width: 767px) {
-  .wrapper {
-    max-width: 550px;
-  }
-  .wrapper .headline h1 {
-    font-size: 22px;
-    line-height: 25px;
-  }
-}
-@media (max-width: 990px) {
-  .wrapper .headline h1  {
-    font-size: 32px;
-  }
-  .wrapper .headline h2  {
-    font-size: 28px;
-  }
-}
-@media (max-width: 500px) {
-  .wrapper {
-    padding: 10px 25px 0;
-  }
-  form {
-    max-width: 40rem;
-    border-radius: 12px;
-  }
-  .wrapper .headline h1  {
-    font-size: 25px;
-  }
-  .wrapper .headline h2  {
-    font-size: 23px;
-  }
-  .checkbox-text {
-    padding-left: 10px;
-  }
-  .forgot-password {
-    padding-left: 20px;
-  }
-  .company-logo{
-    width: 50%;
-    margin-top: unset;
-  }
+.signup-text {
+  font-size: 0.875rem;
+  color: #94A3B8;
 }
 
+.signup-link {
+  color: #60A5FA;
+  font-weight: 500;
+  background: none;
+  border: none;
+}
+
+.signup-link:hover {
+  color: #93C5FD;
+}
+
+/* Security badge */
+.security-badge {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.badge-content {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 9999px;
+}
+
+.badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #34D399;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
+.badge-text {
+  color: #6EE7B7;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* Floating elements */
+.floating-top {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 6rem;
+  height: 6rem;
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
+
+.floating-bottom {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(147, 51, 234, 0.2);
+  border-radius: 9999px;
+  filter: blur(24px);
+}
 </style>
