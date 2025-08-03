@@ -8,6 +8,54 @@
       upload a valid government Id to verify your account.
       <a><router-link to="/update-account">Click here</router-link></a></p>
 
+    <div class="balance-section">
+      <div class="balance-section-1">
+        <p class="balance-text-1-i">Account Balance</p>
+        <p class="balance-text-2-i">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
+        <!--        <div class="balance-section-1-inner">-->
+        <!--          <p class="balance-text-3">Realized Profit</p>-->
+        <!--          <p class="balance-text-4">$ {{UserDetails.user.realizedProfit | formatAmount2}}</p>-->
+        <!--        </div>-->
+        <!--        <div class="balance-section-1-inner">-->
+        <!--          <p class="balance-text-5">BTC Balance</p>-->
+        <!--          <p class="balance-text-6">{{bitcoin}}</p>-->
+        <!--        </div>-->
+      </div>
+
+      <div class="balance-section-1">
+        <p class="balance-text-1">Invested Amount </p>
+        <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
+        <!--        <div class="balance-section-1-inner">-->
+        <!--          <p class="balance-text-3">Realized Profit</p>-->
+        <!--          <p class="balance-text-4">{{UserDetails.user.realizedProfit | toPercentage(1)}}%</p>-->
+        <!--        </div>-->
+        <div class="balance-section-1-inner">
+          <p class="balance-text-5">withdrawals</p>
+          <p class="balance-text-6">$ {{UserDetails.user.totalWithdrawals | formatAmount2}}</p>
+        </div>
+      </div>
+
+      <div class="balance-section-1">
+        <p class="balance-text-1">Ethereum Balance</p>
+        <p class="balance-text-2">$ {{UserDetails.user.profit | formatAmount2}}</p>
+        <div class="balance-section-1-inner">
+          <p class="balance-text-3">Profit</p>
+          <p class="balance-text-4">$ {{UserDetails.user.profit | formatAmount2}}</p>
+        </div>
+        <div class="balance-section-1-inner">
+          <p class="balance-text-5">Loss</p>
+          <p class="balance-text-6">- $ {{UserDetails.user.loss | formatAmount2}}</p>
+        </div>
+      </div>
+
+      <!--      <div class="balance-section-1-last">-->
+      <!--        <p class="balance-text-7">Balance</p>-->
+      <!--        <p class="balance-text-7">Trading Volume</p>-->
+      <!--        <p class="balance-text-7">Trades</p>-->
+      <!--        <p class="balance-text-7">Avg. Trade Size</p>-->
+      <!--      </div>-->
+    </div>
+
 
     <div class="separator">
       <div class="part-1">
@@ -1688,6 +1736,93 @@ export default {
   display: flex;
 }
 
+.balance-section{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.balance-section-1{
+  background-color: #0f171c;
+  padding: 1.2rem;
+  width: 32%;
+  height: 155px;
+  border-radius: 7px;
+  border: 0.5px solid #3C4A57FF;
+}
+
+.balance-section-1-last{
+  background-color: #0f171c;
+  padding: 1.2rem;
+  width: 210px;
+  height: 155px;
+  border-radius: 7px;
+}
+
+
+.balance-text-1{
+  font-size: 18px;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+}
+
+.balance-text-1-i{
+  font-size: 20px;
+  color: #FFFFFF;
+  padding-bottom: 10px;
+}
+
+.balance-text-2{
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: rgb(0 228 146);
+  padding-bottom: 15px;
+}
+
+.balance-text-2-i{
+  font-size: 1.38rem;
+  line-height: 2rem;
+  color: rgb(0 228 146);
+  padding-bottom: 15px;
+}
+
+.balance-text-3{
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.balance-text-4{
+  font-size: 12px;
+  color: rgb(0 228 146);
+}
+
+.balance-text-5{
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.balance-text-6{
+  font-size: 12px;
+  color: rgb(255 85 116);
+}
+
+.balance-text-7{
+  font-size: 13px;
+  padding-bottom: 8px;
+  color: #FFFFFF;
+}
+
+
+
+.balance-section-1-inner{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
 .part-1{
   width: 60%;
   margin-right: 5px;
@@ -2132,6 +2267,28 @@ td {
     display: flex;
     justify-content: center;
     gap: 20px;
+  }
+
+  .balance-section{
+    display: block;
+  }
+
+  .balance-section-1{
+    width: 95%;
+    height: 155px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 15px;
+  }
+
+  .balance-section-1-last{
+    width: 95%;
+    height: 155px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .separator{
