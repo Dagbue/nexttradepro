@@ -12,7 +12,7 @@
       <div class="contact-grid">
         <div v-for="(method, index) in contactMethods" :key="index" class="contact-card">
           <div :class="['contact-icon-wrapper', method.color]">
-            <component :is="method.icon" class="contact-icon" />
+            <img :src="method.icon" class="contact-icon" :alt="method.title" />
           </div>
           <h3 class="contact-title">{{ method.title }}</h3>
           <p class="contact-description">{{ method.description }}</p>
@@ -27,7 +27,7 @@
       <div class="features-grid">
         <div v-for="(feature, index) in features" :key="index" class="feature-item">
           <div class="feature-icon-wrapper">
-            <component :is="feature.icon" class="feature-icon" />
+            <img :src="feature.icon" class="feature-icon" :alt="feature.title" />
           </div>
           <h3 class="feature-title">{{ feature.title }}</h3>
           <p class="feature-description">{{ feature.description }}</p>
@@ -45,7 +45,7 @@ export default {
     return {
       contactMethods: [
         {
-          icon: "MailIcon",
+          icon: require('@/assets/icons8-mail-48.png'),
           title: 'Email Support',
           description: 'Get help via email',
           contact: 'support@topsharespro.com',
@@ -53,15 +53,15 @@ export default {
           color: 'bg-blue-100 text-blue-600'
         },
         {
-          icon: "PhoneIcon",
+          icon: require('@/assets/icons8-phone-50.png'),
           title: 'Phone Support',
           description: 'Speak with our experts',
-          contact: '+44 20 7946 0958',
+          contact: '',
           availability: 'Mon-Fri 9AM-6PM GMT',
           color: 'bg-green-100 text-green-600'
         },
         {
-          icon: "MapPinIcon",
+          icon: require('@/assets/icons8-location-off-60.png'),
           title: 'Office Address',
           description: 'Visit our headquarters',
           contact: '128 City Road, London, EC1V 2NX',
@@ -71,17 +71,17 @@ export default {
       ],
       features: [
         {
-          icon: "ClockIcon",
+          icon: require('@/assets/icons8-clock-50.png'),
           title: 'Fast Response',
           description: 'Average response time under 2 hours'
         },
         {
-          icon: "GlobeIcon",
+          icon: require('@/assets/icons8-globe-50.png'),
           title: 'Global Support',
           description: 'Supporting traders in 150+ countries'
         },
         {
-          icon: "ShieldIcon",
+          icon: require('@/assets/icons8-shield-50.png'),
           title: 'Secure Communication',
           description: 'All communications are encrypted and secure'
         }

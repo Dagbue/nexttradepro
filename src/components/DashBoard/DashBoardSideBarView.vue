@@ -321,9 +321,6 @@
 
     <div class="dropdown-nav-2" v-show="mobileNav" >
 
-<!--      <div class="icon-2">-->
-<!--        <i @click="toggleMobileNav" class='bx bx-menu' v-show="mobile" :class="{'icon-active' : mobileNav}"></i>-->
-<!--      </div>-->
 
       <div class="logo">
         <img src="@/assets/logo.png" alt="logo" class="afo-logo-2" />
@@ -338,7 +335,6 @@
         </li>
         <li @click="toggleMobileNav2">
           <a>
-<!--            <img src="@/assets/dashboardlogo.svg" alt="logo" class="link-img" />-->
             <svg class="link-img" width="35" height="35" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
               <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" style="fill: currentcolor;"></path>
             </svg>
@@ -655,13 +651,13 @@ option{
 }
 
 .afo-logo-2{
-  width: 80%;
+  width: 95%;
   display: block;
   margin-left: auto;
   margin-right: auto;
   background-color: #c8c8c8;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 body{
@@ -807,7 +803,7 @@ body{
   height: 100vh;
   width: 240px;
   /*height: 100%;*/
-  background-color: #0f171c;
+  background-color: rgb(7 12 20);
   font-size: 16px;
   text-align: center;
 }
@@ -821,7 +817,7 @@ body{
   /*padding-top: 25%;*/
   display: block;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 18%;
 }
 .dropdown-nav-2 a {
   padding: 0.55em 0;
@@ -862,41 +858,9 @@ body{
 .icon-active{
   transform: rotate(180deg);
 }
-.final{
-  margin-left: 26%;
-  margin-top: 23%;
-  display: flex;
-}
-.back-login{
-  margin-right: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  padding: 40px;
-  text-decoration: none;
-  font-size: 20px;
-  border-radius: 8px;
-  color: #222222;
-}
-.back-home{
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  margin-left: 30px;
-  padding: 40px;
-  text-decoration: none;
-  font-size: 20px;
-  border-radius: 8px;
-  color: #222222;
-}
+
 
 @media (max-width: 990px) {
-  .logout{
-    padding: 9px 60px;
-    margin-left: 15px;
-    margin-top: 13px;
-    border-radius: 20px;
-  }
-  .icon-2{
-    padding-left: 90%;
-    color: white;
-  }
   i{
     font-size: 20px;
     padding-right: 5px;
@@ -905,49 +869,10 @@ body{
     overflow-y: unset;
   }
 
-  .final{
-    margin-left: 10%;
-    margin-top: 25%;
-  }
 }
 @media (max-width: 700px) {
-  .dropdown-nav-2{
-    padding-right: unset;
-    max-width: 210px;
-    font-size: 15px;
-  }
-  .icon-2{
-    padding-left: 80%;
-  }
-  .dropdown-nav-2 ul {
-    padding-top: unset;
-  }
-  .logout{
-    padding: 8px 50px;
-  }
-  .final{
-    margin-left: 23%;
-    margin-top: 30%;
-    display: flex;
-    flex-direction: column;
-  }
-  .back-login{
-    margin-right: unset;
-    padding: 25px;
-    font-size: 18px;
-    margin-bottom: 15%;
-  }
-  .back-home{
-    margin-left: unset;
-    padding: 25px;
-    font-size: 18px;
 
-  }
 
-  .bx-user{
-    font-size: 300%;
-    margin-left: 10%;
-  }
 
 }
 </style>
