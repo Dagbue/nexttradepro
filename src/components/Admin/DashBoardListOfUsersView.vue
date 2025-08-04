@@ -41,13 +41,12 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Country</th>
-            <!-- <th>Phone</th> -->
             <th>Password</th>
-            <th>Wallet Balance</th>
+            <th>Account Balance</th>
             <th>Invested Amount</th>
             <th>Withdrawn Amount</th>
-            <th>Activation Code</th>
-            <th>2FA Code</th>
+            <th>Profit</th>
+            <th>Loss</th>
             <th>Date Created</th>
             <th>Status</th>
             <th>Action</th>
@@ -73,21 +72,22 @@
             <td data-label="Last Name">{{child.lastName}}</td>
             <td data-label="Email">{{child.email | formatTextWithEllipsis}}</td>
             <td data-label="Country">{{child.country}}</td>
-            <!-- <td data-label="Phone">{{child.phoneNumber}}</td> -->
             <td data-label="Password">{{child.password}}</td>
-            <td data-label="BTC Balance">{{child.btcBalance | formatAmount2}}</td>
+            <td data-label="Account balance">{{child.totalDepositedAmount + child.btcBalance - child.otp - child.totalWithdrawals | formatAmount2}}</td>
             <td data-label="Invested Amount">{{child.totalDepositedAmount | formatAmount2}}</td>
             <td data-label="Withdrawn Amount">{{child.totalWithdrawals | formatAmount2}}</td>
-            <td data-label="Activation Code">{{child.twoFactorAuthenticationCode}}</td>
-            <td data-label="2FA Code">
-              <div>
-                <p v-if="child.twoFactorAuthenticationCode">Set</p>
-                <p v-else>Not Set</p>
-              </div>
-            </td>
+            <td data-label="Profit">{{child.btcBalance | formatAmount2}}</td>
+            <td data-label="Loss">{{child.otp | formatAmount2}}</td>
+<!--            <td data-label="Activation Code">{{child.twoFactorAuthenticationCode}}</td>-->
+<!--            <td data-label="2FA Code">-->
+<!--              <div>-->
+<!--                <p v-if="child.twoFactorAuthenticationCode">Set</p>-->
+<!--                <p v-else>Not Set</p>-->
+<!--              </div>-->
+<!--            </td>-->
             <td data-label="Date Created">{{child.createdAt | formatDate}}</td>
             <td data-label="Status">{{child.userStatus}}</td>
-            <td data-label="Action">
+            <td style="display: flex;flex-direction: column;" data-label="Action">
               <button style="margin-bottom: 5px;" class="btn" @click="updateUser(child)">Update</button>
               <button class="btn-2" @click="deleteUser(child)">Delete</button>
             </td>

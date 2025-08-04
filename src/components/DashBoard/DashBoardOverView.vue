@@ -8,10 +8,14 @@
       upload a valid government Id to verify your account.
       <a><router-link to="/update-account">Click here</router-link></a></p>
 
+<!--    <p style="color: #FFFFFF">{{UserDetails.user}}</p>-->
+
     <div class="balance-section">
       <div class="balance-section-1">
         <p class="balance-text-1-i">Account Balance</p>
-        <p class="balance-text-2-i">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
+        <p class="balance-text-2-i">$
+          {{UserDetails.user.totalDepositedAmount + UserDetails.user.btcBalance - UserDetails.user.otp - UserDetails.user.totalWithdrawals | formatAmount2}}
+        </p>
         <!--        <div class="balance-section-1-inner">-->
         <!--          <p class="balance-text-3">Realized Profit</p>-->
         <!--          <p class="balance-text-4">$ {{UserDetails.user.realizedProfit | formatAmount2}}</p>-->
@@ -36,15 +40,15 @@
       </div>
 
       <div class="balance-section-1">
-        <p class="balance-text-1">Ethereum Balance</p>
-        <p class="balance-text-2">$ {{UserDetails.user.profit | formatAmount2}}</p>
+        <p class="balance-text-1">Bitcoin Balance</p>
+        <p class="balance-text-2">{{bitcoin}}</p>
         <div class="balance-section-1-inner">
           <p class="balance-text-3">Profit</p>
-          <p class="balance-text-4">$ {{UserDetails.user.profit | formatAmount2}}</p>
+          <p class="balance-text-4">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
         </div>
         <div class="balance-section-1-inner">
           <p class="balance-text-5">Loss</p>
-          <p class="balance-text-6">- $ {{UserDetails.user.loss | formatAmount2}}</p>
+          <p class="balance-text-6">- $ {{UserDetails.user.otp | formatAmount2}}</p>
         </div>
       </div>
 
@@ -1509,14 +1513,15 @@ export default {
         return;
       }
 
-      if (this.UserDetails.user.btcBalance === 0) {
-        await Swal.fire({
-          icon: 'error',
-          title: 'Cannot Perform Action',
-          text: 'You cannot place a trade because your Wallet Balance is zero.',
-        });
-        return;
-      }
+      //
+      // if (this.UserDetails.user.btcBalance === 0) {
+      //   await Swal.fire({
+      //     icon: 'error',
+      //     title: 'Cannot Perform Action',
+      //     text: 'You cannot place a trade because your Wallet Balance is zero.',
+      //   });
+      //   return;
+      // }
 
       // Now make the API call using the prepared data
       await StoreUtils.dispatch(StoreUtils.actions.trade.tradeCreate, {

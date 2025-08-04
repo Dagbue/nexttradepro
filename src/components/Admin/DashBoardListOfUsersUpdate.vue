@@ -73,13 +73,13 @@
           <div class="separate">
 
             <div class="space">
-              <label>Wallet Balance</label>
-              <input type="number" v-model="btcBalance"  class="form-input"/>
+              <label>Invested Amount</label>
+              <input type="number" v-model="totalDepositedAmount"  class="form-input"/>
             </div>
 
             <div class="space">
-              <label>Invested Amount</label>
-              <input type="number" v-model="totalDepositedAmount"  class="form-input"/>
+              <label>withdrawn Amount</label>
+              <input type="number" v-model="totalWithdrawals"  class="form-input"/>
             </div>
 
           </div>
@@ -87,13 +87,13 @@
           <div class="separate">
 
             <div class="space">
-              <label>withdrawn Amount</label>
-              <input type="number" v-model="totalWithdrawals"  class="form-input"/>
+              <label>Profit</label>
+              <input type="number" v-model="btcBalance"  class="form-input"/>
             </div>
 
             <div class="space">
-              <label>Activation Code</label>
-              <input type="text" v-model="twoFactorAuthenticationCode"  class="form-input"/>
+              <label>Loss</label>
+              <input type="number" v-model="otp"  class="form-input"/>
             </div>
 
           </div>
@@ -164,6 +164,7 @@ export default {
       phoneNumber: "",
       password: "",
       btcBalance: "",
+      otp: "",
       totalDepositedAmount: "",
       totalWithdrawals:"",
       twoFactorAuthenticationCode: "",
@@ -205,6 +206,7 @@ export default {
       this.phoneNumber = this.readUserById.user.phoneNumber;
       this.password = this.readUserById.user.password;
       this.btcBalance = this.readUserById.user.btcBalance;
+      this.otp = this.readUserById.user.otp;
       this.totalDepositedAmount = this.readUserById.user.totalDepositedAmount;
       this.totalWithdrawals = this.readUserById.user.totalWithdrawals;
       this.twoFactorAuthenticationCode = this.readUserById.user.twoFactorAuthenticationCode;
@@ -222,6 +224,7 @@ export default {
         country: this.country,
         password: this.password,
         btcBalance: this.btcBalance,
+        otp: this.otp,
         totalDepositedAmount: this.totalDepositedAmount,
         totalWithdrawals: this.totalWithdrawals,
         twoFactorAuthenticationCode: this.twoFactorAuthenticationCode,
