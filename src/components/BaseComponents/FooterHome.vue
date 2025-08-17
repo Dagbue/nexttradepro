@@ -1,130 +1,136 @@
 <template>
-  <div class="alpha">
-    <div class="the-footer">
+  <footer class="footer">
+    <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#999999" lcw-marquee-1="coins" lcw-marquee-2="movers" lcw-marquee-items="10" ></div>
+    <div class="container">
+      <!-- Main Footer Content -->
+      <div class="main-content">
+        <!-- Company Info -->
+        <div class="company-info">
 
-<!--      <bitcoin-prices/>-->
-      <div class="livecoinwatch-widget-5" lcw-base="USD" lcw-color-tx="#999999" lcw-marquee-1="coins" lcw-marquee-2="movers" lcw-marquee-items="10" ></div>
+          <h3>About TopShares Pro</h3>
+          <p class="description">
+            Established on November 14, 2016, TopShares Pro is a trusted and innovative digital asset,
+            stocks, and forex trading platform. We empower international customers with state-of-the-art
+            tools and expertise for successful trading and financial management.
+          </p>
 
-      <div class="bottom">
-        <div class="logo-container">
-
-
-          <div class="footer-link-container">
-            <h3 class="footer-title">About Us</h3>
-            <p class="footer-link width">
-              Established on November 14, 2016, TopShares Pro has its headquarters at 128 City Road, London, United
-              Kingdom, EC1V 2NX with the official registration under company number 13971404.
-              Our company takes pride
-              in being a trusted and innovative digital asset, stocks, forex trading platform tailored for a global clientele,
-              leveraging the cutting-edge technology. We are committed to delivering a secure and reliable
-              platform that offers advanced solutions in various financial domains, including Financial Administration,
-              Risk Management, Investment Services, and Return Provisioning. Our mission is to empower our
-              international customers with state-of-the-art tools and expertise for successful trading
-              and financial management.
-            </p>
-          </div>
-
-          <div class="footer-link-container2">
-            <h3 class="footer-title">Links</h3>
-            <a  class="footer-link" @click="onPostClick">Home</a>
-            <a  class="footer-link" @click="onPostClick2">Login</a>
-            <a  class="footer-link" @click="onPostClick3">Register</a>
-            <a  class="footer-link" @click="onPostClick4">F.A.Q</a>
-            <a  class="footer-link" @click="onPostClick5">Contacts</a>
-<!--            <a @click="showDialog" class="footer-link">Certifications</a>-->
-          </div>
-
-          <div class=" stay-connected">
-            <h3 class="footer-title">Stay connected</h3>
-            <div class="socials-container">
-<!--              <div class="social-logo">-->
-<!--                <div class="last-div">-->
-<!--                  <i class='bx bxs-phone' ></i>-->
-<!--                  <p class="last-div-para"><a href="https://wa.me/15102569690?text="  target="_blank">+1 (510) 256-9690</a></p>-->
-<!--                </div>-->
-<!--              </div>-->
-              <div class="social-logo">
-                <div class="last-div">
-                  <i class='bx bxs-map' ></i>
-                  <p class="last-div-para contain">128 City Road, London, United Kingdom, EC1V 2NX</p>
-                </div>
-              </div>
-              <div class="social-logo">
-                <div class="last-div">
-                  <i class='bx bx-mail-send' style='color:#ffffff'></i>
-                  <p class="last-div-para"><a href="mailto:support@topsharespro.com">support@topsharespro.com</a></p>
-                </div>
-              </div>
+          <!-- Trust Indicators -->
+          <div class="trust-indicators">
+            <div v-for="(indicator, index) in trustIndicators" :key="index" class="trust-item">
+              <img :src="indicator.icon" class="contact-icon" :alt="indicator.text" />
+              <span>{{ indicator.text }}</span>
             </div>
-<!--            <div class="social">-->
-<!--&lt;!&ndash;              <div class="social-part-1">&ndash;&gt;-->
-<!--&lt;!&ndash;                <i class='bx bxl-facebook'></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                <i class='bx bxl-twitter' ></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                <i class='bx bxl-instagram' ></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                <i class='bx bxl-youtube' ></i>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--              <img src="@/assets/google-play.svg" alt="" class="google" />-->
-<!--            </div>-->
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+          <h3>Quick Links</h3>
+          <ul style="list-style-type: none;">
+            <li v-for="(link, index) in quickLinks" :key="index">
+              <a :href="link.href" class="link">
+                <span class="dot"></span>
+                {{ link.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-items">
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2a10 10 0 00-3.16 19.43L12 17l3.16 4.43A10 10 0 0012 2z" />
+              </svg>
+              <p>128 City Road, London,<br />United Kingdom, EC1V 2NX</p>
+            </div>
+
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:support@topsharespro.com" class="link">support@topsharespro.com</a>
+            </div>
+
+            <div class="contact-item">
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              <span>24/7 Support Available</span>
+            </div>
+          </div>
+
+          <button @click="onPostClick3" class="cta-button">Start Trading Now</button>
+        </div>
+      </div>
+
+      <!-- Partners Section -->
+      <div class="partners">
+        <h4>Trusted Partners</h4>
+        <div class="partner-logos">
+          <div v-for="(partner, index) in partnerLogos" :key="index" class="partner-logo">
+            {{ partner.logo }}
           </div>
         </div>
       </div>
-      <hr/>
-      <div class="copyright">
-        <p>TopShares Pro LLC is part of TopShares Pro Group of companies with broker entities
-          that are authorised and regulated across multiple jurisdictions. TopShares Pro LLC has it's
-          business address at the United Kingdom.</p>
-        <br/>
-        <p>The objects of the Company are all subject matters not forbidden by International Business Companies
-          (Amendment and Consolidation) Act, Chapter 149 of the Revised Laws of Saint Vincent and Grenadines,
-          2009, in particular but not exclusively all commercial, financial, lending, borrowing, trading,
-          service activities and the participation in other enterprises as well as to provide brokerage,
-          training and managed account services in currencies, commodities, indexes, CFDs and leveraged financial
-          instruments.</p>
+
+      <!-- Regulatory Information -->
+      <div class="regulatory">
+        <div class="regulatory-content">
+          <h4 class="regulatory-title">
+            <img src="@/assets/icons8-shield-50.png" alt="shield" class="regulatory-icon" />
+            Regulatory Information
+          </h4>
+          <div class="regulatory-grid">
+            <div>
+              <p>
+                <strong>TopShares Pro LLC</strong> is part of TopShares Pro Group of companies with broker entities
+                that are authorised and regulated across multiple jurisdictions.
+              </p>
+              <p>
+                TopShares Pro Markets Germany GmbH is licensed and regulated by the Bundesanstalt für
+                Finanzdienstleistungsaufsicht (BaFin) under registration number 154814.
+              </p>
+            </div>
+            <div>
+              <p>
+                TopShares Pro Markets UK Plc and TopShares Pro Spreadbet plc are registered in the Register
+                of Companies of the Financial Conduct Authority under registration numbers 173730 and 170627.
+              </p>
+              <p>
+                All trading involves risk. Past performance is not indicative of future results.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="section-part">
 
-        <a href="">
-          <img src="https://primexbt.com/_next/static/media/crystal.ce2c822d.svg" class="footer-partner" />
+      <!-- Legal Links -->
+      <div class="legal-links">
+        <a v-for="(link, index) in legalLinks" :key="index" :href="link.href" class="legal-link">
+          {{ link.name }}
         </a>
-
-        <a href="">
-          <img src="https://primexbt.com/_next/static/media/devexperts.d29d2c72.svg" class="footer-partner"  />
-        </a>
-
-        <a href="">
-          <img src="https://primexbt.com/_next/static/media/SkrillLogo.774f02d8.svg" class="footer-partner"  />
-        </a>
-
-<!--        <a href="">-->
-<!--          <img src="@/assets/usdt.png" style="width: 23%;" />-->
-<!--        </a>-->
-
-        <a href="">
-          <img src="https://primexbt.com/_next/static/media/fireblocks.64d070a3.svg" class="footer-partner" />
-        </a>
-
       </div>
-      <div class="copyright">
-        <p>TopShares Pro Markets is, depending on the context, a reference to TopShares Pro Markets Germany GmbH, TopShares Pro Markets UK plc or
-          TopShares Pro Spreadbet plc. TopShares Pro Markets Germany GmbH is a company licensed and regulated by the Bundesanstalt für
-          Finanzdienstleistungsaufsicht (BaFin) under registration number 154814. TopShares Pro Markets UK Plc and TopShares Pro Spreadbet
-          plc are registered in the Register of Companies of the Financial Conduct Authority under registration numbers
-          173730 and 170627.</p>
-        <br/>
-        <p>Telephone calls and online chat conversations may be recorded and monitored. Apple, iPad, and iPhone
-          are trademarks of Apple Inc., registered in the U.K. and other countries. App Store is a service mark of
-          Apple Inc. Android is a trademark of Google Inc. This website uses cookies to obtain information about your
-          general internet usage. Removal of cookies may affect the operation of certain parts of this website.
-          Learn about cookies and how to remove them. Portions of this page are reproduced from work created and
-          shared by Google and used according to terms described in the Creative Commons 3.0 Attribution License.</p>
-      </div>
-      <hr/>
-      <div class="copyright">
-        <p>All rights reserved. Copyright © 2016 - 2025</p>
+
+      <!-- Bottom Bar -->
+      <div class="bottom-bar">
+        <div class="copyright">
+          © 2024 TopShares Pro. All rights reserved. Trading involves risk and may not be suitable for all investors.
+        </div>
+        <div class="company-info">
+          <span>Company Registration: 13971404</span>
+          <span class="separator">|</span>
+          <span>Licensed & Regulated</span>
+        </div>
       </div>
     </div>
+
     <certificate-modal @close="hideDialog" v-if="dialogIsVisible"/>
-  </div>
+  </footer>
+
 </template>
 
 <script>
@@ -140,6 +146,33 @@ export default {
   data() {
     return {
       dialogIsVisible: false,
+      partnerLogos: [
+        { name: 'Crystal', logo: 'Crystal' },
+        { name: 'Devexperts', logo: 'Devexperts' },
+        { name: 'Skrill', logo: 'Skrill' },
+        { name: 'Fireblocks', logo: 'Fireblocks' }
+      ],
+      quickLinks: [
+        { name: 'Home', href: '/' },
+        { name: 'About Us', href: '/about' },
+        { name: 'FAQ', href: '/faq' },
+        { name: 'Pricing', href: '/pricing' },
+        { name: 'Contact Us', href: '/contact' },
+        { name: 'Register', href: '/register' },
+        { name: 'LogIn', href: '/login' }
+      ],
+      legalLinks: [
+        { name: 'Privacy Policy', href: '#' },
+        { name: 'Terms of Service', href: '#' },
+        { name: 'Risk Disclosure', href: '#' },
+        { name: 'Regulatory Information', href: '#' }
+      ],
+      trustIndicators: [
+        { icon: require('@/assets/icons8-shield-50.png'), text: 'Regulated & Licensed' },
+        { icon: require('@/assets/icons8-crown-50.png'), text: 'Award Winning Platform' },
+        { icon: require('@/assets/icons8-avatar-50.png'), text: '1M+ Active Traders' },
+        { icon: require('@/assets/icons8-globe-50.png'), text: 'Global Presence' }
+      ]
     };
   },
   methods: {
@@ -180,289 +213,325 @@ export default {
 </script>
 
 <style scoped>
-.contain{
-  width: 90%;
-}
-.the-footer {
-  background-color: rgb(17 24 39);
-  color: #ccc;
-  padding: 1.5vh  1vh;
+.footer {
+  background-color: #111827;
+  color: white;
+  margin-top: 0;
+  padding-top: 0;
+  position: relative; /* Ensure footer is a containing block for widget */
 }
 
-.logo-container {
+.livecoinwatch-widget-5 {
+  margin: 0 !important; /* Reset any margins */
+  padding: 0 !important; /* Reset any padding */
+  display: block; /* Ensure block-level display */
+  line-height: 0; /* Prevent line-height from adding space */
+  font-size: 0; /* Prevent font-size from adding space */
+}
+
+/* Target potential injected content to remove unwanted spacing */
+.livecoinwatch-widget-5 > * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.main-content {
+  display: grid;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.company-info .logo {
   display: flex;
-  justify-content: space-between;
-  margin-left: 5%;
-  /*margin-right: 7%;*/
-  padding-top: 1%;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
 }
 
-.footer-title {
-  font-size: 20px;
-  line-height: 20px;
+.company-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
 }
 
-.footer-partner{
-  object-fit: cover;
-  width: 55%;
+.description {
+  color: #d1d5db;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  max-width: 28rem;
 }
 
-.footer-link {
-  display: block;
-  font-size: 16px;
-  line-height: 25px;
-  opacity: 0.8;
-  padding-top: 10px;
-  color: #ffffff;
+.trust-indicators {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
-.bottom{
-  margin-top: 2%;
-}
-
-.footer-link-container {
-  /*margin-left: 5%;*/
-  /*margin-right: 5%;*/
-  width: 40%;
-}
-
-.footer-link-container2{
-  /*padding-right: 5%;*/
-}
-.stay-connected{
-  margin-right: 7%;
-}
-.socials-container {
+.trust-item {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+.trust-item span {
+  font-size: 0.875rem;
+  color: #d1d5db;
+}
+
+.quick-links h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.quick-links ul {
+  display: flex;
   flex-direction: column;
-  padding-top: 20px;
-  width: 100%;
+  gap: 0.75rem;
 }
 
-hr {
-  color: #ffffff;
-  width: 100%;
-  background-color: #ffffff;
-  border: 0.5px solid #ffffff;
-  opacity: 0.2;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.copyright {
-  font-size: 13px;
-  line-height: 19px;
-  opacity: 0.75;
-  margin-top: 10px;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  color: #ffffff;
-  font-weight: 900;
-  width: 65%;
-  margin-left: 5%;
-}
-.footer-img {
-  width: 22%;
-}
-a {
-  text-decoration: none;
-  color: #ffffff;
-  transition: ease 0.3s;
-}
-a:hover{
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.bit{
-  margin-bottom: 25px;
-}
-.bx {
-  font-size: 27px;
-}
-.bx-mail-send{
-}
-.last-div{
+.link {
   display: flex;
-  margin-bottom: 15px;
-}
-.last-div-para{
-  font-size: 15px;
-  padding-left: 10px;
-  line-height: 1.3;
-  color: #ffffff;
-}
-.footer-title{
-  color: #ffffff;
-  /*font-size: 30px;*/
-  font-weight: bold;
+  align-items: center;
+  color: #d1d5db;
+  transition: color 0.2s;
 }
 
-.google{
-  width: 40%;
-  margin-left: 2%;
-  margin-top: 3%;
+.link:hover {
+  color: #60a5fa;
 }
 
-.social-part-1 i {
-  padding-right: 10px;
-  margin-top: 1%;
+.dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: #60a5fa;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-img{
-  width: 85%;
-  padding-right: 20px;
+.link:hover .dot {
+  opacity: 1;
 }
 
-a{
+.contact-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.contact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.contact-item p,
+.contact-item span {
+  color: #d1d5db;
+  font-size: 0.875rem;
+}
+
+.contact-item a {
+  color: #d1d5db;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.contact-item a:hover {
+  color: #60a5fa;
+}
+
+.cta-button {
+  background-color: #2563eb;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
   width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+  transition: background-color 0.2s;
 }
 
-.section-part{
+.cta-button:hover {
+  background-color: #1d4ed8;
+}
+
+.partners {
+  border-top: 1px solid #374151;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.partners h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.partner-logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  padding-top: 30px;
-  padding-bottom: 15px;
-  padding-left: 2%;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 3rem;
+  opacity: 0.6;
 }
 
+.partner-logo {
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: color 0.2s;
+  cursor: pointer;
+}
 
-@media (max-width: 990px) {
-  .footer-link-container {
-    margin-left: 2%;
-    margin-right: 3%;
-    width: 80%;
+.partner-logo:hover {
+  color: white;
+}
+
+.regulatory {
+  border-top: 1px solid #374151;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.regulatory-content {
+  background-color: #1f2937;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.regulatory-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.regulatory-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #60a5fa;
+  margin-right: 0.5rem;
+}
+
+.regulatory-grid {
+  display: grid;
+  gap: 1.5rem;
+  color: #d1d5db;
+  font-size: 0.875rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 768px) {
+  .regulatory-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width: 760px) {
-  .bottom {
-    display: block;
-    align-content: center;
-    text-align: center;
-  }
-  .footer-container {
-    display: block;
-    align-content: center;
-    text-align: center;
-  }
-  .the-footer {
-    margin-top: unset;
-  }
-  .footer-img {
-    width: 50%;
-    min-width: unset;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-  .footer-link-container {
-    margin-left: unset;
-    margin-right: unset;
-    width: unset;
 
-    margin-top: 3%;
-  }
-  .footer-link-container2 {
-    margin-bottom: 10%;
-    margin-top: 10%;
-  }
-  .last-div{
-    margin-right: 10%;
-    margin-bottom: unset;
-  }
-  .copyright{
-    font-size: 17px;
-  }
-  .stay-connected{
-    margin-right: unset;
+.regulatory-grid p {
+  margin-bottom: 0.75rem;
+}
+
+.legal-links {
+  border-top: 1px solid #374151;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.legal-link {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+
+.legal-link:hover {
+  color: #60a5fa;
+}
+
+.bottom-bar {
+  border-top: 1px solid #374151;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .bottom-bar {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
-@media (max-width: 700px) {
-  .last-div-para{
-    text-align: left;
-  }
-  img{
-    width: 100%;
-    padding-bottom: 6%;
-    padding-right: 20px;
-  }
-  h1{
-    font-size: 25px;
-  }
-  .footer-link-container {
-    margin-left: unset;
-    margin-right: unset;
-    width: unset;
-  }
-  .footer-link {
-    display: block;
-    font-size: 16px;
-  }
-  .footer-title {
-    font-size: 21px;
-    padding-bottom: unset;
-  }
 
-  .footer-img {
-    width: 50%;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .copyright {
-    font-size: 13px;
-    opacity: 0.8;
-    width: 90%;
-  }
-  .bx{
-    font-size: 25px;
-  }
-  .last-div-para{
-    font-size: 16px;
-    padding-left: 8px;
-  }
-  .logo-container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 2%;
-  }
-  .google{
-    width: 45%;
-  }
-
-  .footer-partner{
-    width: 55%;
-  }
-
+.copyright {
+  color: #9ca3af;
+  font-size: 0.875rem;
 }
-@media (max-width: 500px) {
-  .copyright{
-    font-size: 12px;
-  }
-  img{
-    width: 42%;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 6%;
-  }
 
-  .section-part{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: unset;
-    padding-bottom: 5px;
+.company-info {
+  //display: flex;
+  //align-items: center;
+  //gap: 1rem;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.separator {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .separator {
+    display: inline;
   }
+}
 
-
-  .logo-container {
-    margin-left: unset;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 </style>
