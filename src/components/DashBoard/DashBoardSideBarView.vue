@@ -1,7 +1,7 @@
 <template >
   <div class="outer">
 
-    <div   class="sidebar" v-show="!mobile && this.screen === 'trade'">
+    <div  class="sidebar" v-show="!mobile">
 
       <div class="logo">
         <img src="@/assets/logo.png" alt="logo" class="afo-logo" />
@@ -12,144 +12,34 @@
         <router-link to="/over-view" >
           <li @click="toggleView">
             <a class="hover">
-<!--              <img src="@/assets/dashboardlogo.svg" alt="logo" class="link-img" />-->
-              <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
-                <path d="M6,16.5L3,19.44V11H6M11,14.66L9.43,13.32L8,14.64V7H11M16,13L13,16V3H16M18.81,12.81L17,11H22V16L20.21,14.21L13,21.36L9.53,18.34L5.75,22H3L9.47,15.66L13,18.64" style="fill: currentcolor;"></path>
-              </svg>
-              <span class="links-name">Trade</span>
+              <img src="@/assets/dashboardlogo.svg" alt="logo" class="link-img" />
+              <span class="links-name">DashBoard</span>
             </a>
           </li>
         </router-link>
 
-        <div class="trade-sidebar">
-          <div class="trade-type-section">
-            <div class="trade-type-button">
-              <button  @click="toggleScreen" class="trade-btn-1">Trade Forex</button>
-              <button  @click="toggleScreen2" class="trade-btn-2">Trade Crypto</button>
-            </div>
-
-            <div class="trade-type-button">
-              <button  @click="toggleScreen3" class="trade-btn-3">Trade CFD</button>
-              <button  @click="toggleScreen4" class="trade-btn-4">Trade Stocks</button>
-            </div>
-
-            <div class="trade-type-button">
-              <button  @click="toggleScreen5" class="trade-btn-5">Trade Real Estate</button>
-            </div>
-
-<!--            <div v-show="this.screen1 === 'Forex'" class="form-group">-->
-<!--              <select>-->
-<!--                <option value="USD/CAD">USD/CAD</option>-->
-<!--                <option value="USD/CHF">USD/CHF</option>-->
-<!--                <option value="USD/JPY">USD/JPY</option>-->
-<!--                <option value="EUR/USD">EUR/USD</option>-->
-<!--                <option value="GBP/USD">GBP/USD</option>-->
-<!--                <option value="NZD/USD">NZD/USD</option>-->
-<!--                <option value="AUD/CAD">AUD/CAD</option>-->
-<!--                <option value="AUD/USD">AUD/USD</option>-->
-<!--                <option value="EUR/GBP">EUR/GBP</option>-->
-<!--                <option value="GBP/AUD">GBP/AUD</option>-->
-<!--              </select>-->
-<!--            </div>-->
-
-<!--            <div v-show="this.screen1 === 'Crypto'" class="form-group">-->
-<!--              <select>-->
-<!--                <option value="BCH/BTC">BCH/BTC</option>-->
-<!--                <option value="BCH/EUR">BCH/EUR</option>-->
-<!--                <option value="BCH/GBP">BCH/GBP</option>-->
-<!--                <option value="BTC-EOS">BTC-EOS</option>-->
-<!--                <option value="BTC/EUR">BTC/EUR</option>-->
-<!--                <option value="BTC/GBP">BTC/GBP</option>-->
-<!--                <option value="BTC/USD">BTC/USD</option>-->
-<!--                <option value="BTC/USDC">BTC/USDC</option>-->
-<!--                <option value="EOS/BTC">EOS/BTC</option>-->
-<!--                <option value="EOS/EUR">EOS/EUR</option>-->
-<!--              </select>-->
-<!--            </div>-->
-
-<!--            <div v-show="this.screen1 === 'CFD'" class="form-group">-->
-<!--              <select>-->
-<!--                <option value="US 30">US 30</option>-->
-<!--                <option value="UKX">UKX</option>-->
-<!--                <option value="VIX Volatility Index">VIX Volatility Index</option>-->
-<!--                <option value="Germany 30">Germany 30</option>-->
-<!--                <option value="USA 500">USA 500</option>-->
-<!--                <option value="US Tech 100">US Tech 100</option>-->
-<!--                <option value="Japan 225">Japan 225</option>-->
-<!--                <option value="Europe 50">Europe 50</option>-->
-<!--                <option value="US Wall St 30">US Wall St 30</option>-->
-<!--                <option value="AUXAUD">AUXAUD</option>-->
-<!--              </select>-->
-<!--            </div>-->
-
-<!--            <div v-show="this.screen1 === 'Stocks'" class="form-group">-->
-<!--              <select>-->
-<!--                <option value="AMAZON">AMAZON</option>-->
-<!--                <option value="APPLE">APPLE</option>-->
-<!--                <option value="COCA COLA">COCA COLA</option>-->
-<!--                <option value="DAX30">DAX30</option>-->
-<!--                <option value="AIRBNB INC">AIRBNB INC</option>-->
-<!--                <option value="BOEING CO">BOEING CO</option>-->
-<!--                <option value="GME STOCKS">GME STOCKS</option>-->
-<!--                <option value="AMC ENTERTAINMENT">AMC ENTERTAINMENT</option>-->
-<!--                <option value="BLACKBERRY">BLACKBERRY</option>-->
-<!--                <option value="CITIGROUP INC">CITIGROUP INC</option>-->
-<!--                <option value="CISCO SYSTEMS INC">CISCO SYSTEMS INC</option>-->
-<!--              </select>-->
-<!--            </div>-->
-
-<!--            <div v-show="this.screen1 === 'RealEstate'" class="form-group">-->
-<!--              <select>-->
-<!--                <option value="Prologis, Inc. (PLD)">Prologis, Inc. (PLD)</option>-->
-<!--                <option value="Simon Property Group (SPG)">Simon Property Group (SPG)</option>-->
-<!--                <option value="AvalonBay Communities (AVB)">AvalonBay Communities (AVB)</option>-->
-<!--                <option value="Realty Income (O)">Realty Income (O)</option>-->
-<!--                <option value="Equinix, Inc. (EQIX)">Equinix, Inc. (EQIX)</option>-->
-<!--                <option value="Public Storage (PSA)">Public Storage (PSA)</option>-->
-<!--                <option value="Annaly Capital Management, Inc. (NLY)">Annaly Capital Management, Inc. (NLY)</option>-->
-<!--                <option value="AGNC Investment Corp. (AGNC)">AGNC Investment Corp. (AGNC)</option>-->
-<!--                <option value="Starwood Property Trust, Inc. (STWD)">Starwood Property Trust, Inc. (STWD)</option>-->
-<!--                <option value="Welltower Inc. (WELL)">Welltower Inc. (WELL)</option>-->
-<!--              </select>-->
-<!--            </div>-->
-            
-
-          </div>
-        </div>
-
-        <router-link to="/copy-experts" >
-          <li @click="toggleView2">
+        <router-link to="/trade-over-view">
+          <li>
             <a class="hover">
-              <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
-                <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" style="fill: currentcolor;"></path>
-              </svg>
-              <span class="links-name wallets">Copy Trade</span>
+              <img src="../../assets/walletmana.svg" alt="logo" class="link-img" />
+              <span class="links-name wallets">Trade History</span>
             </a>
           </li>
         </router-link>
-
-<!--        <router-link to="/transactions">-->
-<!--          <li>-->
-<!--            <a class="hover">-->
-<!--              <img src="@/assets/send.svg" alt="logo" class="link-img" />-->
-<!--              <span class="links-name">Transactions</span>-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </router-link>-->
 
         <router-link to="/fund-wallet">
-          <li @click="toggleView2">
+          <li>
             <a class="hover">
-              <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
+              <svg class="link-img-2" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
                 <path d="M15 15V17H18V20H20V17H23V15H20V12H18V15M14.97 11.61C14.85 10.28 13.59 8.97 12 9C10.3 9.03 9 10.3 9 12C9 13.7 10.3 14.94 12 15C12.38 15 12.77 14.92 13.14 14.77C13.41 13.67 13.86 12.63 14.97 11.61M13 16H7C7 14.9 6.11 14 5 14V10C6.11 10 7 9.11 7 8H17C17 9.11 17.9 10 19 10V10.06C19.67 10.06 20.34 10.18 21 10.4V6H3V18H13.32C13.1 17.33 13 16.66 13 16Z" style="fill: currentcolor;"></path>
               </svg>
-              <span class="links-name">Deposit</span>
+              <span class="links-name">Account Fuunding</span>
             </a>
           </li>
         </router-link>
 
         <router-link to="/withdrawal">
-          <li @click="toggleView2">
+          <li>
             <a class="hover">
               <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
               <span class="links-name">Withdrawal</span>
@@ -157,51 +47,11 @@
           </li>
         </router-link>
 
-        <router-link to="/trade-over-view">
-          <li @click="toggleView2">
+        <router-link to="/transactions">
+          <li>
             <a class="hover">
-              <img src="../../assets/walletmana.svg" alt="logo" class="link-img" />
-              <span class="links-name wallets">Trade Overview</span>
-            </a>
-          </li>
-        </router-link>
-
-        <router-link to="/settings">
-          <li @click="toggleView2">
-            <a class="hover">
-              <img src="../../assets/settings.svg" alt="logo" class="link-img" />
-              <span class="links-name">Settings</span>
-            </a>
-          </li>
-        </router-link>
-
-          <li @click="handleClick">
-            <a class="hover">
-              <img  src="@/assets/log-out.svg" alt="Notification"/>&nbsp;&nbsp;
-              <span class="links-name">Logout</span>
-            </a>
-          </li>
-
-      </ul>
-
-    </div>
-
-    <div  class="sidebar" v-show="!mobile && this.screen === 'copy'">
-
-      <div class="logo">
-        <img src="@/assets/logo.png" alt="logo" class="afo-logo" />
-      </div>
-
-      <ul class="nav-list" >
-
-        <router-link to="/over-view" >
-          <li @click="toggleView">
-            <a class="hover">
-              <!--              <img src="@/assets/dashboardlogo.svg" alt="logo" class="link-img" />-->
-              <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
-                <path d="M6,16.5L3,19.44V11H6M11,14.66L9.43,13.32L8,14.64V7H11M16,13L13,16V3H16M18.81,12.81L17,11H22V16L20.21,14.21L13,21.36L9.53,18.34L5.75,22H3L9.47,15.66L13,18.64" style="fill: currentcolor;"></path>
-              </svg>
-              <span class="links-name">Trade</span>
+              <img src="@/assets/send.svg" alt="logo" class="link-img" />
+              <span class="links-name">Transaction History</span>
             </a>
           </li>
         </router-link>
@@ -212,48 +62,12 @@
               <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
                 <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" style="fill: currentcolor;"></path>
               </svg>
-              <span class="links-name wallets">Copy Trade</span>
+              <span class="links-name wallets">Copy Expert</span>
             </a>
           </li>
         </router-link>
 
-        <router-link to="/trade-over-view">
-          <li>
-            <a class="hover">
-              <img src="../../assets/walletmana.svg" alt="logo" class="link-img" />
-              <span class="links-name wallets">Trade Overview</span>
-            </a>
-          </li>
-        </router-link>
 
-        <router-link to="/transactions">
-          <li>
-            <a class="hover">
-              <img src="@/assets/send.svg" alt="logo" class="link-img" />
-              <span class="links-name">Transactions</span>
-            </a>
-          </li>
-        </router-link>
-
-        <router-link to="/fund-wallet">
-          <li>
-            <a class="hover">
-              <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
-                <path d="M15 15V17H18V20H20V17H23V15H20V12H18V15M14.97 11.61C14.85 10.28 13.59 8.97 12 9C10.3 9.03 9 10.3 9 12C9 13.7 10.3 14.94 12 15C12.38 15 12.77 14.92 13.14 14.77C13.41 13.67 13.86 12.63 14.97 11.61M13 16H7C7 14.9 6.11 14 5 14V10C6.11 10 7 9.11 7 8H17C17 9.11 17.9 10 19 10V10.06C19.67 10.06 20.34 10.18 21 10.4V6H3V18H13.32C13.1 17.33 13 16.66 13 16Z" style="fill: currentcolor;"></path>
-              </svg>
-              <span class="links-name">Deposit</span>
-            </a>
-          </li>
-        </router-link>
-
-        <router-link to="/withdrawal">
-          <li>
-            <a class="hover">
-              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Withdrawal</span>
-            </a>
-          </li>
-        </router-link>
 
         <router-link to="/trading-bot-view">
           <li>
@@ -335,22 +149,8 @@
         </li>
         <li @click="toggleMobileNav2">
           <a>
-            <svg class="link-img" width="35" height="35" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
-              <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" style="fill: currentcolor;"></path>
-            </svg>
-            <router-link to="/copy-experts" class="">Copy Trade</router-link>
-          </a>
-        </li>
-        <li @click="toggleMobileNav2">
-          <a>
             <img src="../../assets/walletmana.svg" alt="logo" class="link-img" />
-            <router-link style="font-size: 13px;" to="/trade-over-view" class="">Trade Overview</router-link>
-          </a>
-        </li>
-        <li @click="toggleMobileNav2">
-          <a>
-            <img src="@/assets/send.svg" alt="logo" class="link-img" />
-            <router-link to="/transactions" class="">Transactions</router-link>
+            <router-link style="font-size: 13px;" to="/trade-over-view" class="">Trade History</router-link>
           </a>
         </li>
         <li @click="toggleMobileNav2">
@@ -358,7 +158,7 @@
             <svg class="link-img" width="100" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
               <path d="M15 15V17H18V20H20V17H23V15H20V12H18V15M14.97 11.61C14.85 10.28 13.59 8.97 12 9C10.3 9.03 9 10.3 9 12C9 13.7 10.3 14.94 12 15C12.38 15 12.77 14.92 13.14 14.77C13.41 13.67 13.86 12.63 14.97 11.61M13 16H7C7 14.9 6.11 14 5 14V10C6.11 10 7 9.11 7 8H17C17 9.11 17.9 10 19 10V10.06C19.67 10.06 20.34 10.18 21 10.4V6H3V18H13.32C13.1 17.33 13 16.66 13 16Z" style="fill: currentcolor;"></path>
             </svg>
-            <router-link to="/fund-wallet">Deposit</router-link>
+            <router-link to="/fund-wallet">Account Funding</router-link>
           </a>
         </li>
         <li @click="toggleMobileNav2">
@@ -367,6 +167,23 @@
             <router-link to="/withdrawal" class="">Withdrawal</router-link>
           </a>
         </li>
+
+        <li @click="toggleMobileNav2">
+          <a>
+            <img src="@/assets/send.svg" alt="logo" class="link-img" />
+            <router-link to="/transactions" class="">Transaction History</router-link>
+          </a>
+        </li>
+
+        <li @click="toggleMobileNav2">
+          <a>
+            <svg class="link-img" width="35" height="35" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
+              <path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" style="fill: currentcolor;"></path>
+            </svg>
+            <router-link to="/copy-experts" class="">Copy Expert</router-link>
+          </a>
+        </li>
+
         <li @click="toggleMobileNav2">
           <a>
             <svg class="link-img" width="35" height="35" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
@@ -375,6 +192,16 @@
             <router-link to="/trading-bot-view" class="">Trading Bot</router-link>
           </a>
         </li>
+
+        <li @click="toggleMobileNav2">
+          <a>
+            <svg class="link-img" width="30" height="30" viewBox="0 0 24 24" style="transform: rotate(var(--r, 0deg)) scale(var(--sx, 1), var(--sy, 1)); --sx: 1; --sy: 1; --r: 0deg;">
+              <path d="M16.5,21C13.5,21 12.31,16.76 11.05,12.28C10.14,9.04 9,5 7.5,5C4.11,5 4,11.93 4,12H2C2,11.63 2.06,3 7.5,3C10.5,3 11.71,7.25 12.97,11.74C13.83,14.8 15,19 16.5,19C19.94,19 20.03,12.07 20.03,12H22.03C22.03,12.37 21.97,21 16.5,21Z" style="fill: currentcolor;"></path>
+            </svg>
+            <router-link to="/market-view">Markets</router-link>
+          </a>
+        </li>
+
         <li @click="toggleMobileNav2">
           <a>
             <img src="@/assets/pie-chart.svg" alt="logo" class="link-img" />
@@ -717,6 +544,11 @@ body{
 .link-img{
   margin-right: 5%;
   width: 12%;
+  color: #ffffff;
+}
+.link-img-2{
+  margin-right: 5%;
+  width: 16%;
   color: #ffffff;
 }
 .links-name{

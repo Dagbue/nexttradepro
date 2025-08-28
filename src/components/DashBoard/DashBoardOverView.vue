@@ -1,6 +1,14 @@
 <template>
   <div class="alpha">
 
+    <div class="trade-type-button">
+      <button @click="toggleScreen" class="trade-btn trade-btn-1">Trade Forex</button>
+      <button @click="toggleScreen2" class="trade-btn trade-btn-2">Trade Crypto</button>
+      <button @click="toggleScreen3" class="trade-btn trade-btn-3">Trade CFD</button>
+      <button @click="toggleScreen4" class="trade-btn trade-btn-4">Trade Stocks</button>
+      <button @click="toggleScreen5" class="trade-btn trade-btn-5">Trade Real Estate</button>
+    </div>
+
     <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 99%; margin-bottom: 0.5%;"></iframe>
 
 
@@ -8,56 +16,78 @@
       upload a valid government Id to verify your account.
       <a><router-link to="/update-account">Click here</router-link></a></p>
 
-<!--    <p style="color: #FFFFFF">{{UserDetails.user}}</p>-->
+    <!-- Main Content -->
+    <div class="main-content">
 
-    <div class="balance-section">
-      <div class="balance-section-1">
-        <p class="balance-text-1-i">Account Balance</p>
-        <p class="balance-text-2-i">$
-          {{UserDetails.user.totalDepositedAmount + UserDetails.user.btcBalance - UserDetails.user.otp - UserDetails.user.totalWithdrawals | formatAmount2}}
-        </p>
-        <!--        <div class="balance-section-1-inner">-->
-        <!--          <p class="balance-text-3">Realized Profit</p>-->
-        <!--          <p class="balance-text-4">$ {{UserDetails.user.realizedProfit | formatAmount2}}</p>-->
-        <!--        </div>-->
-        <!--        <div class="balance-section-1-inner">-->
-        <!--          <p class="balance-text-5">BTC Balance</p>-->
-        <!--          <p class="balance-text-6">{{bitcoin}}</p>-->
-        <!--        </div>-->
+      <!-- Balance Section -->
+      <div class="balance-section-2">
+        <div class="balance">
+          <div class="balance-amount">
+            <span class="amount">
+              ${{UserDetails.user.totalDepositedAmount + UserDetails.user.btcBalance - UserDetails.user.otp - UserDetails.user.totalWithdrawals | formatAmount2}}
+            </span>
+          </div>
+          <p>Main Account Balance</p>
+        </div>
+
+        <!-- Chart -->
+        <div class="chart">
+          <svg viewBox="0 0 400 100" preserveAspectRatio="none">
+            <path
+                d="M 0 80 Q 50 70 100 65 T 200 45 T 300 55 T 400 70"
+                stroke="rgb(34, 197, 94)"
+                stroke-width="2"
+                fill="none"
+            />
+          </svg>
+        </div>
+
+
       </div>
 
-      <div class="balance-section-1">
-        <p class="balance-text-1">Invested Amount </p>
-        <p class="balance-text-2">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</p>
-        <!--        <div class="balance-section-1-inner">-->
-        <!--          <p class="balance-text-3">Realized Profit</p>-->
-        <!--          <p class="balance-text-4">{{UserDetails.user.realizedProfit | toPercentage(1)}}%</p>-->
-        <!--        </div>-->
-        <div class="balance-section-1-inner">
-          <p class="balance-text-5">withdrawals</p>
-          <p class="balance-text-6">$ {{UserDetails.user.totalWithdrawals | formatAmount2}}</p>
-        </div>
-      </div>
+      <!-- Metrics Grid -->
 
-      <div class="balance-section-1">
-        <p class="balance-text-1">Bitcoin Balance</p>
-        <p class="balance-text-2">{{bitcoin}}</p>
-        <div class="balance-section-1-inner">
-          <p class="balance-text-3">Profit</p>
-          <p class="balance-text-4">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
+        <!-- Account Currency -->
+        <div class="metric-card">
+          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADCUlEQVR4nO2XT0hUQRzHnyZhUTtvrYOUhkER3do3q9mh3s5IduhQBz1EFgmxUZf0JDnzmpmV/lxLgjp0cUFpwQiiSyDqzmxlCBEVHYM8KlGHrOzPiy3XXPcP7+0/Kt8XfoeBme/7ft78e0/TPHny5MlTJbVnIrLTkOIZVCJmKD4A4/wYnGQGnGbri/UGBEV1im5qZZXNqqEUY1AJO60k/wGleGNIfqEgX2bW6BSP6QQ99JP2xmRbK5cCim2BSsxmQChhG1K8cOPV0Nu6DhA0CAj6oFNs/yk0BywULhtEUIoeqHgGAFRi1LEJY9WA4In04MuK4NslD94Zi62BkvdByReyzQCU/JJTL5+FD6bCAoqv+Ji5o64fbwVWqA1QfN1H8JmShg9ODjRCKSazBl+sYJyfcOoHKO5LAWjMrNXKKRhnRw3J51YGDkgxa0g+v9RWLOgYwELhpeVihc6VJbg5zmqh5Neyb1h+r3nq8iaoIqdTJ1HLE+Zz6l3HzAZA8fyyNT+qE3SgZOEDjyO7oRLPM4Ir8cmQ/Lxm21WpvoYSw4bib90+A1DckQbxCwQ99VmhQ0WFhzJyEkrxMXOTitfNiu3J6D99FUAljhTyrI0U7QIUD+kEf10G8R1Q1OvarPURq4OK382+SfmtUty4ueQn7Y3J00gn6MsiyEISzpWJIcWDLMHfwQTrcDK+KRpObI+G7WzVFA1LJx66FTJTM+En6Kw7ACUurgCQULJtTsfnCp+qtM6scy2gbYGVHhuYubng08kcZzVQ8rih+DcouUi23Yx3A6BbeP/vSwy9AgTfSL5t0I97dIqmli44C0FXAIsQtclLy/VAlwB+q21fzs+IZHiCBrVKy9US0rSq5DGqUxwDBL/UKfoMKHoPKB7294cOVzx8AQBpAgTd1wm+o5VTgOJEvmkvCoDiobL/0OQLXyxARbTqAWCeT3GohN09M5KzTs2MyH8aoHtmxP7/AeqPtyTqu/bauervB+jKHd4DiHoAtgegewDCA8grDyDqAdirG8CTJ0+etErqJ6uic2r6XkvuAAAAAElFTkSuQmCC" alt="stocks-growth--v1">
+          <div class="metric-value">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</div>
+          <p>Invested Amount</p>
         </div>
-        <div class="balance-section-1-inner">
-          <p class="balance-text-5">Loss</p>
-          <p class="balance-text-6">- $ {{UserDetails.user.otp | formatAmount2}}</p>
-        </div>
-      </div>
 
-      <!--      <div class="balance-section-1-last">-->
-      <!--        <p class="balance-text-7">Balance</p>-->
-      <!--        <p class="balance-text-7">Trading Volume</p>-->
-      <!--        <p class="balance-text-7">Trades</p>-->
-      <!--        <p class="balance-text-7">Avg. Trade Size</p>-->
-      <!--      </div>-->
+        <!-- USD Balance -->
+        <div class="metric-card">
+          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVR4nO2VOw7CMAyGM8C5WEGICZsj9AL2DiOvU/G4SHksPcSPAIEKidqmSYQq8Ute4tifo9iyMX/5CqwIMfNzQJXAsgDp0qQQ7slflcaGoJw8NgSu5Kle0g1hJhOwXmtbkuQClvE7rvEcPAIb9/3ZH/D5ibntl5NrsPwBpDlYh5Z/KqMypDXg6+wIkkPVvVDAHiy7ZACXogCQZX2wbkFaPE02GMx78QCsa7s1ZdUKELoHULcXkgNMV3UDRwn4IAvpPZ0AAAAASUVORK5CYII=" alt="withdrawal-limit">
+          <div class="metric-value-2">$ {{UserDetails.user.totalWithdrawals | formatAmount2}}</div>
+          <p>Withdrawals</p>
+        </div>
+
+        <!-- profit and loss -->
+        <div class="metric-card">
+          <img class="icon" src="data:image/png;base64,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" alt="external-cash-flow-finance-flaticons-flat-flat-icons">
+          <div class="profit-part">
+            <p class="metric-value-profit">Profit</p>
+            <p
+                style="color: #10d876;"
+                class="metric-value-profit-color">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
+          </div>
+
+
+          <div class="profit-part">
+            <p class="metric-value-profit">Loss</p>
+            <p
+                style="color: rgb(255 85 116);"
+                class="metric-value-loss-color">- $ {{UserDetails.user.otp | formatAmount2}}</p>
+          </div>
+
+        </div>
+
+        <!-- Account Type -->
+        <div class="metric-card">
+          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADHUlEQVR4nO1Zy25TMRC9Cgos2mJfnhseG+ATQPAfBUTENjs2DXYKLCJgQcsHoLaIItYIlgUJPiE8WpJ6knQDSYREm6gSoDyqyGhu0hJQHva99g1COZIV6b58jmc8npk4zhhjjBEccnqfK/glKvgdCuwFETxLgVUp8GZ7sCoBlsF7VLDb7vrNi/iOM2q4meQpCvwhAV6mwKXOIIKXqGDzbmHmZOjEJzYSx6jgjzsrLIMN1qDAFyfzt46GQp4Cu95xD2l4VFyRvGaPeSa1nwJ/YoG4/GMItuSk41Gj3I9/TExQYK+tk4e9/fEK5zTDPh2PEsFWwiJP9yzB3zr5GwcC8w/FbWCAOwXfsOoTXik9le9qRfmz1fB+LxeXTYiI+SI/tT57mALb0iHfC7HSs6AiKr5CbCfOK0/0vlbsKSBd+2LAndiCFnk8HTsHjPIk31v1ngLwuoH90KTZxGmN1WfzupOs1csWLcAxKs2psZepCBGsqPPxM4W78nOz2lPAtImNDO3cSSkB9LJKTfLZ+lePbGlnW67Wy/JHq+GtvCnytDOmcokLCu6DKbE++Xzjmzy3cb/vs2cL9+SHWkmqgPb5hgvJWRUBL/t9oB+Gke8WGkQABfZ8qIB2MaIuAMMnrq4JK9Fh+wD4p+EWAF4x5bMmyVMcgm8qCNCL/6GRB09APRQBVsiDsoBgLmSNPCi6ULt7YJ/8oLBK+7xDgK1ZCaOmwyoNEkYHHWQqsBlWXZWDDJtOxnz2ryIH04zdnMnP/jiY4+etJHODyPdCeWdbmzxRTeb8ptM6RQ5awl467fgraCwXOU1sYyoL8KwAfNGWBXSLHCLYI8dXUS/4ZhAB2JXoBc06oTIJM0e0BXhWECwW1AooAlfcb5Hj5vhVX+S7RCwFFRFaN+Ifay2+wYayYwLYaMWGa1jkiWAr5pq7u0jHo+G4E1sw3l7vBv4JYbJqo7+JbwXesKrAsIYrZaZ6Yw2M8xi2nbDhndiCz/nJnfAdItiDQ3l+whk5ZCqCTSdMdzFnx8Kj7WZoIc9KFSL4Kt7DZ7ysUqYio6Y9xhjOf4Bf9bMKSCjTGzIAAAAASUVORK5CYII=" alt="cryptocurrency">
+          <div class="metric-value">{{bitcoin}}</div>
+          <p>Bitcoin Balance</p>
+        </div>
+
     </div>
 
 
@@ -267,19 +297,6 @@
             News
           </p>
         </div>
-
-
-            <div v-show="this.screen5 === 'pnl'" class="trade-type-button">
-              <button  @click="toggleScreen" class="trade-btn-1">Trade Forex</button>
-              <button  @click="toggleScreen2" class="trade-btn-2">Trade Crypto</button>
-
-
-              <button  @click="toggleScreen3" class="trade-btn-3">Trade CFD</button>
-              <button  @click="toggleScreen4" class="trade-btn-4">Trade Stocks</button>
-
-
-              <button  @click="toggleScreen5" class="trade-btn-5">Trade Real Estate</button>
-            </div>
 
         <div class="symbol" v-show="this.screen5 === 'pnl'">
           <form ref="myForm" v-show="this.placeTradeStatus === 'Forex'"  class="form-part" @submit.prevent="placeTrade">
@@ -1737,97 +1754,112 @@ export default {
 
 <style scoped>
 
+.icon{
+  object-fit: contain;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+}
+
+.trade-type-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 5px;
+  padding: 0 10px;
+}
+
+.trade-btn {
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  height: 32px;
+  min-width: 100px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.trade-btn:hover {
+  box-shadow: 0px 2px 8px rgba(16, 24, 40, 0.3);
+  transform: translateY(-1px);
+}
+
+.trade-btn-1 {
+  background: #E50202;
+}
+
+.trade-btn-2 {
+  background: #10d876;
+}
+
+.trade-btn-3 {
+  background: #FE9431;
+}
+
+.trade-btn-4 {
+  background: #5d78ff;
+}
+
+.trade-btn-5 {
+  background: indianred;
+}
+
+/* Tablet screens (up to 800px) */
+@media (max-width: 800px) {
+  .trade-type-button {
+    gap: 10px;
+    justify-content: center;
+    padding: 0 15px;
+  }
+
+  .trade-btn {
+    flex: 1 1 45%; /* Two buttons per row */
+    max-width: 160px;
+    font-size: 11px;
+    height: 34px;
+    padding: 8px 12px;
+  }
+}
+
+/* Mobile screens (up to 500px) */
+@media (max-width: 500px) {
+  .trade-type-button {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .trade-btn {
+    width: 100%;
+    max-width: 100%;
+    font-size: 10px;
+    height: 36px;
+    padding: 8px 10px;
+  }
+
+  .trade-btn-5 {
+    font-size: 10px; /* Slightly smaller for Real Estate to prevent overflow */
+  }
+}
+
+/* Extra small screens (up to 360px) */
+@media (max-width: 360px) {
+  .trade-btn {
+    font-size: 9px;
+    height: 32px;
+    padding: 6px 8px;
+  }
+}
+
 .separator{
   display: flex;
 }
-
-.balance-section{
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.balance-section-1{
-  background-color: #0f171c;
-  padding: 1.2rem;
-  width: 32%;
-  height: 155px;
-  border-radius: 7px;
-  border: 0.5px solid #3C4A57FF;
-}
-
-.balance-section-1-last{
-  background-color: #0f171c;
-  padding: 1.2rem;
-  width: 210px;
-  height: 155px;
-  border-radius: 7px;
-}
-
-
-.balance-text-1{
-  font-size: 18px;
-  color: #FFFFFF;
-  padding-bottom: 10px;
-}
-
-.balance-text-1-i{
-  font-size: 20px;
-  color: #FFFFFF;
-  padding-bottom: 10px;
-}
-
-.balance-text-2{
-  font-size: 1.3rem;
-  line-height: 2rem;
-  color: rgb(0 228 146);
-  padding-bottom: 15px;
-}
-
-.balance-text-2-i{
-  font-size: 1.38rem;
-  line-height: 2rem;
-  color: rgb(0 228 146);
-  padding-bottom: 15px;
-}
-
-.balance-text-3{
-  font-size: 12px;
-  color: #ffffff;
-}
-
-.balance-text-4{
-  font-size: 12px;
-  color: rgb(0 228 146);
-}
-
-.balance-text-5{
-  font-size: 12px;
-  color: #FFFFFF;
-}
-
-.balance-text-6{
-  font-size: 12px;
-  color: rgb(255 85 116);
-}
-
-.balance-text-7{
-  font-size: 13px;
-  padding-bottom: 8px;
-  color: #FFFFFF;
-}
-
-
-
-.balance-section-1-inner{
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  padding-bottom: 5px;
-}
-
 .part-1{
   width: 60%;
   margin-right: 5px;
@@ -1932,85 +1964,6 @@ i{
 }
 
 
-.trade-btn-1{
-  padding: 7px 12px;
-  text-align: center;
-  font-size: 11px;
-  width: 100px;
-  height: 30px;
-  background: #E50202;
-  color: #ffffff;
-  border: 1px solid #E50202;
-  border-radius: 4px;
-}
-
-.trade-btn-1:hover{
-  box-shadow: 0px 1px 10px rgba(16, 24, 40, 1);
-}
-
-.trade-btn-2{
-  padding: 7px 12px;
-  text-align: center;
-  font-size: 11px;
-  width: 100px;
-  height: 30px;
-  background: #10d876;
-  color: #ffffff;
-  border: 1px solid #10d876;
-  border-radius: 4px;
-}
-
-.trade-btn-2:hover{
-  box-shadow: 0px 1px 10px rgba(16, 24, 40, 1);
-}
-
-.trade-btn-3{
-  padding: 7px 12px;
-  text-align: center;
-  font-size: 11px;
-  width: 100px;
-  height: 30px;
-  background: #FE9431;
-  color: #ffffff;
-  border: 1px solid #FE9431;
-  border-radius: 4px;
-}
-
-.trade-btn-3:hover{
-  box-shadow: 0px 1px 10px rgba(16, 24, 40, 1);
-}
-
-.trade-btn-4{
-  padding: 7px 12px;
-  text-align: center;
-  font-size: 11px;
-  width: 100px;
-  height: 30px;
-  background: #5d78ff;
-  color: #ffffff;
-  border: 1px solid #5d78ff;
-  border-radius: 4px;
-}
-
-.trade-btn-4:hover{
-  box-shadow: 0px 1px 10px rgba(16, 24, 40, 1);
-}
-
-.trade-btn-5{
-  padding: 7px 12px;
-  text-align: center;
-  font-size: 11px;
-  width: 130px;
-  height: 30px;
-  background: indianred;
-  color: #ffffff;
-  border: 1px solid indianred;
-  border-radius: 4px;
-}
-
-.trade-btn-5:hover{
-  box-shadow: 0px 1px 10px rgba(16, 24, 40, 1);
-}
 
 .form-header{
   padding-top: 5px;
@@ -2174,21 +2127,17 @@ th {
 }
 
 td {
-  /*border: 1px solid #E3EBF6;*/
   text-align: center;
   align-items: center;
   align-content: center;
   padding: 12px 8px;
-  /*letter-spacing: 1px;*/
   color: #ffffff;
   font-weight: 200;
   font-size: 12px;
-  /*border-bottom: 1px solid #E3EBF6;*/
 }
 
 .action-content{
   padding: 8px 10px;
-  /*width: 88px;*/
   height: 36px;
   background: #0f171c;
   border: 0.5px solid #3C4A57FF;
@@ -2225,7 +2174,6 @@ td {
   height: 30px;
   background: transparent;
   color: #ffffff;
-  /*border: 1px solid #1570EF;*/
   border: 0.5px solid #3C4A57FF;
   box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 4px;
@@ -2262,9 +2210,169 @@ td {
   color: #FFFFFF;
 }
 
-.trade-type-button{
-  display: none;
+
+
+
+
+
+.main-content {
+  display: flex;
+  margin-left: 2.5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
 }
+
+@media (max-width: 800px) {
+  .main-content {
+    display: block;
+    margin-left: unset;
+    margin-right: unset;
+    margin-bottom: 10px;
+  }
+}
+
+.balance-section-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+
+
+  background-color: #0f171c;
+  padding: 1.2rem;
+  width: 32%;
+  height: 170px;
+  border-radius: 7px;
+  border: 0.5px solid #3C4A57FF;
+}
+
+@media (max-width: 800px) {
+  .balance-section-2 {
+    width: 97%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+}
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.balance-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.amount {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #10d876;
+}
+
+
+.balance p {
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+.chart {
+  height: 2rem;
+}
+
+.chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+.profit-part {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 3rem;
+  margin-bottom: 11px;
+}
+
+@media (max-width: 800px) {
+  .profit-part {
+    display: flex;
+    gap: unset;
+    justify-content: space-between;
+  }
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background-color: #0f171c;
+  padding: 1.2rem;
+  width: 32%;
+  height: 170px;
+  border-radius: 7px;
+  border: 0.5px solid #3C4A57FF;
+}
+
+@media (max-width: 800px) {
+  .metric-card {
+    width: 97%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+}
+.metric-value {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #10d876;
+}
+
+.metric-value-profit {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #10d876;
+}
+
+.metric-value-2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgb(255 85 116);
+}
+
+.metric-value-profit-color {
+  font-size: 0.7rem;
+  font-weight: 500;
+
+}
+
+.metric-value-loss-color {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgb(255 85 116);
+}
+
+.metric-card p {
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
 
 @media (max-width: 800px) {
 
@@ -2274,27 +2382,6 @@ td {
     gap: 20px;
   }
 
-  .balance-section{
-    display: block;
-  }
-
-  .balance-section-1{
-    width: 95%;
-    height: 155px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    margin-bottom: 15px;
-  }
-
-  .balance-section-1-last{
-    width: 95%;
-    height: 155px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   .separator{
     display: block;
@@ -2338,25 +2425,6 @@ td {
   }
 
 
-  .trade-btn-1{
-    width: 110px;
-    height: 33px;
-  }
-
-  .trade-btn-2{
-    width: 110px;
-    height: 33px;
-  }
-
-  .trade-btn-3{
-    width: 110px;
-    height: 33px;
-  }
-
-  .trade-btn-4{
-    width: 110px;
-    height: 33px;
-  }
 
   th {
     display: none;
@@ -2398,45 +2466,6 @@ td {
 }
 
 @media (max-width: 500px) {
-
-  .trade-type-button{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .trade-btn-1{
-    width: 50%;
-    height: 35px;
-    font-size: 10px;
-  }
-
-  .trade-btn-2{
-    width: 50%;
-    height: 35px;
-    font-size: 10px;
-  }
-
-  .trade-btn-3{
-    width: 50%;
-    height: 35px;
-    font-size: 10px;
-  }
-
-  .trade-btn-4{
-    width: 50%;
-    height: 35px;
-    font-size: 10px;
-  }
-
-  .trade-btn-5{
-    width: 50%;
-    height: 35px;
-    font-size: 10px;
-  }
 
   .form-part{
     max-width: unset;
