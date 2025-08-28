@@ -45,23 +45,23 @@
           </li>
         </router-link>
 
-        <router-link to="/insert-clone-specialists">
-          <li>
-            <a class="hover">
-              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Add Experts</span>
-            </a>
-          </li>
-        </router-link>
+<!--        <router-link to="/insert-clone-specialists">-->
+<!--          <li>-->
+<!--            <a class="hover">-->
+<!--              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />-->
+<!--              <span class="links-name">Add Experts</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </router-link>-->
 
-        <router-link to="/deploy-market-agent">
-          <li>
-            <a class="hover">
-              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />
-              <span class="links-name">Add Trading Bot</span>
-            </a>
-          </li>
-        </router-link>
+<!--        <router-link to="/deploy-market-agent">-->
+<!--          <li>-->
+<!--            <a class="hover">-->
+<!--              <img src="../../assets/coin-stack.svg" alt="logo" class="link-img" />-->
+<!--              <span class="links-name">Add Trading Bot</span>-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </router-link>-->
 
         <router-link to="/add-trade">
           <li>
