@@ -8,6 +8,7 @@
     <home-section15/>
     <home-section16/>
     <section6/>
+    <home-section17/>
     <ready-to-work/>
     <footer-home/>
   </div>
@@ -25,10 +26,12 @@ import HomeSection15 from "@/components/Home/HomeSection15.vue";
 import HomeSection16 from "@/components/Home/HomeSection16.vue";
 import Section6 from "@/components/Home/Section6.vue";
 import SliderView from "@/components/Home/slideshow/sliderView.vue";
+import HomeSection17 from "@/components/Home/HomeSection17.vue";
 
 export default {
   name: 'HomeView',
   components: {
+    HomeSection17,
     SliderView,
     Section6,
     HomeSection16,

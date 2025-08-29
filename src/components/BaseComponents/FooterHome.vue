@@ -72,7 +72,19 @@
         <h4>Trusted Partners</h4>
         <div class="partner-logos">
           <div v-for="(partner, index) in partnerLogos" :key="index" class="partner-logo">
-            {{ partner.logo }}
+            <img :src="partner.logo" alt="partner.logo" />
+          </div>
+        </div>
+      </div>
+
+      <!-- REGULATIONS Section -->
+      <div class="partners">
+        <h4>Regulations</h4>
+        <div class="partner-logos">
+          <div v-for="(regulation, index) in regulations" :key="index" class="partner-logo-reg">
+            <img :src="regulation.icon" alt="regulations" />
+
+            <span>{{ regulation.text }}</span>
           </div>
         </div>
       </div>
@@ -86,10 +98,20 @@
           </h4>
           <div class="regulatory-grid">
             <div>
-              <p>
-                <strong>TopShares Pro LLC</strong> is part of TopShares Pro Group of companies with broker entities
-                that are authorised and regulated across multiple jurisdictions.
-              </p>
+
+                <p>
+                  <strong>TopShares Pro LLC</strong> is part of <strong>TPG Global Advisors</strong> Group of companies with broker entities
+                  that are authorised and regulated across multiple jurisdictions.
+                </p>
+                <a style="color: #2563eb;margin-bottom: 20px;"
+                    href="https://adviserinfo.sec.gov/firm/summary/159732"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                  To view Certification Click here
+                </a>
+
+
               <p>
                 TopShares Pro Markets Germany GmbH is licensed and regulated by the Bundesanstalt für
                 Finanzdienstleistungsaufsicht (BaFin) under registration number 154814.
@@ -147,10 +169,13 @@ export default {
     return {
       dialogIsVisible: false,
       partnerLogos: [
-        { name: 'Crystal', logo: 'Crystal' },
-        { name: 'Devexperts', logo: 'Devexperts' },
-        { name: 'Skrill', logo: 'Skrill' },
-        { name: 'Fireblocks', logo: 'Fireblocks' }
+        { name: 'Crystal', logo: require('@/assets/lprov1.svg') },
+        { name: 'Devexperts', logo: require('@/assets/lprov2.svg') },
+        { name: 'Skrill', logo: require('@/assets/lprov3.svg') },
+        { name: 'Fireblocks', logo: require('@/assets/lprov4.svg') },
+        { name: 'Devexperts2', logo: require('@/assets/lprov5.svg') },
+        { name: 'Skrill2', logo: require('@/assets/lprov6.svg') },
+        { name: 'Fireblocks2', logo: require('@/assets/lprov7.svg') }
       ],
       quickLinks: [
         { name: 'Home', href: '/' },
@@ -172,7 +197,15 @@ export default {
         { icon: require('@/assets/icons8-crown-50.png'), text: 'Award Winning Platform' },
         { icon: require('@/assets/icons8-avatar-50.png'), text: '1M+ Active Traders' },
         { icon: require('@/assets/icons8-globe-50.png'), text: 'Global Presence' }
-      ]
+      ],
+      regulations: [
+        { icon: require('@/assets/pechat19e36.svg'), text: 'Licensed by MFSA' },
+        { icon: require('@/assets/pechat19e36.svg'), text: 'MIFID Compliant' },
+        { icon: require('@/assets/pechat19e36.svg'), text: 'FCA' },
+        { icon: require('@/assets/pechat19e36.svg'), text: 'BaFin' },
+        { icon: require('@/assets/pechat19e36.svg'), text: 'AMF' },
+        { icon: require('@/assets/pechat19e36.svg'), text: 'CONSOB' }
+      ],
     };
   },
   methods: {
@@ -419,6 +452,22 @@ export default {
 }
 
 .partner-logo:hover {
+  color: white;
+}
+
+.partner-logo-reg {
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.partner-logo-reg:hover {
   color: white;
 }
 
