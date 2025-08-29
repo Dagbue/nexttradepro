@@ -443,6 +443,15 @@ export default {
   opacity: 0.6;
 }
 
+@media (max-width: 800px) {
+  .partner-logos {
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    align-content: start;
+  }
+}
+
 .partner-logo {
   color: #9ca3af;
   font-weight: 600;
@@ -454,6 +463,8 @@ export default {
 .partner-logo:hover {
   color: white;
 }
+
+
 
 .partner-logo-reg {
   color: #9ca3af;
