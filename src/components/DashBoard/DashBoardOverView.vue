@@ -1,6 +1,8 @@
 <template>
   <div class="alpha">
 
+
+
     <div class="trade-type-button">
       <button @click="toggleScreen" class="trade-btn trade-btn-1">Trade Forex</button>
       <button @click="toggleScreen2" class="trade-btn trade-btn-2">Trade Crypto</button>
@@ -24,7 +26,7 @@
         <div class="balance">
           <div class="balance-amount">
             <span class="amount">
-              ${{UserDetails.user.totalDepositedAmount + UserDetails.user.btcBalance - UserDetails.user.otp - UserDetails.user.totalWithdrawals | formatAmount2}}
+              ${{UserDetails.user.totalDepositedAmount + UserDetails.user.profit - UserDetails.user.loss - UserDetails.user.totalWithdrawals | formatAmount2}}
             </span>
           </div>
           <p>Main Account Balance</p>
@@ -49,26 +51,26 @@
 
         <!-- Account Currency -->
         <div class="metric-card">
-          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADCUlEQVR4nO2XT0hUQRzHnyZhUTtvrYOUhkER3do3q9mh3s5IduhQBz1EFgmxUZf0JDnzmpmV/lxLgjp0cUFpwQiiSyDqzmxlCBEVHYM8KlGHrOzPiy3XXPcP7+0/Kt8XfoeBme/7ft78e0/TPHny5MlTJbVnIrLTkOIZVCJmKD4A4/wYnGQGnGbri/UGBEV1im5qZZXNqqEUY1AJO60k/wGleGNIfqEgX2bW6BSP6QQ99JP2xmRbK5cCim2BSsxmQChhG1K8cOPV0Nu6DhA0CAj6oFNs/yk0BywULhtEUIoeqHgGAFRi1LEJY9WA4In04MuK4NslD94Zi62BkvdByReyzQCU/JJTL5+FD6bCAoqv+Ji5o64fbwVWqA1QfN1H8JmShg9ODjRCKSazBl+sYJyfcOoHKO5LAWjMrNXKKRhnRw3J51YGDkgxa0g+v9RWLOgYwELhpeVihc6VJbg5zmqh5Neyb1h+r3nq8iaoIqdTJ1HLE+Zz6l3HzAZA8fyyNT+qE3SgZOEDjyO7oRLPM4Ir8cmQ/Lxm21WpvoYSw4bib90+A1DckQbxCwQ99VmhQ0WFhzJyEkrxMXOTitfNiu3J6D99FUAljhTyrI0U7QIUD+kEf10G8R1Q1OvarPURq4OK382+SfmtUty4ueQn7Y3J00gn6MsiyEISzpWJIcWDLMHfwQTrcDK+KRpObI+G7WzVFA1LJx66FTJTM+En6Kw7ACUurgCQULJtTsfnCp+qtM6scy2gbYGVHhuYubng08kcZzVQ8rih+DcouUi23Yx3A6BbeP/vSwy9AgTfSL5t0I97dIqmli44C0FXAIsQtclLy/VAlwB+q21fzs+IZHiCBrVKy9US0rSq5DGqUxwDBL/UKfoMKHoPKB7294cOVzx8AQBpAgTd1wm+o5VTgOJEvmkvCoDiobL/0OQLXyxARbTqAWCeT3GohN09M5KzTs2MyH8aoHtmxP7/AeqPtyTqu/bauervB+jKHd4DiHoAtgegewDCA8grDyDqAdirG8CTJ0+etErqJ6uic2r6XkvuAAAAAElFTkSuQmCC" alt="stocks-growth--v1">
+<!--          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADCUlEQVR4nO2XT0hUQRzHnyZhUTtvrYOUhkER3do3q9mh3s5IduhQBz1EFgmxUZf0JDnzmpmV/lxLgjp0cUFpwQiiSyDqzmxlCBEVHYM8KlGHrOzPiy3XXPcP7+0/Kt8XfoeBme/7ft78e0/TPHny5MlTJbVnIrLTkOIZVCJmKD4A4/wYnGQGnGbri/UGBEV1im5qZZXNqqEUY1AJO60k/wGleGNIfqEgX2bW6BSP6QQ99JP2xmRbK5cCim2BSsxmQChhG1K8cOPV0Nu6DhA0CAj6oFNs/yk0BywULhtEUIoeqHgGAFRi1LEJY9WA4In04MuK4NslD94Zi62BkvdByReyzQCU/JJTL5+FD6bCAoqv+Ji5o64fbwVWqA1QfN1H8JmShg9ODjRCKSazBl+sYJyfcOoHKO5LAWjMrNXKKRhnRw3J51YGDkgxa0g+v9RWLOgYwELhpeVihc6VJbg5zmqh5Neyb1h+r3nq8iaoIqdTJ1HLE+Zz6l3HzAZA8fyyNT+qE3SgZOEDjyO7oRLPM4Ir8cmQ/Lxm21WpvoYSw4bib90+A1DckQbxCwQ99VmhQ0WFhzJyEkrxMXOTitfNiu3J6D99FUAljhTyrI0U7QIUD+kEf10G8R1Q1OvarPURq4OK382+SfmtUty4ueQn7Y3J00gn6MsiyEISzpWJIcWDLMHfwQTrcDK+KRpObI+G7WzVFA1LJx66FTJTM+En6Kw7ACUurgCQULJtTsfnCp+qtM6scy2gbYGVHhuYubng08kcZzVQ8rih+DcouUi23Yx3A6BbeP/vSwy9AgTfSL5t0I97dIqmli44C0FXAIsQtclLy/VAlwB+q21fzs+IZHiCBrVKy9US0rSq5DGqUxwDBL/UKfoMKHoPKB7294cOVzx8AQBpAgTd1wm+o5VTgOJEvmkvCoDiobL/0OQLXyxARbTqAWCeT3GohN09M5KzTs2MyH8aoHtmxP7/AeqPtyTqu/bauervB+jKHd4DiHoAtgegewDCA8grDyDqAdirG8CTJ0+etErqJ6uic2r6XkvuAAAAAElFTkSuQmCC" alt="stocks-growth&#45;&#45;v1">-->
           <div class="metric-value">$ {{UserDetails.user.totalDepositedAmount | formatAmount2}}</div>
           <p>Invested Amount</p>
         </div>
 
         <!-- USD Balance -->
         <div class="metric-card">
-          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVR4nO2VOw7CMAyGM8C5WEGICZsj9AL2DiOvU/G4SHksPcSPAIEKidqmSYQq8Ute4tifo9iyMX/5CqwIMfNzQJXAsgDp0qQQ7slflcaGoJw8NgSu5Kle0g1hJhOwXmtbkuQClvE7rvEcPAIb9/3ZH/D5ibntl5NrsPwBpDlYh5Z/KqMypDXg6+wIkkPVvVDAHiy7ZACXogCQZX2wbkFaPE02GMx78QCsa7s1ZdUKELoHULcXkgNMV3UDRwn4IAvpPZ0AAAAASUVORK5CYII=" alt="withdrawal-limit">
+<!--          <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAvElEQVR4nO2VOw7CMAyGM8C5WEGICZsj9AL2DiOvU/G4SHksPcSPAIEKidqmSYQq8Ute4tifo9iyMX/5CqwIMfNzQJXAsgDp0qQQ7slflcaGoJw8NgSu5Kle0g1hJhOwXmtbkuQClvE7rvEcPAIb9/3ZH/D5ibntl5NrsPwBpDlYh5Z/KqMypDXg6+wIkkPVvVDAHiy7ZACXogCQZX2wbkFaPE02GMx78QCsa7s1ZdUKELoHULcXkgNMV3UDRwn4IAvpPZ0AAAAASUVORK5CYII=" alt="withdrawal-limit">-->
           <div class="metric-value-2">$ {{UserDetails.user.totalWithdrawals | formatAmount2}}</div>
           <p>Withdrawals</p>
         </div>
 
         <!-- profit and loss -->
         <div class="metric-card">
-          <img class="icon" src="data:image/png;base64,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" alt="external-cash-flow-finance-flaticons-flat-flat-icons">
+<!--          <img class="icon" src="data:image/png;base64,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" alt="external-cash-flow-finance-flaticons-flat-flat-icons">-->
           <div class="profit-part">
             <p class="metric-value-profit">Profit</p>
             <p
                 style="color: #10d876;"
-                class="metric-value-profit-color">$ {{UserDetails.user.btcBalance | formatAmount2}}</p>
+                class="metric-value-profit-color">$ {{UserDetails.user.profit | formatAmount2}}</p>
           </div>
 
 
@@ -76,7 +78,7 @@
             <p class="metric-value-profit">Loss</p>
             <p
                 style="color: rgb(255 85 116);"
-                class="metric-value-loss-color">- $ {{UserDetails.user.otp | formatAmount2}}</p>
+                class="metric-value-loss-color">- $ {{UserDetails.user.loss | formatAmount2}}</p>
           </div>
 
         </div>
@@ -2318,7 +2320,7 @@ td {
   flex-direction: column;
   align-items: center;
   text-align: center;
-
+  justify-content: center;
   background-color: #0f171c;
   padding: 1.2rem;
   width: 32%;

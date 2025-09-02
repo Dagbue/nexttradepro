@@ -88,12 +88,12 @@
 
             <div class="space">
               <label>Profit</label>
-              <input type="number" v-model="btcBalance"  class="form-input"/>
+              <input type="number" v-model="profit"  class="form-input"/>
             </div>
 
             <div class="space">
               <label>Loss</label>
-              <input type="number" v-model="otp"  class="form-input"/>
+              <input type="number" v-model="loss"  class="form-input"/>
             </div>
 
           </div>
@@ -120,10 +120,23 @@
           </div>
 
 
-<!--            <div style="margin-left: 3%;" class="space">-->
-<!--              <label>status</label>-->
-<!--              <input type="text" v-model="userStatus" required="required" class="form-input"/>-->
-<!--            </div>-->
+            <div style="margin-left: 3%;" class="space">
+              <label>Deposit Method</label>
+              <p class="edit">current Method {{depositMethod}}</p>
+              <!--              <input type="text" v-model="userStatus" required="required" class="form-input"/>-->
+              <select v-model="depositMethod"  class="form-input">
+                <option selected disabled value="">select Method</option>
+                <option :value="null" disabled>select Method</option>
+                <option value="Bitcoin">Bitcoin</option>
+                <option value="Ethereum">Ethereum</option>
+                <option value="Dogecoin">Dogecoin</option>
+                <option value="Litecoin">Litecoin</option>
+                <option value="Xrp">Xrp</option>
+                <option value="ERC20">USDT ( ERC20 NETWORK )</option>
+                <option value="TRC20">USDT ( TRC20 NETWORK )</option>
+                <option value="BankTransfer">Bank Transfer</option>
+              </select>
+            </div>
 
 
 
@@ -163,13 +176,14 @@ export default {
       address: "",
       phoneNumber: "",
       password: "",
-      btcBalance: "",
-      otp: "",
+      profit: "",
+      loss: "",
       totalDepositedAmount: "",
       totalWithdrawals:"",
       twoFactorAuthenticationCode: "",
       createdAt: "",
       userStatus: "",
+      depositMethod: "",
     }
   },
   computed:{
@@ -205,13 +219,14 @@ export default {
       this.country = this.readUserById.user.country;
       this.phoneNumber = this.readUserById.user.phoneNumber;
       this.password = this.readUserById.user.password;
-      this.btcBalance = this.readUserById.user.btcBalance;
-      this.otp = this.readUserById.user.otp;
+      this.profit = this.readUserById.user.profit;
+      this.loss = this.readUserById.user.loss;
       this.totalDepositedAmount = this.readUserById.user.totalDepositedAmount;
       this.totalWithdrawals = this.readUserById.user.totalWithdrawals;
       this.twoFactorAuthenticationCode = this.readUserById.user.twoFactorAuthenticationCode;
       this.createdAt = this.readUserById.user.createdAt;
       this.userStatus = this.readUserById.user.userStatus;
+      this.depositMethod = this.readUserById.user.depositMethod;
     },
 
     async updateDetails() {
@@ -223,13 +238,14 @@ export default {
         phoneNumber: this.phoneNumber,
         country: this.country,
         password: this.password,
-        btcBalance: this.btcBalance,
-        otp: this.otp,
+        profit: this.profit,
+        loss: this.loss,
         totalDepositedAmount: this.totalDepositedAmount,
         totalWithdrawals: this.totalWithdrawals,
         twoFactorAuthenticationCode: this.twoFactorAuthenticationCode,
         // createdAt: this.createdAt,
         userStatus: this.userStatus,
+        depositMethod: this.depositMethod,
       })
       await StoreUtils.dispatch(StoreUtils.actions.auth.allUsers)
       await StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {

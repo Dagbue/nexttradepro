@@ -76,8 +76,8 @@
             <td data-label="Account balance">{{child.totalDepositedAmount + child.btcBalance - child.otp - child.totalWithdrawals | formatAmount2}}</td>
             <td data-label="Invested Amount">{{child.totalDepositedAmount | formatAmount2}}</td>
             <td data-label="Withdrawn Amount">{{child.totalWithdrawals | formatAmount2}}</td>
-            <td data-label="Profit">{{child.btcBalance | formatAmount2}}</td>
-            <td data-label="Loss">{{child.otp | formatAmount2}}</td>
+            <td data-label="Profit">{{child.profit | formatAmount2}}</td>
+            <td data-label="Loss">{{child.loss | formatAmount2}}</td>
 <!--            <td data-label="Activation Code">{{child.twoFactorAuthenticationCode}}</td>-->
 <!--            <td data-label="2FA Code">-->
 <!--              <div>-->
