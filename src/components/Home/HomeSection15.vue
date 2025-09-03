@@ -10,8 +10,8 @@
 
       <div class="cta-section">
         <div class="button-group">
-          <button class="btn btn-primary">Setup Your Trading Account</button>
-          <button class="btn btn-secondary">Discover Our Platform</button>
+          <button @click="onPostClick" class="btn btn-primary">Setup Your Trading Account</button>
+          <button @click="onPostClick" class="btn btn-secondary">Discover Our Platform</button>
         </div>
         <p class="cta-text">Registration takes only 40 seconds!!!</p>
       </div>
@@ -47,6 +47,11 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    onPostClick() {
+      this.$router.push("/register");
+    },
   }
 }
 </script>

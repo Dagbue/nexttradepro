@@ -53,22 +53,22 @@
             </div>
           </div>
 
-          <div class="button-group">
-            <button class="primary-button">
-              Start Your Journey
-              <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
-
-<!--            <button class="secondary-button">-->
+<!--          <div class="button-group">-->
+<!--            <button class="primary-button" @click="onPostClick">-->
+<!--              Start Your Journey-->
 <!--              <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
-<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.2A1 1 0 0010 9.768v4.464a1 1 0 001.555.832l3.197-2.2a1 1 0 000-1.664z"/>-->
-<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>-->
 <!--              </svg>-->
-<!--              Watch Demo-->
 <!--            </button>-->
-          </div>
+
+<!--&lt;!&ndash;            <button class="secondary-button">&ndash;&gt;-->
+<!--&lt;!&ndash;              <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">&ndash;&gt;-->
+<!--&lt;!&ndash;                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.2A1 1 0 0010 9.768v4.464a1 1 0 001.555.832l3.197-2.2a1 1 0 000-1.664z"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>&ndash;&gt;-->
+<!--&lt;!&ndash;              </svg>&ndash;&gt;-->
+<!--&lt;!&ndash;              Watch Demo&ndash;&gt;-->
+<!--&lt;!&ndash;            </button>&ndash;&gt;-->
+<!--          </div>-->
         </div>
 
         <!-- Right Content - Success Metrics -->
@@ -128,7 +128,12 @@
 
 <script>
 export default {
-  name: 'TestimonialCTA'
+  name: 'TestimonialCTA',
+  methods: {
+    onPostClick() {
+      this.$router.push("/register");
+    },
+  },
 }
 </script>
 

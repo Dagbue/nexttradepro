@@ -31,7 +31,7 @@
         <p>
           Our support team is available 24/7 to help you with any questions about our platform.
         </p>
-        <button class="contact-button">
+        <button @click="onPostClick" class="contact-button">
           Contact Support
         </button>
       </div>
@@ -151,7 +151,10 @@ export default {
   methods: {
     toggleFAQ(index) {
       this.openIndex = this.openIndex === index ? null : index;
-    }
+    },
+    onPostClick() {
+      this.$router.push("/contact");
+    },
   }
 }
 </script>

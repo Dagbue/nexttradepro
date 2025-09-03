@@ -46,7 +46,7 @@ import WatchListTable2 from "@/components/BaseComponents/tables/WatchListTable2.
 
 export default {
   name: "HomeSection14",
-  components: {WatchListTable2}
+  components: {WatchListTable2},
 }
 </script>
 

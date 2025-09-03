@@ -23,8 +23,8 @@
           <h3>Ready to Join Our Success Stories?</h3>
           <p>Start your trading journey today and become our next success story.</p>
           <div class="cta-buttons">
-            <button class="btn btn-primary">Start Trading Now</button>
-            <button class="btn btn-secondary">View Platform</button>
+            <button @click="onPostClick" class="btn btn-primary">Start Trading Now</button>
+            <button @click="onPostClick" class="btn btn-secondary">View Platform</button>
           </div>
         </div>
       </div>
@@ -73,7 +73,12 @@ export default {
         }
       ]
     };
-  }
+  },
+  methods: {
+    onPostClick() {
+      this.$router.push("/register");
+    },
+  },
 }
 </script>
 

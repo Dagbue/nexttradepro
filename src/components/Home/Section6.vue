@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <p class="btn">View More</p>
+    <p @click="onPostClick" class="btn">View More</p>
   </div>
 </template>
 
@@ -97,7 +97,12 @@ export default {
         }
       ]
     }
-  }
+  },
+  methods: {
+    onPostClick() {
+      this.$router.push("/testimonials");
+    },
+  },
 }
 </script>
 

@@ -35,10 +35,7 @@
         </div>
       </div>
 
-      <div class="contact-cta">
-        <p class="cta-text">Still have questions?</p>
-        <button class="cta-button">Contact Support Team</button>
-      </div>
+
     </div>
   </section>
 </template>

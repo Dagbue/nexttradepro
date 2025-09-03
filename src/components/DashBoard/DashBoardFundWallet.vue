@@ -5,7 +5,7 @@
 
       <form @submit.prevent="showDialog" id="InteracFundingCard" class="dashboard-body-wrapper align-center">
 
-        <h4 class="header">Follow the instructions below to fund your wallet</h4>
+        <h4 class="header">Follow the instructions below to fund your wallet </h4>
 
         <hr/>
 
@@ -316,22 +316,24 @@ import FundWalletModal from "@/components/BaseComponents/modal/FundWalletModal.v
 import router from "@/router";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
 import DepositRequest from "@/model/request/DepositRequest";
-import {mapState} from "vuex";
 import StoreUtils from "@/utility/StoreUtils";
 import VueQrcode from '@xkeshi/vue-qrcode';
 import Swal from "sweetalert2";
-
+import {mapState} from "vuex";
 
 export default {
   name: "DashBoardFundWallet",
   components: {
     BaseButton,
     FundWalletModal,
-    VueQrcode // Register the component
+    VueQrcode
   },
-  computed:{
+  computed: {
     readPaymentWalletById() {
-      return StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
+      return this.$store.getters[StoreUtils.getters.paymentWallet.getReadPaymentWalletById] || {};
+    },
+    userDetails() {
+      return this.$store.getters[StoreUtils.getters.auth.getUserInfo] || {};
     },
     ...mapState({
       loading: state => state.deposit.loading,
@@ -361,7 +363,6 @@ export default {
       routingNumber: '',
       ERC20: '',
       TRC20: '',
-
       litecoinAddress: '',
       dogecoinAddress: '',
       xrpAddress: '',
@@ -369,97 +370,96 @@ export default {
   },
   methods: {
     async copyText() {
-      await this.$copyText(this.bitcoinAddress)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.bitcoinAddress) {
+        await this.$copyText(this.bitcoinAddress);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText2() {
-      await this.$copyText(this.ethereumAddress)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.ethereumAddress) {
+        await this.$copyText(this.ethereumAddress);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText3() {
-      await this.$copyText(this.ERC20)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.ERC20) {
+        await this.$copyText(this.ERC20);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText4() {
-      await this.$copyText(this.TRC20)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.TRC20) {
+        await this.$copyText(this.TRC20);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText5() {
-      await this.$copyText(this.dogecoinAddress)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.dogecoinAddress) {
+        await this.$copyText(this.dogecoinAddress);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText6() {
-      await this.$copyText(this.litecoinAddress)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.litecoinAddress) {
+        await this.$copyText(this.litecoinAddress);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async copyText7() {
-      await this.$copyText(this.xrpAddress)
-      await Swal.fire({
-        icon: 'success',
-        title: 'success',
-        text: 'Wallet Address Copied Successfully',
-      });
+      if (this.xrpAddress) {
+        await this.$copyText(this.xrpAddress);
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Wallet Address Copied Successfully',
+        });
+      }
     },
-
     async hideDialog() {
       this.dialogIsVisible = false;
-      await router.push('/over-view')
+      await router.push('/over-view');
     },
-
     async showDialog() {
-      await StoreUtils.dispatch(StoreUtils.actions.deposit.depositCreate, {
-        userId : this.userId,
-        amount : this.btcBalance,
-        transactionMethod : this.depositMethod,
-        transactionType : "deposit",
-        transactionReference : this.randomString,
+      await this.$store.dispatch(StoreUtils.actions.deposit.depositCreate, {
+        userId: this.userId || this.userDetails?.user?.id,
+        amount: this.btcBalance,
+        transactionMethod: this.depositMethod,
+        transactionType: "deposit",
+        transactionReference: this.randomString,
         depositStatus: "pending",
-        additionalComment : this.model.additionalComment
-      })
-      // await StoreUtils.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
-      //   walletId: 1,
-      // })
-      // StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
-      // this.selectedItem = this.depositMethod;
-      // this.dialogIsVisible = true;
+        additionalComment: this.model.additionalComment
+      });
       await Swal.fire({
         icon: 'success',
         title: 'Pending',
         text: 'Deposit Request Pending',
       });
-      await router.push('/over-view')
+      await router.push('/over-view');
     },
-
     generateRandomString() {
       const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
       let result = '';
@@ -469,93 +469,47 @@ export default {
       }
       this.randomString = result;
     },
-
     populateForm() {
-      this.bitcoinAddress = this.readPaymentWalletById.paymentWallet.bitcoinAddress;
-      this.ethereumAddress = this.readPaymentWalletById.paymentWallet.ethereumAddress;
-      this.bankName = this.readPaymentWalletById.paymentWallet.bankName;
-      this.accountNumber = this.readPaymentWalletById.paymentWallet.accountNumber;
-      this.routingNumber = this.readPaymentWalletById.paymentWallet.routingNumber;
-
-      this.litecoinAddress = this.readPaymentWalletById.paymentWallet.LitecoinAddress;
-      this.dogecoinAddress = this.readPaymentWalletById.paymentWallet.DogecoinAddress;
-      this.xrpAddress = this.readPaymentWalletById.paymentWallet.XRPAddress;
-      this.ERC20 = this.readPaymentWalletById.paymentWallet.UsdtERC20Address;
-      this.TRC20 = this.readPaymentWalletById.paymentWallet.UsdtTRC20Address;
+      // Ensure paymentWallet exists before accessing its properties
+      const paymentWallet = this.readPaymentWalletById?.paymentWallet;
+      if (paymentWallet) {
+        this.bitcoinAddress = paymentWallet.bitcoinAddress || '';
+        this.ethereumAddress = paymentWallet.ethereumAddress || '';
+        this.bankName = paymentWallet.bankName || '';
+        this.accountNumber = paymentWallet.accountNumber || '';
+        this.routingNumber = paymentWallet.routingNumber || '';
+        this.litecoinAddress = paymentWallet.LitecoinAddress || '';
+        this.dogecoinAddress = paymentWallet.DogecoinAddress || '';
+        this.xrpAddress = paymentWallet.XRPAddress || '';
+        this.ERC20 = paymentWallet.UsdtERC20Address || '';
+        this.TRC20 = paymentWallet.UsdtTRC20Address || '';
+      }
     },
-
     async getList() {
-      await StoreUtils.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
+      await this.$store.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
         walletId: 1,
       });
-
-      await StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
-      await this.populateForm();
+      this.populateForm();
     }
-
-
-
   },
+  async created() {
+    // Generate random string
+    this.generateRandomString();
 
-  beforeMount() {
-    this.generateRandomString()
-    this.populateForm()
-
-    StoreUtils.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
-      walletId: 1,
-    })
-    StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
-
-    this.userId = localStorage.getItem('userId')
-
-
-    // Retrieve the object from local storage
+    // Fetch user info from localStorage
     const storedObject = localStorage.getItem('userInfo');
-
     if (storedObject) {
       this.userInfo = JSON.parse(storedObject);
     }
-  },
+    this.userId = localStorage.getItem('userId');
 
-  created() {
-    this.generateRandomString()
-    this.populateForm()
-
-    StoreUtils.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
+    // Fetch wallet data and populate form
+    await this.$store.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
       walletId: 1,
-    })
-    StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
-
-    this.userId = localStorage.getItem('userId')
-
-
-    // Retrieve the object from local storage
-    const storedObject = localStorage.getItem('userInfo');
-
-    if (storedObject) {
-      this.userInfo = JSON.parse(storedObject);
-    }
-  },
-
-  mounted() {
-    this.generateRandomString()
-    this.populateForm()
-
-    StoreUtils.dispatch(StoreUtils.actions.paymentWallet.readPaymentWalletById, {
-      walletId: 1,
-    })
-    StoreUtils.rootGetters(StoreUtils.getters.paymentWallet.getReadPaymentWalletById)
-
-    this.userId = localStorage.getItem('userId')
-
-    // Retrieve the object from local storage
-    const storedObject = localStorage.getItem('userInfo');
-
-    if (storedObject) {
-      this.userInfo = JSON.parse(storedObject);
-    }
+    });
+    this.populateForm();
   }
-}
+};
 </script>
 
 <style scoped>

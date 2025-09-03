@@ -34,7 +34,7 @@
         </div>
 
         <div class="separate">
-          <p>40% DAILY</p>
+          <p>25% DAILY</p>
           <i class='bx bxs-info-circle'></i>
         </div>
 
@@ -111,7 +111,7 @@
         </div>
 
         <div class="separate">
-          <p>40% DAILY</p>
+          <p>55% DAILY</p>
           <i class='bx bxs-info-circle'></i>
         </div>
 
@@ -147,7 +147,7 @@
         </div>
 
         <div class="separate">
-          <p>40% DAILY</p>
+          <p>85% DAILY</p>
           <i class='bx bxs-info-circle'></i>
         </div>
 
@@ -161,6 +161,47 @@
           <i class='bx bxs-info-circle'></i>
         </div>
       </div>
+
+    </div>
+
+    <div class="section-alpha">
+
+      <div class="third-section top">
+        <p class="text-1">VIP</p>
+        <p class="text-2">50<span class="text-2-inner">% Bonus</span></p>
+        <!--        <p class="text-2">4 Months</p>-->
+        <p class="text-3">12 Months</p>
+
+        <div class="btn" @click="onPostClick" >
+          <p>Invest Now</p>
+        </div>
+
+        <div class="separate">
+          <p>$500,000 MINIMUM DEPOSIT</p>
+          <i class='bx bxs-info-circle'></i>
+        </div>
+
+        <div class="separate">
+          <p>ENHANCED SECURITY</p>
+          <i class='bx bxs-info-circle'></i>
+        </div>
+
+        <div class="separate">
+          <p>100% DAILY</p>
+          <i class='bx bxs-info-circle'></i>
+        </div>
+
+        <div class="separate">
+          <p>GUARANTEED ROI</p>
+          <i class='bx bxs-info-circle'></i>
+        </div>
+
+        <div class="separate">
+          <p>24/7 SUPPORT</p>
+          <i class='bx bxs-info-circle'></i>
+        </div>
+      </div>
+
 
     </div>
 
@@ -235,7 +276,7 @@ export default {
   width: 350px;
   height: 480px;
   background-color: #0f171c;
-  border: 0.5px solid #3C4A57FF;
+  border: 0.5px solid rgba(37, 99, 235, 0.25);
   border-radius: 8px;
   margin-bottom: 5%;
 }
@@ -277,7 +318,7 @@ export default {
   width: 180px;
   height: 44px;
   background: #0f171c;
-  border: 0.5px solid #3C4A57FF;
+  border: 0.5px solid rgba(37, 99, 235, 0.25);
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 4px;
   font-weight: 500;
@@ -288,9 +329,9 @@ export default {
 }
 
 .btn p:hover{
-  background-color: #ffffff;
-  color: #0f171c;
-  border: 0.5px solid #3C4A57FF;
+  background-color: rgba(37, 99, 235, 0.3);
+  color: #ffffff;
+  border: 0.5px solid rgba(37, 99, 235, 0.3);
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
@@ -334,7 +375,7 @@ export default {
 
 
 .bx{
-  color: #ffffff;
+  color: rgba(37, 99, 235, 0.25);
 }
 @media (max-width: 990px) {
 

@@ -19,11 +19,12 @@
             <th class="plan-column">Gold</th>
             <th class="plan-column">Diamond</th>
             <th class="plan-column">Platinum</th>
+            <th class="plan-column">VIP</th>
           </tr>
           </thead>
           <tbody v-for="(category, categoryIndex) in features" :key="categoryIndex">
           <tr class="category-row">
-            <td colspan="5" class="category-title">
+            <td colspan="6" class="category-title">
               {{ category.category }}
             </td>
           </tr>
@@ -61,6 +62,14 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
             </td>
+            <td class="plan-cell">
+              <svg v-if="item.vip" class="icon-check" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <svg v-else class="icon-x" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -78,28 +87,27 @@ export default {
         {
           category: 'Platform Access',
           items: [
-            { name: 'Web Trading Platform', silver: true, gold: true, diamond: true, platinum: true },
-            { name: 'Mobile App', silver: true, gold: true, diamond: true, platinum: true },
-            { name: 'Advanced Charting', silver: false, gold: true, diamond: true, platinum: true },
-            { name: 'API Access', silver: false, gold: false, diamond: true, platinum: true },
+            { name: 'Web Trading Platform', silver: true, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Advanced Charting', silver: false, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'API Access', silver: false, gold: false, diamond: true, platinum: true, vip: true },
           ]
         },
         {
           category: 'Support & Service',
           items: [
-            { name: '24/7 Support', silver: true, gold: true, diamond: true, platinum: true },
-            { name: 'Priority Support', silver: false, gold: true, diamond: true, platinum: true },
-            { name: 'Personal Account Manager', silver: false, gold: true, diamond: true, platinum: true },
-            { name: 'Dedicated Support Team', silver: false, gold: false, diamond: false, platinum: true },
+            { name: '24/7 Support', silver: true, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Priority Support', silver: false, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Personal Account Manager', silver: false, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Dedicated Support Team', silver: false, gold: false, diamond: false, platinum: true, vip: true },
           ]
         },
         {
           category: 'Investment Features',
           items: [
-            { name: 'Guaranteed Returns', silver: true, gold: true, diamond: true, platinum: true },
-            { name: 'Risk Management Tools', silver: false, gold: true, diamond: true, platinum: true },
-            { name: 'Custom Strategies', silver: false, gold: false, diamond: true, platinum: true },
-            { name: 'Private Market Access', silver: false, gold: false, diamond: false, platinum: true },
+            { name: 'Guaranteed Returns', silver: true, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Risk Management Tools', silver: false, gold: true, diamond: true, platinum: true, vip: true },
+            { name: 'Custom Strategies', silver: false, gold: false, diamond: true, platinum: true, vip: true },
+            { name: 'Private Market Access', silver: false, gold: false, diamond: false, platinum: true, vip: true },
           ]
         }
       ]

@@ -51,7 +51,7 @@
           </div>
 
           <!-- CTA Button -->
-          <button :class="['invest-button', plan.colorClass]">
+          <button @click="onPostClick" :class="['invest-button', plan.colorClass]">
             Invest Now
           </button>
         </div>
@@ -78,7 +78,7 @@ export default {
           textClass: 'text-gray',
           features: [
             'Enhanced Security',
-            '40% Daily Returns',
+            '25% Daily Returns',
             'Guaranteed ROI',
             '24/7 Support',
             'Mobile Trading App',
@@ -119,7 +119,7 @@ export default {
           textClass: 'text-gray',
           features: [
             'Enhanced Security',
-            '40% Daily Returns',
+            '55% Daily Returns',
             'Guaranteed ROI',
             '24/7 VIP Support',
             'Professional Trading Suite',
@@ -141,7 +141,30 @@ export default {
           textClass: 'text-gray',
           features: [
             'Enhanced Security',
-            '40% Daily Returns',
+            '85% Daily Returns',
+            'Guaranteed ROI',
+            '24/7 Concierge Support',
+            'Enterprise Trading Platform',
+            'Team of Account Managers',
+            'Bespoke Investment Solutions',
+            'Private Market Access',
+            'Quarterly Strategy Reviews'
+          ],
+          popular: false
+        },
+        {
+          name: 'VIP',
+          icon: require("@/assets/icons8-star-50.png"),
+          percentage: '50%',
+          duration: '24 Months',
+          minDeposit: '$500,000',
+          colorClass: 'gradient-vip',
+          borderClass: 'border-vip',
+          bgClass: 'bg-Silver',
+          textClass: 'text-gray',
+          features: [
+            'Enhanced Security',
+            '100% Daily Returns',
             'Guaranteed ROI',
             '24/7 Concierge Support',
             'Enterprise Trading Platform',
@@ -158,7 +181,6 @@ export default {
   methods: {
     onPostClick() {
       this.$router.push("/register");
-      window.scrollTo(0, 0);
     },
   },
 }
@@ -277,6 +299,10 @@ export default {
   border-color: #A78BFA;
 }
 
+.border-vip {
+  border-color: #874747;
+}
+
 /* Popular badge */
 .popular-badge {
   position: absolute;
@@ -324,6 +350,10 @@ export default {
 
 .gradient-platinum {
   background: linear-gradient(to right, #A78BFA, #7C3AED);
+}
+
+.gradient-vip {
+  background: linear-gradient(to right, rgb(204, 103, 103), #874747);
 }
 
 .icon {

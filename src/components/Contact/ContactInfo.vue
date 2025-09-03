@@ -53,11 +53,11 @@ export default {
           color: 'bg-blue-100 text-blue-600'
         },
         {
-          icon: require('@/assets/icons8-phone-50.png'),
-          title: 'Phone Support',
-          description: 'Speak with our experts',
+          icon: require('@/assets/icons8-chat-50.png'),
+          title: 'Live Chat',
+          description: 'Click the live support icon by the left side of your screen',
           contact: '',
-          availability: 'Mon-Fri 9AM-6PM GMT',
+          availability: '24/7 Support',
           color: 'bg-green-100 text-green-600'
         },
         {

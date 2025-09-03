@@ -53,13 +53,13 @@
             </div>
           </div>
 
-          <div class="button-group">
-            <button class="primary-button">
-              Start Investing Today
-              <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </button>
+          <div  class="button-group">
+<!--            <button @click="onPostClick" class="primary-button">-->
+<!--              Start Investing Today-->
+<!--              <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>-->
+<!--              </svg>-->
+<!--            </button>-->
 
 <!--            <button class="secondary-button">-->
 <!--              Schedule Consultation-->
@@ -111,7 +111,12 @@
 
 <script>
 export default {
-  name: 'PricingCTA'
+  name: 'PricingCTA',
+  methods: {
+    onPostClick() {
+      this.$router.push("/register");
+    },
+  },
 }
 </script>
 

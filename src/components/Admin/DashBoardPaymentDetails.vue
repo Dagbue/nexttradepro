@@ -99,7 +99,7 @@ export default {
   },
   methods:{
     async update() {
-      await StoreUtils.dispatch(StoreUtils.actions.paymentWallet.paymentWalletCreate, {
+      await StoreUtils.dispatch(StoreUtils.actions.paymentWallet.updatePaymentWallet, {
         walletId: 1,
         bitcoinAddress: this.bitcoinAddress,
         ethereumAddress: this.ethereumAddress,
