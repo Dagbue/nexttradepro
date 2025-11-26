@@ -1,265 +1,302 @@
 <template>
   <div class="alpha">
 
+    <!-- USER PROFILE SUMMARY -->
     <div style="color: white;" class="section-1-alpha">
       <p class="text-1">User Profile</p>
       <hr/>
       <div class="section-1-part-1">
-        <img v-if="UserDetails.user.displayPicture === ''" src="@/assets/Avatar.svg" alt="logo"  class="avatar"/>
-        <img v-else :src="UserDetails.user.displayPicture" alt="displayPicture"  class="displayPicture"/>
+        <img v-if="!UserDetails.user.displayPicture" src="@/assets/Avatar.svg" alt="Avatar" class="avatar"/>
+        <img v-else :src="UserDetails.user.displayPicture" alt="Display Picture" class="displayPicture"/>
         <div>
-          <p style="text-align: left">{{UserDetails.user.firstName}} {{UserDetails.user.lastName}}</p>
-          <p style="text-align: left">{{UserDetails.user.email}}</p>
+          <p style="text-align: left">{{ UserDetails.user.firstName }} {{ UserDetails.user.lastName }}</p>
+          <p style="text-align: left">{{ UserDetails.user.email }}</p>
         </div>
       </div>
 
       <div class="referral-part">
-        <input type="text" v-model="reflink" class="link-box"/>
-        <button class="link-button" @click="copyToClipboard('https://www.topsharespro.com/register')">Copy Link</button>
+        <input type="text" :value="referralLink" readonly class="link-box"/>
+        <button class="link-button" @click="copyToClipboard(referralLink)">Copy Link</button>
       </div>
     </div>
 
-
+    <!-- PERSONAL INFORMATION FORM -->
     <div style="color: white;" class="section-2-alpha">
       <p class="text-1">Personal Information</p>
       <hr/>
+
       <div class="form">
         <form @submit.prevent="updateDetails">
 
+          <!-- Name Row -->
           <div class="separate">
-
             <div class="space">
               <label>First Name</label>
-              <input type="text" v-model="firstName"   class="form-input"/>
+              <input type="text" v-model="firstName" class="form-input" required />
             </div>
-
             <div class="space">
               <label>Last Name</label>
-              <input type="text" v-model="lastName"  class="form-input"/>
+              <input type="text" v-model="lastName" class="form-input" required />
             </div>
-
           </div>
 
+          <!-- Email & Country -->
           <div class="separate">
-
             <div class="space">
               <label>Email</label>
-              <input type="text" v-model="email"  class="form-input"/>
+              <input type="email" v-model="email" class="form-input" required />
             </div>
-
             <div class="space">
               <label>Country</label>
-              <input type="text" v-model="country"  class="form-input"/>
+              <input type="text" v-model="country" class="form-input" required />
             </div>
-
           </div>
 
+          <!-- Address & Phone -->
           <div class="separate">
-
             <div class="space">
               <label>Address</label>
-              <input type="text" v-model="address"  class="form-input"/>
+              <input type="text" v-model="address" class="form-input" required />
             </div>
-
             <div class="space">
               <label>Phone Number</label>
-              <input type="text" v-model="phoneNumber"  class="form-input"/>
+              <input type="text" v-model="phoneNumber" class="form-input" required />
             </div>
-
           </div>
 
-          <p style="color: #FFFFFF">{{this.base64}}</p>
-          <div v-if="this.url === ''" class="separate">
+          <!-- ID CARD UPLOAD SECTION - INDEPENDENT FRONT & BACK -->
+          <div class="separate">
+
+            <!-- FRONT ID -->
             <div class="form-group">
               <label class="id">Identification Card (Upload front of ID card for verification)</label>
-              <input
-                  type="file"
-                  id="files"
-                  name="files"
-                  @change="uploadFile"
-                  accept="image/*"
-                  ref="file"
-                  placeholder="Identification Card (Upload ID card for verification)"
-                  required
-              />
+
+              <!-- Upload Input -->
+              <div v-if="!url" class="upload-box">
+                <input
+                    type="file"
+                    accept="image/*"
+                    @change="uploadFile"
+                    ref="file"
+                    class="file-input"
+                    placeholder="Identification Card (Upload ID card for verification)"
+                />
+                <p v-if="uploadingFront" style="color: #5d78ff; font-size: 14px;">Uploading front ID...</p>
+              </div>
+
+              <!-- Preview -->
+              <div v-else class="image-preview">
+                <p style="color: #a0d8ff; margin: 8px 0;">Front ID Uploaded</p>
+                <img :src="url" alt="Front ID" class="uploaded-id-img" />
+                <button @click="removeFrontId" class="remove-btn">Remove</button>
+              </div>
             </div>
 
+            <!-- BACK ID -->
             <div class="form-group">
               <label class="id">Identification Card (Upload back of ID card for verification)</label>
-              <input
-                  type="file"
-                  id="files2"
-                  name="files"
-                  @change="uploadFile2"
-                  accept="image/*"
-                  ref="file2"
-                  placeholder="Identification Card (Upload ID card for verification)"
-                  required
-              />
+
+              <div v-if="!url2" class="upload-box">
+                <input
+                    type="file"
+                    accept="image/*"
+                    @change="uploadFile2"
+                    ref="file2"
+                    class="file-input"
+                    placeholder="Identification Card (Upload ID card for verification)"
+                />
+                <p v-if="uploadingBack" style="color: #5d78ff; font-size: 14px;">Uploading back ID...</p>
+              </div>
+
+              <div v-else class="image-preview">
+                <p style="color: #a0d8ff; margin: 8px 0;">Back ID Uploaded</p>
+                <img :src="url2" alt="Back ID" class="uploaded-id-img" />
+                <button @click="removeBackId" class="remove-btn">Remove</button>
+              </div>
             </div>
           </div>
 
-          <div v-else class="separate left">
-            <div style="display:block;" class="form-group">
-              <p style="text-align: left" class="id">Front ID card</p>
-              <a style="text-align: left;font-size: 19px;float: left" :href="url" >view</a>
-            </div>
-
-            <div style="display:block;" class="form-group">
-              <p style="text-align: left;" class="id mobile">Back ID card</p>
-              <a style="text-align: left;font-size: 19px;float: left" :href="url2" >view</a>
-            </div>
-          </div>
-
-
+          <!-- SUBMIT BUTTON -->
           <div class="btn-alpha">
-<!--            <p class="btn">Update Details</p>-->
             <base-button
                 :loading="loading"
-
-                style="background-color: #5d78ff; border: 1px solid #5d78ff;"
-            >Update Details</base-button>
+                style="background-color: #5d78ff; border: 1px solid #5d78ff; padding: 12px 30px; font-size: 16px;"
+            >
+              Update Details
+            </base-button>
           </div>
-
         </form>
-
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-
-
 import StoreUtils from "@/utility/StoreUtils";
 import BaseButton from "@/components/BaseComponents/buttons/BaseButton.vue";
-import {mapState} from "vuex";
+import { mapState } from "vuex";
 import S3Request from "@/model/request/S3Request";
+import swal from "sweetalert";
 
 export default {
   name: "DashBoardUpdateAccount",
-  components: {BaseButton},
-  // components: {UpdateAccountModal},
-  data () {
+  components: { BaseButton },
+
+  data() {
     return {
-      contacts: [],
-      dialogIsVisible: false,
       firstName: "",
       lastName: "",
       email: "",
-      country:"",
+      country: "",
       address: "",
       phoneNumber: "",
-      reflink: "https://www.topsharespro.com/register",
-      userId: "",
-      userInfo: "",
+      userId: localStorage.getItem("userId") || "",
+      userInfo: null,
+
+      // ID Uploads
+      url: "",           // Front ID S3 URL
+      url2: "",          // Back ID S3 URL
       base64: "",
-      uploadmodel: S3Request.prototype.uploadBase64(),
-      url: "",
       base642: "",
-      uploadmodel2: S3Request.prototype.uploadBase64(),
-      url2: "",
-    }
+      uploadmodel: new S3Request().uploadBase64(),
+      uploadmodel2: new S3Request().uploadBase64(),
+
+      uploadingFront: false,
+      uploadingBack: false,
+    };
   },
-  computed:{
-    ...mapState(["sbucket"]),
+
+  computed: {
     ...mapState({
-      loading: state => state.auth.loading,
-      loading2: state => state.sbucket.s3bucketLoading,
-      auth: state => state.auth,
+      loading: (state) => state.auth.loading,
+      auth: (state) => state.auth,
+      sbucket: (state) => state.sbucket,
     }),
+
     UserDetails() {
-      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
+      return StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById) || { user: {} };
+    },
+
+    referralLink() {
+      return `https://www.topsharespro.com/register`;
+    },
+  },
+
+  watch: {
+    UserDetails: {
+      handler(newVal) {
+        if (newVal?.user) {
+          this.populateForm(newVal.user);
+        }
+      },
+      immediate: true,
     },
   },
 
   methods: {
-    uploadFile() {
-      let input = this.$refs.file;
-      let files = input.files;
-      //console.log(size);
+    populateForm(user) {
+      this.firstName = user.firstName || "";
+      this.lastName = user.lastName || "";
+      this.email = user.email || "";
+      this.country = user.country || "";
+      this.address = user.address || "";
+      this.phoneNumber = user.phoneNumber || "";
+      this.url = user.frontId || "";
+      this.url2 = user.backId || "";
+      this.userInfo = user;
+    },
+
+    async uploadFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      this.uploadingFront = true;
       const reader = new FileReader();
-      try {
-        reader.onload = (e) => {
-          this.base64 = e.target.result;
-          this.uploadOfficerImage();
-        };
-        reader.readAsDataURL(files[0]);
-        this.$emit("input", files[0]);
-      } catch (e) {
-        console.warn(e.message);
-      }
+
+      reader.onload = async (event) => {
+        this.base64 = event.target.result;
+
+        try {
+          this.uploadmodel.username = `${this.auth.userInfo.userFirstName}_${Date.now()}_front`;
+          this.uploadmodel.base64 = this.base64;
+
+          await StoreUtils.dispatch(StoreUtils.actions.sbucket.uploadEncodedFile, this.uploadmodel, { root: true });
+          this.url = this.sbucket.s3bucketResponse.url;
+
+          this.$refs.file.value = ""; // Clear input
+        } catch (err) {
+          await swal("Error", "Failed to upload front ID. Please try again." , 'error')
+          console.error(err);
+        } finally {
+          this.uploadingFront = false;
+        }
+      };
+
+      reader.readAsDataURL(file);
     },
-    async uploadOfficerImage() {
 
-      this.uploadmodel.username = `${
-          this.auth.userInfo.userFirstName + this.auth.userInfo.userLastName
-      }_${Date.now()}`;
-      this.uploadmodel.base64 = this.base64;
-      await StoreUtils.dispatch(StoreUtils.actions.sbucket.uploadEncodedFile, this.uploadmodel, { root: true });
-      this.url = this.sbucket.s3bucketResponse.url;
+    async uploadFile2(e) {
+      const file = e.target.files[0];
+      if (!file) return;
 
-    },
-
-    uploadFile2() {
-      let input = this.$refs.file2;
-      let files = input.files;
-      //console.log(size);
+      this.uploadingBack = true;
       const reader = new FileReader();
-      try {
-        reader.onload = (e) => {
-          this.base642 = e.target.result;
-          this.uploadOfficerImage2();
-        };
-        reader.readAsDataURL(files[0]);
-        this.$emit("input", files[0]);
-      } catch (e) {
-        console.warn(e.message);
-      }
-    },
-    async uploadOfficerImage2() {
-      // this.showLoader = true;
-      this.uploadmodel2.username = `${
-          this.auth.userInfo.userFirstName + this.auth.userInfo.userLastName
-      }_${Date.now()}`;
-      this.uploadmodel2.base64 = this.base642;
-      // await this.$store.dispatch("sbucket/uploadEncodedFile", this.uploadmodel, { root: true });
-      await StoreUtils.dispatch(
-          StoreUtils.actions.sbucket.uploadEncodedFile,
-          this.uploadmodel2,
-          { root: true }
-      );
-      this.url2 = this.sbucket.s3bucketResponse.url;
-      // this.showLoader = false;
+
+      reader.onload = async (event) => {
+        this.base642 = event.target.result;
+
+        try {
+          this.uploadmodel2.username = `${this.auth.userInfo.userFirstName}_${Date.now()}_back`;
+          this.uploadmodel2.base64 = this.base642;
+
+          await StoreUtils.dispatch(StoreUtils.actions.sbucket.uploadEncodedFile, this.uploadmodel2, { root: true });
+          this.url2 = this.sbucket.s3bucketResponse.url;
+
+          this.$refs.file2.value = "";
+        } catch (err) {
+          await swal("Error", "Failed to upload back ID. Please try again.", 'error')
+          console.error(err);
+        } finally {
+          this.uploadingBack = false;
+        }
+      };
+
+      reader.readAsDataURL(file);
     },
 
-    copyToClipboard(content) {
-      const textarea = document.createElement('textarea')
-      textarea.value = content
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand('copy')
-      document.body.removeChild(textarea)
+    removeFrontId() {
+      this.url = "";
+      this.base64 = "";
+      if (this.$refs.file) this.$refs.file.value = "";
     },
-    showDialog() {
-      this.dialogIsVisible = true;
+
+    removeBackId() {
+      this.url2 = "";
+      this.base642 = "";
+      if (this.$refs.file2) this.$refs.file2.value = "";
     },
-    hideDialog() {
-      this.dialogIsVisible = false;
-    },
-    populateForm() {
-      this.firstName = this.userInfo.firstName;
-      this.lastName = this.userInfo.lastName;
-      this.email = this.userInfo.email;
-      this.country = this.userInfo.country;
-      this.phoneNumber = this.userInfo.phoneNumber;
-      this.address = this.userInfo.address;
-      this.url = this.userInfo.frontId;
-      this.url2 = this.userInfo.backId;
+
+    async copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        await swal("Success", "Referral link copied!", 'success')
+      } catch {
+        // Fallback
+        const el = document.createElement("textarea");
+        el.value = text;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+        await swal("Success", "Referral link copied!", 'success')
+      }
     },
 
     updateDetails() {
+      if (!this.url || !this.url2) {
+        if (!confirm("You haven't uploaded both ID cards. Continue anyway?")) return;
+      }
+
       StoreUtils.dispatch(StoreUtils.actions.auth.updateUser, {
         userId: this.userId,
         firstName: this.firstName,
@@ -268,70 +305,83 @@ export default {
         phoneNumber: this.phoneNumber,
         country: this.country,
         address: this.address,
-        // frontId: this.url,
-        // backId: this.url2,
-      })
-    }
-  },
-
-  beforeMount() {
-    StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
-      userId : localStorage.getItem('userId')
-    })
-
-    StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
-    this.populateForm();
-    this.generateRandomString()
-    this.userId = localStorage.getItem('userId')
-
-    // Retrieve the object from local storage
-    const storedObject = localStorage.getItem('userInfo');
-
-    if (storedObject) {
-      this.userInfo = JSON.parse(storedObject);
-    }
+        frontId: this.url,
+        backId: this.url2,
+      }).then(() => {
+      }).catch((err) => {
+        console.error(err);
+        swal("Error", "Update failed. Please try again.", 'error')
+      });
+    },
   },
 
   created() {
-    StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
-      userId : localStorage.getItem('userId')
-    })
+    this.userId = localStorage.getItem("userId");
+    const stored = localStorage.getItem("userInfo");
+    if (stored) this.userInfo = JSON.parse(stored);
 
-    StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
-    this.populateForm();
-    this.userId = localStorage.getItem('userId')
-
-    // Retrieve the object from local storage
-    const storedObject = localStorage.getItem('userInfo');
-
-    if (storedObject) {
-      this.userInfo = JSON.parse(storedObject);
-    }
+    // Fetch fresh user data
+    StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, { userId: this.userId });
   },
-
-  mounted() {
-    StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
-      userId : localStorage.getItem('userId')
-    })
-
-    StoreUtils.rootGetters(StoreUtils.getters.auth.getReadUserById)
-    this.populateForm();
-    this.generateRandomString()
-
-    this.userId = localStorage.getItem('userId')
-
-    // Retrieve the object from local storage
-    const storedObject = localStorage.getItem('userInfo');
-
-    if (storedObject) {
-      this.userInfo = JSON.parse(storedObject);
-    }
-  }
-
-}
+};
 </script>
 
 <style scoped>
+.image-preview {
+  text-align: center;
+  padding: 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+
+.uploaded-id-img {
+  max-width: 50%;
+  max-height: 130px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+
+
+.remove-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.remove-btn:hover {
+  background: #ff5252;
+}
+
+
+.link-box {
+  width: 70%;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 6px 0 0 6px;
+}
+
+.link-button {
+  padding: 10px 16px;
+  background: #5d78ff;
+  color: white;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+
+
 .left{
   margin-left: 1.8%;
 }
