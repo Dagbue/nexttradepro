@@ -7,12 +7,12 @@
           <i  class='bx bx-menu' @click="triggerParentFunction" ></i>
         </div>
 
-        <div class="section-1-part-2">
+        <div  class="section-1-part-2">
           <img src="@/assets/Notification.svg" alt="Notification"/>
           <div class="vl"></div>
-          <img v-if="userInfo.displayPicture === ''" src="@/assets/Avatar.svg" alt="logo"  class="avatar"/>
-          <img v-else :src="userInfo.displayPicture" alt="displayPicture"  class="displayPicture"/>
-          <p class="profile-name">{{this.userFirstName | titleCase}} {{this.userLastName | titleCase}}</p>
+          <img @click="onPostClick" v-if="userInfo.displayPicture === ''" src="@/assets/Avatar.svg" alt="logo"  class="avatar"/>
+          <img @click="onPostClick" v-else :src="userInfo.displayPicture" alt="displayPicture"  class="displayPicture"/>
+          <p @click="onPostClick" class="profile-name">{{this.userFirstName | titleCase}} {{this.userLastName | titleCase}}</p>
         </div>
 
       </div>
@@ -52,6 +52,17 @@ export default {
       await localStorage.clear();
       await router.push('/login')
     },
+
+    onPostClick() {
+      if (this.$route.path !== '/update-account') {
+        this.$router.push('/update-account')
+      }
+      // Optional: just scroll to top if already on the page
+      else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    },
+
     async showDialog() {
       await StoreUtils.dispatch(StoreUtils.actions.auth.readReadUserById, {
         userId : this.userId,

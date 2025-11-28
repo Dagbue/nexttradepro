@@ -1,14 +1,42 @@
 <template>
   <div class="alpha">
 
-
-
     <div class="trade-type-button">
-      <button @click="toggleScreen" class="trade-btn trade-btn-1">Trade Forex</button>
-      <button @click="toggleScreen2" class="trade-btn trade-btn-2">Trade Crypto</button>
-      <button @click="toggleScreen3" class="trade-btn trade-btn-3">Trade CFD</button>
-      <button @click="toggleScreen4" class="trade-btn trade-btn-4">Trade Stocks</button>
-      <button @click="toggleScreen5" class="trade-btn trade-btn-5">Trade Real Estate</button>
+      <button
+          @click="scrollToTradeForm('Forex')"
+          class="trade-btn trade-btn-1"
+          :class="{ 'active-trade-btn': placeTradeStatus === 'Forex' }"
+      >
+        Trade Forex
+      </button>
+      <button
+          @click="scrollToTradeForm('Crypto')"
+          class="trade-btn trade-btn-2"
+          :class="{ 'active-trade-btn': placeTradeStatus === 'Crypto' }"
+      >
+        Trade Crypto
+      </button>
+      <button
+          @click="scrollToTradeForm('CFD')"
+          class="trade-btn trade-btn-3"
+          :class="{ 'active-trade-btn': placeTradeStatus === 'CFD' }"
+      >
+        Trade CFD
+      </button>
+      <button
+          @click="scrollToTradeForm('Stocks')"
+          class="trade-btn trade-btn-4"
+          :class="{ 'active-trade-btn': placeTradeStatus === 'Stocks' }"
+      >
+        Trade Stocks
+      </button>
+      <button
+          @click="scrollToTradeForm('RealEstate')"
+          class="trade-btn trade-btn-5"
+          :class="{ 'active-trade-btn': placeTradeStatus === 'RealEstate' }"
+      >
+        Trade Real Estate
+      </button>
     </div>
 
     <iframe scrolling="no" allowtransparency="true" frameborder="0" src="https://www.tradingview-widget.com/embed-widget/ticker-tape/#%7B%22colorTheme%22%3A%22dark%22%2C%22width%22%3A%22100%25%22%2C%22height%22%3A46%2C%22utm_source%22%3A%22infiniteprotrades.com%22%2C%22utm_medium%22%3A%22widget%22%2C%22utm_campaign%22%3A%22ticker-tape%22%2C%22page-uri%22%3A%22infiniteprotrades.com%2Findex.php%2Fuser%2FtradeCrypto%22%7D" title="ticker tape TradingView widget" lang="en" style="user-select: none; box-sizing: border-box; display: block; height: 65px; width: 99%; margin-bottom: 0.5%;"></iframe>
@@ -1393,6 +1421,34 @@ export default {
 
   methods: {
 
+    scrollToTradeForm(tradeType) {
+      // Update the trade type in Vuex (already done in toggleScreenX)
+      this[`toggleScreen${tradeType === 'Forex' ? '' : tradeType === 'Crypto' ? '2' : tradeType === 'CFD' ? '3' : tradeType === 'Stocks' ? '4' : '5'}`]();
+
+      // Only run smooth scroll on mobile (screen width <= 800px)
+      if (window.innerWidth <= 800) {
+        this.$nextTick(() => {
+          const formSection = document.querySelector('.part-2');
+          if (formSection) {
+            formSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+              inline: 'nearest'
+            });
+
+            // Optional: Add a small delay + highlight effect
+            setTimeout(() => {
+              formSection.style.transition = 'background 0.4s ease';
+              formSection.style.background = 'rgba(16, 197, 94, 0.15)';
+              setTimeout(() => {
+                formSection.style.background = '';
+              }, 800);
+            }, 600);
+          }
+        });
+      }
+    },
+
     changeScreen(screen) {
       this.screen5 = screen;
     },
@@ -1756,6 +1812,7 @@ export default {
 
 <style scoped>
 
+
 .icon{
   object-fit: contain;
   width: 30px;
@@ -1766,7 +1823,7 @@ export default {
 .trade-type-button {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   gap: 8px;
   margin: 8px 5px;
@@ -2374,6 +2431,9 @@ td {
   color: #ffffff;
   margin-top: 0.5rem;
 }
+
+
+
 
 
 @media (max-width: 800px) {
