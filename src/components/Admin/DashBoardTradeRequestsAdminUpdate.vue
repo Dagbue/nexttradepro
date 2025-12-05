@@ -89,6 +89,23 @@
           </div>
 
 
+          <div class="space">
+            <label>Stop Loss</label>
+            <input type="text" v-model="stopLoss"   class="form-input"/>
+          </div>
+
+          <div class="space">
+            <label>Take Profit</label>
+            <input type="text" v-model="takeProfit"  class="form-input"/>
+          </div>
+
+          <div class="space">
+            <label>Entry Price</label>
+            <input type="text" v-model="entryPrice" class="form-input"/>
+          </div>
+
+
+
 
 
           <div  class="space">
@@ -156,6 +173,9 @@ export default {
       firstName : "",
       lastName : "",
       tradeType : "",
+      stopLoss : "",
+      takeProfit : "",
+      entryPrice : "",
     }
   },
   computed:{
@@ -203,6 +223,9 @@ export default {
       this.firstName = this.readTradeById.trade.firstName;
       this.lastName = this.readTradeById.trade.lastName;
       this.tradeType = this.readTradeById.trade.tradeType;
+      this.stopLoss = this.readTradeById.trade.stopLoss;
+      this.takeProfit = this.readTradeById.trade.takeProfit;
+      this.entryPrice = this.readTradeById.trade.entryPrice;
     },
 
     async updateDetails() {
@@ -221,7 +244,10 @@ export default {
         tradeReference : this.tradeReference,
         firstName : this.firstName,
         lastName : this.lastName,
-        tradeType : this.tradeType
+        tradeType : this.tradeType,
+        stopLoss : this.stopLoss,
+        takeProfit : this.takeProfit,
+        entryPrice : this.entryPrice,
       })
       await StoreUtils.dispatch(StoreUtils.actions.trade.readAllTrade)
       await router.push("/trade-request-admin")

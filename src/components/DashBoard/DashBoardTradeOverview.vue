@@ -41,6 +41,9 @@
             <th>Leverage</th>
             <th>End Price</th>
             <th>End Time</th>
+            <th>Stop Loss</th>
+            <th>Take Profit</th>
+            <th>Entry Price</th>
             <th>Trade Status</th>
           </tr>
 
@@ -84,6 +87,11 @@
             <td data-label="Leverage">{{child.leverage}}</td>
             <td data-label="End Price">{{child.endPrice}}</td>
             <td data-label="End Time">{{child.endTime | formatDate}}</td>
+
+            <td data-label="Stop Loss">$ {{child.stopLoss}}</td>
+            <td data-label="Take Profit">$ {{child.takeProfit}}</td>
+            <td data-label="End Price">$ {{child.entryPrice}}</td>
+
             <td data-label="Trade Status">
               <div>
                 <p class="status-won" v-show="child.tradeStatus === 'won'">{{child.tradeStatus}}</p>

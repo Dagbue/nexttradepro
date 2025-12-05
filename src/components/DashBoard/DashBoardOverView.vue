@@ -140,7 +140,6 @@
           </div>
         </div>
 
-
         <div v-show="this.placeTradeStatus === 'Crypto'">
         <div  class="tradingview_1a10b-wrapper"
              style="position: relative;
@@ -199,6 +198,8 @@
         </div>
         </div>
 
+
+<!--        Trade History table -->
         <div>
           <div class="body">
             <h2>My Trade History</h2>
@@ -229,6 +230,8 @@
 
 
             <div class="table" v-if="this.readUserTrade.trades.length > 0" >
+              <div class="table-wrapper">
+                <div class="table-scroll">
               <table>
                 <tr style="background-color: #FFFFFF;">
                   <th>Trade ID</th>
@@ -239,6 +242,9 @@
                   <th>Leverage</th>
                   <th>End Price</th>
                   <th>End Time</th>
+                  <th>Stop Loss</th>
+                  <th>Take Profit</th>
+                  <th>Entry Price</th>
                   <th>Trade Status</th>
                 </tr>
                 <div v-if="loading">
@@ -280,6 +286,11 @@
                   <td data-label="Leverage">{{child.leverage}}</td>
                   <td data-label="End Price">{{child.endPrice}}</td>
                   <td data-label="End Time">{{child.endTime | formatDate}}</td>
+
+                  <td data-label="Stop Loss">$ {{child.stopLoss}}</td>
+                  <td data-label="Take Profit">$ {{child.takeProfit}}</td>
+                  <td data-label="End Price">$ {{child.entryPrice}}</td>
+
                   <td data-label="Trade Status">
                     <div>
                       <p class="status-won" v-show="child.tradeStatus === 'won'">{{child.tradeStatus}}</p>
@@ -290,6 +301,8 @@
                 </tr>
                 </tbody>
               </table>
+                </div>
+              </div>
 
               <div class="pagination">
                 <button @click="previousPage" :disabled="currentPage === 1" class="previous">Previous</button>
@@ -476,20 +489,20 @@
               </select>
             </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Stop Loss</label>-->
-<!--              <input type="number" placeholder="Enter Stop Loss"  name="Stop Loss"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Stop Loss</label>
+              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Take Profit</label>-->
-<!--              <input type="number" placeholder="Enter Take Profit"  name="Take Profit"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Take Profit</label>
+              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Entry Price</label>-->
-<!--              <input type="number" placeholder="Enter Entry Price"  name="Entry Price"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Entry Price</label>
+              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+            </div>
 
             <div class="form-group">
               <label class="label">Trade Interval (Time)</label>
@@ -692,20 +705,20 @@
               </select>
             </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Stop Loss</label>-->
-<!--              <input type="number" placeholder="Enter Stop Loss"  name="Stop Loss"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Stop Loss</label>
+              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Take Profit</label>-->
-<!--              <input type="number" placeholder="Enter Take Profit"  name="Take Profit"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Take Profit</label>
+              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Entry Price</label>-->
-<!--              <input type="number" placeholder="Enter Entry Price"  name="Entry Price"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Entry Price</label>
+              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+            </div>
 
             <div class="form-group">
               <label class="label">Trade Interval (Time)</label>
@@ -890,20 +903,20 @@
               </select>
             </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Stop Loss</label>-->
-<!--              <input type="number" placeholder="Enter Stop Loss"  name="Stop Loss"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Stop Loss</label>
+              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Take Profit</label>-->
-<!--              <input type="number" placeholder="Enter Take Profit"  name="Take Profit"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Take Profit</label>
+              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Entry Price</label>-->
-<!--              <input type="number" placeholder="Enter Entry Price"  name="Entry Price"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Entry Price</label>
+              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+            </div>
 
             <div class="form-group">
               <label class="label">Trade Interval (Time)</label>
@@ -1103,20 +1116,20 @@
               </select>
             </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Stop Loss</label>-->
-<!--              <input type="number" placeholder="Enter Stop Loss"  name="Stop Loss"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Stop Loss</label>
+              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Take Profit</label>-->
-<!--              <input type="number" placeholder="Enter Take Profit"  name="Take Profit"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Take Profit</label>
+              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Entry Price</label>-->
-<!--              <input type="number" placeholder="Enter Entry Price"  name="Entry Price"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Entry Price</label>
+              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+            </div>
 
             <div class="form-group">
               <label class="label">Trade Interval (Time)</label>
@@ -1222,20 +1235,20 @@
               </select>
             </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Stop Loss</label>-->
-<!--              <input type="number" placeholder="Enter Stop Loss"  name="Stop Loss"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Stop Loss</label>
+              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Take Profit</label>-->
-<!--              <input type="number" placeholder="Enter Take Profit"  name="Take Profit"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Take Profit</label>
+              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+            </div>
 
-<!--            <div class="form-group">-->
-<!--              <label class="label">Entry Price</label>-->
-<!--              <input type="number" placeholder="Enter Entry Price"  name="Entry Price"  required/>-->
-<!--            </div>-->
+            <div class="form-group">
+              <label class="label">Entry Price</label>
+              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice" name="Entry Price"  required/>
+            </div>
 
             <div class="form-group">
               <label class="label">Trade Interval (Time)</label>
@@ -1350,6 +1363,9 @@ export default {
       bitcoinRate: null,
       dialogIsVisible: false,
       searchQuery: "", // Data property to hold the search input
+      stopLoss: "",
+      takeProfit: "",
+      entryPrice: "",
     }
   },
   computed:{
@@ -1611,7 +1627,10 @@ export default {
         endTime: this.currentDate2,
         tradeStatus: "pending",
         tradeReference: this.randomString,
-        tradeType: this.tradeType
+        tradeType: this.tradeType,
+        stopLoss: this.stopLoss,
+        takeProfit: this.takeProfit,
+        entryPrice: this.entryPrice,
       });
 
       // Refresh trade history after the trade is placed
@@ -1643,6 +1662,9 @@ export default {
       this.randomString2 = "";
       this.currentDate2 = "";
       this.currentDate = "";
+      this.stopLoss = "";
+      this.takeProfit = "";
+      this.entryPrice = "";
     },
 
     // Function to get current date (YYYY-MM-DD format)
@@ -2436,6 +2458,55 @@ td {
 
 
 
+.table-wrapper {
+  width: 100%;
+  overflow: hidden; /* fallback */
+  border-radius: 8px; /* optional: matches your design */
+  margin-top: 15px;
+}
+
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;           /* This enables horizontal scrolling */
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  scrollbar-width: thin;      /* Firefox: thin scrollbar */
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Make table take full width inside scroll container */
+.table-scroll table {
+  min-width: 1200px;     /* Force table to be wide enough so it scrolls */
+  width: 100%;
+  table-layout: auto;    /* or fixed if you want equal columns */
+}
+
+/* Optional: Sticky header (very nice UX) */
+.table-scroll th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+
 @media (max-width: 800px) {
 
   .trade-type-button{
@@ -2553,6 +2624,23 @@ td {
     width: 30%;
   }
 
+}
+
+@media (max-width: 768px) {
+  .table-scroll {
+    overflow-x: hidden !important;
+  }
+  .table-scroll table {
+    min-width: auto !important;
+    width: 100% !important;
+    table-layout: fixed;
+    font-size: 13px;
+  }
+  .table-scroll td,
+  .table-scroll th {
+    padding: 6px 3px;
+    white-space: normal;
+  }
 }
 
 </style>
