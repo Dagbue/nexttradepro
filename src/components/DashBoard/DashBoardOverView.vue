@@ -270,12 +270,12 @@
                     <div v-if="child.tradeStatus === 'won'" class="table-sep">
                       <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
                       <i v-if="child.tradeType === 'Sell'" style="color: #E50202 !important" class="fa fa-arrow-down text-danger"></i>
-                      <p>{{child.expectedPayout}}</p>
+                      <p>$ {{child.expectedPayout | formatAmount}}</p>
                     </div>
                     <div v-if="child.tradeStatus === 'lost'" class="table-sep">
                       <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
                       <i v-if="child.tradeType === 'Sell'" style="color: #E50202 !important" class="fa fa-arrow-down text-danger"></i>
-                      <p>{{child.expectedPayout}}</p>
+                      <p>$ {{child.expectedPayout | formatAmount}}</p>
                     </div>
                     <div v-if="child.tradeStatus === 'pending'" class="table-sep">
                       <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
@@ -284,12 +284,12 @@
                     </div>
                   </td>
                   <td data-label="Leverage">{{child.leverage}}</td>
-                  <td data-label="End Price">{{child.endPrice}}</td>
+                  <td data-label="End Price">$ {{child.endPrice | formatAmount}}</td>
                   <td data-label="End Time">{{child.endTime | formatDate}}</td>
 
-                  <td data-label="Stop Loss">$ {{child.stopLoss}}</td>
-                  <td data-label="Take Profit">$ {{child.takeProfit}}</td>
-                  <td data-label="End Price">$ {{child.entryPrice}}</td>
+                  <td data-label="Stop Loss">$ {{child.stopLoss | formatAmount}}</td>
+                  <td data-label="Take Profit">$ {{child.takeProfit | formatAmount}}</td>
+                  <td data-label="End Price">$ {{child.entryPrice | formatAmount}}</td>
 
                   <td data-label="Trade Status">
                     <div>
@@ -350,158 +350,255 @@
 
             <div class="form-group">
               <label class="label">Amount</label>
-              <input type="number" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
+              <input type="text" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
             </div>
 
             <div class="form-group">
               <label class="label">Markets</label>
-              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded" >
-                <option selected disabled value="">Select Market</option>
-                <option :value="null" disabled>Select Market</option>
-                <option value="USD/CAD">USD/CAD</option>
-                <option value="USD/CHF">USD/CHF</option>
-                <option value="USD/JPY">USD/JPY</option>
-                <option value="EUR/USD">EUR/USD</option>
-                <option value="GBP/USD">GBP/USD</option>
-                <option value="NZD/USD">NZD/USD</option>
+              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded">
+                <option value="" disabled selected>Select Market Pair</option>
+                <option :value="null" disabled>Select Market Pair</option>
+
                 <option value="AUD/CAD">AUD/CAD</option>
-                <option value="AUD/USD">AUD/USD</option>
-                <option value="EUR/GBP">EUR/GBP</option>
-                <option value="GBP/AUD">GBP/AUD</option>
-                <option value="EUR/AUD">EUR/AUD</option>
                 <option value="AUD/CHF">AUD/CHF</option>
-                <option value="GBP/CHF">GBP/CHF</option>
-                <option value="GBP/JPY">GBP/JPY</option>
+                <option value="AUD/CNH">AUD/CNH</option>
+                <option value="AUD/CZK">AUD/CZK</option>
+                <option value="AUD/DKK">AUD/DKK</option>
+                <option value="AUD/HKD">AUD/HKD</option>
+                <option value="AUD/HUF">AUD/HUF</option>
+                <option value="AUD/ILS">AUD/ILS</option>
                 <option value="AUD/JPY">AUD/JPY</option>
-                <option value="EUR/JPY">EUR/JPY</option>
+                <option value="AUD/MXN">AUD/MXN</option>
+                <option value="AUD/NOK">AUD/NOK</option>
                 <option value="AUD/NZD">AUD/NZD</option>
-                <option value="EUR/CHF">EUR/CHF</option>
-                <option value="NZD/JPY">NZD/JPY</option>
+                <option value="AUD/PLN">AUD/PLN</option>
+                <option value="AUD/SEK">AUD/SEK</option>
+                <option value="AUD/SGD">AUD/SGD</option>
+                <option value="AUD/THB">AUD/THB</option>
+                <option value="AUD/TRY">AUD/TRY</option>
+                <option value="AUD/USD">AUD/USD</option>
+                <option value="AUD/ZAR">AUD/ZAR</option>
                 <option value="CAD/CHF">CAD/CHF</option>
-                <option value="GBP/NZD">GBP/NZD</option>
+                <option value="CAD/CNH">CAD/CNH</option>
+                <option value="CAD/HUF">CAD/HUF</option>
+                <option value="CAD/JPY">CAD/JPY</option>
+                <option value="CAD/MXN">CAD/MXN</option>
+                <option value="CAD/NOK">CAD/NOK</option>
+                <option value="CAD/PLN">CAD/PLN</option>
+                <option value="CAD/SEK">CAD/SEK</option>
+                <option value="CAD/SGD">CAD/SGD</option>
+                <option value="CAD/TRY">CAD/TRY</option>
+                <option value="CAD/ZAR">CAD/ZAR</option>
+                <option value="CHF/CNH">CHF/CNH</option>
+                <option value="CHF/CZK">CHF/CZK</option>
+                <option value="CHF/DKK">CHF/DKK</option>
+                <option value="CHF/HUF">CHF/HUF</option>
                 <option value="CHF/JPY">CHF/JPY</option>
+                <option value="CHF/MXN">CHF/MXN</option>
+                <option value="CHF/NOK">CHF/NOK</option>
+                <option value="CHF/PLN">CHF/PLN</option>
+                <option value="CHF/RON">CHF/RON</option>
+                <option value="CHF/SEK">CHF/SEK</option>
+                <option value="CHF/SGD">CHF/SGD</option>
+                <option value="CHF/TRY">CHF/TRY</option>
+                <option value="CHF/ZAR">CHF/ZAR</option>
+                <option value="CNH/JPY">CNH/JPY</option>
+                <option value="CZK/JPY">CZK/JPY</option>
+                <option value="CZK/PLN">CZK/PLN</option>
+                <option value="DKK/JPY">DKK/JPY</option>
+                <option value="DKK/NOK">DKK/NOK</option>
+                <option value="DKK/SEK">DKK/SEK</option>
+                <option value="EUR/AED">EUR/AED</option>
+                <option value="EUR/ARS">EUR/ARS</option>
+                <!-- Latin America -->
+                <option value="EUR/AUD">EUR/AUD</option>
+                <option value="EUR/BGN">EUR/BGN</option>
+                <option value="EUR/BRL">EUR/BRL</option>
+                <option value="EUR/CAD">EUR/CAD</option>
+                <option value="EUR/CHF">EUR/CHF</option>
+                <option value="EUR/CLP">EUR/CLP</option>
+                <option value="EUR/CNH">EUR/CNH</option>
+                <option value="EUR/COP">EUR/COP</option>
+                <option value="EUR/CZK">EUR/CZK</option>
+                <option value="EUR/DKK">EUR/DKK</option>
+                <option value="EUR/EGP">EUR/EGP</option>
+                <option value="EUR/GBP">EUR/GBP</option>
+                <option value="EUR/HKD">EUR/HKD</option>
+                <option value="EUR/HUF">EUR/HUF</option>
+                <option value="EUR/IDR">EUR/IDR</option>
+                <option value="EUR/ILS">EUR/ILS</option>
+                <option value="EUR/INR">EUR/INR</option>
+                <option value="EUR/JPY">EUR/JPY</option>
+                <option value="EUR/KRW">EUR/KRW</option>
+                <option value="EUR/MXN">EUR/MXN</option>
+                <option value="EUR/MYR">EUR/MYR</option>
+                <option value="EUR/NOK">EUR/NOK</option>
+                <option value="EUR/NZD">EUR/NZD</option>
+                <option value="EUR/PHP">EUR/PHP</option>
+                <option value="EUR/PLN">EUR/PLN</option>
+                <option value="EUR/RON">EUR/RON</option>
+                <option value="EUR/RUB">EUR/RUB</option>
+                <option value="EUR/SEK">EUR/SEK</option>
+                <option value="EUR/SGD">EUR/SGD</option>
+                <option value="EUR/THB">EUR/THB</option>
+                <option value="EUR/TRY">EUR/TRY</option>
+                <option value="EUR/USD">EUR/USD</option>
+                <option value="EUR/ZAR">EUR/ZAR</option>
+                <option value="GBP/AED">GBP/AED</option>
+                <option value="GBP/ARS">GBP/ARS</option>
+                <option value="GBP/AUD">GBP/AUD</option>
+                <option value="GBP/BRL">GBP/BRL</option>
+                <option value="GBP/CAD">GBP/CAD</option>
+                <option value="GBP/CHF">GBP/CHF</option>
+                <option value="GBP/CNH">GBP/CNH</option>
+                <option value="GBP/CZK">GBP/CZK</option>
+                <option value="GBP/DKK">GBP/DKK</option>
+                <option value="GBP/HKD">GBP/HKD</option>
+                <option value="GBP/HUF">GBP/HUF</option>
+                <option value="GBP/IDR">GBP/IDR</option>
+                <option value="GBP/ILS">GBP/ILS</option>
+                <option value="GBP/JPY">GBP/JPY</option>
+                <option value="GBP/MXN">GBP/MXN</option>
+                <option value="GBP/NOK">GBP/NOK</option>
+                <option value="GBP/NZD">GBP/NZD</option>
+                <option value="GBP/PLN">GBP/PLN</option>
+                <option value="GBP/SEK">GBP/SEK</option>
+                <option value="GBP/SGD">GBP/SGD</option>
+                <option value="GBP/THB">GBP/THB</option>
+                <option value="GBP/TRY">GBP/TRY</option>
+                <option value="GBP/USD">GBP/USD</option>
+                <option value="GBP/ZAR">GBP/ZAR</option>
+                <option value="HKD/JPY">HKD/JPY</option>
+                <option value="HUF/JPY">HUF/JPY</option>
+                <option value="ILS/JPY">ILS/JPY</option>
+                <option value="MXN/JPY">MXN/JPY</option>
+                <option value="NOK/DKK">NOK/DKK</option>
+                <option value="NOK/JPY">NOK/JPY</option>
+                <option value="NOK/SEK">NOK/SEK</option>
                 <option value="NZD/CAD">NZD/CAD</option>
                 <option value="NZD/CHF">NZD/CHF</option>
-                <option value="USD/ZAR">USD/ZAR</option>
-                <option value="EUR/ZAR">EUR/ZAR</option>
-                <option value="GBP/ZAR">GBP/ZAR</option>
-                <option value="AUD/ZAR">AUD/ZAR</option>
-                <option value="CAD/ZAR">CAD/ZAR</option>
-                <option value="NZD/ZAR">NZD/ZAR</option>
-                <option value="CHF/ZAR">CHF/ZAR</option>
-                <option value="JPY/ZAR">JPY/ZAR</option>
+                <option value="NZD/CNH">NZD/CNH</option>
+                <option value="NZD/JPY">NZD/JPY</option>
+                <option value="NZD/SGD">NZD/SGD</option>
+                <option value="NZD/USD">NZD/USD</option>
+                <option value="PLN/JPY">PLN/JPY</option>
+                <option value="SEK/JPY">SEK/JPY</option>
+                <option value="SGD/HKD">SGD/HKD</option>
+                <option value="SGD/JPY">SGD/JPY</option>
+                <option value="THB/JPY">THB/JPY</option>
+                <option value="TRY/JPY">TRY/JPY</option>
+                <option value="USD/AED">USD/AED</option>
+                <option value="USD/ARS">USD/ARS</option>
+                <option value="USD/BRL">USD/BRL</option>
+                <option value="USD/CAD">USD/CAD</option>
+                <option value="USD/CHF">USD/CHF</option>
+                <option value="USD/CLP">USD/CLP</option>
+                <option value="USD/CNH">USD/CNH</option>
+                <option value="USD/COP">USD/COP</option>
+                <option value="USD/CZK">USD/CZK</option>
+                <option value="USD/DKK">USD/DKK</option>
+                <option value="USD/EGP">USD/EGP</option>
+                <option value="USD/GBP">USD/GBP</option>
+                <option value="USD/HKD">USD/HKD</option>
+                <option value="USD/HUF">USD/HUF</option>
+                <option value="USD/IDR">USD/IDR</option>
+                <option value="USD/ILS">USD/ILS</option>
+                <option value="USD/INR">USD/INR</option>
+                <option value="USD/JPY">USD/JPY</option>
+                <option value="USD/KES">USD/KES</option>
+                <option value="USD/KRW">USD/KRW</option>
                 <option value="USD/MXN">USD/MXN</option>
-                <option value="EUR/MXN">EUR/MXN</option>
-                <option value="GBP/MXN">GBP/MXN</option>
-                <option value="AUD/MXN">AUD/MXN</option>
-                <option value="CAD/MXN">CAD/MXN</option>
-                <option value="NZD/MXN">NZD/MXN</option>
-                <option value="CHF/MXN">CHF/MXN</option>
-                <option value="JPY/MXN">JPY/MXN</option>
+                <option value="USD/MYR">USD/MYR</option>
+                <option value="USD/NOK">USD/NOK</option>
+                <option value="USD/PEN">USD/PEN</option>
+                <option value="USD/PHP">USD/PHP</option>
+                <option value="USD/PLN">USD/PLN</option>
+                <option value="USD/RON">USD/RON</option>
+                <option value="USD/RUB">USD/RUB</option>
+                <option value="USD/SAR">USD/SAR</option>
+                <option value="USD/SEK">USD/SEK</option>
+                <option value="USD/SGD">USD/SGD</option>
+                <option value="USD/THB">USD/THB</option>
                 <option value="USD/TRY">USD/TRY</option>
+                <option value="USD/TWD">USD/TWD</option>
+                <option value="USD/ZAR">USD/ZAR</option>
+                <option value="ZAR/JPY">ZAR/JPY</option>
+
+                <!-- Scandinavian & Exotic Crosses -->
+                <option value="EUR/NOK">EUR/NOK</option>
+                <option value="EUR/SEK">EUR/SEK</option>
+                <option value="USD/NOK">USD/NOK</option>
+                <option value="USD/SEK">USD/SEK</option>
+                <option value="NOK/SEK">NOK/SEK</option>
+
+                <!-- Middle Eastern & Gulf -->
+                <option value="USD/SAR">USD/SAR</option>
+                <option value="USD/AED">USD/AED</option>
+                <option value="USD/QAR">USD/QAR</option>
+                <option value="USD/KWD">USD/KWD</option>
+                <option value="USD/BHD">USD/BHD</option>
+                <option value="USD/OMR">USD/OMR</option>
+                <option value="USD/JOD">USD/JOD</option>
+
+                <!-- African Exotics -->
+                <option value="USD/NGN">USD/NGN</option>
+                <option value="USD/KES">USD/KES</option>
+                <option value="USD/GHS">USD/GHS</option>
+                <option value="USD/EGP">USD/EGP</option>
+                <option value="USD/MAD">USD/MAD</option>
+                <option value="USD/TND">USD/TND</option>
+
+                <!-- Asian Exotics -->
+                <option value="USD/CNH">USD/CNH</option>
+                <option value="USD/TWD">USD/TWD</option>
+                <option value="USD/VND">USD/VND</option>
+                <option value="USD/LKR">USD/LKR</option>
+                <option value="USD/PKR">USD/PKR</option>
+                <option value="USD/BDT">USD/BDT</option>
+                <option value="USD/NPR">USD/NPR</option>
+
+                <!-- Latin America -->
+                <option value="USD/ARS">USD/ARS</option>
+                <option value="USD/BRL">USD/BRL</option>
+                <option value="USD/CLP">USD/CLP</option>
+                <option value="USD/COP">USD/COP</option>
+                <option value="USD/PEN">USD/PEN</option>
+                <option value="USD/BOB">USD/BOB</option>
+                <option value="USD/PYG">USD/PYG</option>
+
+                <!-- Emerging Europe -->
+                <option value="USD/PLN">USD/PLN</option>
+                <option value="EUR/PLN">EUR/PLN</option>
+                <option value="USD/HUF">USD/HUF</option>
+                <option value="EUR/HUF">EUR/HUF</option>
+                <option value="USD/CZK">USD/CZK</option>
+                <option value="USD/RON">USD/RON</option>
+                <option value="USD/UAH">USD/UAH</option>
+
+                <!-- Rare but real pairs -->
+                <option value="EUR/HRK">EUR/HRK</option>
+                <option value="EUR/RSD">EUR/RSD</option>
+                <option value="EUR/ISK">EUR/ISK</option>
                 <option value="EUR/TRY">EUR/TRY</option>
                 <option value="GBP/TRY">GBP/TRY</option>
-                <option value="AUD/TRY">AUD/TRY</option>
-                <option value="CAD/TRY">CAD/TRY</option>
-                <option value="NZD/TRY">NZD/TRY</option>
-                <option value="CHF/TRY">CHF/TRY</option>
-                <option value="JPY/TRY">JPY/TRY</option>
-                <option value="USD/BRL">USD/BRL</option>
-                <option value="EUR/BRL">EUR/BRL</option>
-                <option value="GBP/BRL">GBP/BRL</option>
-                <option value="AUD/BRL">AUD/BRL</option>
-                <option value="CAD/BRL">CAD/BRL</option>
-                <option value="NZD/BRL">NZD/BRL</option>
-                <option value="CHF/BRL">CHF/BRL</option>
-                <option value="JPY/BRL">JPY/BRL</option>
-                <option value="USD/RUB">USD/RUB</option>
-                <option value="EUR/RUB">EUR/RUB</option>
-                <option value="GBP/RUB">GBP/RUB</option>
-                <option value="AUD/RUB">AUD/RUB</option>
-                <option value="CAD/RUB">CAD/RUB</option>
-                <option value="NZD/RUB">NZD/RUB</option>
-                <option value="CHF/RUB">CHF/RUB</option>
-                <option value="JPY/RUB">JPY/RUB</option>
-                <option value="USD/INR">USD/INR</option>
-                <option value="EUR/INR">EUR/INR</option>
-                <option value="GBP/INR">GBP/INR</option>
-                <option value="AUD/INR">AUD/INR</option>
-                <option value="CAD/INR">CAD/INR</option>
-                <option value="NZD/INR">NZD/INR</option>
-                <option value="CHF/INR">CHF/INR</option>
-                <option value="JPY/INR">JPY/INR</option>
-                <option value="USD/CNY">USD/CNY</option>
-                <option value="EUR/CNY">EUR/CNY</option>
-                <option value="GBP/CNY">GBP/CNY</option>
-                <option value="AUD/CNY">AUD/CNY</option>
-                <option value="CAD/CNY">CAD/CNY</option>
-                <option value="NZD/CNY">NZD/CNY</option>
-                <option value="CHF/CNY">CHF/CNY</option>
-                <option value="JPY/CNY">JPY/CNY</option>
-                <option value="USD/KRW">USD/KRW</option>
-                <option value="EUR/KRW">EUR/KRW</option>
-                <option value="GBP/KRW">GBP/KRW</option>
-                <option value="AUD/KRW">AUD/KRW</option>
-                <option value="CAD/KRW">CAD/KRW</option>
-                <option value="NZD/KRW">NZD/KRW</option>
-                <option value="CHF/KRW">CHF/KRW</option>
-                <option value="JPY/KRW">JPY/KRW</option>
-                <option value="USD/PHP">USD/PHP</option>
-                <option value="EUR/PHP">EUR/PHP</option>
-                <option value="GBP/PHP">GBP/PHP</option>
-                <option value="AUD/PHP">AUD/PHP</option>
-                <option value="CAD/PHP">CAD/PHP</option>
-                <option value="NZD/PHP">NZD/PHP</option>
-                <option value="CHF/PHP">CHF/PHP</option>
-                <option value="JPY/PHP">JPY/PHP</option>
-                <option value="USD/IDR">USD/IDR</option>
-                <option value="EUR/IDR">EUR/IDR</option>
-                <option value="GBP/IDR">GBP/IDR</option>
-                <option value="AUD/IDR">AUD/IDR</option>
-                <option value="CAD/IDR">CAD/IDR</option>
-                <option value="NZD/IDR">NZD/IDR</option>
-                <option value="CHF/IDR">CHF/IDR</option>
-                <option value="JPY/IDR">JPY/IDR</option>
-                <option value="USD/THB">USD/THB</option>
-                <option value="EUR/THB">EUR/THB</option>
-                <option value="GBP/THB">GBP/THB</option>
-                <option value="AUD/THB">AUD/THB</option>
-                <option value="CAD/THB">CAD/THB</option>
-                <option value="NZD/THB">NZD/THB</option>
-                <option value="CHF/THB">CHF/THB</option>
-                <option value="JPY/THB">JPY/THB</option>
-                <option value="USD/MYR">USD/MYR</option>
-                <option value="EUR/MYR">EUR/MYR</option>
-                <option value="GBP/MYR">GBP/MYR</option>
-                <option value="AUD/MYR">AUD/MYR</option>
-                <option value="CAD/MYR">CAD/MYR</option>
-                <option value="NZD/MYR">NZD/MYR</option>
-                <option value="CHF/MYR">CHF/MYR</option>
-                <option value="JPY/MYR">JPY/MYR</option>
-                <option value="USD/VND">USD/VND</option>
-                <option value="EUR/VND">EUR/VND</option>
-                <option value="GBP/VND">GBP/VND</option>
-                <option value="AUD/VND">AUD/VND</option>
-                <option value="CAD/VND">CAD/VND</option>
-                <option value="NZD/VND">NZD/VND</option>
-                <option value="CHF/VND">CHF/VND</option>
-                <option value="JPY/VND">JPY/VND</option>
+                <option value="USD/TRY">USD/TRY</option>
+
               </select>
             </div>
 
             <div class="form-group">
               <label class="label">Stop Loss</label>
-              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+              <input type="text" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Take Profit</label>
-              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
+              <input type="text" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Entry Price</label>
-              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+              <input type="text" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
             </div>
 
             <div class="form-group">
@@ -555,169 +652,398 @@
 
             <div class="form-group">
               <label class="label">Amount</label>
-              <input type="number" placeholder="Enter Amount"  name="Amount" v-model="amountTrade"  required/>
+              <input type="text" placeholder="Enter Amount"  name="Amount" v-model="amountTrade"  required/>
             </div>
+
+
 
             <div class="form-group">
               <label class="label">Markets</label>
-              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded" >
-                <option selected disabled value="">Select Market</option>
-                <option :value="null" disabled>Select Market</option>
-                <option value="BCH/BTC">BCH/BTC</option>
-                <option value="BCH/EUR">BCH/EUR</option>
-                <option value="BCH/GBP">BCH/GBP</option>
-                <option value="BTC-EOS">BTC-EOS</option>
-                <option value="BTC/EUR">BTC/EUR</option>
-                <option value="BTC/GBP">BTC/GBP</option>
-                <option value="BTC/USD">BTC/USD</option>
-                <option value="BTC/USDC">BTC/USDC</option>
-                <option value="EOS/BTC">EOS/BTC</option>
-                <option value="EOS/EUR">EOS/EUR</option>
-                <option value="EOS/USD">EOS/USD</option>
-                <option value="ETC/BTC">ETC/BTC</option>
-                <option value="ETC/EUR">ETC/EUR</option>
-                <option value="ETC/GBP">ETC/GBP</option>
-                <option value="ETC/USD">ETC/USD</option>
-                <option value="ETH/BTC">ETH/BTC</option>
-                <option value="ETH/EUR">ETH/EUR</option>
-                <option value="ETH/GBP">ETH/GBP</option>
-                <option value="ETH/USD">ETH/USD</option>
-                <option value="LTC/BTC">LTC/BTC</option>
-                <option value="LTC/EUR">LTC/EUR</option>
-                <option value="LTC/GBP">LTC/GBP</option>
-                <option value="LTC/USD">LTC/USD</option>
-                <option value="MKR/BTC">MKR/BTC</option>
-                <option value="PCP-BTC">PCP-BTC</option>
-                <option value="REP/BTC">REP/BTC</option>
-                <option value="REP/USD">REP/USD</option>
-                <option value="TXR/GBP">TXR/GBP</option>
-                <option value="XLM/BTC">XLM/BTC</option>
-                <option value="XLM/EUR">XLM/EUR</option>
-                <option value="XLM/USD">XLM/USD</option>
-                <option value="XRP/BTC">XRP/BTC</option>
-                <option value="XRP/EUR">XRP/EUR</option>
-                <option value="XRP/USD">XRP/USD</option>
-                <option value="ZEC/BTC">ZEC/BTC</option>
-                <option value="ZRX/BTC">ZRX/BTC</option>
-                <option value="ZRX/EUR">ZRX/EUR</option>
-                <option value="ZRX/USD">ZRX/USD</option>
+              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded">
+                <option value="" disabled selected>Select Crypto Pair</option>
+                <option :value="null" disabled>Select Crypto Pair</option>
+
+                <option value="1INCH/BTC">1INCH/BTC</option>
+                <option value="1INCH/ETH">1INCH/ETH</option>
+                <option value="1INCH/USDT">1INCH/USDT</option>
+                <option value="AAVE/BTC">AAVE/BTC</option>
+                <option value="AAVE/ETH">AAVE/ETH</option>
+                <option value="AAVE/USDT">AAVE/USDT</option>
+                <option value="ACH/BTC">ACH/BTC</option>
+                <option value="ACH/USDT">ACH/USDT</option>
                 <option value="ADA/BTC">ADA/BTC</option>
+                <option value="ADA/ETH">ADA/ETH</option>
                 <option value="ADA/EUR">ADA/EUR</option>
                 <option value="ADA/GBP">ADA/GBP</option>
-                <option value="ADA/USD">ADA/USD</option>
-                <option value="ADA/ETH">ADA/ETH</option>
+                <option value="ADA/USDT">ADA/USDT</option>
+                <option value="AGIX/USDT">AGIX/USDT</option>
+                <option value="AGLD/USDT">AGLD/USDT</option>
+                <option value="AKT/BTC">AKT/BTC</option>
+                <option value="AKT/USDT">AKT/USDT</option>
+                <option value="ALGO/BTC">ALGO/BTC</option>
+                <option value="ALGO/ETH">ALGO/ETH</option>
+                <option value="ALGO/EUR">ALGO/EUR</option>
+                <option value="ALGO/USDT">ALGO/USDT</option>
+                <option value="ALICE/BTC">ALICE/BTC</option>
+                <option value="ALICE/USDT">ALICE/USDT</option>
+                <option value="ALPACA/USDT">ALPACA/USDT</option>
+                <option value="ALT/USDT">ALT/USDT</option>
+                <option value="AMB/USDT">AMB/USDT</option>
+                <option value="ANKR/BTC">ANKR/BTC</option>
+                <option value="ANKR/USDT">ANKR/USDT</option>
+                <option value="ANT/BTC">ANT/BTC</option>
+                <option value="ANT/USDT">ANT/USDT</option>
+                <option value="APE/BTC">APE/BTC</option>
+                <option value="APE/ETH">APE/ETH</option>
+                <option value="APE/USDT">APE/USDT</option>
+                <option value="API3/BTC">API3/BTC</option>
+                <option value="API3/USDT">API3/USDT</option>
+                <option value="APT/BTC">APT/BTC</option>
+                <option value="APT/ETH">APT/ETH</option>
+                <option value="APT/USDT">APT/USDT</option>
+                <option value="AR/BTC">AR/BTC</option>
+                <option value="AR/USDT">AR/USDT</option>
+                <option value="ARB/BTC">ARB/BTC</option>
+                <option value="ARB/ETH">ARB/ETH</option>
+                <option value="ARB/USDT">ARB/USDT</option>
+                <option value="ARK/USDT">ARK/USDT</option>
+                <option value="ARKM/USDT">ARKM/USDT</option>
+                <option value="ASTR/BTC">ASTR/BTC</option>
+                <option value="ASTR/USDT">ASTR/USDT</option>
+                <option value="ATOM/BTC">ATOM/BTC</option>
+                <option value="ATOM/ETH">ATOM/ETH</option>
+                <option value="ATOM/EUR">ATOM/EUR</option>
+                <option value="ATOM/USDT">ATOM/USDT</option>
+                <option value="AUDIO/BTC">AUDIO/BTC</option>
+                <option value="AUDIO/USDT">AUDIO/USDT</option>
+                <option value="AVAX/BTC">AVAX/BTC</option>
+                <option value="AVAX/ETH">AVAX/ETH</option>
+                <option value="AVAX/EUR">AVAX/EUR</option>
+                <option value="AVAX/USDT">AVAX/USDT</option>
+                <option value="AXS/BTC">AXS/BTC</option>
+                <option value="AXS/ETH">AXS/ETH</option>
+                <option value="AXS/USDT">AXS/USDT</option>
+                <option value="BABYDOGE/USDT">BABYDOGE/USDT</option>
+                <option value="BAKE/USDT">BAKE/USDT</option>
+                <option value="BAL/USDT">BAL/USDT</option>
+                <option value="BAND/BTC">BAND/BTC</option>
+                <option value="BAND/USDT">BAND/USDT</option>
+                <option value="BAT/BTC">BAT/BTC</option>
+                <option value="BAT/USDT">BAT/USDT</option>
+                <option value="BCH/BTC">BCH/BTC</option>
+                <option value="BCH/ETH">BCH/ETH</option>
+                <option value="BCH/EUR">BCH/EUR</option>
+                <option value="BCH/GBP">BCH/GBP</option>
+                <option value="BCH/USDT">BCH/USDT</option>
+                <option value="BEAM/USDT">BEAM/USDT</option>
+                <option value="BEL/USDT">BEL/USDT</option>
+                <option value="BIGTIME/USDT">BIGTIME/USDT</option>
+                <option value="BLUR/BTC">BLUR/BTC</option>
+                <option value="BLUR/USDT">BLUR/USDT</option>
+                <option value="BLZ/USDT">BLZ/USDT</option>
                 <option value="BNB/BTC">BNB/BTC</option>
+                <option value="BNB/ETH">BNB/ETH</option>
                 <option value="BNB/EUR">BNB/EUR</option>
                 <option value="BNB/GBP">BNB/GBP</option>
-                <option value="BNB/USD">BNB/USD</option>
-                <option value="BNB/ETH">BNB/ETH</option>
+                <option value="BNB/USDT">BNB/USDT</option>
+                <option value="BNT/USDT">BNT/USDT</option>
+                <option value="BNX/USDT">BNX/USDT</option>
+                <option value="BOME/USDT">BOME/USDT</option>
+                <option value="BSW/USDT">BSW/USDT</option>
+                <option value="BTC/DAI">BTC/DAI</option>
+                <option value="BTC/EUR">BTC/EUR</option>
+                <option value="BTC/GBP">BTC/GBP</option>
+                <option value="BTC/USDC">BTC/USDC</option>
+                <option value="BTC/USDT">BTC/USDT</option>
+                <option value="C98/USDT">C98/USDT</option>
+                <option value="CAKE/BTC">CAKE/BTC</option>
+                <option value="CAKE/USDT">CAKE/USDT</option>
+                <option value="CELO/BTC">CELO/BTC</option>
+                <option value="CELO/USDT">CELO/USDT</option>
+                <option value="CELR/USDT">CELR/USDT</option>
+                <option value="CFX/USDT">CFX/USDT</option>
+                <option value="CHZ/BTC">CHZ/BTC</option>
+                <option value="CHZ/USDT">CHZ/USDT</option>
+                <option value="COMP/BTC">COMP/BTC</option>
+                <option value="COMP/ETH">COMP/ETH</option>
+                <option value="COMP/EUR">COMP/EUR</option>
+                <option value="COMP/USDT">COMP/USDT</option>
+                <option value="COTI/USDT">COTI/USDT</option>
+                <option value="CRV/BTC">CRV/BTC</option>
+                <option value="CRV/ETH">CRV/ETH</option>
+                <option value="CRV/USDT">CRV/USDT</option>
+                <option value="CTK/USDT">CTK/USDT</option>
+                <option value="CVX/USDT">CVX/USDT</option>
+                <option value="CYBER/USDT">CYBER/USDT</option>
+                <option value="DENT/USDT">DENT/USDT</option>
+                <option value="DGB/USDT">DGB/USDT</option>
                 <option value="DOGE/BTC">DOGE/BTC</option>
+                <option value="DOGE/ETH">DOGE/ETH</option>
                 <option value="DOGE/EUR">DOGE/EUR</option>
                 <option value="DOGE/GBP">DOGE/GBP</option>
-                <option value="DOGE/USD">DOGE/USD</option>
-                <option value="DOGE/ETH">DOGE/ETH</option>
+                <option value="DOGE/USDT">DOGE/USDT</option>
                 <option value="DOT/BTC">DOT/BTC</option>
+                <option value="DOT/ETH">DOT/ETH</option>
                 <option value="DOT/EUR">DOT/EUR</option>
                 <option value="DOT/GBP">DOT/GBP</option>
-                <option value="DOT/USD">DOT/USD</option>
-                <option value="DOT/ETH">DOT/ETH</option>
+                <option value="DOT/USDT">DOT/USDT</option>
+                <option value="DUSK/USDT">DUSK/USDT</option>
+                <option value="DYDX/BTC">DYDX/BTC</option>
+                <option value="DYDX/USDT">DYDX/USDT</option>
+                <option value="EGLD/BTC">EGLD/BTC</option>
+                <option value="EGLD/USDT">EGLD/USDT</option>
+                <option value="ENJ/BTC">ENJ/BTC</option>
+                <option value="ENJ/USDT">ENJ/USDT</option>
+                <option value="ENS/BTC">ENS/BTC</option>
+                <option value="ENS/USDT">ENS/USDT</option>
+                <option value="EOS/BTC">EOS/BTC</option>
+                <option value="EOS/ETH">EOS/ETH</option>
+                <option value="EOS/EUR">EOS/EUR</option>
+                <option value="EOS/USD">EOS/USD</option>
+                <option value="EOS/USDT">EOS/USDT</option>
+                <option value="ETC/BTC">ETC/BTC</option>
+                <option value="ETC/ETH">ETC/ETH</option>
+                <option value="ETC/EUR">ETC/EUR</option>
+                <option value="ETC/GBP">ETC/GBP</option>
+                <option value="ETC/USDT">ETC/USDT</option>
+                <option value="ETH/BTC">ETH/BTC</option>
+                <option value="ETH/DAI">ETH/DAI</option>
+                <option value="ETH/EUR">ETH/EUR</option>
+                <option value="ETH/GBP">ETH/GBP</option>
+                <option value="ETH/USDC">ETH/USDC</option>
+                <option value="ETH/USDT">ETH/USDT</option>
+                <option value="FET/BTC">FET/BTC</option>
+                <option value="FET/USDT">FET/USDT</option>
+                <option value="FIL/BTC">FIL/BTC</option>
+                <option value="FIL/ETH">FIL/ETH</option>
+                <option value="FIL/EUR">FIL/EUR</option>
+                <option value="FIL/USDT">FIL/USDT</option>
+                <option value="FLM/USDT">FLM/USDT</option>
+                <option value="FLOW/BTC">FLOW/BTC</option>
+                <option value="FLOW/USDT">FLOW/USDT</option>
+                <option value="FTM/BTC">FTM/BTC</option>
+                <option value="FTM/ETH">FTM/ETH</option>
+                <option value="FTM/USDT">FTM/USDT</option>
+                <option value="FXS/USDT">FXS/USDT</option>
+                <option value="GALA/BTC">GALA/BTC</option>
+                <option value="GALA/ETH">GALA/ETH</option>
+                <option value="GALA/USDT">GALA/USDT</option>
+                <option value="GAL/USDT">GAL/USDT</option>
+                <option value="GMT/BTC">GMT/BTC</option>
+                <option value="GMT/USDT">GMT/USDT</option>
+                <option value="GMX/USDT">GMX/USDT</option>
+                <option value="GRT/BTC">GRT/BTC</option>
+                <option value="GRT/USDT">GRT/USDT</option>
+                <option value="HBAR/BTC">HBAR/BTC</option>
+                <option value="HBAR/USDT">HBAR/USDT</option>
+                <option value="HFT/USDT">HFT/USDT</option>
+                <option value="HIGH/USDT">HIGH/USDT</option>
+                <option value="HNT/BTC">HNT/BTC</option>
+                <option value="HNT/USDT">HNT/USDT</option>
+                <option value="HOOK/USDT">HOOK/USDT</option>
+                <option value="HOT/USDT">HOT/USDT</option>
+                <option value="ICP/BTC">ICP/BTC</option>
+                <option value="ICP/ETH">ICP/ETH</option>
+                <option value="ICP/EUR">ICP/EUR</option>
+                <option value="ICP/USDT">ICP/USDT</option>
+                <option value="ICX/BTC">ICX/BTC</option>
+                <option value="ICX/USDT">ICX/USDT</option>
+                <option value="ID/USDT">ID/USDT</option>
+                <option value="ILV/USDT">ILV/USDT</option>
+                <option value="IMX/BTC">IMX/BTC</option>
+                <option value="IMX/USDT">IMX/USDT</option>
+                <option value="INJ/BTC">INJ/BTC</option>
+                <option value="INJ/USDT">INJ/USDT</option>
+                <option value="IO/USDT">IO/USDT</option>
+                <option value="IOTA/BTC">IOTA/BTC</option>
+                <option value="IOTA/USDT">IOTA/USDT</option>
+                <option value="IOTX/USDT">IOTX/USDT</option>
+                <option value="JASMY/USDT">JASMY/USDT</option>
+                <option value="JTO/USDT">JTO/USDT</option>
+                <option value="KAVA/BTC">KAVA/BTC</option>
+                <option value="KAVA/USDT">KAVA/USDT</option>
+                <option value="KDA/USDT">KDA/USDT</option>
+                <option value="KLAY/USDT">KLAY/USDT</option>
+                <option value="KNC/BTC">KNC/BTC</option>
+                <option value="KNC/USDT">KNC/USDT</option>
+                <option value="KSM/BTC">KSM/BTC</option>
+                <option value="KSM/ETH">KSM/ETH</option>
+                <option value="KSM/USDT">KSM/USDT</option>
+                <option value="LDO/BTC">LDO/BTC</option>
+                <option value="LDO/USDT">LDO/USDT</option>
+                <option value="LEVER/USDT">LEVER/USDT</option>
+                <option value="LINA/USDT">LINA/USDT</option>
                 <option value="LINK/BTC">LINK/BTC</option>
+                <option value="LINK/ETH">LINK/ETH</option>
                 <option value="LINK/EUR">LINK/EUR</option>
                 <option value="LINK/GBP">LINK/GBP</option>
-                <option value="LINK/USD">LINK/USD</option>
-                <option value="LINK/ETH">LINK/ETH</option>
+                <option value="LINK/USDT">LINK/USDT</option>
+                <option value="LIT/USDT">LIT/USDT</option>
+                <option value="LOOM/USDT">LOOM/USDT</option>
+                <option value="LRC/BTC">LRC/BTC</option>
+                <option value="LRC/USDT">LRC/USDT</option>
+                <option value="LTC/BTC">LTC/BTC</option>
+                <option value="LTC/ETH">LTC/ETH</option>
+                <option value="LTC/EUR">LTC/EUR</option>
+                <option value="LTC/GBP">LTC/GBP</option>
+                <option value="LTC/USDT">LTC/USDT</option>
+                <option value="LUNA/USDT">LUNA/USDT</option>
+                <option value="MAGIC/USDT">MAGIC/USDT</option>
+                <option value="MANA/BTC">MANA/BTC</option>
+                <option value="MANA/ETH">MANA/ETH</option>
+                <option value="MANA/USDT">MANA/USDT</option>
+                <option value="MASK/USDT">MASK/USDT</option>
+                <option value="MATIC/BTC">MATIC/BTC</option>
+                <option value="MATIC/ETH">MATIC/ETH</option>
+                <option value="MATIC/EUR">MATIC/EUR</option>
+                <option value="MATIC/USDT">MATIC/USDT</option>
+                <option value="MAV/USDT">MAV/USDT</option>
+                <option value="MINA/BTC">MINA/BTC</option>
+                <option value="MINA/USDT">MINA/USDT</option>
+                <option value="MKR/BTC">MKR/BTC</option>
+                <option value="MKR/ETH">MKR/ETH</option>
+                <option value="MKR/USDT">MKR/USDT</option>
+                <option value="MOVR/USDT">MOVR/USDT</option>
+                <option value="MTL/USDT">MTL/USDT</option>
+                <option value="NEAR/BTC">NEAR/BTC</option>
+                <option value="NEAR/ETH">NEAR/ETH</option>
+                <option value="NEAR/USDT">NEAR/USDT</option>
                 <option value="NEO/BTC">NEO/BTC</option>
-                <option value="NEO/EUR">NEO/EUR</option>
-                <option value="NEO/GBP">NEO/GBP</option>
-                <option value="NEO/USD">NEO/USD</option>
                 <option value="NEO/ETH">NEO/ETH</option>
-                <option value="TRX/BTC">TRX/BTC</option>
-                <option value="TRX/EUR">TRX/EUR</option>
-                <option value="TRX/GBP">TRX/GBP</option>
-                <option value="TRX/USD">TRX/USD</option>
-                <option value="TRX/ETH">TRX/ETH</option>
-                <option value="VET/BTC">VET/BTC</option>
-                <option value="VET/EUR">VET/EUR</option>
-                <option value="VET/GBP">VET/GBP</option>
-                <option value="VET/USD">VET/USD</option>
-                <option value="VET/ETH">VET/ETH</option>
+                <option value="NEO/EUR">NEO/EUR</option>
+                <option value="NEO/USDT">NEO/USDT</option>
+                <option value="NKN/USDT">NKN/USDT</option>
+                <option value="NOT/USDT">NOT/USDT</option>
+                <option value="OCEAN/BTC">OCEAN/BTC</option>
+                <option value="OCEAN/USDT">OCEAN/USDT</option>
+                <option value="OGN/USDT">OGN/USDT</option>
+                <option value="OMG/BTC">OMG/BTC</option>
+                <option value="OMG/USDT">OMG/USDT</option>
+                <option value="ONE/USDT">ONE/USDT</option>
+                <option value="ONDO/USDT">ONDO/USDT</option>
+                <option value="OP/BTC">OP/BTC</option>
+                <option value="OP/ETH">OP/ETH</option>
+                <option value="OP/USDT">OP/USDT</option>
+                <option value="ORDI/BTC">ORDI/BTC</option>
+                <option value="ORDI/USDT">ORDI/USDT</option>
+                <option value="PENDLE/USDT">PENDLE/USDT</option>
+                <option value="PEOPLE/USDT">PEOPLE/USDT</option>
+                <option value="PERP/USDT">PERP/USDT</option>
+                <option value="PHB/USDT">PHB/USDT</option>
+                <option value="QNT/BTC">QNT/BTC</option>
+                <option value="QNT/USDT">QNT/USDT</option>
+                <option value="QTUM/BTC">QTUM/BTC</option>
+                <option value="QTUM/USDT">QTUM/USDT</option>
+                <option value="RAD/USDT">RAD/USDT</option>
+                <option value="REEF/USDT">REEF/USDT</option>
+                <option value="REN/BTC">REN/BTC</option>
+                <option value="REN/USDT">REN/USDT</option>
+                <option value="RLC/USDT">RLC/USDT</option>
+                <option value="RNDR/BTC">RNDR/BTC</option>
+                <option value="RNDR/USDT">RNDR/USDT</option>
+                <option value="ROSE/USDT">ROSE/USDT</option>
+                <option value="RSR/USDT">RSR/USDT</option>
+                <option value="RUNE/BTC">RUNE/BTC</option>
+                <option value="RUNE/USDT">RUNE/USDT</option>
+                <option value="RVN/USDT">RVN/USDT</option>
+                <option value="SAND/BTC">SAND/BTC</option>
+                <option value="SAND/ETH">SAND/ETH</option>
+                <option value="SAND/USDT">SAND/USDT</option>
+                <option value="SEI/BTC">SEI/BTC</option>
+                <option value="SEI/USDT">SEI/USDT</option>
+                <option value="SHIB/BTC">SHIB/BTC</option>
+                <option value="SHIB/ETH">SHIB/ETH</option>
+                <option value="SHIB/EUR">SHIB/EUR</option>
+                <option value="SHIB/USDT">SHIB/USDT</option>
+                <option value="SKL/USDT">SKL/USDT</option>
+                <option value="SLP/USDT">SLP/USDT</option>
+                <option value="SNX/BTC">SNX/BTC</option>
+                <option value="SNX/USDT">SNX/USDT</option>
                 <option value="SOL/BTC">SOL/BTC</option>
+                <option value="SOL/ETH">SOL/ETH</option>
                 <option value="SOL/EUR">SOL/EUR</option>
                 <option value="SOL/GBP">SOL/GBP</option>
-                <option value="SOL/USD">SOL/USD</option>
-                <option value="SOL/ETH">SOL/ETH</option>
-                <option value="ALGO/BTC">ALGO/BTC</option>
-                <option value="ALGO/EUR">ALGO/EUR</option>
-                <option value="ALGO/GBP">ALGO/GBP</option>
-                <option value="ALGO/USD">ALGO/USD</option>
-                <option value="ALGO/ETH">ALGO/ETH</option>
-                <option value="FIL/BTC">FIL/BTC</option>
-                <option value="FIL/EUR">FIL/EUR</option>
-                <option value="FIL/GBP">FIL/GBP</option>
-                <option value="FIL/USD">FIL/USD</option>
-                <option value="FIL/ETH">FIL/ETH</option>
+                <option value="SOL/USDT">SOL/USDT</option>
+                <option value="SSV/USDT">SSV/USDT</option>
+                <option value="STG/USDT">STG/USDT</option>
+                <option value="STMX/USDT">STMX/USDT</option>
+                <option value="STORJ/BTC">STORJ/BTC</option>
+                <option value="STORJ/USDT">STORJ/USDT</option>
+                <option value="STX/BTC">STX/BTC</option>
+                <option value="STX/USDT">STX/USDT</option>
+                <option value="SUI/BTC">SUI/BTC</option>
+                <option value="SUI/USDT">SUI/USDT</option>
+                <option value="SUSHI/BTC">SUSHI/BTC</option>
+                <option value="SUSHI/USDT">SUSHI/USDT</option>
+                <option value="SXP/USDT">SXP/USDT</option>
+                <option value="THETA/BTC">THETA/BTC</option>
+                <option value="THETA/USDT">THETA/USDT</option>
+                <option value="TIA/BTC">TIA/BTC</option>
+                <option value="TIA/USDT">TIA/USDT</option>
+                <option value="TLM/USDT">TLM/USDT</option>
+                <option value="TRX/BTC">TRX/BTC</option>
+                <option value="TRX/ETH">TRX/ETH</option>
+                <option value="TRX/EUR">TRX/EUR</option>
+                <option value="TRX/USDT">TRX/USDT</option>
+                <option value="TWT/USDT">TWT/USDT</option>
+                <option value="UMA/USDT">UMA/USDT</option>
+                <option value="UNFI/USDT">UNFI/USDT</option>
                 <option value="UNI/BTC">UNI/BTC</option>
-                <option value="UNI/EUR">UNI/EUR</option>
-                <option value="UNI/GBP">UNI/GBP</option>
-                <option value="UNI/USD">UNI/USD</option>
                 <option value="UNI/ETH">UNI/ETH</option>
-                <option value="AAVE/BTC">AAVE/BTC</option>
-                <option value="AAVE/EUR">AAVE/EUR</option>
-                <option value="AAVE/GBP">AAVE/GBP</option>
-                <option value="AAVE/USD">AAVE/USD</option>
-                <option value="AAVE/ETH">AAVE/ETH</option>
+                <option value="UNI/EUR">UNI/EUR</option>
+                <option value="UNI/USDT">UNI/USDT</option>
+                <option value="VET/BTC">VET/BTC</option>
+                <option value="VET/ETH">VET/ETH</option>
+                <option value="VET/USDT">VET/USDT</option>
+                <option value="WAVES/BTC">WAVES/BTC</option>
+                <option value="WAVES/USDT">WAVES/USDT</option>
+                <option value="WLD/USDT">WLD/USDT</option>
+                <option value="WOO/USDT">WOO/USDT</option>
+                <option value="XAI/USDT">XAI/USDT</option>
+                <option value="XLM/BTC">XLM/BTC</option>
+                <option value="XLM/ETH">XLM/ETH</option>
+                <option value="XLM/EUR">XLM/EUR</option>
+                <option value="XLM/USDT">XLM/USDT</option>
+                <option value="XMR/BTC">XMR/BTC</option>
+                <option value="XMR/USDT">XMR/USDT</option>
+                <option value="XRP/BTC">XRP/BTC</option>
+                <option value="XRP/ETH">XRP/ETH</option>
+                <option value="XRP/EUR">XRP/EUR</option>
+                <option value="XRP/GBP">XRP/GBP</option>
+                <option value="XRP/USDT">XRP/USDT</option>
                 <option value="XTZ/BTC">XTZ/BTC</option>
-                <option value="XTZ/EUR">XTZ/EUR</option>
-                <option value="XTZ/GBP">XTZ/GBP</option>
-                <option value="XTZ/USD">XTZ/USD</option>
                 <option value="XTZ/ETH">XTZ/ETH</option>
-                <option value="SHIB/BTC">SHIB/BTC</option>
-                <option value="SHIB/EUR">SHIB/EUR</option>
-                <option value="SHIB/GBP">SHIB/GBP</option>
-                <option value="SHIB/USD">SHIB/USD</option>
-                <option value="SHIB/ETH">SHIB/ETH</option>
-                <option value="AVAX/BTC">AVAX/BTC</option>
-                <option value="AVAX/EUR">AVAX/EUR</option>
-                <option value="AVAX/GBP">AVAX/GBP</option>
-                <option value="AVAX/USD">AVAX/USD</option>
-                <option value="AVAX/ETH">AVAX/ETH</option>
-                <option value="COMP/BTC">COMP/BTC</option>
-                <option value="COMP/EUR">COMP/EUR</option>
-                <option value="COMP/GBP">COMP/GBP</option>
-                <option value="COMP/USD">COMP/USD</option>
-                <option value="COMP/ETH">COMP/ETH</option>
-                <option value="MATIC/BTC">MATIC/BTC</option>
-                <option value="MATIC/EUR">MATIC/EUR</option>
-                <option value="MATIC/GBP">MATIC/GBP</option>
-                <option value="MATIC/USD">MATIC/USD</option>
-                <option value="MATIC/ETH">MATIC/ETH</option>
-                <option value="KSM/BTC">KSM/BTC</option>
-                <option value="KSM/EUR">KSM/EUR</option>
-                <option value="KSM/GBP">KSM/GBP</option>
-                <option value="KSM/USD">KSM/USD</option>
-                <option value="KSM/ETH">KSM/ETH</option>
-                <option value="ICP/BTC">ICP/BTC</option>
-                <option value="ICP/EUR">ICP/EUR</option>
-                <option value="ICP/GBP">ICP/GBP</option>
-                <option value="ICP/USD">ICP/USD</option>
-                <option value="ICP/ETH">ICP/ETH</option>
+                <option value="XTZ/EUR">XTZ/EUR</option>
+                <option value="XTZ/USDT">XTZ/USDT</option>
+                <option value="YFI/BTC">YFI/BTC</option>
+                <option value="YFI/ETH">YFI/ETH</option>
+                <option value="YFI/USDT">YFI/USDT</option>
+                <option value="ZEC/BTC">ZEC/BTC</option>
+                <option value="ZEC/USDT">ZEC/USDT</option>
+                <option value="ZEN/USDT">ZEN/USDT</option>
+                <option value="ZIL/BTC">ZIL/BTC</option>
+                <option value="ZIL/USDT">ZIL/USDT</option>
+                <option value="ZRX/BTC">ZRX/BTC</option>
+                <option value="ZRX/ETH">ZRX/ETH</option>
+                <option value="ZRX/EUR">ZRX/EUR</option>
+                <option value="ZRX/USDT">ZRX/USDT</option>
 
               </select>
             </div>
 
             <div class="form-group">
               <label class="label">Stop Loss</label>
-              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
+              <input type="text" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Take Profit</label>
-              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+              <input type="text" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Entry Price</label>
-              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+              <input type="text" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
             </div>
 
             <div class="form-group">
@@ -771,151 +1097,215 @@
 
             <div class="form-group">
               <label class="label">Amount</label>
-              <input type="number" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
+              <input type="text" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
             </div>
+
 
             <div class="form-group">
               <label class="label">Markets</label>
-              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded" >
-                <option selected disabled value="">Select Market</option>
-                <option :value="null" disabled>Select Market</option>
-                <option value="US 30">US 30</option>
-                <option value="UKX">UKX</option>
-                <option value="VIX Volatility Index">VIX Volatility Index</option>
-                <option value="Germany 30">Germany 30</option>
-                <option value="USA 500">USA 500</option>
-                <option value="US Tech 100">US Tech 100</option>
-                <option value="Japan 225">Japan 225</option>
-                <option value="Europe 50">Europe 50</option>
-                <option value="US Wall St 30">US Wall St 30</option>
-                <option value="AUXAUD">AUXAUD</option>
-                <option value="BCOUSD">BCOUSD</option>
-                <option value="WEST TEXAS OIL">WEST TEXAS OIL</option>
-                <option value="CAC40">CAC40</option>
-                <option value="DXY">DXY</option>
-                <option value="EU50">EU50</option>
-                <option value="FR40">FR40</option>
-                <option value="GRXEUR">GRXEUR</option>
-                <option value="HELCHF">HELCHF</option>
-                <option value="JPXJPY">JPXJPY</option>
-                <option value="KRUUSD">KRUUSD</option>
-                <option value="LTNEUR">LTNEUR</option>
-                <option value="RUA">RUA</option>
-                <option value="TR03">TR03</option>
-                <option value="USDBRO">USDBRO</option>
-                <option value="S&amp;P 100">S&amp;P 100</option>
-                <option value="SXE5">SXE5</option>
-                <option value="DOECHF">DOECHF</option>
-                <option value="FAANG">FAANG</option>
-                <option value="GRXEUR">GRXEUR</option>
-                <option value="VRLCHF">VRLCHF</option>
-                <option value="XPTUSD">XPTUSD</option>
-                <option value="ZA20">ZA20</option>
-                <option value="HK50">HK50</option>
-                <option value="ID05Y">ID05Y</option>
-                <option value="US Small 200">US Small 200</option>
-                <option value="NY Tech">NY Tech</option>
-                <option value="US MidCap 400">US MidCap 400</option>
-                <option value="China A50">China A50</option>
-                <option value="India 50">India 50</option>
-                <option value="Singapore 30">Singapore 30</option>
-                <option value="Taiwan Index">Taiwan Index</option>
-                <option value="Brazil 50">Brazil 50</option>
-                <option value="Mexico 35">Mexico 35</option>
-                <option value="Russia 50">Russia 50</option>
-                <option value="Turkey 20">Turkey 20</option>
-                <option value="South Africa 40">South Africa 40</option>
-                <option value="Egypt Index">Egypt Index</option>
-                <option value="Nigeria 30">Nigeria 30</option>
-                <option value="Vietnam 30">Vietnam 30</option>
-                <option value="Gulf 20">Gulf 20</option>
-                <option value="ASEAN 5">ASEAN 5</option>
-                <option value="MENA 50">MENA 50</option>
-                <option value="Nordic 30">Nordic 30</option>
-                <option value="Baltic 20">Baltic 20</option>
-                <option value="Poland 20">Poland 20</option>
-                <option value="Hungary 12">Hungary 12</option>
-                <option value="Czech 20">Czech 20</option>
-                <option value="Slovakia Index">Slovakia Index</option>
-                <option value="Romania 15">Romania 15</option>
-                <option value="Bulgaria 10">Bulgaria 10</option>
-                <option value="Malta Index">Malta Index</option>
-                <option value="Cyprus Index">Cyprus Index</option>
-                <option value="Adriatic 20">Adriatic 20</option>
-                <option value="Baltic 10">Baltic 10</option>
-                <option value="Canada 60">Canada 60</option>
+              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded">
+                <option value="" disabled selected>Select CFD / Index / Commodity</option>
+                <option :value="null" disabled>Select CFD / Index / Commodity</option>
+
+                <!-- Major Global Indices -->
+                <option value="ASX 200">ASX 200 (Australia 200)</option>
+                <option value="AUS200">AUS200</option>
                 <option value="Australia 200">Australia 200</option>
-                <option value="New Zealand 50">New Zealand 50</option>
-                <option value="Chile 40">Chile 40</option>
-                <option value="Argentina 30">Argentina 30</option>
-                <option value="Peru 25">Peru 25</option>
-                <option value="Colombia 20">Colombia 20</option>
-                <option value="Venezuela 20">Venezuela 20</option>
-                <option value="Panama 20">Panama 20</option>
-                <option value="Uruguay Index">Uruguay Index</option>
-                <option value="Paraguay Index">Paraguay Index</option>
-                <option value="Iran 30">Iran 30</option>
-                <option value="Pakistan 50">Pakistan 50</option>
-                <option value="Bangladesh 30">Bangladesh 30</option>
-                <option value="Malaysia 30">Malaysia 30</option>
-                <option value="Philippines 30">Philippines 30</option>
-                <option value="Thailand 50">Thailand 50</option>
-                <option value="Myanmar Index">Myanmar Index</option>
-                <option value="Cambodia Index">Cambodia Index</option>
-                <option value="Laos Index">Laos Index</option>
-                <option value="Mongolia Index">Mongolia Index</option>
-                <option value="UAE 40">UAE 40</option>
-                <option value="Saudi 30">Saudi 30</option>
+                <option value="CAC 40">CAC 40 (France 40)</option>
+                <option value="FR40">FR40</option>
+                <option value="China A50">China A50</option>
+                <option value="CHN50">CHN50</option>
+                <option value="DAX 40">DAX 40 (Germany 40)</option>
+                <option value="GER40">GER40</option>
+                <option value="Dow Jones">Dow Jones (US 30)</option>
+                <option value="US30">US30</option>
+                <option value="Wall Street 30">Wall Street 30</option>
+                <option value="Euro Stoxx 50">Euro Stoxx 50</option>
+                <option value="EU50">EU50</option>
+                <option value="FTSE 100">FTSE 100 (UK 100)</option>
+                <option value="UK100">UK100</option>
+                <option value="Hang Seng">Hang Seng (HK50)</option>
+                <option value="HK50">HK50</option>
+                <option value="IBEX 35">IBEX 35 (Spain 35)</option>
+                <option value="ES35">ES35</option>
+                <option value="Japan 225">Japan 225 (Nikkei)</option>
+                <option value="JP225">JP225</option>
+                <option value="NASDAQ 100">NASDAQ 100 (US Tech 100)</option>
+                <option value="USTECH100">USTECH100</option>
+                <option value="S&P 500">S&P 500 (USA 500)</option>
+                <option value="US500">US500</option>
+                <option value="Switzerland 20">Switzerland 20 (SMI)</option>
+                <option value="SWI20">SWI20</option>
+
+                <!-- US Indices -->
+                <option value="Russell 2000">Russell 2000 (US Small Cap)</option>
+                <option value="US2000">US2000</option>
+                <option value="S&P MidCap 400">S&P MidCap 400</option>
+                <option value="US MidCap 400">US MidCap 400</option>
+                <option value="Dow Transports">Dow Transports</option>
+                <option value="Dow Utilities">Dow Utilities</option>
+
+                <!-- European Indices -->
+                <option value="AEX 25">AEX 25 (Netherlands)</option>
+                <option value="NL25">NL25</option>
+                <option value="ATX">ATX (Austria 20)</option>
+                <option value="BEL 20">BEL 20 (Belgium)</option>
+                <option value="PSI 20">PSI 20 (Portugal)</option>
+                <option value="OMX Stockholm 30">OMX Stockholm 30 (Sweden)</option>
+                <option value="OMX Copenhagen 25">OMX Copenhagen 25</option>
+                <option value="OMX Helsinki 25">OMX Helsinki 25</option>
+                <option value="Oslo OBX">Oslo OBX (Norway)</option>
+
+                <!-- Asia & Emerging -->
+                <option value="India 50">India 50 (NIFTY)</option>
+                <option value="IND50">IND50</option>
+                <option value="Singapore 30">Singapore 30 (STI)</option>
+                <option value="Taiwan Index">Taiwan Index (TWSE)</option>
+                <option value="KOSPI 200">KOSPI 200 (South Korea)</option>
+                <option value="KOSPI">KOSPI</option>
+                <option value="Malaysia 30">Malaysia 30 (KLCI)</option>
+                <option value="Thailand 50">Thailand 50 (SET)</option>
+                <option value="Vietnam 30">Vietnam 30 (VN30)</option>
+                <option value="Indonesia 45">Indonesia 45 (JCI)</option>
+
+                <!-- Middle East & Africa -->
+                <option value="Saudi 30">Saudi 30 (TASI)</option>
+                <option value="Tadawul All Share">Tadawul All Share</option>
                 <option value="Qatar 20">Qatar 20</option>
-                <option value="Bahrain 15">Bahrain 15</option>
-                <option value="Oman 20">Oman 20</option>
+                <option value="Dubai Index">Dubai Index</option>
+                <option value="Abu Dhabi Index">Abu Dhabi Index</option>
                 <option value="Kuwait 20">Kuwait 20</option>
-                <option value="Jordan 15">Jordan 15</option>
+                <option value="Egypt 30">Egypt 30</option>
+                <option value="South Africa 40">South Africa 40 (Top40)</option>
+                <option value="ZA40">ZA40</option>
+                <option value="Kenya 20">Kenya 20</option>
+                <option value="Nigeria 30">Nigeria 30</option>
+
+                <!-- Latin America -->
+                <option value="Brazil 50">Brazil 50 (Bovespa)</option>
+                <option value="IBOV">IBOV</option>
+                <option value="Mexico 35">Mexico 35 (IPC)</option>
+                <option value="Chile 40">Chile 40 (IPSA)</option>
+                <option value="Argentina 30">Argentina 30 (MERVAL)</option>
+                <option value="Colombia 20">Colombia 20</option>
+                <option value="Peru 25">Peru 25</option>
+
+                <!-- Commodities - Energies -->
+                <option value="Brent Crude Oil">Brent Crude Oil</option>
+                <option value="UKOIL">UKOIL</option>
+                <option value="WTI Crude Oil">WTI Crude Oil (West Texas)</option>
+                <option value="USOIL">USOIL</option>
+                <option value="Natural Gas">Natural Gas</option>
+                <option value="NGAS">NGAS</option>
+                <option value="Heating Oil">Heating Oil</option>
+                <option value="Gasoline">Gasoline (RBOB)</option>
+
+                <!-- Commodities - Metals -->
+                <option value="Gold">Gold (XAU/USD)</option>
+                <option value="XAUUSD">XAUUSD</option>
+                <option value="Silver">Silver (XAG/USD)</option>
+                <option value="XAGUSD">XAGUSD</option>
+                <option value="Platinum">Platinum (XPT/USD)</option>
+                <option value="XPTUSD">XPTUSD</option>
+                <option value="Palladium">Palladium (XPD/USD)</option>
+                <option value="XPDUSD">XPDUSD</option>
+                <option value="Copper">Copper</option>
+                <option value="COPPER">COPPER</option>
+
+                <!-- Commodities - Softs & Ags -->
+                <option value="Coffee">Coffee</option>
+                <option value="COCOA">Cocoa</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Sugar">Sugar</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Corn">Corn</option>
+                <option value="Soybeans">Soybeans</option>
+                <option value="Orange Juice">Orange Juice</option>
+
+                <!-- Bonds & Rates -->
+                <option value="US 10Y Treasury">US 10Y Treasury Note</option>
+                <option value="US10Y">US10Y</option>
+                <option value="German 10Y Bund">German 10Y Bund</option>
+                <option value="DE10Y">DE10Y</option>
+                <option value="UK 10Y Gilt">UK 10Y Gilt</option>
+                <option value="JP 10Y JGB">Japan 10Y JGB</option>
+                <option value="Euro Bund">Euro Bund</option>
+                <option value="Euro Bobl">Euro Bobl</option>
+                <option value="Euro Schatz">Euro Schatz</option>
+
+                <!-- Volatility & Special -->
+                <option value="VIX">VIX Volatility Index</option>
+                <option value="VIX">VIX</option>
+                <option value="Dollar Index">Dollar Index (DXY)</option>
+                <option value="DXY">DXY</option>
+                <option value="FAANG Index">FAANG Index</option>
+                <option value="Crypto Index">Crypto Index</option>
+
+                <!-- Crypto CFDs (Top 50) -->
+                <option value="BTCUSD">BTCUSD (Bitcoin)</option>
+                <option value="ETHUSD">ETHUSD (Ethereum)</option>
+                <option value="SOLUSD">SOLUSD (Solana)</option>
+                <option value="XRPUSD">XRPUSD (Ripple)</option>
+                <option value="ADAUSD">ADAUSD (Cardano)</option>
+                <option value="DOGEUSD">DOGEUSD (Dogecoin)</option>
+                <option value="BNBUSD">BNBUSD (Binance Coin)</option>
+                <option value="AVAXUSD">AVAXUSD</option>
+                <option value="LINKUSD">LINKUSD</option>
+                <option value="DOTUSD">DOTUSD</option>
+                <option value="MATICUSD">MATICUSD</option>
+                <option value="LTCUSD">LTCUSD</option>
+                <option value="BCHUSD">BCHUSD</option>
+                <option value="SHIBUSD">SHIBUSD</option>
+                <option value="TRXUSD">TRXUSD</option>
+                <option value="UNIUSD">UNIUSD</option>
+                <option value="APTUSD">APTUSD</option>
+                <option value="HBARUSD">HBARUSD</option>
+                <option value="VETUSD">VETUSD</option>
+                <option value="FILUSD">FILUSD</option>
+
+                <!-- More Exotic Indices -->
+                <option value="Russia 50">Russia 50 (MOEX)</option>
+                <option value="Turkey 100">Turkey 100 (BIST)</option>
+                <option value="Poland 20">Poland 20 (WIG20)</option>
+                <option value="Hungary 12">Hungary 12 (BUX)</option>
+                <option value="Czech 20">Czech 20 (PX)</option>
+                <option value="Greece 25">Greece 25 (ATG)</option>
+                <option value="Israel 35">Israel 35 (TA35)</option>
+                <option value="Pakistan 100">Pakistan 100 (KSE100)</option>
+                <option value="Thailand 50">Thailand 50</option>
+                <option value="Philippines 30">Philippines 30 (PSEi)</option>
+                <option value="Indonesia 45">Indonesia 45</option>
+                <option value="Vietnam 30">Vietnam 30</option>
+                <option value="Morocco All Share">Morocco All Share</option>
+                <option value="Kenya NSE 20">Kenya NSE 20</option>
+                <option value="Nigeria All Share">Nigeria All Share</option>
+
+                <!-- Rare & Exotic -->
+                <option value="Iceland Index">Iceland Index</option>
+                <option value="Baltic Index">Baltic Index</option>
+                <option value="Cyprus Index">Cyprus Index</option>
+                <option value="Malta Index">Malta Index</option>
+                <option value="Jordan Index">Jordan Index</option>
                 <option value="Lebanon Index">Lebanon Index</option>
-                <option value="Syria Index">Syria Index</option>
-                <option value="Georgia Index">Georgia Index</option>
-                <option value="Armenia Index">Armenia Index</option>
-                <option value="Azerbaijan 20">Azerbaijan 20</option>
-                <option value="Kazakhstan 30">Kazakhstan 30</option>
-                <option value="Uzbekistan 20">Uzbekistan 20</option>
-                <option value="Turkmenistan Index">Turkmenistan Index</option>
-                <option value="Kyrgyzstan Index">Kyrgyzstan Index</option>
-                <option value="Tajikistan Index">Tajikistan Index</option>
-                <option value="North Korea Index">North Korea Index</option>
-                <option value="South Korea 200">South Korea 200</option>
-                <option value="Japan 400">Japan 400</option>
-                <option value="Australian OZ">Australian OZ</option>
-                <option value="Swiss 20">Swiss 20</option>
-                <option value="German Tech 30">German Tech 30</option>
-                <option value="French 75">French 75</option>
-                <option value="Italian 40">Italian 40</option>
-                <option value="Spanish 35">Spanish 35</option>
-                <option value="Dutch 25">Dutch 25</option>
-                <option value="Belgium 20">Belgium 20</option>
-                <option value="Austrian 20">Austrian 20</option>
-                <option value="Greek 20">Greek 20</option>
-                <option value="Portuguese 20">Portuguese 20</option>
-                <option value="Norwegian 25">Norwegian 25</option>
-                <option value="Swedish 30">Swedish 30</option>
-                <option value="Finnish 25">Finnish 25</option>
-                <option value="Danish 20">Danish 20</option>
-                <option value="Icelandic Index">Icelandic Index</option>
+                <option value="Kazakhstan Index">Kazakhstan Index</option>
+                <option value="Uzbekistan Index">Uzbekistan Index</option>
+
               </select>
             </div>
 
             <div class="form-group">
               <label class="label">Stop Loss</label>
-              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
+              <input type="text" placeholder="Enter Stop Loss" v-model="stopLoss" name="Stop Loss"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Take Profit</label>
-              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+              <input type="text" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Entry Price</label>
-              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+              <input type="text" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
             </div>
 
             <div class="form-group">
@@ -969,166 +1359,215 @@
 
             <div class="form-group">
               <label class="label">Amount</label>
-              <input type="number" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
+              <input type="text" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
             </div>
 
             <div class="form-group">
               <label class="label">Markets</label>
-              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded" >
-                <option selected disabled value="">Select Market</option>
-                <option :value="null" disabled>Select Market</option>
-                <option value="AMAZON">AMAZON</option>
-                <option value="APPLE">APPLE</option>
-                <option value="COCA COLA">COCA COLA</option>
-                <option value="DAX30">DAX30</option>
-                <option value="AIRBNB INC">AIRBNB INC</option>
-                <option value="BOEING CO">BOEING CO</option>
-                <option value="GME STOCKS">GME STOCKS</option>
-                <option value="AMC ENTERTAINMENT">AMC ENTERTAINMENT</option>
-                <option value="BLACKBERRY">BLACKBERRY</option>
-                <option value="CITIGROUP INC">CITIGROUP INC</option>
-                <option value="CISCO SYSTEMS INC">CISCO SYSTEMS INC</option>
-                <option value="FACEBOOK">FACEBOOK</option>
-                <option value="TWITTER">TWITTER</option>
-                <option value="TESLA INC">TESLA INC</option>
-                <option value="SONY ENT">SONY ENT</option>
-                <option value="NASDAQ">NASDAQ</option>
-                <option value="ENTERPRISE GROUP INC">ENTERPRISE GROUP INC</option>
-                <option value="FORD MOTOR">FORD MOTOR</option>
-                <option value="GAZPROM">GAZPROM</option>
-                <option value="GLOBE LIFE INC">GLOBE LIFE INC</option>
-                <option value="HYDRO ONE LTD">HYDRO ONE LTD</option>
-                <option value="LOTUS VENTURES INC">LOTUS VENTURES INC</option>
-                <option value="KELLOGG COMPANY">KELLOGG COMPANY</option>
-                <option value="WAYFAIR INC">WAYFAIR INC</option>
-                <option value="WALMART INC">WALMART INC</option>
-                <option value="WALT DISNEY CO">WALT DISNEY CO</option>
-                <option value="MACY'S INC">MACY'S INC</option>
-                <option value="MCDONALD'S CORPORATIONS">MCDONALD'S CORPORATIONS</option>
-                <option value="VISA INC">VISA INC</option>
-                <option value="VERIZON">VERIZON</option>
-                <option value="TMX GROUP LTD">TMX GROUP LTD</option>
-                <option value="ALPHABET INC">ALPHABET INC</option>
-                <option value="ORGANIGRAM HOLDINGS">ORGANIGRAM HOLDINGS</option>
-                <option value="PFIZER INC">PFIZER INC</option>
-                <option value="ADOBE INC">ADOBE INC</option>
-                <option value="ALLIANZ SE">ALLIANZ SE</option>
-                <option value="AT&T INC">AT&T INC</option>
-                <option value="BAYER AG">BAYER AG</option>
-                <option value="BMW AG">BMW AG</option>
-                <option value="BP PLC">BP PLC</option>
-                <option value="BRIDGESTONE CORP">BRIDGESTONE CORP</option>
-                <option value="CANON INC">CANON INC</option>
-                <option value="CHEVRON CORP">CHEVRON CORP</option>
-                <option value="CHINA MOBILE LTD">CHINA MOBILE LTD</option>
-                <option value="CITRIX SYSTEMS INC">CITRIX SYSTEMS INC</option>
-                <option value="COMCAST CORP">COMCAST CORP</option>
-                <option value="CREDIT SUISSE GROUP AG">CREDIT SUISSE GROUP AG</option>
-                <option value="DELL TECHNOLOGIES INC">DELL TECHNOLOGIES INC</option>
-                <option value="DELTA AIR LINES INC">DELTA AIR LINES INC</option>
-                <option value="DEUTSCHE BANK AG">DEUTSCHE BANK AG</option>
-                <option value="DEUTSCHE TELEKOM AG">DEUTSCHE TELEKOM AG</option>
-                <option value="DUKE ENERGY CORP">DUKE ENERGY CORP</option>
-                <option value="EBAY INC">EBAY INC</option>
-                <option value="EMIRATES NBD">EMIRATES NBD</option>
-                <option value="EXXONMOBIL CORP">EXXONMOBIL CORP</option>
-                <option value="FACEBOOK INC">FACEBOOK INC</option>
-                <option value="FIAT CHRYSLER AUTOMOBILES">FIAT CHRYSLER AUTOMOBILES</option>
-                <option value="GENERAL ELECTRIC CO">GENERAL ELECTRIC CO</option>
-                <option value="GENERAL MOTORS CO">GENERAL MOTORS CO</option>
-                <option value="GOLDMAN SACHS GROUP INC">GOLDMAN SACHS GROUP INC</option>
-                <option value="GOOGLE LLC">GOOGLE LLC</option>
-                <option value="HEWLETT PACKARD ENTERPRISE">HEWLETT PACKARD ENTERPRISE</option>
-                <option value="HSBC HOLDINGS PLC">HSBC HOLDINGS PLC</option>
-                <option value="IBM CORP">IBM CORP</option>
-                <option value="INTEL CORP">INTEL CORP</option>
-                <option value="INTUIT INC">INTUIT INC</option>
-                <option value="J.P. MORGAN CHASE & CO">J.P. MORGAN CHASE & CO</option>
-                <option value="JOHNSON & JOHNSON">JOHNSON & JOHNSON</option>
-                <option value="JPMORGAN CHASE & CO">JPMORGAN CHASE & CO</option>
-                <option value="KIA MOTORS CORP">KIA MOTORS CORP</option>
-                <option value="KRAFT HEINZ CO">KRAFT HEINZ CO</option>
-                <option value="LENOVO GROUP LTD">LENOVO GROUP LTD</option>
-                <option value="LG ELECTRONICS INC">LG ELECTRONICS INC</option>
-                <option value="LOCKHEED MARTIN CORP">LOCKHEED MARTIN CORP</option>
-                <option value="LUFTHANSA AG">LUFTHANSA AG</option>
-                <option value="LUXOTTICA GROUP SPA">LUXOTTICA GROUP SPA</option>
-                <option value="LYFT INC">LYFT INC</option>
-                <option value="MARATHON OIL CORP">MARATHON OIL CORP</option>
-                <option value="MARVELL TECHNOLOGY GROUP">MARVELL TECHNOLOGY GROUP</option>
-                <option value="MASTERCARD INC">MASTERCARD INC</option>
-                <option value="MERRILL LYNCH & CO INC">MERRILL LYNCH & CO INC</option>
-                <option value="METLIFE INC">METLIFE INC</option>
-                <option value="MICRON TECHNOLOGY INC">MICRON TECHNOLOGY INC</option>
-                <option value="MICROSOFT CORP">MICROSOFT CORP</option>
-                <option value="MITSUBISHI CORP">MITSUBISHI CORP</option>
-                <option value="MITSUI & CO LTD">MITSUI & CO LTD</option>
-                <option value="MIZUHO FINANCIAL GROUP">MIZUHO FINANCIAL GROUP</option>
-                <option value="MONSANTO CO">MONSANTO CO</option>
-                <option value="MORGAN STANLEY">MORGAN STANLEY</option>
-                <option value="NETFLIX INC">NETFLIX INC</option>
-                <option value="NIKE INC">NIKE INC</option>
-                <option value="NISSAN MOTOR CO LTD">NISSAN MOTOR CO LTD</option>
-                <option value="NOKIA CORP">NOKIA CORP</option>
-                <option value="NORFOLK SOUTHERN CORP">NORFOLK SOUTHERN CORP</option>
-                <option value="NORTHROP GRUMMAN CORP">NORTHROP GRUMMAN CORP</option>
-                <option value="NOVARTIS AG">NOVARTIS AG</option>
-                <option value="ORACLE CORP">ORACLE CORP</option>
-                <option value="PEPSICO INC">PEPSICO INC</option>
-                <option value="PFIZER INC">PFIZER INC</option>
-                <option value="PHILIPS NV">PHILIPS NV</option>
-                <option value="PROCTER & GAMBLE CO">PROCTER & GAMBLE CO</option>
-                <option value="QUALCOMM INC">QUALCOMM INC</option>
-                <option value="RAYTHEON TECHNOLOGIES CORP">RAYTHEON TECHNOLOGIES CORP</option>
-                <option value="RENAULT SA">RENAULT SA</option>
-                <option value="ROYAL DUTCH SHELL PLC">ROYAL DUTCH SHELL PLC</option>
-                <option value="SAAB AB">SAAB AB</option>
-                <option value="SAMSUNG ELECTRONICS CO LTD">SAMSUNG ELECTRONICS CO LTD</option>
-                <option value="SANDISK CORP">SANDISK CORP</option>
-                <option value="SAP SE">SAP SE</option>
-                <option value="SCHLUMBERGER LTD">SCHLUMBERGER LTD</option>
-                <option value="SIEMENS AG">SIEMENS AG</option>
-                <option value="SNAP INC">SNAP INC</option>
-                <option value="SONY CORP">SONY CORP</option>
-                <option value="STANDARD CHARTERED PLC">STANDARD CHARTERED PLC</option>
-                <option value="STARBUCKS CORP">STARBUCKS CORP</option>
-                <option value="STELLANTIS NV">STELLANTIS NV</option>
-                <option value="SUMITOMO CORP">SUMITOMO CORP</option>
-                <option value="T-MOBILE US INC">T-MOBILE US INC</option>
-                <option value="TARGET CORP">TARGET CORP</option>
-                <option value="TATA MOTORS LTD">TATA MOTORS LTD</option>
-                <option value="TELEFONICA SA">TELEFONICA SA</option>
-                <option value="TESLA MOTORS INC">TESLA MOTORS INC</option>
-                <option value="TEXAS INSTRUMENTS INC">TEXAS INSTRUMENTS INC</option>
-                <option value="THYSSENKRUPP AG">THYSSENKRUPP AG</option>
-                <option value="TOYOTA MOTOR CORP">TOYOTA MOTOR CORP</option>
-                <option value="UBER TECHNOLOGIES INC">UBER TECHNOLOGIES INC</option>
-                <option value="UBS GROUP AG">UBS GROUP AG</option>
-                <option value="UNILEVER PLC">UNILEVER PLC</option>
-                <option value="UNITED AIRLINES HOLDINGS INC">UNITED AIRLINES HOLDINGS INC</option>
-                <option value="UNITED TECHNOLOGIES CORP">UNITED TECHNOLOGIES CORP</option>
-                <option value="VODAFONE GROUP PLC">VODAFONE GROUP PLC</option>
-                <option value="VOLKSWAGEN AG">VOLKSWAGEN AG</option>
-                <option value="WELLS FARGO & CO">WELLS FARGO & CO</option>
-                <option value="XEROX CORP">XEROX CORP</option>
-                <option value="YAHOO INC">YAHOO INC</option>
-                <option value="ZOOM VIDEO COMMUNICATIONS">ZOOM VIDEO COMMUNICATIONS</option>
+              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded">
+                <option value="" disabled selected>Select Stock / Share</option>
+                <option :value="null" disabled>Select Stock / Share</option>
+
+                <!-- A -->
+                <option value="ABBVIE INC (ABBV)">ABBVIE INC (ABBV)</option>
+                <option value="ADIDAS AG (ADS.DE)">ADIDAS AG (ADS.DE)</option>
+                <option value="ADOBE INC (ADBE)">ADOBE INC (ADBE)</option>
+                <option value="ADVANCED MICRO DEVICES (AMD)">ADVANCED MICRO DEVICES (AMD)</option>
+                <option value="AERCAP HOLDINGS (AER)">AERCAP HOLDINGS (AER)</option>
+                <option value="AIR FRANCE-KLM (AF.PA)">AIR FRANCE-KLM (AF.PA)</option>
+                <option value="AIRBNB INC (ABNB)">AIRBNB INC (ABNB)</option>
+                <option value="AIRBUS SE (AIR.PA)">AIRBUS SE (AIR.PA)</option>
+                <option value="AKBANK (AKBNK.IS)">AKBANK (AKBNK.IS)</option>
+                <option value="ALIBABA GROUP (BABA)">ALIBABA GROUP (BABA)</option>
+                <option value="ALLIANZ SE (ALV.DE)">ALLIANZ SE (ALV.DE)</option>
+                <option value="ALPHABET INC (GOOGL)">ALPHABET INC (GOOGL)</option>
+                <option value="ALPHABET INC CLASS C (GOOG)">ALPHABET INC CLASS C (GOOG)</option>
+                <option value="ALSTOM SA (ALO.PA)">ALSTOM SA (ALO.PA)</option>
+                <option value="AMAZON.COM INC (AMZN)">AMAZON.COM INC (AMZN)</option>
+                <option value="AMERICAN EXPRESS (AXP)">AMERICAN EXPRESS (AXP)</option>
+                <option value="ANHEUSER-BUSCH INBEV (ABI.BR)">ANHEUSER-BUSCH INBEV (ABI.BR)</option>
+                <option value="APPLE INC (AAPL)">APPLE INC (AAPL)</option>
+                <option value="ASML HOLDING (ASML)">ASML HOLDING (ASML)</option>
+                <option value="ASTRAZENECA PLC (AZN)">ASTRAZENECA PLC (AZN)</option>
+                <option value="AT&T INC (T)">AT&T INC (T)</option>
+
+                <!-- B -->
+                <option value="BAE SYSTEMS (BA.L)">BAE SYSTEMS (BA.L)</option>
+                <option value="BANK OF AMERICA (BAC)">BANK OF AMERICA (BAC)</option>
+                <option value="BARCLAYS PLC (BARC.L)">BARCLAYS PLC (BARC.L)</option>
+                <option value="BAYER AG (BAYN.DE)">BAYER AG (BAYN.DE)</option>
+                <option value="BAYERISCHE MOTOREN WERKE (BMW.DE)">BAYERISCHE MOTOREN WERKE (BMW.DE)</option>
+                <option value="BHP GROUP (BHP)">BHP GROUP (BHP)</option>
+                <option value="BLACKROCK INC (BLK)">BLACKROCK INC (BLK)</option>
+                <option value="BNP PARIBAS (BNP.PA)">BNP PARIBAS (BNP.PA)</option>
+                <option value="BOEING CO (BA)">BOEING CO (BA)</option>
+                <option value="BOOKING HOLDINGS (BKNG)">BOOKING HOLDINGS (BKNG)</option>
+                <option value="BP PLC (BP.L)">BP PLC (BP.L)</option>
+                <option value="BRITISH AMERICAN TOBACCO (BATS.L)">BRITISH AMERICAN TOBACCO (BATS.L)</option>
+
+                <!-- C -->
+                <option value="CANON INC (7751.T)">CANON INC (7751.T)</option>
+                <option value="CARNIVAL CORP (CCL)">CARNIVAL CORP (CCL)</option>
+                <option value="CATERPILLAR INC (CAT)">CATERPILLAR INC (CAT)</option>
+                <option value="CHEVRON CORP (CVX)">CHEVRON CORP (CVX)</option>
+                <option value="CISCO SYSTEMS INC (CSCO)">CISCO SYSTEMS INC (CSCO)</option>
+                <option value="CITIGROUP INC (C)">CITIGROUP INC (C)</option>
+                <option value="COCA-COLA CO (KO)">COCA-COLA CO (KO)</option>
+                <option value="COINBASE GLOBAL (COIN)">COINBASE GLOBAL (COIN)</option>
+                <option value="COMCAST CORP (CMCSA)">COMCAST CORP (CMCSA)</option>
+                <option value="CONOCOPHILLIPS (COP)">CONOCOPHILLIPS (COP)</option>
+                <option value="CREDIT AGRICOLE (ACA.PA)">CREDIT AGRICOLE (ACA.PA)</option>
+
+                <!-- D -->
+                <option value="DANSKE BANK (DANSKE.CO)">DANSKE BANK (DANSKE.CO)</option>
+                <option value="DEUTSCHE BANK AG (DBK.DE)">DEUTSCHE BANK AG (DBK.DE)</option>
+                <option value="DEUTSCHE POST AG (DPW.DE)">DEUTSCHE POST AG (DPW.DE)</option>
+                <option value="DEUTSCHE TELEKOM AG (DTE.DE)">DEUTSCHE TELEKOM AG (DTE.DE)</option>
+                <option value="DIAGEO PLC (DGE.L)">DIAGEO PLC (DGE.L)</option>
+                <option value="DISNEY WALT CO (DIS)">DISNEY WALT CO (DIS)</option>
+                <option value="DOW INC (DOW)">DOW INC (DOW)</option>
+
+                <!-- E -->
+                <option value="EBAY INC (EBAY)">EBAY INC (EBAY)</option>
+                <option value="ENEL SPA (ENEL.MI)">ENEL SPA (ENEL.MI)</option>
+                <option value="ENI SPA (ENI.MI)">ENI SPA (ENI.MI)</option>
+                <option value="EQUINOR ASA (EQNR.OL)">EQUINOR ASA (EQNR.OL)</option>
+                <option value="ERICSSON (ERIC)">ERICSSON (ERIC)</option>
+                <option value="ESSILORLUXOTTICA (EL.PA)">ESSILORLUXOTTICA (EL.PA)</option>
+                <option value="EXXON MOBIL CORP (XOM)">EXXON MOBIL CORP (XOM)</option>
+
+                <!-- F -->
+                <option value="FACEBOOK INC (META)">FACEBOOK INC (META)</option>
+                <option value="FEDEX CORP (FDX)">FEDEX CORP (FDX)</option>
+                <option value="FERRARI NV (RACE)">FERRARI NV (RACE)</option>
+                <option value="FORD MOTOR CO (F)">FORD MOTOR CO (F)</option>
+
+                <!-- G -->
+                <option value="GAZPROM (GAZP.ME)">GAZPROM (GAZP.ME)</option>
+                <option value="GENERAL ELECTRIC (GE)">GENERAL ELECTRIC (GE)</option>
+                <option value="GENERAL MOTORS (GM)">GENERAL MOTORS (GM)</option>
+                <option value="GILEAD SCIENCES (GILD)">GILEAD SCIENCES (GILD)</option>
+                <option value="GLAXOSMITHKLINE (GSK)">GLAXOSMITHKLINE (GSK)</option>
+                <option value="GOLDMAN SACHS (GS)">GOLDMAN SACHS (GS)</option>
+
+                <!-- H -->
+                <option value="HERMES INTERNATIONAL (RMS.PA)">HERMES INTERNATIONAL (RMS.PA)</option>
+                <option value="HOME DEPOT INC (HD)">HOME DEPOT INC (HD)</option>
+                <option value="HONDA MOTOR CO (7267.T)">HONDA MOTOR CO (7267.T)</option>
+                <option value="HSBC HOLDINGS PLC (HSBA.L)">HSBC HOLDINGS PLC (HSBA.L)</option>
+
+                <!-- I -->
+                <option value="IBM CORP (IBM)">IBM CORP (IBM)</option>
+                <option value="INTEL CORP (INTC)">INTEL CORP (INTC)</option>
+                <option value="ITAU UNIBANCO (ITUB4.SA)">ITAU UNIBANCO (ITUB4.SA)</option>
+
+                <!-- J -->
+                <option value="JOHNSON & JOHNSON (JNJ)">JOHNSON & JOHNSON (JNJ)</option>
+                <option value="JPMORGAN CHASE & CO (JPM)">JPMORGAN CHASE & CO (JPM)</option>
+
+                <!-- K -->
+                <option value="KERING SA (KER.PA)">KERING SA (KER.PA)</option>
+                <option value="KONINKLIJKE PHILIPS (PHG)">KONINKLIJKE PHILIPS (PHG)</option>
+
+                <!-- L -->
+                <option value="L'OREAL (OR.PA)">L'OREAL (OR.PA)</option>
+                <option value="LVMH MOET HENNESSY (MC.PA)">LVMH MOET HENNESSY (MC.PA)</option>
+                <option value="LOCKHEED MARTIN (LMT)">LOCKHEED MARTIN (LMT)</option>
+
+                <!-- M -->
+                <option value="MASTERCARD INC (MA)">MASTERCARD INC (MA)</option>
+                <option value="MCDONALD'S CORP (MCD)">MCDONALD'S CORP (MCD)</option>
+                <option value="MEDTRONIC PLC (MDT)">MEDTRONIC PLC (MDT)</option>
+                <option value="META PLATFORMS (META)">META PLATFORMS (META)</option>
+                <option value="MICROSOFT CORP (MSFT)">MICROSOFT CORP (MSFT)</option>
+                <option value="MITSUBISHI UFJ (8306.T)">MITSUBISHI UFJ (8306.T)</option>
+                <option value="MODERNA INC (MRNA)">MODERNA INC (MRNA)</option>
+                <option value="MORGAN STANLEY (MS)">MORGAN STANLEY (MS)</option>
+
+                <!-- N -->
+                <option value="NESTLE SA (NESN.SW)">NESTLE SA (NESN.SW)</option>
+                <option value="NETFLIX INC (NFLX)">NETFLIX INC (NFLX)</option>
+                <option value="NIKE INC (NKE)">NIKE INC (NKE)</option>
+                <option value="NIO INC (NIO)">NIO INC (NIO)</option>
+                <option value="NOKIA CORP (NOK)">NOKIA CORP (NOK)</option>
+                <option value="NOVARTIS AG (NOVN.SW)">NOVARTIS AG (NOVN.SW)</option>
+                <option value="NOVO NORDISK (NOVO-B.CO)">NOVO NORDISK (NOVO-B.CO)</option>
+                <option value="NVIDIA CORP (NVDA)">NVIDIA CORP (NVDA)</option>
+
+                <!-- O -->
+                <option value="ORACLE CORP (ORCL)">ORACLE CORP (ORCL)</option>
+
+                <!-- P -->
+                <option value="PAYPAL HOLDINGS (PYPL)">PAYPAL HOLDINGS (PYPL)</option>
+                <option value="PEPSICO INC (PEP)">PEPSICO INC (PEP)</option>
+                <option value="PFIZER INC (PFE)">PFIZER INC (PFE)</option>
+                <option value="PROCTER & GAMBLE (PG)">PROCTER & GAMBLE (PG)</option>
+
+                <!-- Q -->
+                <option value="QUALCOMM INC (QCOM)">QUALCOMM INC (QCOM)</option>
+
+                <!-- R -->
+                <option value="RENAULT SA (RNO.PA)">RENAULT SA (RNO.PA)</option>
+                <option value="RIO TINTO PLC (RIO.L)">RIO TINTO PLC (RIO.L)</option>
+                <option value="ROBLOX CORP (RBLX)">ROBLOX CORP (RBLX)</option>
+                <option value="ROCHE HOLDING (ROG.SW)">ROCHE HOLDING (ROG.SW)</option>
+                <option value="ROYAL DUTCH SHELL (SHEL)">ROYAL DUTCH SHELL (SHEL)</option>
+
+                <!-- S -->
+                <option value="SALESFORCE INC (CRM)">SALESFORCE INC (CRM)</option>
+                <option value="SAMSUNG ELECTRONICS (005930.KS)">SAMSUNG ELECTRONICS (005930.KS)</option>
+                <option value="SANOFI SA (SAN.PA)">SANOFI SA (SAN.PA)</option>
+                <option value="SAP SE (SAP.DE)">SAP SE (SAP.DE)</option>
+                <option value="SHELL PLC (SHEL.L)">SHELL PLC (SHEL.L)</option>
+                <option value="SIEMENS AG (SIE.DE)">SIEMENS AG (SIE.DE)</option>
+                <option value="SNAP INC (SNAP)">SNAP INC (SNAP)</option>
+                <option value="SONY CORP (6758.T)">SONY CORP (6758.T)</option>
+                <option value="SPOTIFY TECHNOLOGY (SPOT)">SPOTIFY TECHNOLOGY (SPOT)</option>
+                <option value="STARBUCKS CORP (SBUX)">STARBUCKS CORP (SBUX)</option>
+                <option value="STELLANTIS NV (STLA)">STELLANTIS NV (STLA)</option>
+
+                <!-- T -->
+                <option value="TAIWAN SEMICONDUCTOR (TSM)">TAIWAN SEMICONDUCTOR (TSM)</option>
+                <option value="TATA MOTORS (TATAMOTORS.NS)">TATA MOTORS (TATAMOTORS.NS)</option>
+                <option value="TESLA INC (TSLA)">TESLA INC (TSLA)</option>
+                <option value="TOYOTA MOTOR CORP (7203.T)">TOYOTA MOTOR CORP (7203.T)</option>
+                <option value="TWITTER INC (TWTR)">TWITTER INC (TWTR)</option>
+
+                <!-- U -->
+                <option value="UBER TECHNOLOGIES (UBER)">UBER TECHNOLOGIES (UBER)</option>
+                <option value="UBS GROUP AG (UBSG.SW)">UBS GROUP AG (UBSG.SW)</option>
+                <option value="UNILEVER PLC (ULVR.L)">UNILEVER PLC (ULVR.L)</option>
+                <option value="UNITEDHEALTH GROUP (UNH)">UNITEDHEALTH GROUP (UNH)</option>
+
+                <!-- V -->
+                <option value="VISA INC (V)">VISA INC (V)</option>
+                <option value="VOLKSWAGEN AG (VOW3.DE)">VOLKSWAGEN AG (VOW3.DE)</option>
+
+                <!-- W -->
+                <option value="WALMART INC (WMT)">WALMART INC (WMT)</option>
+                <option value="WELLS FARGO & CO (WFC)">WELLS FARGO & CO (WFC)</option>
+
+                <!-- X Y Z -->
+                <option value="XIAOMI CORP (1810.HK)">XIAOMI CORP (1810.HK)</option>
+                <option value="ZOOM VIDEO COMMUNICATIONS (ZM)">ZOOM VIDEO COMMUNICATIONS (ZM)</option>
+                <option value="ZOMATO LTD (ZOMATO.NS)">ZOMATO LTD (ZOMATO.NS)</option>
+
               </select>
             </div>
 
             <div class="form-group">
               <label class="label">Stop Loss</label>
-              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+              <input type="text" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Take Profit</label>
-              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
+              <input type="text" placeholder="Enter Take Profit" v-model="takeProfit" name="Take Profit"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Entry Price</label>
-              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
+              <input type="text" placeholder="Enter Entry Price" v-model="entryPrice"  name="Entry Price"  required/>
             </div>
 
             <div class="form-group">
@@ -1182,72 +1621,157 @@
 
             <div class="form-group">
               <label class="label">Amount</label>
-              <input type="number" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
+              <input type="text" placeholder="Enter Amount"  name="Amount" v-model="amountTrade" required/>
             </div>
 
             <div class="form-group">
               <label class="label">Markets</label>
-              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded" >
-                <option selected disabled value="">Select Market</option>
-                <option :value="null" disabled>Select Market</option>
-                <option value="Prologis, Inc. (PLD)">Prologis, Inc. (PLD)</option>
-                <option value="Simon Property Group (SPG)">Simon Property Group (SPG)</option>
-                <option value="AvalonBay Communities (AVB)">AvalonBay Communities (AVB)</option>
-                <option value="Realty Income (O)">Realty Income (O)</option>
-                <option value="Equinix, Inc. (EQIX)">Equinix, Inc. (EQIX)</option>
-                <option value="Public Storage (PSA)">Public Storage (PSA)</option>
-                <option value="Annaly Capital Management, Inc. (NLY)">Annaly Capital Management, Inc. (NLY)</option>
-                <option value="AGNC Investment Corp. (AGNC)">AGNC Investment Corp. (AGNC)</option>
-                <option value="Starwood Property Trust, Inc. (STWD)">Starwood Property Trust, Inc. (STWD)</option>
-                <option value="Welltower Inc. (WELL)">Welltower Inc. (WELL)</option>
-                <option value="Ventas, Inc. (VTR)">Ventas, Inc. (VTR)</option>
-                <option value="Healthpeak Properties, Inc. (PEAK)">Healthpeak Properties, Inc. (PEAK)</option>
-                <option value="Kimco Realty Corporation (KIM)">Kimco Realty Corporation (KIM)</option>
-                <option value="Macerich Company (MAC)">Macerich Company (MAC)</option>
-                <option value="Regency Centers Corporation (REG)">Regency Centers Corporation (REG)</option>
-                <option value="Duke Realty Corporation (DRE)">Duke Realty Corporation (DRE)</option>
-                <option value="Terreno Realty Corporation (TRNO)">Terreno Realty Corporation (TRNO)</option>
-                <option value="Mid-America Apartment Communities (MAA)">Mid-America Apartment Communities (MAA)</option>
-                <option value="Camden Property Trust (CPT)">Camden Property Trust (CPT)</option>
+              <select name="tradingPair" id="tradingPair" required v-model="symbolTraded">
+                <option value="" disabled selected>Select Real Estate / REIT</option>
+                <option :value="null" disabled>Select Real Estate / REIT</option>
+
+                <!-- UNITED STATES -->
+                <option value="Agree Realty Corporation (ADC)">Agree Realty Corporation (ADC)</option>
+                <option value="American Assets Trust (AAT)">American Assets Trust (AAT)</option>
+                <option value="American Homes 4 Rent (AMH)">American Homes 4 Rent (AMH)</option>
                 <option value="American Tower Corporation (AMT)">American Tower Corporation (AMT)</option>
-                <option value="Crown Castle Inc. (CCI)">Crown Castle Inc. (CCI)</option>
-                <option value="Iron Mountain Inc. (IRM)">Iron Mountain Inc. (IRM)</option>
-                <option value="Canadian Apartment Properties REIT (CAR.UN)">Canadian Apartment Properties REIT (CAR.UN)</option>
-                <option value="MCDONALD'S CORPORATIONS">MCDONALD'S CORPORATIONS</option>
-                <option value="Dream Office REIT (D.UN)">Dream Office REIT (D.UN)</option>
-                <option value="RioCan REIT (REI.UN)">RioCan REIT (REI.UN)</option>
-                <option value="Dream Industrial REIT (DIR.UN)">Dream Industrial REIT (DIR.UN)</option>
-                <option value="Granite REIT (GRT.UN)">Granite REIT (GRT.UN)</option>
-                <option value="NorthWest Healthcare Properties REIT (NWH.UN)">NorthWest Healthcare Properties REIT (NWH.UN)</option>
-                <option value="First Capital REIT (FCR.UN)">First Capital REIT (FCR.UN)</option>
-                <option value="SmartCentres REIT (SRU.UN)">SmartCentres REIT (SRU.UN)</option>
-                <option value="StorageVault Canada Inc. (SVI)">StorageVault Canada Inc. (SVI)</option>
-                <option value="Stockland (SGP)">Stockland (SGP)</option>
-                <option value="Mirvac Group (MGR)">Mirvac Group (MGR)</option>
-                <option value="Charter Hall Group (CHC)">Charter Hall Group (CHC)</option>
-                <option value="Goodman Group (GMG)">Goodman Group (GMG)</option>
-                <option value="DEXUS Property Group (DXS)">DEXUS Property Group (DXS)</option>
-                <option value="Scentre Group (SCG)">Scentre Group (SCG)</option>
-                <option value="Vicinity Centres (VCX)">Vicinity Centres (VCX)</option>
-                <option value="Arena REIT (ARF)">Arena REIT (ARF)</option>
-                <option value="HealthCo Healthcare & Wellness REIT (HCW)">HealthCo Healthcare & Wellness REIT (HCW)</option>
-                <option value="National Storage REIT (NSR)">National Storage REIT (NSR)</option>
+                <option value="Americold Realty Trust (COLD)">Americold Realty Trust (COLD)</option>
+                <option value="Annaly Capital Management (NLY)">Annaly Capital Management (NLY)</option>
+                <option value="AGNC Investment Corp (AGNC)">AGNC Investment Corp (AGNC)</option>
+                <option value="Apartment Income REIT (AIRC)">Apartment Income REIT (AIRC)</option>
+                <option value="Alexandria Real Estate Equities (ARE)">Alexandria Real Estate Equities (ARE)</option>
+                <option value="AvalonBay Communities (AVB)">AvalonBay Communities (AVB)</option>
+                <option value="Boston Properties (BXP)">Boston Properties (BXP)</option>
+                <option value="Brandywine Realty Trust (BDN)">Brandywine Realty Trust (BDN)</option>
+                <option value="Broadstone Net Lease (BNL)">Broadstone Net Lease (BNL)</option>
+                <option value="Camden Property Trust (CPT)">Camden Property Trust (CPT)</option>
+                <option value="CBL & Associates Properties (CBL)">CBL & Associates Properties (CBL)</option>
+                <option value="Crown Castle Inc (CCI)">Crown Castle Inc (CCI)</option>
+                <option value="Cubesmart (CUBE)">Cubesmart (CUBE)</option>
+                <option value="Digital Realty Trust (DLR)">Digital Realty Trust (DLR)</option>
+                <option value="Duke Realty Corporation (DRE)">Duke Realty Corporation (DRE)</option>
+                <option value="EastGroup Properties (EGP)">EastGroup Properties (EGP)</option>
+                <option value="Equity Residential (EQR)">Equity Residential (EQR)</option>
+                <option value="Essex Property Trust (ESS)">Essex Property Trust (ESS)</option>
+                <option value="Extra Space Storage (EXR)">Extra Space Storage (EXR)</option>
+                <option value="Federal Realty Investment Trust (FRT)">Federal Realty Investment Trust (FRT)</option>
+                <option value="First Industrial Realty Trust (FR)">First Industrial Realty Trust (FR)</option>
+                <option value="Gaming and Leisure Properties (GLPI)">Gaming and Leisure Properties (GLPI)</option>
+                <option value="Healthpeak Properties (PEAK)">Healthpeak Properties (PEAK)</option>
+                <option value="Healthcare Realty Trust (HR)">Healthcare Realty Trust (HR)</option>
+                <option value="Host Hotels & Resorts (HST)">Host Hotels & Resorts (HST)</option>
+                <option value="Iron Mountain Inc (IRM)">Iron Mountain Inc (IRM)</option>
+                <option value="Invitation Homes (INVH)">Invitation Homes (INVH)</option>
+                <option value="Kilroy Realty Corporation (KRC)">Kilroy Realty Corporation (KRC)</option>
+                <option value="Kimco Realty Corporation (KIM)">Kimco Realty Corporation (KIM)</option>
+                <option value="Lamar Advertising Company (LAMR)">Lamar Advertising Company (LAMR)</option>
+                <option value="Life Storage (LSI)">Life Storage (LSI)</option>
+                <option value="Macerich Company (MAC)">Macerich Company (MAC)</option>
+                <option value="Medical Properties Trust (MPW)">Medical Properties Trust (MPW)</option>
+                <option value="Mid-America Apartment Communities (MAA)">Mid-America Apartment Communities (MAA)</option>
+                <option value="National Retail Properties (NNN)">National Retail Properties (NNN)</option>
+                <option value="Omega Healthcare Investors (OHI)">Omega Healthcare Investors (OHI)</option>
+                <option value="Park Hotels & Resorts (PK)">Park Hotels & Resorts (PK)</option>
+                <option value="Prologis Inc (PLD)">Prologis Inc (PLD)</option>
+                <option value="Public Storage (PSA)">Public Storage (PSA)</option>
+                <option value="Realty Income Corporation (O)">Realty Income Corporation (O)</option>
+                <option value="Regency Centers Corporation (REG)">Regency Centers Corporation (REG)</option>
+                <option value="Rexford Industrial Realty (REXR)">Rexford Industrial Realty (REXR)</option>
+                <option value="SBA Communications (SBAC)">SBA Communications (SBAC)</option>
+                <option value="Simon Property Group (SPG)">Simon Property Group (SPG)</option>
+                <option value="STAG Industrial (STAG)">STAG Industrial (STAG)</option>
+                <option value="Starwood Property Trust (STWD)">Starwood Property Trust (STWD)</option>
+                <option value="Sun Communities (SUI)">Sun Communities (SUI)</option>
+                <option value="Terreno Realty Corporation (TRNO)">Terreno Realty Corporation (TRNO)</option>
+                <option value="UDR Inc (UDR)">UDR Inc (UDR)</option>
+                <option value="Ventas Inc (VTR)">Ventas Inc (VTR)</option>
+                <option value="VICI Properties (VICI)">VICI Properties (VICI)</option>
+                <option value="Welltower Inc (WELL)">Welltower Inc (WELL)</option>
+                <option value="W. P. Carey Inc (WPC)">W. P. Carey Inc (WPC)</option>
+
+                <!-- CANADA -->
+                <option value="Allied Properties REIT (AP.UN.TO)">Allied Properties REIT (AP.UN.TO)</option>
+                <option value="Canadian Apartment Properties REIT (CAR.UN.TO)">Canadian Apartment Properties REIT (CAR.UN.TO)</option>
+                <option value="Choice Properties REIT (CHP.UN.TO)">Choice Properties REIT (CHP.UN.TO)</option>
+                <option value="CT REIT (CRT.UN.TO)">CT REIT (CRT.UN.TO)</option>
+                <option value="Dream Industrial REIT (DIR.UN.TO)">Dream Industrial REIT (DIR.UN.TO)</option>
+                <option value="Dream Office REIT (D.UN.TO)">Dream Office REIT (D.UN.TO)</option>
+                <option value="First Capital REIT (FCR.UN.TO)">First Capital REIT (FCR.UN.TO)</option>
+                <option value="Granite REIT (GRT.UN.TO)">Granite REIT (GRT.UN.TO)</option>
+                <option value="H&R REIT (HR.UN.TO)">H&R REIT (HR.UN.TO)</option>
+                <option value="Killam Apartment REIT (KMP.UN.TO)">Killam Apartment REIT (KMP.UN.TO)</option>
+                <option value="NorthWest Healthcare Properties REIT (NWH.UN.TO)">NorthWest Healthcare Properties REIT (NWH.UN.TO)</option>
+                <option value="RioCan Real Estate Investment Trust (REI.UN.TO)">RioCan Real Estate Investment Trust (REI.UN.TO)</option>
+                <option value="SmartCentres REIT (SRU.UN.TO)">SmartCentres REIT (SRU.UN.TO)</option>
+                <option value="StorageVault Canada (SVI.V)">StorageVault Canada (SVI.V)</option>
+
+                <!-- AUSTRALIA -->
+                <option value="Arena REIT (ARF.AX)">Arena REIT (ARF.AX)</option>
+                <option value="Charter Hall Group (CHC.AX)">Charter Hall Group (CHC.AX)</option>
+                <option value="Charter Hall Retail REIT (CQR.AX)">Charter Hall Retail REIT (CQR.AX)</option>
+                <option value="DEXUS (DXS.AX)">DEXUS (DXS.AX)</option>
+                <option value="Goodman Group (GMG.AX)">Goodman Group (GMG.AX)</option>
+                <option value="GPT Group (GPT.AX)">GPT Group (GPT.AX)</option>
+                <option value="Mirvac Group (MGR.AX)">Mirvac Group (MGR.AX)</option>
+                <option value="Scentre Group (SCG.AX)">Scentre Group (SCG.AX)</option>
+                <option value="Stockland (SGP.AX)">Stockland (SGP.AX)</option>
+                <option value="Vicinity Centres (VCX.AX)">Vicinity Centres (VCX.AX)</option>
+
+                <!-- UNITED KINGDOM -->
+                <option value="British Land Company (BLND.L)">British Land Company (BLND.L)</option>
+                <option value="Derwent London (DLN.L)">Derwent London (DLN.L)</option>
+                <option value="Hammerson (HMSO.L)">Hammerson (HMSO.L)</option>
+                <option value="Land Securities Group (LAND.L)">Land Securities Group (LAND.L)</option>
+                <option value="Segro PLC (SGRO.L)">Segro PLC (SGRO.L)</option>
+                <option value="Unite Group (UTG.L)">Unite Group (UTG.L)</option>
+
+                <!-- EUROPE -->
+                <option value="Aroundtown SA (AT1.DE)">Aroundtown SA (AT1.DE)</option>
+                <option value="Inmobiliaria Colonial (COL.MC)">Inmobiliaria Colonial (COL.MC)</option>
+                <option value="Kleppiere (LI.PA)">Kleppiere (LI.PA)</option>
+                <option value="Merlin Properties (MRL.MC)">Merlin Properties (MRL.MC)</option>
+                <option value="Unibail-Rodamco-Westfield (URW.AS)">Unibail-Rodamco-Westfield (URW.AS)</option>
+                <option value="Vonovia SE (VNA.DE)">Vonovia SE (VNA.DE)</option>
+
+                <!-- ASIA & SINGAPORE -->
+                <option value="Ascendas REIT (A17U.SI)">Ascendas REIT (A17U.SI)</option>
+                <option value="CapitaLand Integrated Commercial Trust (C38U.SI)">CapitaLand Integrated Commercial Trust (C38U.SI)</option>
+                <option value="CapitaLand Investment (9CI.SI)">CapitaLand Investment (9CI.SI)</option>
+                <option value="Frasers Logistics & Commercial Trust (BUOU.SI)">Frasers Logistics & Commercial Trust (BUOU.SI)</option>
+                <option value="Keppel REIT (K71U.SI)">Keppel REIT (K71U.SI)</option>
+                <option value="Mapletree Logistics Trust (M44U.SI)">Mapletree Logistics Trust (M44U.SI)</option>
+                <option value="Mapletree Industrial Trust (ME8U.SI)">Mapletree Industrial Trust (ME8U.SI)</option>
+                <option value="Sunway REIT (5176.KL)">Sunway REIT (5176.KL)</option>
+
+                <!-- JAPAN -->
+                <option value="Japan Real Estate Investment (8952.T)">Japan Real Estate Investment (8952.T)</option>
+                <option value="Nippon Building Fund (8951.T)">Nippon Building Fund (8951.T)</option>
+
+                <!-- SOUTH AFRICA -->
+                <option value="Growthpoint Properties (GRT.JO)">Growthpoint Properties (GRT.JO)</option>
+                <option value="Redefine Properties (RDF.JO)">Redefine Properties (RDF.JO)</option>
+
+                <!-- GLOBAL & SPECIALTY -->
+                <option value="Link REIT (0823.HK)">Link REIT (0823.HK)</option>
+                <option value="Embassy Office Parks REIT (EMBASSY.NS)">Embassy Office Parks REIT (EMBASSY.NS)</option>
+                <option value="Mindspace Business Parks REIT (MINDSPACE.NS)">Mindspace Business Parks REIT (MINDSPACE.NS)</option>
+
               </select>
             </div>
 
             <div class="form-group">
               <label class="label">Stop Loss</label>
-              <input type="number" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
+              <input type="text" placeholder="Enter Stop Loss" v-model="stopLoss"  name="Stop Loss"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Take Profit</label>
-              <input type="number" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
+              <input type="text" placeholder="Enter Take Profit" v-model="takeProfit"  name="Take Profit"  required/>
             </div>
 
             <div class="form-group">
               <label class="label">Entry Price</label>
-              <input type="number" placeholder="Enter Entry Price" v-model="entryPrice" name="Entry Price"  required/>
+              <input type="text" placeholder="Enter Entry Price" v-model="entryPrice" name="Entry Price"  required/>
             </div>
 
             <div class="form-group">

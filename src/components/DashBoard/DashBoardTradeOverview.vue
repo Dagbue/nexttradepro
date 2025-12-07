@@ -71,12 +71,12 @@
               <div v-if="child.tradeStatus === 'won'" class="table-sep">
                 <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
                 <i v-if="child.tradeType === 'Sell'" style="color: #E50202 !important" class="fa fa-arrow-down text-danger"></i>
-                <p>{{child.expectedPayout}}</p>
+                <p>$ {{child.expectedPayout| formatAmount}}</p>
               </div>
               <div v-if="child.tradeStatus === 'lost'" class="table-sep">
                 <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
                 <i v-if="child.tradeType === 'Sell'" style="color: #E50202 !important" class="fa fa-arrow-down text-danger"></i>
-                <p>{{child.expectedPayout}}</p>
+                <p>$ {{child.expectedPayout| formatAmount}}</p>
               </div>
               <div v-if="child.tradeStatus === 'pending'" class="table-sep">
                 <i v-if="child.tradeType === 'Buy'" style="color: #10d876 !important" class="fa fa-arrow-up text-success"></i>
@@ -85,12 +85,12 @@
               </div>
             </td>
             <td data-label="Leverage">{{child.leverage}}</td>
-            <td data-label="End Price">{{child.endPrice}}</td>
-            <td data-label="End Time">{{child.endTime | formatDate}}</td>
+            <td data-label="End Price">$ {{child.endPrice| formatAmount}}</td>
+            <td data-label="End Time">{{child.endTime | formatDate2}}</td>
 
-            <td data-label="Stop Loss">$ {{child.stopLoss}}</td>
-            <td data-label="Take Profit">$ {{child.takeProfit}}</td>
-            <td data-label="End Price">$ {{child.entryPrice}}</td>
+            <td data-label="Stop Loss">$ {{child.stopLoss| formatAmount}}</td>
+            <td data-label="Take Profit">$ {{child.takeProfit| formatAmount}}</td>
+            <td data-label="End Price">$ {{child.entryPrice| formatAmount}}</td>
 
             <td data-label="Trade Status">
               <div>

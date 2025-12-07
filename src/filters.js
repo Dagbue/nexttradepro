@@ -22,13 +22,32 @@ Vue.filter('lowercase', function (value) {
     return value
 })
 
+// Vue.filter('formatAmount', function (value) {
+//     if (value == null) return '0.00'
+//     value = parseFloat(value).toFixed(2);
+//     // console.log(value)
+//     var parts = value.toString().split(".");
+//     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//     return parts.join(".");
+// })
+
 Vue.filter('formatAmount', function (value) {
-    if (value == null) return '0.00'
-    value = parseFloat(value).toFixed(2);
-    // console.log(value)
-    var parts = value.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
+    if (value == null || value === '' || isNaN(value)) return '0'
+
+    // Convert to number and remove any existing commas
+    let num = parseFloat(value)
+
+    // Check if it's a whole number (no decimal part)
+    if (Number.isInteger(num)) {
+        // Whole number → format with commas, no decimal
+        return num.toLocaleString('en-US')
+    } else {
+        // Has decimal → show up to 2 decimal places, but trim trailing zeros
+        return num.toLocaleString('en-US', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2
+        })
+    }
 })
 
 Vue.filter('formatAmount2', function (value) {
@@ -59,7 +78,7 @@ Vue.filter('formatDate2', function (value) {
         return value;
     else {
         // Using moment.js to parse the date and format it to "YYYY MM DD HH:mm:ss"
-        return moment(value).format("YYYY MM DD HH:mm:ss");
+        return moment(value).format("YYYY MM DD HH:mm");
     }
 });
 
